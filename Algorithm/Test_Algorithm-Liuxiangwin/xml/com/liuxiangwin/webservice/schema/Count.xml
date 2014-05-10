@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE Counts SYSTEM "Counts.dtd"> -->
+<Counts>
+	<SoftCount>
+		<machineId>Beijing</machineId>
+		<meter>softCount</meter>
+		<date>2012</date>
+	</SoftCount>
+
+	<HardCount >
+		<machineId>ShangHai</machineId>
+		<meter>hardCount</meter>
+		<date>2010</date>
+	</HardCount>
+
+
+</Counts>

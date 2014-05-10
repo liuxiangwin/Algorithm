@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	
+	targetNamespace="http://www.example.org/SlotMachine" 
+	xmlns:tns="http://www.example.org/SlotMachine"
+	elementFormDefault="qualified">
+	
+	<!-- The  xmlns:liuxiang="http://www.w3.org/2001/XMLSchema" is schema namespace -->
+	
+	<!-- This is use my self namespace -->
+	
+	<!-- No prefix only one -->
+	<element name="slotMachine">
+		<complexType>
+			<sequence >			
+				<element name="id" type="int"/>
+				<element name="site" type="string"/>
+				<element name="date" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

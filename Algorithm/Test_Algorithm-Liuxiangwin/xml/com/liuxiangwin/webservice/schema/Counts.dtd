@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<!--  <!DOCTYPE Counts [
+<!ELEMENT Count (SoftCount,HardCount)>
+<!ELEMENT SoftCount (machineId,meter,date)>
+<!ELEMENT HardCount (machineId,meter,date)>
+<!ELEMENT machineId (#PCDATA)>
+<!ELEMENT meter (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
+]>-->
+
+
+
+

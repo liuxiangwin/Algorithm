@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hotspot_log version='160 1' process='9064' time_ms='1398836632756'>
+<vm_version>
+<name>
+OpenJDK 64-Bit Server VM
+</name>
+<release>
+19.0-b06-fastdebug
+</release>
+<info>
+OpenJDK 64-Bit Server VM (19.0-b06-fastdebug) for windows-amd64 JRE (1.6.0_23-ea-fastdebug-b01), built on Aug 30 2010 01:33:35 by &quot;java_re&quot; with MS VC++ 8.0 (VS2005)
+</info>
+</vm_version>
+<vm_arguments>
+<args>
+-Dfile.encoding=gbk 
+</args>
+<command>
+com.liuxiangwin.datastruture.impl.BinarySearchTree
+</command>
+<launcher>
+SUN_STANDARD
+</launcher>
+<properties>
+java.vm.specification.version=1.0
+java.vm.specification.name=Java Virtual Machine Specification
+java.vm.specification.vendor=Sun Microsystems Inc.
+java.vm.version=19.0-b06-fastdebug
+java.vm.name=OpenJDK 64-Bit Server VM
+java.vm.vendor=Sun Microsystems Inc.
+java.vm.info=mixed mode, sharing
+java.ext.dirs=C:\D-disk-volumn\Java_Command\Java_Console\Java debug\jdk1.6.0_23\fastdebug\jre\lib\ext;C:\Windows\Sun\Java\lib\ext
+java.endorsed.dirs=C:\D-disk-volumn\Java_Command\Java_Console\Java debug\jdk1.6.0_23\fastdebug\jre\lib\endorsed
+sun.boot.library.path=C:\D-disk-volumn\Java_Command\Java_Console\Java debug\jdk1.6.0_23\fastdebug\jre\bin
+java.library.path=C:\D-disk-volumn\Java_Command\Java_Console\Java debug\jdk1.6.0_23\fastdebug\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Microsoft Shared\Microsoft Online Services;C:\Program Files (x86)\Common Files\Microsoft Shared\Microsoft Online Services;C:\Program Files (x86)\PC Connectivity Solution\;C:\Program Files (x86)\RSA SecurID Token Common;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files (x86)\Java\jdk1.6.0_39\bin;C:\Program Files (x86)\Java\jdk1.6.0_39\jre\bin;C:\D-disk-volumn\Java_Command\Apache_Foundation\apache-maven-3.0.4\bin;C:\D-disk-volumn\Java_Command\Apache_Foundation\apache-ant-1.8.4\bin;C:\Program Files\TortoiseSVN\bin;C:\D-disk-volumn\Java_Command\Unix-Linux-Foundation\vault-2.4\bin;C:\D-disk-volumn\Java_Command\Unix-Linux-Foundation\curl-7.23.1-win64-nossl;C:\Program Files (x86)\Symantec\VIP Access Client\;C:\Program Files\TortoiseGit\bin;C:\Program Files\Perforce;C:\F-disk-volumn\Adobe CQ\Microsoft project\tmp\flash_player;C:\Program Files\nodejs\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Git\cmd;C:\Strawberry\perl\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\c\bin;C:\Users\xianliu\AppData\Roaming\npm
+java.home=C:\D-disk-volumn\Java_Command\Java_Console\Java debug\jdk1.6.0_23\fastdebug\jre
+java.class.path=C:\D-disk-volumn\Java_Command\Java_Console\algorithm_alanliuxiang\trunk\Algorithm\Test_Algorithm-Liuxiangwin\bin;C:\F-disk-volumn\Adobe CQ\Panosonic Project\svn-eclipse\plugins\org.junit_4.10.0.v4_10_0_v20120426-0900\junit.jar;C:\F-disk-volumn\Adobe CQ\Panosonic Project\svn-eclipse\plugins\org.hamcrest.core_1.1.0.v20090501071000.jar;C:\D-disk-volumn\Java_Command\Java_Console\algorithm_alanliuxiang\trunk\Algorithm\Test_Algorithm-Liuxiangwin\lib\log4j-1.2.17.jar;C:\D-disk-volumn\Java_Command\Java_Console\algorithm_alanliuxiang\trunk\Algorithm\Test_Algorithm-Liuxiangwin\lib\org.apache.servicemix.bundles.jaxp-ri-1.4.5_1.jar
+sun.boot.class.path=C:\D-disk-volumn\Java_Command\Java_Console\Java debug\jdk1.6.0_23\fastdebug\jre\lib\resources.jar;C:\D-disk-volumn\Java_Command\Java_Console\Java debug\jdk1.6.0_23\fastdebug\jre\lib\rt.jar;C:\D-disk-volumn\Java_Command\Java_Console\Java debug\jdk1.6.0_23\fastdebug\jre\lib\sunrsasign.jar;C:\D-disk-volumn\Java_Command\Java_Console\Java debug\jdk1.6.0_23\fastdebug\jre\lib\jsse.jar;C:\D-disk-volumn\Java_Command\Java_Console\Java debug\jdk1.6.0_23\fastdebug\jre\lib\jce.jar;C:\D-disk-volumn\Java_Command\Java_Console\Java debug\jdk1.6.0_23\fastdebug\jre\lib\charsets.jar;C:\D-disk-volumn\Java_Command\Java_Console\Java debug\jdk1.6.0_23\fastdebug\jre\lib\modules\jdk.boot.jar;C:\D-disk-volumn\Java_Command\Java_Console\Java debug\jdk1.6.0_23\fastdebug\jre\classes
+file.encoding=gbk
+sun.java.launcher=SUN_STANDARD
+</properties>
+</vm_arguments>
+<tty>
+<writer thread='1704'/>
+<statistics type='opto'>
+--- Compiler Statistics ---
+Methods seen: 0  Methods parsed: 0  Nodes created: 13
+Blocks parsed: 0  Blocks seen: 0
+CCP: 0  constants found: 0
+Total frameslots = 0, Max frameslots = 0
+Nops added 0 bytes to total of 0 bytes
+Peephole: peephole rules applied: 0
+PhaseIdealLoop=0, sum _unique=0
+</statistics>
+<statistics type='nmethod'>
+Debug Data Chunks: 0, shared 0+0, non-SP&apos;s elided 0
+PcDesc Statistics:  0 queries, -1.#J comparisons per query
+  caches=0 queries=0/0, hits=0+0, tests=0+0, adds=0
+</statistics>
+<statistics type='SharedRuntime'>
+    0 inline cache miss in compiled
+    0 wrong method
+    0 unresolved static call site
+    0 unresolved virtual call site
+    0 unresolved opt virtual call site
+    3 slow partial subtype
+   12 byte array copies
+   12 short array copies
+   12 int array copies
+   12 long array copies
+AdapterHandlerTable: empty 184 longest 3 total 123 average 1.128440
+AdapterHandlerTable: lookups 4381 buckets 4621 equals 4259 hits 4258 compact 4258
+</statistics>
+<writer thread='12192'/>
+<destroy_vm stamp='0.489'/>
+<tty_done stamp='0.558'/>
+</tty>
+<hotspot_log_done stamp='0.558'/>
+</hotspot_log>
