@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.liuxiangwin.test.Hibernate">
+	<class name="SlotDetailMeter" table="caslnk.slot_detail_meter">
+		<id column="slot_detail_meter_id" name="slot_detail_meter_id" type="int">
+			<generator class="identity" />
+		</id>
+		<property column="soft_count" generated="never" lazy="false"
+			name="_softCount" not-null="true" type="double" />
+		<property column="hard_count" generated="never" lazy="false"
+			name="_hardCount" not-null="true" type="double" />
+		<property column="drop_date" generated="never" lazy="false"
+			name="_dropDate" not-null="true" type="timestamp" />
+		<!--<list name="attachments"> <key column="article_id" /> <index column="order" 
+			/> <one-to-many class="Attachment" /> </list> -->
+	</class>
+</hibernate-mapping>

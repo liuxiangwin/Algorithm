@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+
+	<slot_detail_meter slot_detail_meter_id="1"
+		hard_count="50" soft_count="96" drop_date="2011-07-01" />
+
+	<slot_detail_meter slot_detail_meter_id="2"
+		hard_count="60" soft_count="97" drop_date="2011-07-01" />
+
+	<slot_detail_meter slot_detail_meter_id="3"
+		hard_count="70" soft_count="120" drop_date="2011-07-01" />
+
+
+</dataset>

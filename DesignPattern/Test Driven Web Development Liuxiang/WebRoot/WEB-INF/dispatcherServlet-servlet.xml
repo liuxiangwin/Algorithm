@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!--
+		<bean name="/queryDropDate.fly"
+		class="com.liuxiangwin.SpringMVC.test.CountController" /> <bean
+		name="/querySoftCountAmount.fly"
+		class="com.liuxiangwin.SpringMVC.test.CountController" />
+	-->
+	
+   
+
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	   <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+	   <property name="prefix" value="/springMvc/"/>
+	   <property name="suffix" value=".jsp"/>	
+	 </bean>
+
+	<bean id="urlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/*/*.fly">CountController</prop>
+				<!--<c:redirect url="game/betHome.do" />-->
+			</props>
+		</property>
+	</bean>
+
+	<!-- config controller's implement class  -->
+	<bean id="CountController" class="com.liuxiangwin.test.springMVC.CountController"
+		lazy-init="default" autowire="default">
+	</bean>
+
+
+</beans>

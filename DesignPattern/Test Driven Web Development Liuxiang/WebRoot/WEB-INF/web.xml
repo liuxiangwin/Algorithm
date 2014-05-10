@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+ 
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>Remote Debugger with Web Server(Tomcat)</display-name>
+    <servlet-name>UploadServlet</servlet-name>
+    <servlet-class>liuxiangwin.JavaObjectTrainningtest.Upload.Servlet.UploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>Remote Debugger with Web Server(Tomcat)</display-name>
+    <servlet-name>MultipartRequest</servlet-name>
+    <servlet-class>liuxiangwin.JavaObjectTrainningtest.Upload.Servlet.MultipartRequest</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>UploadServlet</servlet-name>
+    <url-pattern>/servlet/UploadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MultipartRequest</servlet-name>
+    <url-pattern>/servlet/MultipartRequest</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- ================================Spring MVC=========================================-->
+
+    <servlet>
+	    <servlet-name>dispatcherServlet</servlet-name>
+	    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>	    
+ 	</servlet>
+
+  <servlet-mapping>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <url-pattern>*.fly</url-pattern>
+  </servlet-mapping>
+   
+    	
+  <!-- ====================================================================================================--> 
+  
+  	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+  <!-- ====================================================================================================--> 
+  
+    
+  <!--====================Spring Configuration================================-->
+   	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/lib/SpringConfiguration/*.xml</param-value>
+	</context-param>
+	 <listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>	
+	
+
+</web-app>
