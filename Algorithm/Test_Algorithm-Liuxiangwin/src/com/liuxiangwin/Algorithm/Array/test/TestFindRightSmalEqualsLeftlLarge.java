@@ -38,8 +38,26 @@ public class TestFindRightSmalEqualsLeftlLarge {
 			//System.out.println("The index is :: " + index);
 			rightMin[index]=min(rightMin[index+1],array[index]);			
 		}
-		System.out.println(Arrays.toString(rightMin));
-		System.out.println("The Array Output " + Arrays.toString(array));
+		System.out.println("The Array rightMin is "+Arrays.toString(rightMin));
+		
+		int[] LeftMax = new int[array.length];
+		LeftMax[0] = array[0];
+		
+		for (int i = 1; i < array.length; i++) {
+			LeftMax[i] = max(array[i], LeftMax[i - 1]);
+		}
+		
+		System.out.println("The Array leftMax is "+Arrays.toString(LeftMax));
+
+		System.out.println("The Org array is  " + Arrays.toString(array));
+		
+		findResult(array, rightMin);
+		
+		
+		findResult_two(LeftMax,rightMin);
+	}
+
+	private static void findResult(int[] array, int[] rightMin) {
 		int leftMax = Integer.MIN_VALUE;
 
 		for (int i = 0; i < array.length; i++) {
@@ -51,9 +69,30 @@ public class TestFindRightSmalEqualsLeftlLarge {
 			}
 		}
 	}
-
+   
+	
+	private static void findResult_two(int[]leftMax, int[] rightMin) {
+		int i=0;
+		int j=0;
+		while(i<leftMax.length)
+		{
+			if(leftMax[i]== rightMin[i])
+			{
+				System.out.println("the result by two array is "+leftMax[i]);
+			}
+			i++;
+			j++;
+		}
+	}
+	
+	
+	
 	private static int min(int x, int y) {
 		return x < y ? x : y;
+	}
+	
+	private static int max(int x, int y) {
+		return x >y ? x : y;
 	}
 
 	private static void printNumber(int[] array, int[] rightMin) {
