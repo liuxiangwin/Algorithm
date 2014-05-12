@@ -1,6 +1,12 @@
 package com.liuxiangwin.DesignPattern01.Strategy.test;
 
 public class WithStrategy {
+	//This is more like contex class to determine the 
+	//Strategy class or strategy class trigger method
+	
+	//It like ShoppingCart is the context class
+	//it would trigger the pay method, the pay class
+	//could be CreditCard or  Paypal etc
 	public enum RunnerType {
 
 		SlowerRunner, FastRuner, MiddleRunner;
@@ -15,7 +21,11 @@ public class WithStrategy {
 	public void setRunningAlgorithm(IRunningAlgorithm runningAlgorithm) {
 		this.runningAlgorithm = runningAlgorithm;
 	}
-
+    
+	
+	/**
+	 * 
+	 */
 	public void runing() {
 		runningAlgorithm.doRunning();
 	}
