@@ -2,16 +2,20 @@ package com.liuxiangwin.DesignPattern02.Decorator.test;
 
 public class PeopleDecorator extends AbstractPictureDecorator {
 
-	IPicture picture;
-
 	public PeopleDecorator(IPicture pic) {
-		this.picture = pic;
-	}
+		this.ipicture = pic;
+	}	
 
-	@Override
-	public String Description() {
-		// TODO Auto-generated method stub
-		return this.picture.Description() + "  Add People Decorator it";
+	
+	public String showPicture() {
+		// this ipcture maybe has been decortor by other 
+		//class
+		return this.ipicture.showPicture()+addPeople();
+	}
+	
+	private String addPeople()
+	{
+		return "  Add People Decorator it";	
 	}
 
 }

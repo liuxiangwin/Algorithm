@@ -1,14 +1,16 @@
 package com.liuxiangwin.DesignPattern02.Decorator.test;
 
 public class Picture implements IPicture {
-    //This is the Component class implement IComponet interface
-	public Picture() {
-		// TODO Auto-generated constructor stub
-	}
-    
+    //This is the ConcreteComponent extends or means extend
+	//then predefine interface.
 	
-	public String Description()
-	{
+	//This is the Component class implement IComponet interface
+	
+	
+	public Picture() {
+	}	
+
+	public String showPicture() {
 		return "This is a Painting";
 	}
 }
