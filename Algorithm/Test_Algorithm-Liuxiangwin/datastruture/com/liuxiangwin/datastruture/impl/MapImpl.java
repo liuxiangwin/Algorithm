@@ -79,6 +79,7 @@ public class MapImpl<K, V> {
 		MapImpl<Integer,String> map=new MapImpl<Integer,String>();
 		map.put(1, "Alan");
 		System.out.println(map.get(1));
+		map.put(1, "Alan");
 		
 	}
 

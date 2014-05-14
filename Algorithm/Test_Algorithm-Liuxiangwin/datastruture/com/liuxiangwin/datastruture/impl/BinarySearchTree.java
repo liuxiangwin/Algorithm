@@ -13,6 +13,11 @@ package com.liuxiangwin.datastruture.impl;
     // boolean isEmpty( )     --> Return true if empty; else false
     // void makeEmpty( )      --> Remove all items
     // void printTree( )      --> Print tree in sorted order
+    // The     	Average	   Worst case
+    // Space	O(n)	    O(n)
+     //Search	O(log n)	O(n)
+     //Insert	O(log n)	O(n)
+     //Delete	O(log n)	O(n)
 
     /**
      * Implements an unbalanced binary search tree.
@@ -77,24 +82,6 @@ package com.liuxiangwin.datastruture.impl;
         {
             return elementAt( find( element, rootNode ) );
         }
-
-        /**
-         * Make the tree logically empty.
-         */
-        public void makeEmpty( )
-        {
-            rootNode = null;
-        }
-
-        /**
-         * Test if the tree is logically empty.
-         * @return true if empty, false otherwise.
-         */
-        public boolean isEmpty( )
-        {
-            return rootNode == null;
-        }
-
         /**
          * Print the tree contents in sorted order.
          */
@@ -124,6 +111,7 @@ package com.liuxiangwin.datastruture.impl;
          */
         private BinaryNode insert( Comparable element, BinaryNode node )
         {
+             //The node would be pass into with rootNode 
 /* 1*/      if( node == null )
 /* 2*/          node = new BinaryNode( element, null, null );
 /* 3*/      else if( element.compareTo( node.element ) < 0 )
@@ -168,9 +156,13 @@ package com.liuxiangwin.datastruture.impl;
         private BinaryNode findMin( BinaryNode node )
         {
             if( node == null )
-                return null;
+            {
+            	return null;
+            }                
             else if( node.left == null )
-                return node;
+            {
+            	return node;
+            }                
             return findMin( node.left );
         }
 
@@ -181,10 +173,10 @@ package com.liuxiangwin.datastruture.impl;
          */
         private BinaryNode findMax( BinaryNode node )
         {
-            if( node != null )
-                while( node.right != null )
+            if( node != null ){
+            	while( node.right != null )
                     node = node.right;
-
+            }
             return node;
         }
 
@@ -219,37 +211,50 @@ package com.liuxiangwin.datastruture.impl;
                 printTree( t.right );
             }
         }
+        
+        
+        /**
+         * Make the tree logically empty.
+         */
+        public void makeEmpty( )
+        {
+            rootNode = null;
+        }
+
+        /**
+         * Test if the tree is logically empty.
+         * @return true if empty, false otherwise.
+         */
+        public boolean isEmpty( )
+        {
+            return rootNode == null;
+        }
+        
+        
             // Test program
         public static void main( String [ ] args )
         {
-            BinarySearchTree t = new BinarySearchTree( );
-            final int NUMS = 4000;
-            final int GAP  =   37;
-
-            System.out.println( "Checking... (no more output means success)" );
-
-            for( int i = GAP; i != 0; i = ( i + GAP ) % NUMS )
-                t.insert( new MyInteger( i ) );
-
-            for( int i = 1; i < NUMS; i+= 2 )
-                t.remove( new MyInteger( i ) );
-
+            BinarySearchTree binarySearchTree = new BinarySearchTree( );
+            
+            binarySearchTree.insert(new Integer(8));
+            binarySearchTree.insert(new Integer(3));
+            binarySearchTree.insert(new Integer(10));
+            binarySearchTree.insert(new Integer(1));
+            binarySearchTree.insert(new Integer(6));
+            binarySearchTree.insert(new Integer(4));
+            binarySearchTree.insert(new Integer(7));            
+            binarySearchTree.insert(new Integer(14));
+            binarySearchTree.insert(new Integer(13));
+            
+            System.out.println("The Min element is "+binarySearchTree.findMin());
+            
+            System.out.println("The Max element is "+binarySearchTree.findMax());
+            
+            System.out.println("The print tree is " );
+            binarySearchTree.printTree();
+            
+            
+            binarySearchTree.remove(new Integer(13));
            
-            	t.printTree( );
-          
-                
-            if( ((MyInteger)(t.findMin( ))).intValue( ) != 2 ||
-                ((MyInteger)(t.findMax( ))).intValue( ) != NUMS - 2 )
-                System.out.println( "FindMin or FindMax error!" );
-
-            for( int i = 2; i < NUMS; i+=2 )
-                 if( ((MyInteger)(t.find( new MyInteger( i ) ))).intValue( ) != i )
-                     System.out.println( "Find error1!" );
-
-            for( int i = 1; i < NUMS; i+=2 )
-            {
-                if( t.find( new MyInteger( i ) ) != null )
-                    System.out.println( "Find error2!" );
-            }
         }
     }
