@@ -17,6 +17,7 @@ public class Invoker {
 		{
 			ICommand icommand=iter.next();
 			
+			//It would trigger the related receiver to do the real perform
 			icommand.taskPeform();
 
 		}
