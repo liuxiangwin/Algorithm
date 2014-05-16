@@ -123,16 +123,16 @@ package com.liuxiangwin.datastruture.impl;
 /* 9*/      return node;
         }
 
-        /**
-	 * Internal method to remove from a subtree.
-	 * 
-	 * @param element
-	 *            the item to remove.
-	 * @param node
-	 *            the node that roots the tree.
-	 * @return the new root.
-	 */
-	private BinaryNode remove(Comparable element, BinaryNode node) {
+		/**
+		 * Internal method to remove from a subtree.
+		 * 
+		 * @param element
+		 *            the item to remove.
+		 * @param node
+		 *            the node that roots the tree.
+		 * @return the new root.
+		 */
+	    private BinaryNode remove(Comparable element, BinaryNode node) {
 		if (node == null)
 			return node; // Item not found; do nothing
 		if (element.compareTo(node.element) < 0)
@@ -155,7 +155,7 @@ package com.liuxiangwin.datastruture.impl;
          */
         private BinaryNode findMin( BinaryNode node )
         {
-            if( node == null )
+            /*if( node == null )
             {
             	return null;
             }                
@@ -163,7 +163,15 @@ package com.liuxiangwin.datastruture.impl;
             {
             	return node;
             }                
-            return findMin( node.left );
+            return findMin( node.left );*/
+            
+            
+            if( node != null ){
+            	while( node.left != null )
+                    node = node.left;
+            }
+            return node;
+            
         }
 
         /**
@@ -212,8 +220,7 @@ package com.liuxiangwin.datastruture.impl;
             }
         }
         
-        
-        /**
+         /**
          * Make the tree logically empty.
          */
         public void makeEmpty( )
@@ -229,8 +236,7 @@ package com.liuxiangwin.datastruture.impl;
         {
             return rootNode == null;
         }
-        
-        
+               
             // Test program
         public static void main( String [ ] args )
         {
