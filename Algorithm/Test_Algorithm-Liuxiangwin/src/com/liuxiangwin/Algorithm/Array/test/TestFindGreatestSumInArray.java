@@ -21,7 +21,9 @@ public class TestFindGreatestSumInArray {
 		
 		int array3[] = {-9, -2,-3,-3};
 		
-		findMaxSubArray(array3);
+		int array4[] ={1, -2, 3, 10, -4, 7, 2, -5};
+		
+		findMaxSubArray(array4);
 		
 		
 		
@@ -59,9 +61,12 @@ public class TestFindGreatestSumInArray {
 	                maxEndIndex = i;
 	            }
 	        }
-            System.out.println("The simple way Array is "+ Arrays.toString(inputArray));
+            System.out.println("The input Array is "+ Arrays.toString(inputArray));
 	        System.out.println("Max sum         : "+maxSum);
 	        System.out.println("Max start index : "+maxStartIndex);
 	        System.out.println("Max end index   : "+maxEndIndex);
+	        System.out.println("The maxsum Array is   : "+Arrays.toString(Arrays.copyOfRange(inputArray,maxStartIndex,maxEndIndex)));
+	        
+	        
 	    }	
 }
