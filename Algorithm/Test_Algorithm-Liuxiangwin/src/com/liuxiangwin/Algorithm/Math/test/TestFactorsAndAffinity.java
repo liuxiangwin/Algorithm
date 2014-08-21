@@ -3,7 +3,9 @@ package com.liuxiangwin.Algorithm.Math.test;
 public class TestFactorsAndAffinity {
 
 	/**
-	 * @param args
+	 * The Factors means like number is 20 
+	 * 
+	 * 1*20; 4*5; 2*10; each number the % is zero
 	 */
 	public static void main(String[] args) {
 		checkFactors(20);
