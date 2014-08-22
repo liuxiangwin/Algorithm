@@ -52,6 +52,7 @@ public class TestFindGreatestSumInArray {
 	             *  Remove the previous temporary summation
 	                Replace with current element,the set start
 	                with current index
+	                                                这种 情况只可能发生在，前面是负数，然后当前是正数
 	             */	               
 	            	maxStartIndex = i;
 	            	tmpSum = inputArray[i];      
