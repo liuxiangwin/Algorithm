@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head profile="http://www.w3.org/2005/10/profile">
+<link rel="icon" type="image/png" href="http://www.journaldev.com/fav.png" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>  Java Exception Interview Questions and Answers</title>
+<link rel="pingback" href="http://www.journaldev.com/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="JournalDev &raquo; Feed" href="http://www.journaldev.com/feed" />
+<link rel="alternate" type="application/rss+xml" title="JournalDev &raquo; Comments Feed" href="http://www.journaldev.com/comments/feed" />
+<meta name="description" content="Java provides a robust and object-oriented approach to handle exception scenarios known as Java Exception Handling. Sometime back I wrote a long post on Java..." />
+<link rel="alternate" type="application/rss+xml" title="JournalDev &raquo; Java Exception Interview Questions and Answers Comments Feed" href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers/feed" />
+<meta name="keywords" content="java exceptions, java interview questions, java exception interview, java exception interview questions" />
+<meta name="robots" content="index,follow,noodp,noydir" />
+<link rel="canonical" href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers" />
+<link rel='stylesheet' id='dashicons-css'  href='http://www.journaldev.com/wp-includes/css/dashicons.min.css?ver=3.9.2' type='text/css' media='all' />
+<link rel='stylesheet' id='thickbox-css'  href='http://www.journaldev.com/wp-includes/js/thickbox/thickbox.css?ver=3.9.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wpdm-front-css'  href='http://www.journaldev.com/wp-content/plugins/download-manager/css/front.css?ver=3.9.2' type='text/css' media='all' />
+<link rel='stylesheet' id='majesticpopups-style-css'  href='http://www.journaldev.com/wp-content/plugins/majestic-popups/css/majesticpopups.style.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='mjstpops-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Open+Sans%3A400%2C700%7CLato%3A400%2C700&#038;ver=3.9.2' type='text/css' media='all' />
+<link rel='stylesheet' id='nrelate-style-common-1-2-0-css'  href='http://www.journaldev.com/wp-content/plugins/nrelate-related-content/admin/styles/nrelate-panels-common.min.css?ver=1.2.0' type='text/css' media='all' />
+<!--[if IE 6]>
+<link rel='stylesheet' id='nrelate-ie6-1-2-0-css'  href='http://www.journaldev.com/wp-content/plugins/nrelate-related-content/admin/styles/ie6-panels.min.css?ver=1.2.0' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='nrelate-style-default-1-2-0-css'  href='http://www.journaldev.com/wp-content/plugins/nrelate-related-content/admin/styles/nrelate-text-default.min.css?ver=1.2.0' type='text/css' media='all' />
+<link rel='stylesheet' id='scroll-triggered-boxes-css'  href='http://www.journaldev.com/wp-content/plugins/scroll-triggered-boxes/assets/css/styles.min.css?ver=1.3' type='text/css' media='all' />
+<link rel='stylesheet' id='mailchimp-for-wp-form-theme-red-css'  href='http://www.journaldev.com/wp-content/plugins/mailchimp-for-wp/assets/css/form-theme-red.min.css?ver=2.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='pinboard-web-font-css'  href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic|Oswald:300,300italic,regular,italic,600,600italic&#038;subset=latin' type='text/css' media='all' />
+<link rel='stylesheet' id='pinboard-css'  href='http://www.journaldev.com/wp-content/themes/pinboard-child/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='colorbox-css'  href='http://www.journaldev.com/wp-content/themes/pinboard/styles/colorbox.css' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelementplayer-css'  href='http://www.journaldev.com/wp-content/themes/pinboard/styles/mediaelementplayer.css' type='text/css' media='all' />
+  <script type="text/javascript">var nr_domain = "www.journaldev.com", nr_is_home = 0, nr_pageurl = 'http://www.journaldev.com/2167/java-exception-interview-questions-and-answers';</script>
+  <script async type="text/javascript" id="nrelate_loader_script" data-nrelate-options="{&quot;plugins&quot;:{&quot;related&quot;:{&quot;pl_ver&quot;:&quot;1.2.0&quot;,&quot;cssstyle&quot;:&quot;default&quot;,&quot;thumbsize&quot;:110,&quot;widgetstyle&quot;:0}}}" src="http://www.journaldev.com/wp-content/plugins/nrelate-related-content/admin/nrelate_js.min.js?ver=1.2.0"></script>	<!--[if lt IE 9]>
+	<script src="http://www.journaldev.com/wp-content/themes/pinboard/scripts/html5.js" type="text/javascript"></script>
+	<![endif]-->
+<script type='text/javascript' src='http://www.journaldev.com/wp-includes/js/jquery/jquery.js?ver=1.11.0'></script>
+<script type='text/javascript' src='http://www.journaldev.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://www.journaldev.com/wp-content/plugins/anti-spam/js/anti-spam.js?ver=2.2'></script>
+<script type='text/javascript' src='http://www.journaldev.com/wp-content/themes/pinboard/scripts/ios-orientationchange-fix.js'></script>
+<script type='text/javascript' src='http://www.journaldev.com/wp-content/themes/pinboard/scripts/jquery.flexslider-min.js'></script>
+<script type='text/javascript' src='http://www.journaldev.com/wp-content/themes/pinboard/scripts/jquery.fitvids.js'></script>
+<script type='text/javascript' src='http://www.journaldev.com/wp-content/themes/pinboard/scripts/jquery.colorbox-min.js'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.journaldev.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.journaldev.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Struts 2 &#8211; No result defined for action and result input' href='http://www.journaldev.com/2164/struts-2-no-result-defined-for-action-and-result-input' />
+<link rel='next' title='Struts 2 Actions Example Tutorial' href='http://www.journaldev.com/2173/struts-2-actions-example-tutorial' />
+<meta name="generator" content="WordPress 3.9.2" />
+<link rel='shortlink' href='http://www.journaldev.com/?p=2167' />
+    <script language="JavaScript">
+    <!--
+      jQuery(function(){
+          
+          jQuery('.wpdm-popup').click(function(){
+              tb_show(jQuery(this).html(),this.href+'&modal=1&width=600&height=400');
+              return false;
+          });
+          
+          jQuery('.haspass').click(function(){
+              var url = jQuery(this).attr('href');
+              var id = jQuery(this).attr('rel');
+              var password = jQuery('#pass_'+id).val();
+              jQuery.post('http://www.journaldev.com/',{download:id,password:password},function(res){
+                  
+                  if(res=='error') {
+                    
+                      jQuery('#wpdm_file_'+id+' .perror').html('Wrong Password');
+                      setTimeout("jQuery('#wpdm_file_"+id+" .perror').html('');",3000);
+                      return false;
+                  } else {
+                      location.href = 'http://www.journaldev.com/?wpdmact=process&did='+res;
+                  }
+                  //if(res.url!='undefined') location.href=res.url;
+                                           
+              });
+               
+              return false;
+          });
+      })
+    //-->
+    </script>
+    <link rel="stylesheet" type="text/css" href="http://www.journaldev.com/wp-content/plugins/getsocial/lib/getsocial.css" ><style>.getsocial{width:60px;background:#f8f8f8;border:1px solid #D9D9ED;display:none;border-radius: 3px 3px 3px 3px;-moz-border-radius: 3px 3px 3px 3px;-webkit-border-top-left-radius: 3px;-webkit-border-bottom-left-radius: 3px;-webkit-border-top-right-radius: 3px;-webkit-border-bottom-right-radius: 3px;border-top-left-radius: 3px 3px;border-bottom-left-radius: 3px 3px;border-top-right-radius: 3px 3px;border-bottom-right-radius: 3px 3px;}.sharebutton.sharefooter,.sharebutton.sharefooter a{color:#070707;}</style><script>
+/* <![CDATA[ */
+	jQuery(window).load(function() {
+			});
+	jQuery(document).ready(function($) {
+		$('#access .menu > li > a').each(function() {
+			var title = $(this).attr('title');
+			if(typeof title !== 'undefined' && title !== false) {
+				$(this).append('<br /> <span>'+title+'</span>');
+				$(this).removeAttr('title');
+			}
+		});
+		function pinboard_move_elements(container) {
+			if( container.hasClass('onecol') ) {
+				var thumb = $('.entry-thumbnail', container);
+				if('undefined' !== typeof thumb)
+					$('.entry-container', container).before(thumb);
+				var video = $('.entry-attachment', container);
+				if('undefined' !== typeof video)
+					$('.entry-container', container).before(video);
+				var gallery = $('.post-gallery', container);
+				if('undefined' !== typeof gallery)
+					$('.entry-container', container).before(gallery);
+				var meta = $('.entry-meta', container);
+				if('undefined' !== typeof meta)
+					$('.entry-container', container).after(meta);
+			}
+		}
+		function pinboard_restore_elements(container) {
+			if( container.hasClass('onecol') ) {
+				var thumb = $('.entry-thumbnail', container);
+				if('undefined' !== typeof thumb)
+					$('.entry-header', container).after(thumb);
+				var video = $('.entry-attachment', container);
+				if('undefined' !== typeof video)
+					$('.entry-header', container).after(video);
+				var gallery = $('.post-gallery', container);
+				if('undefined' !== typeof gallery)
+					$('.entry-header', container).after(gallery);
+				var meta = $('.entry-meta', container);
+				if('undefined' !== typeof meta)
+					$('.entry-header', container).append(meta);
+				else
+					$('.entry-header', container).html(meta.html());
+			}
+		}
+		if( ($(window).width() > 960) || ($(document).width() > 960) ) {
+			// Viewport is greater than tablet: portrait
+		} else {
+			$('#content .hentry').each(function() {
+				pinboard_move_elements($(this));
+			});
+		}
+		$(window).resize(function() {
+			if( ($(window).width() > 960) || ($(document).width() > 960) ) {
+									$('.page-template-template-full-width-php #content .hentry, .page-template-template-blog-full-width-php #content .hentry, .page-template-template-blog-four-col-php #content .hentry').each(function() {
+						pinboard_restore_elements($(this));
+					});
+							} else {
+				$('#content .hentry').each(function() {
+					pinboard_move_elements($(this));
+				});
+			}
+			if( ($(window).width() > 760) || ($(document).width() > 760) ) {
+				var maxh = 0;
+				$('#access .menu > li > a').each(function() {
+					if(parseInt($(this).css('height'))>maxh) {
+						maxh = parseInt($(this).css('height'));
+					}
+				});
+				$('#access .menu > li > a').css('height', maxh);
+			} else {
+				$('#access .menu > li > a').css('height', 'auto');
+			}
+		});
+		if( ($(window).width() > 760) || ($(document).width() > 760) ) {
+			var maxh = 0;
+			$('#access .menu > li > a').each(function() {
+				var title = $(this).attr('title');
+				if(typeof title !== 'undefined' && title !== false) {
+					$(this).append('<br /> <span>'+title+'</span>');
+					$(this).removeAttr('title');
+				}
+				if(parseInt($(this).css('height'))>maxh) {
+					maxh = parseInt($(this).css('height'));
+				}
+			});
+			$('#access .menu > li > a').css('height', maxh);
+							$('#access li').mouseenter(function() {
+					$(this).children('ul').css('display', 'none').stop(true, true).fadeIn(250).css('display', 'block').children('ul').css('display', 'none');
+				});
+				$('#access li').mouseleave(function() {
+					$(this).children('ul').stop(true, true).fadeOut(250).css('display', 'block');
+				});
+					} else {
+			$('#access li').each(function() {
+				if($(this).children('ul').length)
+					$(this).append('<span class="drop-down-toggle"><span class="drop-down-arrow"></span></span>');
+			});
+			$('.drop-down-toggle').click(function() {
+				$(this).parent().children('ul').slideToggle(250);
+			});
+		}
+				$('audio,video').mediaelementplayer({
+			videoWidth: '100%',
+			videoHeight: '100%',
+			audioWidth: '100%',
+			alwaysShowControls: true,
+			features: ['playpause','progress','tracks','volume'],
+			videoVolume: 'horizontal'
+		});
+		$(".entry-attachment, .entry-content").fitVids({ customSelector: "iframe[src*='wordpress.tv'], iframe[src*='www.dailymotion.com'], iframe[src*='blip.tv'], iframe[src*='www.viddler.com']"});
+	});
+	jQuery(window).load(function() {
+					jQuery('.entry-content a[href$=".jpg"],.entry-content a[href$=".jpeg"],.entry-content a[href$=".png"],.entry-content a[href$=".gif"],a.colorbox').colorbox({
+				maxWidth: '100%',
+				maxHeight: '100%',
+			});
+			});
+/* ]]> */
+</script>
+<style type="text/css">
+			#header input#s {
+			width:168px;
+			box-shadow:inset 1px 1px 5px 1px rgba(0, 0, 0, .1);
+			text-indent: 0;
+		}
+					@media screen and (max-width: 760px) {
+			#sidebar {
+				display: none;
+			}
+		}
+				@media screen and (max-width: 760px) {
+			#footer-area {
+				display: none;
+			}
+		}
+																		body {
+			font-size:14.00px;
+			line-height:1.62em;
+		}
+																	a:hover {
+			color:#d52129;
+		}
+							.widget-title {
+			color:#000000;
+		}
+				.widget-area a {
+			color:#21759b;
+		}
+						#sidebar {
+color: #000;
+}</style>
+<style type="text/css">
+	#site-title .home,
+	#site-description {
+		position:absolute !important;
+		clip:rect(1px, 1px, 1px, 1px);
+	}
+</style>
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-image: url('http://www.journaldev.com/wp-content/uploads/2013/08/rsz_bg.jpg'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
+</style>
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-12171637-4";
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-12171637-4']);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_setDomainName', 'www.journaldev.com']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body class="single single-post postid-2167 single-format-standard custom-background dwpb-push-page">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;js.async=true;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=228420730501615&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- BuySellAds Ad Code -->
+<script type="text/javascript">
+(function(){
+  var bsa = document.createElement('script');
+     bsa.type = 'text/javascript';
+     bsa.async = true;
+     bsa.src = 'http://s3.buysellads.com/ac/bsa.js';
+  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+})();
+</script>
+<!-- End BuySellAds Ad Code -->
+	<div id="wrapper">
+		<header id="header">
+			<div id="site-title">
+									<a href="http://www.journaldev.com/" rel="home">
+						<img src="http://www.journaldev.com/wp-content/uploads/2014/05/Final-JD-Logo.png" alt="JournalDev" width="333" height="96" />
+					</a>
+								<a class="home" href="http://www.journaldev.com/" rel="home">JournalDev</a>
+			</div>
+							<div id="sidebar-header" class="widget-area" role="complementary">
+		<aside id="text-9" class="widget widget_text">			<div class="textwidget"><!-- BuySellAds Zone Code -->
+<div id="bsap_1294274" class="bsarocks bsap_f40eb584b4ff82da0d1e9b4430902710"></div>
+<!-- End BuySellAds Zone Code --></div>
+		</aside><!-- .widget -->	</div><!-- #sidebar-header -->
+			<div class="clear"></div>
+			<nav id="access">
+				<a class="nav-show" href="#access">Show Navigation</a>
+				<a class="nav-hide" href="#nogo">Hide Navigation</a>
+				<div class="menu-headermenu-container"><ul id="menu-headermenu" class="menu"><li id="menu-item-1169" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1169"><a href="http://www.journaldev.com/tutorials">Tutorials</a></li>
+<li id="menu-item-2186" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2186"><a href="#">#Interview Questions</a>
+<ul class="sub-menu">
+	<li id="menu-item-1579" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1579"><a href="http://www.journaldev.com/java-interview-questions">Java Interview Questions</a></li>
+	<li id="menu-item-2542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2542"><a href="http://www.journaldev.com/2529/jdbc-interview-questions-and-answers">JDBC Interview Questions</a></li>
+	<li id="menu-item-2020" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2020"><a href="http://www.journaldev.com/2015/servlet-interview-questions-and-answers">Servlet Interview Questions</a></li>
+	<li id="menu-item-2112" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2112"><a href="http://www.journaldev.com/2110/jsp-interview-questions-and-answers">JSP Interview Questions</a></li>
+	<li id="menu-item-2358" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2358"><a href="http://www.journaldev.com/2354/struts2-interview-questions-and-answers">Struts2 Interview Questions</a></li>
+	<li id="menu-item-2701" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2701"><a href="http://www.journaldev.com/2696/spring-interview-questions-and-answers">Spring Interview Questions</a></li>
+	<li id="menu-item-3636" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3636"><a href="http://www.journaldev.com/3633/hibernate-interview-questions-and-answers">Hibernate Interview Questions</a></li>
+</ul>
+</li>
+<li id="menu-item-1170" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-1170"><a href="http://www.journaldev.com/dev/java">Java</a>
+<ul class="sub-menu">
+	<li id="menu-item-1172" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1172"><a href="http://www.journaldev.com/dev/java/design-patterns">Design Patterns</a></li>
+	<li id="menu-item-1171" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1171"><a href="http://www.journaldev.com/dev/java/j2ee">Java EE</a></li>
+</ul>
+</li>
+<li id="menu-item-2314" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2314"><a href="http://www.journaldev.com/2310/struts2-tutorial-with-example-projects">Struts2</a></li>
+<li id="menu-item-2893" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2893"><a href="http://www.journaldev.com/2888/spring-framework-tutorial-with-example-projects">Spring</a></li>
+<li id="menu-item-3797" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3797"><a href="http://www.journaldev.com/3793/hibernate-tutorial-with-example-projects">Hibernate</a></li>
+<li id="menu-item-2686" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2686"><a href="http://www.journaldev.com/2681/jdbc-tutorial-with-example-projects-datasource-jndi-and-spring-integration">JDBC</a></li>
+<li id="menu-item-1173" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1173"><a href="http://www.journaldev.com/dev/web-design">Web Design</a>
+<ul class="sub-menu">
+	<li id="menu-item-1176" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1176"><a href="http://www.journaldev.com/dev/jquery">jQuery</a></li>
+	<li id="menu-item-1174" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1174"><a href="http://www.journaldev.com/dev/resources">Resources</a></li>
+	<li id="menu-item-1175" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1175"><a href="http://www.journaldev.com/dev/resources/html">HTML</a></li>
+	<li id="menu-item-1580" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1580"><a href="http://www.journaldev.com/dev/php">PHP</a></li>
+</ul>
+</li>
+<li id="menu-item-4166" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4166"><a href="http://bit.ly/ebooks365">Free eBooks</a>
+<ul class="sub-menu">
+	<li id="menu-item-4167" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4167"><a href="http://bit.ly/java-ebooks">Free Java eBooks</a></li>
+	<li id="menu-item-4442" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4442"><a href="http://bit.ly/jpaebook">JPA Starter eBook</a></li>
+	<li id="menu-item-4443" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4443"><a href="http://bit.ly/jvmtips">JVM Troubleshooting eBook</a></li>
+</ul>
+</li>
+</ul></div>				<div class="clear"></div>
+			</nav><!-- #access -->
+		</header><!-- #header -->
+	<div id="container">
+		<section id="content" class="column twothirdcol">
+							<article class="post-2167 post type-post status-publish format-standard hentry category-interview-questions category-java tag-java-exceptions tag-java-interview-questions column onecol" id="post-2167">
+					<div class="entry">
+						<header class="entry-header">
+							<h1 class="entry-title">Java Exception Interview Questions and Answers</h1>
+									<aside class="entry-meta">
+							<span class="entry-author-link"><a href="http://www.journaldev.com/author/Pankaj" title="Posts by Pankaj" rel="author">Pankaj</a></span>
+									<span class="entry-date">September 16, 2013</span>
+												<span class="entry-category"><a href="http://www.journaldev.com/dev/interview-questions" title="View all posts in Interview Questions" rel="category tag">Interview Questions</a>, <a href="http://www.journaldev.com/dev/java" title="View all posts in Java" rel="category tag">Java</a></span>
+																		<div class="clear"></div>
+		</aside><!-- .entry-meta -->
+							</header><!-- .entry-header -->
+						<div class="entry-content">
+														<div id="getsocialmain">
+<!-- Quick Adsense WordPress Plugin: http://quicksense.net/ -->
+<div style="float:none;margin:10px 0 10px 0;text-align:center;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- jd_top_728_90 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-5143693538742787"
+     data-ad-slot="6417447325"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<p>Java provides a robust and object-oriented approach to handle exception scenarios known as <strong>Java Exception Handling</strong>.</p>
+<p>Sometime back I wrote a long post on <a href="http://www.journaldev.com/1696/java-exception-handling-tutorial-with-examples-and-best-practices">Java Exception Handling</a> and today I am listing some important <strong>Java Exceptions Questions with Answers</strong> to help you in interviews.</p>
+<ol>
+<li><a href="#java-exception">What is Exception in Java?</a></li>
+<li><a href="#java-exception-keywords">What are the Exception Handling Keywords in Java?</a></li>
+<li><a href="#java-exception-hierarchy">Explain Java Exception Hierarchy?</a></li>
+<li><a href="#java-exception-methods">What are important methods of Java Exception Class?</a></li>
+<li><a href="#java-7-arm-multi-catch">Explain Java 7 ARM Feature and multi-catch block?</a></li>
+<li><a href="#checked-vs-unchecked-excepion">What is difference between Checked and Unchecked Exception in Java?</a></li>
+<li><a href="#throw-vs-throws">What is difference between throw and throws keyword in Java?</a></li>
+<li><a href="#java-custom-exception">How to write custom exception in Java?</a></li>
+<li><a href="#java-outofmemoryerror">What is OutOfMemoryError in Java?</a></li>
+<li><a href="#java-exception-in-thread-main">What are different scenarios causing &#8220;Exception in thread main&#8221;?</a></li>
+<li><a href="#java-final-finally-finalize">What is difference between final, finally and finalize in Java?</a></li>
+<li><a href="#exception-main-method">What happens when exception is thrown by main method?</a></li>
+<li><a href="#empty-catch-block">Can we have an empty catch block?</a></li>
+<li><a href="#java-exception-handling-best-practices">Provide some Java Exception Handling Best Practices?</a></li>
+<li><a href="#java-exception-programming-questions">What is the problem with below programs and how do we fix it?</a></li>
+</ol>
+<ol>
+<a name="java-exception"></a></p>
+<li>
+<h3>What is Exception in Java?</h3>
+<p>Exception is an error event that can happen during the execution of a program and disrupts it&#8217;s normal flow. Exception can arise from different kind of situations such as wrong data entered by user, hardware failure, network connection failure etc.</p>
+<!-- Quick Adsense WordPress Plugin: http://quicksense.net/ -->
+<div style="float:none;margin:10px 0 10px 0;text-align:center;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- jd_after_post_728x90 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-5143693538742787"
+     data-ad-slot="1682631325"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<p>Whenever any error occurs while executing a java statement, an exception object is created and then <strong><a href="http://www.journaldev.com/546/difference-between-jdk-jre-and-jvm-in-java">JRE</a></strong> tries to find exception handler to handle the exception. If suitable exception handler is found then the exception object is passed to the handler code to process the exception, known as <strong>catching the exception</strong>. If no handler is found then application throws the exception to runtime environment and JRE terminates the program. </p>
+<p><strong>Java Exception handling</strong> framework is used to handle runtime errors only, compile time errors are not handled by exception handling framework.
+</li>
+<p><a name="java-exception-keywords"></a></p>
+<li>
+<h3>What are the Exception Handling Keywords in Java?</h3>
+<p>There are four keywords used in java exception handling.</p>
+<ol>
+<li><strong>throw</strong>: Sometimes we explicitly want to create exception object and then throw it to halt the normal processing of the program. <strong>throw</strong> keyword is used to throw exception to the runtime to handle it.</li>
+<li><strong>throws</strong>: When we are throwing any checked exception in a method and not handling it, then we need to use throws keyword in method signature to let caller program know the exceptions that might be thrown by the method. The caller method might handle these exceptions or propagate it to it’s caller method using <code>throws</code> keyword. We can provide multiple exceptions in the throws clause and it can be used with <strong>main()</strong> method also.</li>
+<li><strong>try-catch</strong>: We use try-catch block for exception handling in our code. try is the start of the block and catch is at the end of try block to handle the exceptions. We can have multiple catch blocks with a try and try-catch block can be nested also. catch block requires a parameter that should be of type Exception.</li>
+<li><strong>finally</strong>: finally block is optional and can be used only with try-catch block. Since exception halts the process of execution, we might have some resources open that will not get closed, so we can use finally block. finally block gets executed always, whether exception occurrs or not.</li>
+</ol>
+</li>
+<p><a name="java-exception-hierarchy"></a></p>
+<li>
+<h3>Explain Java Exception Hierarchy?</h3>
+<p> Java Exceptions are hierarchical and <a href="http://www.journaldev.com/644/inheritance-in-java-example">inheritance</a> is used to categorize different types of exceptions. <code>Throwable</code> is the parent class of Java Exceptions Hierarchy and it has two child objects – <code>Error</code> and <code>Exception</code>. Exceptions are further divided into checked exceptions and runtime exception.</p>
+<p><strong>Errors</strong> are exceptional scenarios that are out of scope of application and it’s not possible to anticipate and recover from them, for example hardware failure, JVM crash or out of memory error. </p>
+<p><strong>Checked Exceptions</strong> are exceptional scenarios that we can anticipate in a program and try to recover from it, for example FileNotFoundException. We should catch this exception and provide useful message to user and log it properly for debugging purpose. <code>Exception</code> is the parent class of all Checked Exceptions.</p>
+<p><strong>Runtime Exceptions</strong> are caused by bad programming, for example trying to retrieve an element from the Array. We should check the length of array first before trying to retrieve the element otherwise it might throw <code>ArrayIndexOutOfBoundException</code> at runtime. <code>RuntimeException</code> is the parent class of all runtime exceptions.</p>
+<p><a href="http://www.journaldev.com/wp-content/uploads/2013/07/exception-hierarchy.png"><img src="http://www.journaldev.com/wp-content/uploads/2013/07/exception-hierarchy-450x217.png" alt="exception-hierarchy" width="450" height="217" class="aligncenter size-medium wp-image-1703" /></a></p>
+</li>
+<p><a name="java-exception-methods"></a></p>
+<li>
+<h3>What are important methods of Java Exception Class?</h3>
+<p>Exception and all of it’s subclasses doesn’t provide any specific methods and all of the methods are defined in the base class Throwable.</p>
+<ol>
+<li><strong>String getMessage()</strong> &#8211; This method returns the message String of Throwable and the message can be provided while creating the exception through it&#8217;s constructor.</li>
+<li><strong>String getLocalizedMessage()</strong> &#8211; This method is provided so that subclasses can override it to provide locale specific message to the calling program. Throwable class implementation of this method simply use <code>getMessage()</code> method to return the exception message.</li>
+<li><strong>synchronized Throwable getCause()</strong> &#8211; This method returns the cause of the exception or null id the cause is unknown.</li>
+<li><strong>String toString()</strong> &#8211;  This method returns the information about Throwable in String format, the returned String contains the name of Throwable class and localized message.</li>
+<li><strong>void printStackTrace()</strong> &#8211;  This method prints the stack trace information to the standard error stream, this method is overloaded and we can pass PrintStream or PrintWriter as argument to write the stack trace information to the file or stream.</li>
+</ol>
+</li>
+<p><a name="java-7-arm-multi-catch"></a></p>
+<li>
+<h3>Explain Java 7 ARM Feature and multi-catch block?</h3>
+<p>If you are catching a lot of exceptions in a single try block, you will notice that catch block code looks very ugly and mostly consists of redundant code to log the error, keeping this in mind Java 7 one of the feature was  multi-catch block where we can catch multiple exceptions in a single catch block. The catch block with this feature looks like below:</p>
+<pre class="brush: java; title: ; notranslate" title="">
+catch(IOException | SQLException | Exception ex){
+     logger.error(ex);
+     throw new MyException(ex.getMessage());
+}
+</pre>
+<p>Most of the time, we use finally block just to close the resources and sometimes we forget to close them and get runtime exceptions when the resources are exhausted. These exceptions are hard to debug and we might need to look into each place where we are using that type of resource to make sure we are closing it. So java 7 one of the improvement was <strong>try-with-resources</strong> where we can create a resource in the try statement itself and use it inside the try-catch block. When the execution comes out of try-catch block, runtime environment automatically close these resources. Sample of try-catch block with this improvement is:</p>
+<pre class="brush: java; title: ; notranslate" title="">
+try (MyResource mr = new MyResource()) {
+            System.out.println(&quot;MyResource created in try-with-resources&quot;);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+</pre>
+<p>Read more about this at <strong><a href="http://www.journaldev.com/592/try-with-resource-example-java-7-feature-for-automatic-resource-management">Java 7 ARM</a></strong>.
+</li>
+<p><a name="checked-vs-unchecked-excepion"></a></p>
+<li>
+<h3>What is difference between Checked and Unchecked Exception in Java?</h3>
+<ol>
+<li>Checked Exceptions should be handled in the code using try-catch block or else main() method should use throws keyword to let JRE know about these exception that might be thrown from the program. Unchecked Exceptions are not required to be handled in the program or to mention them in throws clause.</li>
+<li><code>Exception</code> is the super class of all checked exceptions whereas <code>RuntimeException</code> is the super class of all unchecked exceptions.</li>
+<li>Checked exceptions are error scenarios that are not caused by program, for example FileNotFoundException in reading a file that is not present, whereas Unchecked exceptions are mostly caused by poor programming, for example NullPointerException when invoking a method on an object reference without making sure that it&#8217;s not null.</li>
+</ol>
+</li>
+<p><a name="throw-vs-throws"></a></p>
+<li>
+<h3>What is difference between throw and throws keyword in Java?</h3>
+<p>throws keyword is used with method signature to declare the exceptions that the method might throw whereas throw keyword is used to disrupt the flow of program and handing over the exception object to runtime to handle it.
+</li>
+<p><a name="java-custom-exception"></a></p>
+<li>
+<h3>How to write custom exception in Java?</h3>
+<p>We can extend <code>Exception</code> class or any of it&#8217;s subclasses to create our custom exception class. The custom exception class can have it&#8217;s own variables and methods that we can use to pass error codes or other exception related information to the exception handler.</p>
+<p>A simple example of custom exception is shown below.</p>
+<pre class="brush: java; title: MyException.java; notranslate" title="MyException.java">
+package com.journaldev.exceptions;
+
+import java.io.IOException;
+
+public class MyException extends IOException {
+
+	private static final long serialVersionUID = 4664456874499611218L;
+	
+	private String errorCode=&quot;Unknown_Exception&quot;;
+	
+	public MyException(String message, String errorCode){
+		super(message);
+		this.errorCode=errorCode;
+	}
+	
+	public String getErrorCode(){
+		return this.errorCode;
+	}
+	
+
+}
+</pre>
+</li>
+<p><a name="java-outofmemoryerror"></a></p>
+<!-- Quick Adsense WordPress Plugin: http://quicksense.net/ -->
+<div style="float:none;margin:10px 0 10px 0;text-align:center;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- jd_728_90 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-5143693538742787"
+     data-ad-slot="3143777721"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<li>
+<h3>What is OutOfMemoryError in Java?</h3>
+<p>OutOfMemoryError in Java is a subclass of java.lang.VirtualMachineError and it&#8217;s thrown by JVM when it ran out of heap memory. We can fix this error by providing more memory to run the java application through java options.</p>
+<p><code>$>java MyProgram -Xms1024m -Xmx1024m -XX:PermSize=64M -XX:MaxPermSize=256m</code></p>
+</li>
+<p><a name="java-exception-in-thread-main"></a></p>
+<li>
+<h3>What are different scenarios causing &#8220;Exception in thread main&#8221;?</h3>
+<p>Some of the common main thread exception scenarios are:</p>
+<ul>
+<li><strong>Exception in thread main java.lang.UnsupportedClassVersionError</strong>: This exception comes when your java class is compiled from another JDK version and you are trying to run it from another java version.</li>
+<li><strong>Exception in thread main java.lang.NoClassDefFoundError</strong>: There are two variants of this exception. The first one is where you provide the class full name with .class extension. The second scenario is when Class is not found.</li>
+<li><strong>Exception in thread main java.lang.NoSuchMethodError: main</strong>: This exception comes when you are trying to run a class that doesn’t have main method.</li>
+<li><strong>Exception in thread “main” java.lang.ArithmeticException</strong>: Whenever any exception is thrown from main method, it prints the exception is console. The first part explains that exception is thrown from main method, second part prints the exception class name and then after a colon, it prints the exception message.</li>
+</ul>
+<p>Read more about these at <a href="http://www.journaldev.com/611/java-exception-in-thread-main-understanding-with-examples">Java Exception in Thread main</a>.
+</li>
+<p><a name="java-final-finally-finalize"></a></p>
+<li>
+<h3>What is difference between final, finally and finalize in Java?</h3>
+<p>final and finally are keywords in java whereas finalize is a method.</p>
+<p>final keyword can be used with class variables so that they can&#8217;t be reassigned, with class to avoid extending by classes and with methods to avoid overriding by subclasses, finally keyword is used with try-catch block to provide statements that will always gets executed even if some exception arises, usually finally is used to close resources. finalize() method is executed by Garbage Collector before the object is destroyed, it&#8217;s great way to make sure all the global resources are closed.</p>
+<p>Out of the three, only finally is related to java exception handling.
+</li>
+<p><a name="exception-main-method"></a></p>
+<li>
+<h3>What happens when exception is thrown by main method?</h3>
+<p>When exception is thrown by main() method, Java Runtime terminates the program and print the exception message and stack trace in system console.
+</li>
+<p><a name="empty-catch-block"></a></p>
+<li>
+<h3>Can we have an empty catch block?</h3>
+<p>We can have an empty catch block but it&#8217;s the example of worst programming. We should never have empty catch block because if the exception is caught by that block, we will have no information about the exception and it wil be a nightmare to debug it. There should be at least a logging statement to log the exception details in console or log files.
+</li>
+<p><a name="java-exception-handling-best-practices"></a></p>
+<li>
+<h3>Provide some Java Exception Handling Best Practices?</h3>
+<p>Some of the best practices related to Java Exception Handling are:</p>
+<ul>
+<li>Use Specific Exceptions for ease of debugging.</li>
+<li>Throw Exceptions Early (Fail-Fast) in the program.</li>
+<li>Catch Exceptions late in the program, let the caller handle the exception.</li>
+<li>Use Java 7 ARM feature to make sure resources are closed or use finally block to close them properly.</li>
+<li>Always log exception messages for debugging purposes.</li>
+<li>Use multi-catch block for cleaner close.</li>
+<li>Use custom exceptions to throw single type of exception from your application API.</li>
+<li>Follow naming convention, always end with Exception.</li>
+<li>Document the Exceptions Thrown by a method using @throws in javadoc.</li>
+<li>Exceptions are costly, so throw it only when it makes sense. Else you can catch them and provide null or empty response.</li>
+</ul>
+<p>Read more about them in detail at <a href="http://www.journaldev.com/1696/java-exception-handling-tutorial-with-examples-and-best-practices#best-practices">Java Exception Handling Best Practices</a>.
+</li>
+<p><a name="java-exception-programming-questions"></a></p>
+<li>
+<h3>What is the problem with below programs and how do we fix it?</h3>
+<p>In this section, we will look into some programming questions related to java exceptions.</p>
+<ol>
+<li><strong>What is the problem with below program?</strong>
+<pre class="brush: java; title: ; notranslate" title="">
+package com.journaldev.exceptions;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+public class TestException {
+
+	public static void main(String[] args) {
+		try {
+			testExceptions();
+		} catch (FileNotFoundException | IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	public static void testExceptions() throws IOException, FileNotFoundException{
+		
+	}
+}
+</pre>
+<p>Above program won&#8217;t compile and you will get error message as &#8220;The exception FileNotFoundException is already caught by the alternative IOException&#8221;. This is because FileNotFoundException is subclass of IOException, there are two ways to solve this problem.</p>
+<p>First way is to use single catch block for both the exceptions.</p>
+<pre class="brush: java; title: ; notranslate" title="">
+		try {
+			testExceptions();
+		}catch(FileNotFoundException e){
+			e.printStackTrace();
+		}catch (IOException  e) {
+			e.printStackTrace();
+		}
+</pre>
+<p>Another way is to remove the FileNotFoundException from multi-catch block.</p>
+<pre class="brush: java; title: ; notranslate" title="">
+		try {
+			testExceptions();
+		}catch (IOException  e) {
+			e.printStackTrace();
+		}
+</pre>
+<p>You can chose any of these approach based on your catch block code.
+</li>
+<li><strong>What is the problem with below program?</strong>
+<pre class="brush: java; title: ; notranslate" title="">
+package com.journaldev.exceptions;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import javax.xml.bind.JAXBException;
+
+public class TestException1 {
+
+	public static void main(String[] args) {
+			try {
+				go();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (JAXBException e) {
+				e.printStackTrace();
+			}
+	}
+
+	public static void go() throws IOException, JAXBException, FileNotFoundException{
+		
+	}
+}
+</pre>
+<p>The program won&#8217;t compile because FileNotFoundException is subclass of IOException, so the catch block of FileNotFoundException is unreachable and you will get error message as &#8220;Unreachable catch block for FileNotFoundException. It is already handled by the catch block for IOException&#8221;.</p>
+<p>You need to fix the catch block order to solve this issue.</p>
+<pre class="brush: java; title: ; notranslate" title="">
+			try {
+				go();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (JAXBException e) {
+				e.printStackTrace();
+			}
+</pre>
+<p>Notice that JAXBException is not related to IOException or FileNotFoundException and can be put anywhere in above catch block hierarchy.
+</li>
+<li><strong>What is the problem with below program?</strong>
+<pre class="brush: java; title: ; notranslate" title="">
+package com.journaldev.exceptions;
+
+import java.io.IOException;
+
+import javax.xml.bind.JAXBException;
+
+public class TestException2 {
+
+	public static void main(String[] args) {
+		try {
+			foo();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}catch(JAXBException e){
+			e.printStackTrace();
+		}catch(NullPointerException e){
+			e.printStackTrace();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+
+	public static void foo() throws IOException{
+		
+	}
+}
+</pre>
+<p>The program won&#8217;t compile because JAXBException is a checked exception and foo() method should throw this exception to catch in the calling method. You will get error message as &#8220;Unreachable catch block for JAXBException. This exception is never thrown from the try statement body&#8221;.</p>
+<p>To solve this issue, you will have to remove the catch block of JAXBException.</p>
+<p>Notice that catching NullPointerException is valid because it&#8217;s an unchecked exception.
+</li>
+<li><strong>What is the problem with below program?</strong>
+<pre class="brush: java; title: ; notranslate" title="">
+package com.journaldev.exceptions;
+
+public class TestException3 {
+
+	public static void main(String[] args) {
+		try{
+		bar();
+		}catch(NullPointerException e){
+			e.printStackTrace();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		foo();
+	}
+
+	public static void bar(){
+		
+	}
+	
+	public static void foo() throws NullPointerException{
+		
+	}
+}
+</pre>
+<p>This is a trick question, there is no problem with the code and it will compile successfully. We can always catch Exception or any unchecked exception even if it&#8217;s not in the throws clause of the method.</p>
+<p>Similarly if a method (foo) declares unchecked exception in throws clause, it is not mandatory to handle that in the program.
+</li>
+<li><strong>What is the problem with below program?</strong>
+<pre class="brush: java; title: ; notranslate" title="">
+package com.journaldev.exceptions;
+
+import java.io.IOException;
+
+public class TestException4 {
+
+	public void start() throws IOException{		
+	}
+	
+	public void foo() throws NullPointerException{
+		
+	}
+}
+
+class TestException5 extends TestException4{
+	
+	public void start() throws Exception{
+	}
+	
+	public void foo() throws RuntimeException{
+		
+	}
+}
+</pre>
+<p>The above program won&#8217;t compile because start() method signature is not same in subclass. To fix this issue, we can either change the method singnature in subclass to be exact same as superclass or we can remove throws clause from subclass method as shown below.</p>
+<pre class="brush: java; title: ; notranslate" title="">
+@Override
+	public void start(){
+	}
+</pre>
+</li>
+<li><strong>What is the problem with below program?</strong>
+<pre class="brush: java; title: ; notranslate" title="">
+package com.journaldev.exceptions;
+
+import java.io.IOException;
+
+import javax.xml.bind.JAXBException;
+
+public class TestException6 {
+
+	public static void main(String[] args) {
+		try {
+			foo();
+		} catch (IOException | JAXBException e) {
+			e = new Exception(&quot;&quot;);
+			e.printStackTrace();
+		}catch(Exception e){
+			e = new Exception(&quot;&quot;);
+			e.printStackTrace();
+		}
+	}
+
+	public static void foo() throws IOException, JAXBException{
+		
+	}
+}
+</pre>
+<p>The above program won&#8217;t compile because exception object in multi-catch block is final and we can&#8217;t change it&#8217;s value. You will get compile time error as &#8220;The parameter e of a multi-catch block cannot be assigned&#8221;.</p>
+<p>We have to remove the assignment of &#8220;e&#8221; to new exception object to solve this error.</p>
+<p>Read more at <a href="http://www.journaldev.com/629/catching-multiple-exceptions-in-single-catch-and-rethrowing-exceptions-with-improved-type-checking-java-7-feature">Java 7 multi-catch block</a>.
+</li>
+</ol>
+</li>
+<p>Thats all for java exception interview questions, I hope you will like it. I will be adding more to the list in future, make sure you bookmark it for future use.
+</ol>
+
+<div class="nr_related_placeholder" data-permalink="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers" data-title="Java Exception Interview Questions and Answers"></div>
+<div style="font-size:0px;height:0px;line-height:0px;margin:0;padding:0;clear:both"></div></div><!-- #getsocialmain -->							<div class="clear"></div>
+						</div><!-- .entry-content -->
+						<footer class="entry-utility">
+														<div class="entry-tags"><a href="http://www.journaldev.com/tag/java-exceptions" rel="tag">java exceptions</a> <a href="http://www.journaldev.com/tag/java-interview-questions" rel="tag">java interview questions</a></div>																<div class="entry-author">
+			<img alt='' src='http://0.gravatar.com/avatar/8087ef00af2610b870ada12392286695?s=96&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D96&amp;r=G' class='avatar avatar-96 photo' height='96' width='96' />			<h3 class="author vcard">Written by <span class="fn"><a href="http://www.journaldev.com/author/Pankaj" title="Posts by Pankaj" rel="author">Pankaj</a></span></h3>
+			<p class="author-bio">If you have come this far, it means that you liked what you are reading. Why not reach little more and connect with me directly on <a href="https://plus.google.com/118104420597648001532/posts?rel=author"><strong>Google Plus</strong></a>, <a href="https://www.facebook.com/journaldev"><strong>Facebook</strong></a> or <a href="https://twitter.com/JournalDev"><strong>Twitter</strong></a>. I would love to hear your thoughts and opinions on my articles directly.</p>
+			<div class="clear"></div>
+		</div><!-- .entry-author -->
+							</footer><!-- .entry-utility -->
+					</div><!-- .entry -->
+						<aside id="comments">
+				<h3 id="comments-title">17 Responses to &quot;Java Exception Interview Questions and Answers&quot;</h3>
+
+		<div id="comments-nav-above" class="navigation">
+			<div class="nav-prev"></div>
+			<div class="nav-next"></div>
+			<div class="clear"></div>
+		</div>
+		
+		<ol class="commentlist">
+					<li class="comment even thread-even depth-1" id="comment-29676">
+				<div id="div-comment-29676" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/f03eab4a1ab229954ef0298b1585e9a6?s=64&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">Prathap</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers#comment-29676">
+			August 2, 2014 at 1:05 am</a>		</div>
+
+		<p>my question is about QN:E, As per answer start() signature is different in subclass (which is creating the problem) and what about foo() which is also having same issue?</p>
+
+		<div class="reply">
+			<a class='comment-reply-link' href='/2167/java-exception-interview-questions-and-answers?replytocom=29676#respond' onclick='return addComment.moveForm("div-comment-29676", "29676", "respond", "2167")'>Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-29650">
+				<div id="div-comment-29650" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/9f47636b628568e1aa6ad85c8218849a?s=64&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">XCESS</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers#comment-29650">
+			July 31, 2014 at 10:32 am</a>		</div>
+
+		<p>Had great Help</p>
+
+		<div class="reply">
+			<a class='comment-reply-link' href='/2167/java-exception-interview-questions-and-answers?replytocom=29650#respond' onclick='return addComment.moveForm("div-comment-29650", "29650", "respond", "2167")'>Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 parent" id="comment-29455">
+				<div id="div-comment-29455" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/ad72a0f14b259cdd4769f9156b033d2b?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">sampath</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers#comment-29455">
+			July 10, 2014 at 8:59 am</a>		</div>
+
+		<p>Looks like there is mistake in  answer for question 11</p>
+<p><strong>final keyword can be used with class variables to make them immutable</strong></p>
+<p>final keyword can used for variables to make variables can&#8217;t be re-assigned . it won&#8217;t make variables immutable, immutable means when we can&#8217;t change the object but we can re-assign a different object to same reference variable.</p>
+
+		<div class="reply">
+			<a class='comment-reply-link' href='/2167/java-exception-interview-questions-and-answers?replytocom=29455#respond' onclick='return addComment.moveForm("div-comment-29455", "29455", "respond", "2167")'>Reply</a>		</div>
+				</div>
+		<ol class="children">
+		<li class="comment byuser comment-author-Pankaj bypostauthor odd alt depth-2" id="comment-29457">
+				<div id="div-comment-29457" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/8087ef00af2610b870ada12392286695?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn"><a href='http://www.journaldev.com' rel='external nofollow' class='url'>Pankaj</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers#comment-29457">
+			July 10, 2014 at 11:32 am</a>		</div>
+
+		<p>Yes you are right, updated the post. Thanks!!</p>
+
+		<div class="reply">
+			<a class='comment-reply-link' href='/2167/java-exception-interview-questions-and-answers?replytocom=29457#respond' onclick='return addComment.moveForm("div-comment-29457", "29457", "respond", "2167")'>Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1 parent" id="comment-29369">
+				<div id="div-comment-29369" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/38879202a7216af9ae6665dedd4a208a?s=64&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">Manjunatha Kuruba</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers#comment-29369">
+			June 29, 2014 at 6:03 am</a>		</div>
+
+		<p>try {<br />
+            foo();<br />
+        } catch (IOException | JAXBException e) {<br />
+            e = new Exception(&#8220;&#8221;);<br />
+            e.printStackTrace();<br />
+        }catch(Exception e){<br />
+            e = new Exception(&#8220;&#8221;);<br />
+            e.printStackTrace();<br />
+        }</p>
+<p>only the exception object for IOException | JAXBException  exceptions is final but exception object for &#8220;Exception&#8221;   exception is not final.</p>
+
+		<div class="reply">
+			<a class='comment-reply-link' href='/2167/java-exception-interview-questions-and-answers?replytocom=29369#respond' onclick='return addComment.moveForm("div-comment-29369", "29369", "respond", "2167")'>Reply</a>		</div>
+				</div>
+		<ol class="children">
+		<li class="comment byuser comment-author-Pankaj bypostauthor odd alt depth-2" id="comment-29374">
+				<div id="div-comment-29374" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/8087ef00af2610b870ada12392286695?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn"><a href='http://www.journaldev.com' rel='external nofollow' class='url'>Pankaj</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers#comment-29374">
+			June 29, 2014 at 10:14 pm</a>		</div>
+
+		<p>Yes, thats what I meant with multi-catch block.</p>
+
+		<div class="reply">
+			<a class='comment-reply-link' href='/2167/java-exception-interview-questions-and-answers?replytocom=29374#respond' onclick='return addComment.moveForm("div-comment-29374", "29374", "respond", "2167")'>Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-29026">
+				<div id="div-comment-29026" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/8c6fd63d09872f5634523dde2087ed47?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">Manjunath</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers#comment-29026">
+			May 28, 2014 at 3:05 am</a>		</div>
+
+		<p>Great man&#8230; such a descriptive way of explanation..<br />
+Thanks</p>
+
+		<div class="reply">
+			<a class='comment-reply-link' href='/2167/java-exception-interview-questions-and-answers?replytocom=29026#respond' onclick='return addComment.moveForm("div-comment-29026", "29026", "respond", "2167")'>Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-28901">
+				<div id="div-comment-28901" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/608164053b757a24672441381dabcfd1?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">Kalai</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers#comment-28901">
+			May 17, 2014 at 10:21 pm</a>		</div>
+
+		<p>Hats off to you Pankaj ..Super ..good work&#8230;.Never stop your blogging habbit&#8230;</p>
+
+		<div class="reply">
+			<a class='comment-reply-link' href='/2167/java-exception-interview-questions-and-answers?replytocom=28901#respond' onclick='return addComment.moveForm("div-comment-28901", "28901", "respond", "2167")'>Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 parent" id="comment-28836">
+				<div id="div-comment-28836" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/9af7906e05e60661f51f450b2d032bf4?s=64&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">sonal</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers#comment-28836">
+			May 9, 2014 at 10:31 am</a>		</div>
+
+		<p>Great post &#8220;Hats Off To YOU&#8221;&#8230;.. I have read many offline/online books n tutorials but ur understanding to<br />
+subject is so deep that it reflects in ur posts&#8230;.not only this topic but every of ur post &#8230;. exceptional knowledge and exceptional writing&#8230;&#8230;.    <img src="http://www.journaldev.com/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+<p>Regards</p>
+<p>Sonal</p>
+
+		<div class="reply">
+			<a class='comment-reply-link' href='/2167/java-exception-interview-questions-and-answers?replytocom=28836#respond' onclick='return addComment.moveForm("div-comment-28836", "28836", "respond", "2167")'>Reply</a>		</div>
+				</div>
+		<ol class="children">
+		<li class="comment byuser comment-author-Pankaj bypostauthor odd alt depth-2" id="comment-28841">
+				<div id="div-comment-28841" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/8087ef00af2610b870ada12392286695?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn"><a href='http://www.journaldev.com' rel='external nofollow' class='url'>Pankaj</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers#comment-28841">
+			May 10, 2014 at 12:03 am</a>		</div>
+
+		<p>Thanks Sonal, your appreciation means a lot.</p>
+
+		<div class="reply">
+			<a class='comment-reply-link' href='/2167/java-exception-interview-questions-and-answers?replytocom=28841#respond' onclick='return addComment.moveForm("div-comment-28841", "28841", "respond", "2167")'>Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="pingback even thread-odd thread-alt depth-1" id="comment-28551">
+				<div id="div-comment-28551" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href='http://www.journaldev.com/2366/core-java-interview-questions-and-answers' rel='external nofollow' class='url'>Core Java Interview Questions and Answers</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers#comment-28551">
+			April 13, 2014 at 6:04 pm</a>		</div>
+
+		<p>[&#8230;] Java Exception Interview Questions [&#8230;]</p>
+
+		<div class="reply">
+			<a class='comment-reply-link' href='/2167/java-exception-interview-questions-and-answers?replytocom=28551#respond' onclick='return addComment.moveForm("div-comment-28551", "28551", "respond", "2167")'>Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1 parent" id="comment-28415">
+				<div id="div-comment-28415" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/0b2da97095db84e8ca4eed1d22268bca?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">Sachidananda Dash</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers#comment-28415">
+			April 2, 2014 at 5:28 pm</a>		</div>
+
+		<p>finally() method is executed by Garbage Collector before the object is destroyed is probably wrong , Ideally it should be finalize()</p>
+
+		<div class="reply">
+			<a class='comment-reply-link' href='/2167/java-exception-interview-questions-and-answers?replytocom=28415#respond' onclick='return addComment.moveForm("div-comment-28415", "28415", "respond", "2167")'>Reply</a>		</div>
+				</div>
+		<ol class="children">
+		<li class="comment byuser comment-author-Pankaj bypostauthor even depth-2" id="comment-28420">
+				<div id="div-comment-28420" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/8087ef00af2610b870ada12392286695?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn"><a href='http://www.journaldev.com' rel='external nofollow' class='url'>Pankaj</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers#comment-28420">
+			April 2, 2014 at 7:29 pm</a>		</div>
+
+		<p>Yes you are right, it was a typo. Thanks for pointing out, I have updated the post.</p>
+
+		<div class="reply">
+			<a class='comment-reply-link' href='/2167/java-exception-interview-questions-and-answers?replytocom=28420#respond' onclick='return addComment.moveForm("div-comment-28420", "28420", "respond", "2167")'>Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-26712">
+				<div id="div-comment-26712" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/5c60b4f267c9b036743f05d250c8ccdc?s=64&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">Rajiv Rahul</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers#comment-26712">
+			December 14, 2013 at 7:02 am</a>		</div>
+
+		<p>Hi,<br />
+Thank you so much for the great work that you are doing for us which is benefiting us in building our career. In fact  Its our duty to appreciate people like you because you deserve it!</p>
+
+		<div class="reply">
+			<a class='comment-reply-link' href='/2167/java-exception-interview-questions-and-answers?replytocom=26712#respond' onclick='return addComment.moveForm("div-comment-26712", "26712", "respond", "2167")'>Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 parent" id="comment-23740">
+				<div id="div-comment-23740" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/bcb9dab42159db2667517ed01b03d2b8?s=64&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">Sidram</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers#comment-23740">
+			September 23, 2013 at 6:02 am</a>		</div>
+
+		<p>It very nice explanation. I have one qns, what is the difference between Exception &amp; RuntimeException. When i create custom exception by extedning RuntimeException which is becomes unchecked exception, How it can be when RuntimeException allready extends Exception class. How it will be differentites. Could you explain.</p>
+
+		<div class="reply">
+			<a class='comment-reply-link' href='/2167/java-exception-interview-questions-and-answers?replytocom=23740#respond' onclick='return addComment.moveForm("div-comment-23740", "23740", "respond", "2167")'>Reply</a>		</div>
+				</div>
+		<ol class="children">
+		<li class="comment odd alt depth-2 parent" id="comment-24924">
+				<div id="div-comment-24924" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/19f6d1666beaf2c791686588d9ff53a8?s=64&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">Irshad</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers#comment-24924">
+			October 28, 2013 at 7:10 pm</a>		</div>
+
+		<p>There is a little bit change in answer of Question E is<br />
+To fix this issue, we can either change the method singnature in subclass to be exact same as superclass or we can remove throws clause from subclass or can define the subclass of Exception in child class method as shown below.<br />
+@Override<br />
+    public void start() throws FileNotFoundException{<br />
+    }</p>
+
+		<div class="reply">
+			<a class='comment-reply-link' href='/2167/java-exception-interview-questions-and-answers?replytocom=24924#respond' onclick='return addComment.moveForm("div-comment-24924", "24924", "respond", "2167")'>Reply</a>		</div>
+				</div>
+		<ol class="children">
+		<li class="comment even depth-3" id="comment-29468">
+				<div id="div-comment-29468" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/399c7fa6a7ab8dff92cc29c118f935ad?s=64&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">zakir</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers#comment-29468">
+			July 13, 2014 at 6:02 am</a>		</div>
+
+		<p>Good one&#8230;very informative post</p>
+
+		<div class="reply">
+			<a class='comment-reply-link' href='/2167/java-exception-interview-questions-and-answers?replytocom=29468#respond' onclick='return addComment.moveForm("div-comment-29468", "29468", "respond", "2167")'>Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		</ol>
+		
+		<div id="comments-nav-below" class="navigation">
+			<div class="nav-prev"></div>
+			<div class="nav-next"></div>
+			<div class="clear"></div>
+		</div>
+	</aside><!-- #comments -->
+
+
+								<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2167/java-exception-interview-questions-and-answers#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://www.journaldev.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" /></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>						<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></p>						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment" />
+							<input type='hidden' name='comment_post_ID' value='2167' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="81be45bf29" /></p>
+	<p class="comment-form-ant-spm" style="clear:both;">
+		<strong>Current ye@r</strong> <span class="required">*</span>
+		<input type="hidden" name="ant-spm-a" id="ant-spm-a" value="2014" />
+		<input type="text" name="ant-spm-q" id="ant-spm-q" size="30" value="2.2" />
+	</p>
+	
+	<p class="comment-form-ant-spm-2" style="display:none;">
+		<strong>Leave this field empty</strong>
+		<input type="text" name="ant-spm-e-email-url" id="ant-spm-e-email-url" size="30" value=""/>
+	</p>
+	<!-- MailChimp for WP v2.1.2 - https://mc4wp.com/ --><p id="mc4wp-checkbox"><label><input type="checkbox" name="_mc4wp_subscribe_comment_form" value="1" checked /> Sign me up for the JournalDev newsletter!</label></p><textarea name="_mc4wp_required_but_not_really" style="display: none !important;"></textarea><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="246"/></p>					</form>
+							</div><!-- #respond -->
+							</article><!-- .post -->
+					</section><!-- #content -->
+					<div id="sidebar" class="column threecol">
+		<div id="sidebar-top" class="widget-area" role="complementary">
+		<div class="column onecol"><aside id="text-8" class="widget widget_text">			<div class="textwidget"><!-- BuySellAds Zone Code -->
+<div id="bsap_1294273" class="bsarocks bsap_f40eb584b4ff82da0d1e9b4430902710"></div>
+<!-- End BuySellAds Zone Code --></div>
+		</aside><!-- .widget --></div><div class="column onecol"><aside id="seed_glcse_widget-2" class="widget widget_seed_glcse_widget">		<div class="glcse-widget">
+		<form id="glcse-search-form" class="glcse-search" action="http://www.journaldev.com" method="get">
+        <input type="hidden" name="cref" value="http://www.journaldev.com/?glcse=1" />
+        <input type="hidden" name="cof" value="FORID:11" />
+        <input type="hidden" name="ie" value="UTF-8" />
+        <input type="text" name="q" size="44" />
+        <input type="hidden" name="s" value="glcse" />
+    	</form>
+    	<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=glcse-search-form&lang=en"></script>
+    	</div>
+    	</aside><!-- .widget --></div><!--WP Widget Cache 0.26 Begin -->
+<!--Cache text-4 for 10000 second(s)-->
+<div class="column onecol"><aside id="text-4" class="widget widget_text"><h3 class="widget-title">Be My Friend</h3>			<div class="textwidget"><!-- <div class="g-page" data-width="350" data-href="//plus.google.com/108915099401054415071" data-layout="landscape" data-rel="publisher"></div> -->
+
+<!-- Place this tag after the last widget tag. -->
+<!-- <script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script><br/> -->
+<div class="fb-like-box" data-href="https://www.facebook.com/JournalDev" data-width="350" data-height="258" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="true"></div>
+<div class="g-plus" data-width="350" data-height="69" data-href="//plus.google.com/118104420597648001532" data-rel="author"></div>
+<!--
+<a href="https://twitter.com/JournalDev" class="twitter-follow-button" data-show-count="true" data-size="large">Follow @JournalDev</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> --><br/></div>
+		</aside><!-- .widget --></div><!--WP Widget Cache End -->
+<!--WP Widget Cache 0.26 Begin -->
+<!--Cache recent-posts-3 for 10000 second(s)-->
+		<div class="column onecol"><aside id="recent-posts-3" class="widget widget_recent_entries">		<h3 class="widget-title">Recent Posts</h3>		<ul>
+					<li>
+				<a href="http://www.journaldev.com/4490/primefaces-selective-components-checkbox-button-radio-button-tutorial">Primefaces Selective Components &#8211; Checkbox, Button, Radio Button Tutorial</a>
+						</li>
+					<li>
+				<a href="http://www.journaldev.com/4334/mongodb-update-document-set-all-example-mongo-shell-java-driver">MongoDB update document, set, subdocument example using Mongo Shell and Java Driver</a>
+						</li>
+					<li>
+				<a href="http://www.journaldev.com/4056/primefaces-utilities-requestcontext-el-functions-dialog-framework-search-expression-framework">Primefaces Utilities, RequestContext, EL Functions, Dialog Framework &amp; Search Expression Framework</a>
+						</li>
+					<li>
+				<a href="http://www.journaldev.com/4426/top-10-free-wordpress-themes-of-2014">Top 10 Free WordPress Themes of 2014</a>
+						</li>
+					<li>
+				<a href="http://www.journaldev.com/4260/primefaces-hibernate-and-springroo-integration">Primefaces, Hibernate and SpringRoo Integration</a>
+						</li>
+					<li>
+				<a href="http://www.journaldev.com/4061/primefaces-spring-eclipselink-nosql-mongodb-oracle-nosql-db">Primefaces Spring EclipseLink NoSQL with MongoDB &amp; Oracle NoSQL DB</a>
+						</li>
+					<li>
+				<a href="http://www.journaldev.com/4308/mongodb-insert-example-using-mongo-shell-and-java-driver">MongoDB insert example using Mongo Shell and Java Driver</a>
+						</li>
+					<li>
+				<a href="http://www.journaldev.com/4293/simple-image-slider-in-jquery-css">Creating your own simple Image Slider in jQuery/CSS</a>
+						</li>
+					<li>
+				<a href="http://www.journaldev.com/4058/primefaces-spring-4-with-jpa-hibernate-eclipselink-example-tutorial">Primefaces, Spring 4 with JPA (Hibernate 4/EclipseLink) Example Tutorial</a>
+						</li>
+					<li>
+				<a href="http://www.journaldev.com/4144/spring-data-mongodb-example-tutorial">Spring Data MongoDB Example Tutorial</a>
+						</li>
+					<li>
+				<a href="http://www.journaldev.com/4023/primefaces-mobile-tutorial-for-responsive-design">Primefaces Mobile Tutorial for Responsive Design</a>
+						</li>
+					<li>
+				<a href="http://www.journaldev.com/4098/java-heap-memory-vs-stack-memory-difference">Java Heap Memory vs Stack Memory Difference</a>
+						</li>
+					<li>
+				<a href="http://www.journaldev.com/4096/primefaces-spring-hibernate-integration-example-tutorial">Primefaces Spring &amp; Hibernate Integration Example Tutorial</a>
+						</li>
+					<li>
+				<a href="http://www.journaldev.com/4011/mongodb-java-servlet-web-application-example-tutorial">MongoDB Java Servlet Web Application Example Tutorial</a>
+						</li>
+					<li>
+				<a href="http://www.journaldev.com/3923/common-job-interview-questions-and-answer-tips">40 Common Job Interview Questions and Answer Tips</a>
+						</li>
+				</ul>
+		</aside><!-- .widget --></div><!--WP Widget Cache End -->
+	</div><!-- #sidebar-top -->
+		<div class="column twocol">
+		<div id="sidebar-left" class="widget-area" role="complementary">
+			
+<!-- Quick Adsense Wordpress Plugin: http://quicksense.net/ -->
+<div class="column onecol"><aside id="adswidget2-quick-adsense" class="widget  lambda_11">
+<!-- BuySellAds Zone Code -->
+<div id="bsap_1295072" class="bsarocks bsap_f40eb584b4ff82da0d1e9b4430902710"></div>
+<!-- End BuySellAds Zone Code -->
+</aside><!-- .widget --></div>		</div><!-- #sidebar-left -->
+	</div><!-- .twocol -->
+		<div class="column twocol">
+		<div id="sidebar-right" class="widget-area" role="complementary">
+			<!--WP Widget Cache 0.26 Begin -->
+<!--Cache categories-3 for 100000 second(s)-->
+<div class="column onecol"><aside id="categories-3" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-412"><a href="http://www.journaldev.com/dev/database" title="View all posts filed under Database">Database</a>
+<ul class='children'>
+	<li class="cat-item cat-item-523"><a href="http://www.journaldev.com/dev/database/mongodb" title="View all posts filed under MongoDB">MongoDB</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-622"><a href="http://www.journaldev.com/dev/hibernate" title="View all posts filed under Hibernate">Hibernate</a>
+</li>
+	<li class="cat-item cat-item-768"><a href="http://www.journaldev.com/dev/interview-questions" title="View all posts filed under Interview Questions">Interview Questions</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.journaldev.com/dev/java" title="View all posts filed under Java">Java</a>
+<ul class='children'>
+	<li class="cat-item cat-item-79"><a href="http://www.journaldev.com/dev/java/design-patterns" title="View all posts filed under Design Patterns">Design Patterns</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.journaldev.com/dev/java/j2ee" title="View all posts filed under Java EE">Java EE</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-311"><a href="http://www.journaldev.com/dev/jquery" title="View all posts filed under jQuery">jQuery</a>
+</li>
+	<li class="cat-item cat-item-641"><a href="http://www.journaldev.com/dev/jsf" title="View all posts filed under JSF">JSF</a>
+</li>
+	<li class="cat-item cat-item-422"><a href="http://www.journaldev.com/dev/php" title="View all posts filed under PHP">PHP</a>
+</li>
+	<li class="cat-item cat-item-642"><a href="http://www.journaldev.com/dev/primefaces" title="View all posts filed under PrimeFaces">PrimeFaces</a>
+</li>
+	<li class="cat-item cat-item-113"><a href="http://www.journaldev.com/dev/random" title="View all posts filed under Random">Random</a>
+</li>
+	<li class="cat-item cat-item-121"><a href="http://www.journaldev.com/dev/resources" title="View all posts filed under Resources">Resources</a>
+<ul class='children'>
+	<li class="cat-item cat-item-132"><a href="http://www.journaldev.com/dev/resources/html" title="View all posts filed under HTML">HTML</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.journaldev.com/dev/scripts" title="View all posts filed under Scripts">Scripts</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://www.journaldev.com/dev/softwares" title="View all posts filed under Softwares">Softwares</a>
+</li>
+	<li class="cat-item cat-item-539"><a href="http://www.journaldev.com/dev/spring" title="View all posts filed under Spring">Spring</a>
+</li>
+	<li class="cat-item cat-item-511"><a href="http://www.journaldev.com/dev/struts-2" title="View all posts filed under Struts 2">Struts 2</a>
+</li>
+	<li class="cat-item cat-item-120"><a href="http://www.journaldev.com/dev/web-design" title="View all posts filed under Web Design">Web Design</a>
+</li>
+	<li class="cat-item cat-item-405"><a href="http://www.journaldev.com/dev/wordpress" title="View all posts filed under Wordpress">Wordpress</a>
+</li>
+		</ul>
+</aside><!-- .widget --></div><!--WP Widget Cache End -->
+<!--WP Widget Cache 0.26 Begin -->
+<!--Cache pages-3 for 10000 second(s)-->
+<div class="column onecol"><aside id="pages-3" class="widget widget_pages"><h3 class="widget-title">Pages</h3>		<ul>
+			<li class="page_item page-item-2"><a href="http://www.journaldev.com/about">About</a></li>
+<li class="page_item page-item-2289"><a href="http://www.journaldev.com/advertise-journaldev">Advertise</a></li>
+<li class="page_item page-item-3759"><a href="http://www.journaldev.com/download-free-ebooks">Download Free eBooks</a></li>
+<li class="page_item page-item-1575"><a href="http://www.journaldev.com/java-interview-questions">Java Interview Questions</a></li>
+<li class="page_item page-item-155"><a href="http://www.journaldev.com/privacy-policy">Privacy Policy</a></li>
+<li class="page_item page-item-1138"><a href="http://www.journaldev.com/tutorials">Tutorials</a></li>
+<li class="page_item page-item-2029"><a href="http://www.journaldev.com/write-for-us">Write For Us</a></li>
+		</ul>
+		</aside><!-- .widget --></div><!--WP Widget Cache End -->
+		</div><!-- #sidebar-right -->
+	</div><!-- .twocol -->
+	</div><!-- #sidebar -->			</div><!-- #container -->
+				<div id="footer">
+				<div id="footer-area" class="widget-area" role="complementary">
+		<!--WP Widget Cache 0.26 Begin -->
+<!--Cache tag_cloud-3 for 10000 second(s)-->
+<div class="column threecol"><aside id="tag_cloud-3" class="widget widget_tag_cloud"><h3 class="widget-title">Popular Tags</h3><div class="tagcloud"><a href='http://www.journaldev.com/tag/hibernate-2' class='tag-link-623' title='25 topics' style='font-size: 17.625pt;'>hibernate</a>
+<a href='http://www.journaldev.com/tag/hibernate-example' class='tag-link-625' title='19 topics' style='font-size: 14.4166666667pt;'>hibernate example</a>
+<a href='http://www.journaldev.com/tag/hibernate-tutorial' class='tag-link-624' title='19 topics' style='font-size: 14.4166666667pt;'>hibernate tutorial</a>
+<a href='http://www.journaldev.com/tag/java-arrays' class='tag-link-298' title='13 topics' style='font-size: 10.0416666667pt;'>java Arrays</a>
+<a href='http://www.journaldev.com/tag/java-design-patterns' class='tag-link-447' title='26 topics' style='font-size: 18.2083333333pt;'>java design patterns</a>
+<a href='http://www.journaldev.com/tag/java-file' class='tag-link-282' title='35 topics' style='font-size: 22pt;'>java file</a>
+<a href='http://www.journaldev.com/tag/java-interview-questions' class='tag-link-33' title='19 topics' style='font-size: 14.4166666667pt;'>java interview questions</a>
+<a href='http://www.journaldev.com/tag/java-io' class='tag-link-308' title='33 topics' style='font-size: 21.125pt;'>java io</a>
+<a href='http://www.journaldev.com/tag/java-servlet' class='tag-link-480' title='11 topics' style='font-size: 8pt;'>java servlet</a>
+<a href='http://www.journaldev.com/tag/java-string' class='tag-link-303' title='12 topics' style='font-size: 8.875pt;'>java String</a>
+<a href='http://www.journaldev.com/tag/java-thread' class='tag-link-340' title='16 topics' style='font-size: 12.375pt;'>java Thread</a>
+<a href='http://www.journaldev.com/tag/java-xml' class='tag-link-314' title='22 topics' style='font-size: 16.1666666667pt;'>java xml</a>
+<a href='http://www.journaldev.com/tag/primefaces-2' class='tag-link-644' title='16 topics' style='font-size: 12.375pt;'>primefaces</a>
+<a href='http://www.journaldev.com/tag/primefaces-example' class='tag-link-645' title='12 topics' style='font-size: 8.875pt;'>primefaces example</a>
+<a href='http://www.journaldev.com/tag/primefaces-tutorial' class='tag-link-646' title='16 topics' style='font-size: 12.375pt;'>primefaces tutorial</a>
+<a href='http://www.journaldev.com/tag/spring-tutorial' class='tag-link-541' title='18 topics' style='font-size: 13.8333333333pt;'>spring tutorial</a>
+<a href='http://www.journaldev.com/tag/struts-2-2' class='tag-link-512' title='22 topics' style='font-size: 16.1666666667pt;'>struts 2</a>
+<a href='http://www.journaldev.com/tag/struts-2-tutorial' class='tag-link-513' title='19 topics' style='font-size: 14.4166666667pt;'>struts 2 tutorial</a></div>
+</aside><!-- .widget --></div><!--WP Widget Cache End -->
+<!--WP Widget Cache 0.26 Begin -->
+<!--Cache text-6 for 86400 second(s)-->
+<div class="column threecol"><aside id="text-6" class="widget widget_text"><h3 class="widget-title">Tutorials</h3>			<div class="textwidget"><strong>Java Tutorials</strong>:  <a href="http://www.journaldev.com/942/java-io-tutorial">Java IO Tutorial</a>, <a href="http://www.journaldev.com/634/java-regular-expression-tutorial-with-examples">Java Regular Expressions Tutorial</a>, <a href="http://www.journaldev.com/1079/java-thread-tutorial">Java Multi-Threading Tutorial</a>, <a href="http://www.journaldev.com/977/java-logging-api-tutorial-examples-logger-levels-handlers-formatters-filters">Java Logging API Tutorial</a>, <a href="http://www.journaldev.com/721/java-annotations-tutorial-with-custom-annotation-example-and-parsing-using-reflection">Java Annotations Tutorial</a>,<a href="http://www.journaldev.com/1240/java-xml-tutorial">Java XML Tutorial</a>, <a href="http://www.journaldev.com/1260/java-collections-framework-tutorial">Java Collections Tutorial</a>, <a href="http://www.journaldev.com/1663/java-generics-tutorial-example-class-interface-methods-wildcards-and-much-more">Java Generics Tutorial</a>, <a href="http://www.journaldev.com/1696/java-exception-handling-tutorial-with-examples-and-best-practices">Java Exception Handling</a>, <a href="http://www.journaldev.com/1789/java-reflection-tutorial-for-classes-methods-fields-constructors-annotations-and-much-more">Java Reflection Tutorial</a>, <a href="http://www.journaldev.com/1827/java-design-patterns-example-tutorial">Java Design Patterns</a>, <a href="http://www.journaldev.com/2681/jdbc-tutorial-with-example-projects-datasource-jndi-and-spring-integration">JDBC Tutorial</a><br />
+<strong>Java EE</strong>: <a href="http://www.journaldev.com/2114/java-servlet-jsp-tutorial-with-example-programs">Servlet JSP Tutorial</a>, <a href="http://www.journaldev.com/2310/struts2-tutorial-with-example-projects">Struts2 Tutorial</a>, <a href="http://www.journaldev.com/2888/spring-framework-tutorial-with-example-projects">Spring Tutorial</a>, <a href="http://www.journaldev.com/3793/hibernate-tutorial-with-example-projects">Hibernate Tutorial</a><br />
+<strong>Web Services</strong>: <a href="http://www.journaldev.com/255/axis2-web-services-tutorial">Apache Axis 2 Tutorial</a>, <a href="http://www.journaldev.com/498/rest-using-jersey-complete-tutorial-with-jaxb-exception-handling-and-client-program">Jersey Restful Web Services Tutorial</a><br />
+<strong>Misc</strong>: <a href="http://www.journaldev.com/1117/memcached-tutorial">Memcached Tutorial</a><br /><br />
+<strong>Resources</strong>: <a href="http://journaldev.tradepub.com" rel="nofollow">Free eBooks</a></div>
+		</aside><!-- .widget --></div><!--WP Widget Cache End -->
+<!--WP Widget Cache 0.26 Begin -->
+<!--Cache text-7 for 86400 second(s)-->
+<div class="column threecol"><aside id="text-7" class="widget widget_text"><h3 class="widget-title">Interview Questions</h3>			<div class="textwidget"><a href="http://www.journaldev.com/1321/java-string-interview-questions-and-answers">Java String Interview Questions</a>, 
+<a href="http://www.journaldev.com/1162/java-multi-threading-concurrency-interview-questions-with-answers">Java Multi-Threading Interview Questions</a>, 
+<a href="http://www.journaldev.com/370/5-java-programming-test-questions-for-interview">Java Programming Interview Questions</a>, 
+<a href="http://www.journaldev.com/2366/core-java-interview-questions-and-answers">Java Interview Questions</a>, <a href="http://www.journaldev.com/1330/java-collections-interview-questions-and-answers">Java Collections Interview Questions</a>, <a href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers">Java Exception Interview Questions</a><br /><br />
+<a href="http://www.journaldev.com/2015/servlet-interview-questions-and-answers">Servlet Interview Questions</a>, <a href="http://www.journaldev.com/2110/jsp-interview-questions-and-answers">JSP Interview Questions</a>, <a href="http://www.journaldev.com/2354/struts2-interview-questions-and-answers">Struts2 Interview Questions</a>, <a href="http://www.journaldev.com/2529/jdbc-interview-questions-and-answers">JDBC Interview Questions</a>, <a href="http://www.journaldev.com/2696/spring-interview-questions-and-answers">Spring Interview Questions</a>, <a href="http://www.journaldev.com/3633/hibernate-interview-questions-and-answers">Hibernate Interview Questions</a></div>
+		</aside><!-- .widget --></div><!--WP Widget Cache End -->
+<!--WP Widget Cache 0.26 Begin -->
+<!--Cache links-3 for 86400 second(s)-->
+<div class="column threecol"><aside id="linkcat-358" class="widget widget_links"><h3 class="widget-title">Be My Friend</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.facebook.com/journaldev" title="Connect on Facebook" target="_blank">Facebook</a></li>
+<li><a href="https://plus.google.com/118104420597648001532/posts?rel=author" title="Connect on Google Plus" target="_blank">Google+</a></li>
+<li><a href="http://twitter.com/JournalDev" title="Follow JournalDev on Twitter" target="_blank">Twitter</a></li>
+
+	</ul>
+</aside><!-- .widget --></div>
+<!--WP Widget Cache End -->
+		<div class="clear"></div>
+	</div><!-- #footer-area -->
+			<div id="copyright">
+				<p class="copyright twocol">© 2014 JournalDev&nbsp;<a href="http://www.journaldev.com/privacy-policy">Privacy Policy</a>&nbsp;Don't copy, it's Bad Karma.</p>
+									<p class="credits twocol">
+																															Powered by <a href="http://wordpress.org/" title="WordPress">WordPress</a>											</p>
+								<div class="clear"></div>
+			</div><!-- #copyright -->
+		</div><!-- #footer -->
+	</div><!-- #wrapper -->
+<!-- Scroll Triggered Boxes v1.3 - http://wordpress.org/plugins/scroll-triggered-boxes/-->			<style type="text/css">
+				#stb-4065 {
+					background: white;
+															max-width: auto;
+				}
+
+									@media only screen and (max-width: 480px) {
+						#stb-4065 { display: none !important; }
+					}
+							</style>
+			<div class="stb-container stb-bottom-right-container">
+				<div class="scroll-triggered-box stb stb-bottom-right" id="stb-4065" style="display: none;"  data-box-id="4065" data-trigger="percentage"
+				 data-trigger-percentage="40" data-trigger-element=""
+				 data-animation="slide" data-cookie="0" data-test-mode="0"
+				 data-auto-hide="1">
+					<div class="stb-content"><!-- Form by MailChimp for WordPress plugin v2.1.2 - https://mc4wp.com/ --><form method="post" action="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers" id="mc4wp-form-1" class="form mc4wp-form"><p><h3>Subscribe to Monthly Newsletter and Free eBooks</h3>
+	<label for="mc4wp_email">Email address: </label>
+	<input type="email" id="mc4wp_email" name="EMAIL" placeholder="Your email address" required />
+</p>
+
+<p>
+	<input type="submit" value="I AM IN!" />
+</p>
+<p><strong>1091</strong> Happy Subscribers and Counting...</p><textarea name="_mc4wp_required_but_not_really" style="display: none !important;"></textarea><input type="hidden" name="_mc4wp_form_submit" value="1" /><input type="hidden" name="_mc4wp_form_instance" value="1" /><input type="hidden" name="_mc4wp_form_nonce" value="7d572428fb" /></form><!-- / MailChimp for WP Plugin -->
+</div>
+					<span class="stb-close">&times;</span>
+				</div>
+			</div>
+			<!-- / Scroll Triggered Box --><script type="text/javascript">var $opt_initial_top = 177;var $opt_scrolled_top = 50;var $opt_browser_width = 1180;var $opt_box_left = 102;</script><script type="text/javascript" src="http://www.journaldev.com/wp-content/plugins/getsocial/lib/getsocial.js"></script><div class="getsocial"><div class="gs-wrap"><div class="sharebutton"><div id="fb-root"></div><script>(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";  fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script><div class="fb-like" data-href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers" data-width="50" data-height="62" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div><div class="gsclear"></div></div><div class="sharebutton"><script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script><g:plusone size="tall"  href="http://www.journaldev.com/2167/java-exception-interview-questions-and-answers"></g:plusone><div class="gsclear"></div></div><div class="gsclear"></div></div></div><div id="mjstpops-main-wrapper"><div id="mjstpops-exit-bg"></div><div id="mjstpops-exit-popup" style="width:530px; background-color:#fff; font-family:'Open Sans', sans-serif; border-radius:4px; margin-left:-265px;">	<div style="width:530px; padding: 15px 30px 30px 30px; box-sizing:border-box;">		<div style="color:#2c2b2a; font-size:14px; text-align:center; line-height:normal;">Subscribe to JournalDev Newsletter</div>		<div style="color:#2c2b2a; font-weight:bold; font-size:36px; text-align:center; margin-top:15px; line-height:42px;">Get the FREE access to Monthly Newsletter and Free PDF eBooks		</div> </div>	<div style="width:480px; height:180px; margin:0 auto 4px auto; background:#ffecab; border: 1px solid #ffd700; border-radius:4px;">		<input id="mjstpops-email" type="email" placeholder="Your Email Address..."		style="width:420px; height:48px; border:1px solid #ffe55c; margin:30px 30px 20px 30px; padding:0 15px; background:#fff; color:#95a5a6;		font-size:18px; font-family:'Open Sans', sans-serif; border-radius:4px; text-align:center; line-height:normal; box-sizing:border-box;">		<input id="mjstpops_add_sub" type="submit" value="I AM IN!"		style="width:420px; height:48px; border:none; background:#f7d302; margin:0 30px 30px 30px; padding:10px; cursor:pointer;		color:#836d07; border-bottom:2px solid #dcba00; font-weight:bold; font-size:20px; box-shadow:0px -1px 0px 0px #dcba00 inset;		font-family:'Open Sans', sans-serif; border-radius:4px; line-height:normal; box-sizing:border-box;"		onmouseover="this.style.backgroundColor = '#dcba00'" onmouseout="this.style.backgroundColor = '#f7d302'">	</div>	<div style="width:530px; text-align:center; font-size:11px; color:#b5bdbe; overflow:hidden; margin: 4px; line-height:normal; min-height:11px; font-family:'Open Sans', sans-serif;">*No Spam Guaranteed. By entering your email address, you agree also subscribing to our newsletter.	</div> <span id="mjstpops-exit-close-button"></span><span id="mjstpops-id" style="display:none;">4053</span></div><div id="mjstpops-error-popup-bg"></div><div id="mjstpops-error-popup"> <div id="mjstpops-error-wrapper">		<div id="mjstpops-error-popup-title">Oops! <span class="mjp-error-normal">- Something went wrong.</span></div>		<div id="mjstpops-error-popup-content"></div>		<a href="#" id="mjstpops-error-popup-close">Close</a> </div></div></div>	<!--[if lt IE 9]>
+	<script src="http://www.journaldev.com/wp-content/themes/pinboard/scripts/html5.js" type="text/javascript"></script>
+	<![endif]-->
+<script type='text/javascript' src='http://www.journaldev.com/wp-content/plugins/akismet/_inc/form.js?ver=3.0.2'></script>
+	<!--[if lt IE 9]>
+	<script src="http://www.journaldev.com/wp-content/themes/pinboard/scripts/html5.js" type="text/javascript"></script>
+	<![endif]-->
+<script type='text/javascript' src='http://www.journaldev.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.9'></script>
+<script type='text/javascript' src='http://www.journaldev.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js?ver=3.0.9'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.journaldev.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.journaldev.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['class-name'] = 'syntaxhighlighter td  overflow-xscroll important ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<link rel='stylesheet' id='dwpb_style-css'  href='http://www.journaldev.com/wp-content/plugins/dw-promobar/assets/css/main.css?ver=3.9.2' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var thickboxL10n = {"next":"Next >","prev":"< Prev","image":"Image","of":"of","close":"Close","noiframes":"This feature requires inline frames. You have iframes disabled or your browser does not support them.","loadingAnimation":"http:\/\/www.journaldev.com\/wp-includes\/js\/thickbox\/loadingAnimation.gif"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.journaldev.com/wp-includes/js/thickbox/thickbox.js?ver=3.1-20121105'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var mejsL10n = {"language":"en-US","strings":{"Close":"Close","Fullscreen":"Fullscreen","Download File":"Download File","Download Video":"Download Video","Play\/Pause":"Play\/Pause","Mute Toggle":"Mute Toggle","None":"None","Turn off Fullscreen":"Turn off Fullscreen","Go Fullscreen":"Go Fullscreen","Unmute":"Unmute","Mute":"Mute","Captions\/Subtitles":"Captions\/Subtitles"}};
+var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.journaldev.com/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=2.14.2'></script>
+<script type='text/javascript' src='http://www.journaldev.com/wp-includes/js/mediaelement/wp-mediaelement.js?ver=3.9.2'></script>
+<script type='text/javascript' src='http://www.journaldev.com/wp-includes/js/comment-reply.min.js?ver=3.9.2'></script>
+<script type='text/javascript' src='http://www.journaldev.com/wp-content/plugins/scroll-triggered-boxes/assets/js/script.min.js?ver=1.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var dwpb = {"timeleft":"23674","reset_cookie":"2"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.journaldev.com/wp-content/plugins/dw-promobar/assets/js/vendor/jquery.countdown.js?ver=3.9.2'></script>
+<script type='text/javascript' src='http://www.journaldev.com/wp-content/plugins/dw-promobar/assets/js/vendor/jquery.cookie.js?ver=3.9.2'></script>
+<script type='text/javascript' src='http://www.journaldev.com/wp-content/plugins/dw-promobar/assets/js/main.js?ver=1.0'></script>
+<script type='text/javascript' src='http://www.journaldev.com/wp-content/plugins/majestic-popups/js/majesticpopups.jquery.cookie.js?ver=1.0.0'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var mjstpops_logic = {"ajaxurl":"http:\/\/www.journaldev.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.journaldev.com/wp-content/plugins/majestic-popups/js/majesticpopups.logic.js?ver=1.0.1'></script>
+		<style>
+						@font-face {
+        font-family: "0";
+        src: url('');
+      }
+			#dwpb {
+				font-family: 0;
+			}
+			
+						#dwpb,
+			.dwpb-action {
+				background-color: #f7682c;
+			}
+			
+						#dwpb,
+			.dwpb-action {
+				color: #fff;
+			}
+			
+						#dwpb {
+				font-size: 16px;
+			}
+			
+			
+			
+						#dwpb {
+				border-width: 0;
+			}
+			
+						#dwpb a {
+				color: #ffffff;
+			}
+			
+						#dwpb .dwpb-button {
+				background-color: #333;
+			}
+			
+					</style>
+		
+		<div id="dwpb" class=" fixtop ">
+			<div class="dwpb-inner">
+				
+				<div class="dwpb-message hide">
+					<span class="dwpb-content">Today's Special: Web Application Development eBook Free</span>
+					 <a class="dwpb-button" href="http://bit.ly/webdev365 " target="_blank"" >Download Now</a>				</div>
+					
+				<div class="dwpb-countdown ">
+					<div class="dwpb-counter"></div>
+					<span class="dwpbcd-content">Exclusive Offer: Oracle Technology Magazine for Developers</span>
+					 <a class="dwpb-button" href="http://bit.ly/magoracle " target="_blank"" >Download Now</a>				</div>
+			</div>
+		</div>
+				<span class="dwpb-action"></span>
+	<!-- Place this tag after the last badge tag. -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<!--
+<link rel="stylesheet" href="http://www.tradepub.com/data/adwiz/css/jqModalTP.css" type="text/css" media="screen"/><div id="tplightbox"><script type="text/javascript">var _check_search = "false";var _delay_time   = "3";var _cookie_date  = "3";</script><script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script><script type="text/javascript">var netlineJQ12 = jQuery.noConflict(true);</script><script type="text/javascript" src="http://www.tradepub.com/data/adwiz/jscript/jqModalTP.js"></script><script type="text/javascript" src="http://www.tradepub.com/data/adwiz/jscript/tpLightboxInclude.js"></script><div class="jqmWindow-nl" id="modal-nlform-nl"  style="background-color:#FFFFFF;border:solid 2px #3D86C2;"><a id="jqm-close" class="jqmClose" href="#"></a><div id="txt" style="font-size:18px;color:#3D86C2";>Grab our FREE featured resource of the day!</br></div><script language="javascript" src="http://cts.tradepub.com/cts4/?ptnr=journaldev&tm=w_cnd01lb&hicat=826,827&type=all&key=&trk=lightbox"></script></div></div><script type="text/javascript" src="http://www.tradepub.com/data/adwiz/jscript/tpLightboxExtra.js"></script>
+-->
+</body>
+</html>
+<!-- Dynamic page generated in 0.293 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2014-09-02 17:25:26 -->
+
+<!-- Compression = gzip -->
