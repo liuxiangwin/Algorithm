@@ -13,25 +13,19 @@ public class Permutate {
 	}
 
 
-	public static void arrange(String[] strArray, int start, int length) {
+	public static void arrange(String[] array, int start, int length) {
 		if (start == length - 1) {
-			printArray(strArray);
+			printArray(array);
 			total++;
 		} else {
 			for (int i = start; i < length; i++) {
-				swap(strArray, start, i);
-				arrange(strArray, start + 1, length);
-				swap(strArray, start, i);
+				swap(array, start, i);
+				arrange(array, start + 1, length);
+				swap(array, start, i);
 			}
 		}
 	}
 	
-	private static void printByforLoop(String[] strArray, int length) {
-		for (int i = 0; i < length; i++) {
-			System.out.print(strArray[i] + "  ");
-		}
-	}
-
 	public static void swap(String[] str, int i, int j) {
 		String temp = new String();
 		temp = str[i];

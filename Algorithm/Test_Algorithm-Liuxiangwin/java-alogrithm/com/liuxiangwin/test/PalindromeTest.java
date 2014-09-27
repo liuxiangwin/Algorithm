@@ -9,7 +9,9 @@ package com.liuxiangwin.test;
  */
 public class PalindromeTest {
   
-  
+	public static void main(String arg){
+		
+	}
     public static void main(String args[]){
       
         //Scanner scanner = new Scanner(System.in);       

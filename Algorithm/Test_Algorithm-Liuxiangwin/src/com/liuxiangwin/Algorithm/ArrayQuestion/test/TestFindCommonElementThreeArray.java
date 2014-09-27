@@ -36,8 +36,9 @@ public class TestFindCommonElementThreeArray {
 				i++;
 			else if (sortedArr2[j] < sortedArr1[i])
 				j++;
+			//the branch means array[i]== array[j]
 			else {
-				if (sortedArr3[k] < sortedArr1[i])
+				if (sortedArr1[i]> sortedArr3[k] )
 					k++;
 				else if (sortedArr3[k] > sortedArr1[i]) {
 					i++;

@@ -35,9 +35,10 @@ public class TestRevseNumber {
 		if(number < 1){
 			return 0;
 		}
-		int temp = number % 10;
-		number = (number - temp)/10;
-		return reveseNumberRecusively(number) + (int)(temp * Math.pow(10,depth++));
+		int lastNum = number % 10;
+		number = (number - lastNum)/10;
+		return reveseNumberRecusively(number) 
+				+ (int)(lastNum * Math.pow(10,depth++));
 		
 	}
 }
