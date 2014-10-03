@@ -2,7 +2,7 @@ package com.liuxiangwin.Algorithm.String.test;
 
 import java.util.Arrays;
 
-public class TestReserveString {
+public class TestShiftReserveString {
 
 	/**
 	 * @param args
