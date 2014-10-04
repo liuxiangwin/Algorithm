@@ -22,6 +22,13 @@ public class TestReverseDiscreteWord {
         reverseWordByBlank(testSentense2);        
 
         System.out.print("After reverse Word by blank "+Arrays.toString(testSentense2));
+        
+        char [] newTest = "the sky is blue".toCharArray();
+        		
+        reverseWordByBlank(newTest);
+        System.out.println(Arrays.toString(newTest));
+        
+        lengthOfLongestSubstring();
 
 
 	}
@@ -52,5 +59,35 @@ public class TestReverseDiscreteWord {
 		}
 
 	}
+	
+	private static void reverseWordByWord(char[] string) {
+        int i =0;
+        int j= string.length-1;
+		while (i < j) {
+			if(string[i]==' '&& string[j]==' ')
+			{
+				char temp = string[i];
+				string[i] = string[j];
+				string[j] = temp;			
+				i++;
+				j--;
+			}
+		}
+
+	}
+	
+	public static void lengthOfLongestSubstring() {
+		  String str = "abcbcbd";
+		  String sb = "";
+
+		for (int i = 0; i < str.length(); i++) {
+
+			if (sb.indexOf(str.charAt(i)) == -1) {
+				sb += str.charAt(i);
+			} else
+				break;
+		}
+		System.out.println("Substring: "+sb+" Length: " + sb.length());
+		}
 
 }

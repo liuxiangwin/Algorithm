@@ -21,7 +21,12 @@ public class TestStringRotated {
 		 * indexOf(String str)
 			返回指定子字元串在此字元串中第一次出現處的索引。
 			如果s1=+s1 indexOf 没有返回-1证明是子串
-		 */
+			
+	     * indexOf function complexity is O(n*m) 
+		 * where n is length of the text and m is a 
+		 * length of pattern here is indexOf original code		
+			
+		 */	
 		return (s1.length() == s2.length())
 				&& 
 				((s1 + s1).indexOf(s2) != -1);
