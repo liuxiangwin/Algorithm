@@ -1,10 +1,28 @@
 package com.liuxiangwin.jvm.knowledge;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 public class TestPracticeMapUtil {
-
+    
+	public static void main(String args[])
+	{
+		HashMap<String,String> hashMap = new HashMap<String,String>();
+	       hashMap.put("Alan","good guy");
+	       hashMap.put("Jack","Movie guy");
+	       hashMap.put("Alan","Adobe guy");
+	       
+	       Iterator iter = hashMap.keySet().iterator();
+	       while (iter.hasNext()) {
+	    	   	String key = (String)iter.next();
+	    	   	String val = hashMap.get(key);
+	    	   	System.out.println("Key is "+key+" --Value is-- "+val);     
+	       
+		 }
+	     System.out.println(7%10);
+	}
+	
 	private static void iteratorMap(Map<String, Integer> map) {
 		//static int  i=20;//Complie error
 		//static final int k=99; //Complie error		
