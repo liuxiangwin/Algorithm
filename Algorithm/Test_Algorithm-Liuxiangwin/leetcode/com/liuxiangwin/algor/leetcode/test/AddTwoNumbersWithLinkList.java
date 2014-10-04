@@ -22,7 +22,7 @@ package com.liuxiangwin.algor.leetcode.test;
  * }
  */
 
-public class AddTwoNumbers {
+public class AddTwoNumbersWithLinkList {
 
 	public ListNode addTwoNumbers(ListNode listNode1, ListNode listNode2) {
 	       int sum =0;
@@ -33,12 +33,12 @@ public class AddTwoNumbers {
 	        ressultNode = newHead;
 	 
 	        while(node1 != null || node2 != null){
-	        	//Move to next node in list one
+	        	//Move to next node in list team one
 	            if(node1 != null){
 	                sum += node1.val;
 	                node1 = node1.next;
 	            }
-	            //Move to next node in list two
+	            //Move to next node in list team two
 	            if(node2 != null){
 	                sum += node2.val;
 	                node2 = node2.next;
@@ -46,7 +46,7 @@ public class AddTwoNumbers {
 	 
 	            ressultNode.next = new ListNode(sum%10);
 	            ressultNode = ressultNode.next;
-	            sum /= 10;
+	            sum /= 10;//如果不到10 sum为加和值，如果为10保留1
 	        }
 	 
 	        if(sum==1) 
@@ -77,7 +77,7 @@ public class AddTwoNumbers {
 		l2.next = n4;
 		n4.next = n5;
 
-		AddTwoNumbers slt = new AddTwoNumbers();
+		AddTwoNumbersWithLinkList slt = new AddTwoNumbersWithLinkList();
 		ListNode result = slt.addTwoNumbers(l1, l2);
 		slt.print(result);
 	}

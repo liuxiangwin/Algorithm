@@ -1,4 +1,6 @@
 package com.liuxiangwin.algor.leetcode.test;
+
+import java.util.Arrays;
 // Author:   Li Long, 1988lilong@163.com
 // Date:     Apr 17, 2014
 // Source:   http://oj.leetcode.com/problems/remove-duplicates-from-sorted-array/
@@ -23,10 +25,9 @@ public class RemoveDuplicatesfromSortedArray {
         int index = 0;
         for(int i = 1; i < A.length; i++) {
         	if(A[i] != A[index]) {
-        		//move the head pointer to next
+        		//指针移到下一位，用来存放不重复的值
         		index++;
-        		//copy the no duplicate element to increase index 
-        		//element
+        		//存放不重复的值
         		A[index] = A[i];
         	}
         }
@@ -36,18 +37,15 @@ public class RemoveDuplicatesfromSortedArray {
     
     public static void main(String[] args) {
     	RemoveDuplicatesfromSortedArray slt = new RemoveDuplicatesfromSortedArray();
-    	//int[] A = {1, 1, 2, 3, 4, 4, 5};
-    	int[] array = {1, 1, 2};
-    	
-    	for(int i=0; i<array.length; i++){
-    		
-    	}
+    	int[] array = {1, 1, 2, 3, 4, 4, 5};
+    	//int[] array = {1, 1, 2};    	
     	
     	int len = slt.removeDuplicates(array);
     	System.out.println(len);
     	for(int i = 0; i < len; i++) {
     		System.out.print(array[i] + " ");
     	}
+    	System.out.println(Arrays.toString(array));
     }
 }
 
