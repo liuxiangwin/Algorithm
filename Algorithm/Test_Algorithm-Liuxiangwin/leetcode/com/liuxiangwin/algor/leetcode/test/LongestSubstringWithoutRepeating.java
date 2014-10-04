@@ -10,7 +10,7 @@ import java.util.HashMap;
 // For example, the longest substring without repeating letters for "abcabcbb" is "abc", which the length is 3. 
 // For "bbbbb" the longest substring is "b", with the length of 1.
 
-public class LongestSubstring {
+public class LongestSubstringWithoutRepeating {
 	
 	public static int lengthOfLongestSubstring2(String s) {
 		 
@@ -81,7 +81,7 @@ public class LongestSubstring {
 	}
 
 	public static void main(String[] args) {
-		LongestSubstring slt = new LongestSubstring();
+		LongestSubstringWithoutRepeating slt = new LongestSubstringWithoutRepeating();
 		int len = slt.lengthOfLongestSubstring("wlrbbmqbhcdarzowkkyhiddqscdxrjmowfrxsjybl"
 				+ "dbefsarcbynecdyggxxpklorellnmpapqfwkhopkmco");
 		
