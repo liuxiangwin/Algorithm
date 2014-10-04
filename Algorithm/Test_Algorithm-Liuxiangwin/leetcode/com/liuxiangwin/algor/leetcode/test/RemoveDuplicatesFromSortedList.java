@@ -31,13 +31,13 @@ public class RemoveDuplicatesFromSortedList {
 		ListNode cur = head.next;
 
 		while (cur != null) {
-			//No duplicate element
+			//没有重复元素
 			if (cur.val != pre.val) {
 				pre = cur;
 				cur = cur.next;
 				continue;
 			}
-           //Duplicate element,only move the current pointer
+           //出现重复元素,only move the current pointer
 			while (cur.next != null && cur.next.val == pre.val) {
 				cur = cur.next;
 			}
