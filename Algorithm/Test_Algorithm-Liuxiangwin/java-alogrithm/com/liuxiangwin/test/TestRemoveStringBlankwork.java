@@ -19,6 +19,7 @@ public class TestRemoveStringBlankwork {
 
 	public static void main(String[] args) {
        String testString =" Adobe RD ";
+       //ReplacAll方法中第一匹配的是表达式 String regex;第二个需要替换成的内容 
        System.out.println(testString.replaceAll("\\s", ""));
        System.out.println(testString.replaceAll("\\s", "空格")); 
 	}
