@@ -7,7 +7,7 @@ package com.liuxiangwin.test;
  *
  * @author Javin Paul
  */
-public class PalindromeTest {
+public class NumberIsPalindromeTest {
   
 	public static void main(String arg){
 		
