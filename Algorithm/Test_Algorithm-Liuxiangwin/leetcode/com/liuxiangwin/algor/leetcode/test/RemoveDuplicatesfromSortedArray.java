@@ -31,7 +31,7 @@ public class RemoveDuplicatesfromSortedArray {
         		A[index] = A[i];
         	}
         }
-        
+        //这个非常重要index+1 返回的是去重后的长度
         return index + 1;
     }
     
