@@ -1,9 +1,8 @@
 package com.liuxiangwin.algor.leetcode.test;
 
 import java.util.HashMap;
-// Author:   Li Long, 1988lilong@163.com
-// Date:     Apr 17, 2014
-// Source:   http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/
+
+
 // Analysis: http://blog.csdn.net/lilong_dream/article/details/19431417
 
 // Given a string, find the length of the longest substring without repeating characters. 
@@ -36,6 +35,8 @@ public class LongestSubstringWithoutRepeating {
 	public static void main(String[] args) {
 		LongestSubstringWithoutRepeating slt = new LongestSubstringWithoutRepeating();		
 		int len2 = slt.lengthOfLongestSubstring2("ababcc");
+		
 		System.out.println(len2);
+
 	}
 }

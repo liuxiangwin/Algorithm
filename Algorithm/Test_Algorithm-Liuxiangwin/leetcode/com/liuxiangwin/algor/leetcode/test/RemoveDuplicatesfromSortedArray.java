@@ -27,7 +27,7 @@ public class RemoveDuplicatesfromSortedArray {
         	if(A[i] != A[index]) {
         		//指针移到下一位，用来存放不重复的值
         		index++;
-        		//存放不重复的值
+        		//存放不重复的值,index的位置相当于中间变量
         		A[index] = A[i];
         	}
         }
