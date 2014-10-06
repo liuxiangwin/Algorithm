@@ -1,7 +1,5 @@
 package com.liuxiangwin.algor.leetcode.test;
-// Author:   Li Long, 1988lilong@163.com
-// Date:     Apr 18, 2014
-// Source:   http://oj.leetcode.com/problems/add-two-numbers/
+
 // Analysis: http://blog.csdn.net/lilong_dream/article/details/19544995
 
 // You are given two linked lists representing two non-negative numbers. 
