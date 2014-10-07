@@ -11,21 +11,21 @@ the last digit of the integer.
  *
  */
 public class MaxBinaryGap {
-	public static int solution(int N) {
+	public static int solution(int number) {
 		int max = 0;
 		int count = -1;
-		int r = 0;
+		int result = 0;
         
-		while (N > 0) {
+		while (number > 0) {
 			// 通过右移操作来&每个bit位
-			r = N & 1;
-			N = N >> 1; 
+			result = number & 1;
+			number = number >> 1; 
 			//如果是0
-			if (0 == r && count >= 0) {
+			if (result ==0 && count >= 0) {
 				count++;
 			} 
 			//表示到头了
-			if (1 == r) {
+			if (result == 1) {
 				max = count > max ? count : max;
 				count = 0;
 			}
