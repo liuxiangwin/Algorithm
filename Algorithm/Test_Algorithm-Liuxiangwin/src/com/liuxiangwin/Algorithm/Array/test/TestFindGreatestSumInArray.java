@@ -23,7 +23,9 @@ public class TestFindGreatestSumInArray {
 		
 		int array4[] ={1, -2, 3, 10, -4, 7, 2, -5};
 		
-		findMaxSubArray(array4);
+		int array5[] = {-2,1,-3,4,-1,2,1,-5,4};
+		
+		findMaxSubArray(array5);
 		
 		
 		
@@ -52,7 +54,7 @@ public class TestFindGreatestSumInArray {
 	             *  Remove the previous temporary summation
 	                Replace with current element,the set start
 	                with current index
-	                                                这种 情况只可能发生在，前面是负数，然后当前是正数
+	                                                杩欑 鎯呭喌鍙彲鑳藉彂鐢熷湪锛屽墠闈㈡槸璐熸暟锛岀劧鍚庡綋鍓嶆槸姝ｆ暟
 	             */	               
 	            	maxStartIndex = i;
 	            	tmpSum = inputArray[i];      
@@ -66,8 +68,13 @@ public class TestFindGreatestSumInArray {
 	        System.out.println("Max sum         : "+maxSum);
 	        System.out.println("Max start index : "+maxStartIndex);
 	        System.out.println("Max end index   : "+maxEndIndex);
-	        System.out.println("The maxsum Array is   : "+Arrays.toString(Arrays.copyOfRange(inputArray,maxStartIndex,maxEndIndex)));
+	        System.out.println("The maxsum Array is   : "+Arrays.toString(Arrays.copyOfRange(inputArray,maxStartIndex,maxEndIndex+1)));
 	        
-	        
+	        int[] result = new int[maxEndIndex-maxStartIndex+1];
+	        for(int j=0, i= maxStartIndex;i<= maxEndIndex;i++,j++)
+	        {
+	        	result[j]=inputArray[i];
+	        }
+	        System.out.println("The maxsum Array is   : "+Arrays.toString(result));
 	    }	
 }
