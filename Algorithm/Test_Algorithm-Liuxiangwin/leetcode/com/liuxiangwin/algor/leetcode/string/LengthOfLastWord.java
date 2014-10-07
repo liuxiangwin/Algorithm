@@ -1,6 +1,6 @@
 package com.liuxiangwin.algor.leetcode.string;
-// Author:   Li Long, 1988lilong@163.com
-// Date:     Apr 18, 2014
+
+
 // Source:   http://oj.leetcode.com/problems/length-of-last-word/
 // Analysis: http://blog.csdn.net/lilong_dream/article/details/19840937
 
