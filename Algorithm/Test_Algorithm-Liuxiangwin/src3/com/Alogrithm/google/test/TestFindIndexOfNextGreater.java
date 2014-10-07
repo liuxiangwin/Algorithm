@@ -22,7 +22,7 @@ public class TestFindIndexOfNextGreater {
 			if (intArray[i] > A) {
 				if (index == -1 || intArray[i] < intArray[index]) {
 					index = i;
-					System.out.println("index is" + index);
+					System.out.println("index is " + index);
 				}
 
 			}
