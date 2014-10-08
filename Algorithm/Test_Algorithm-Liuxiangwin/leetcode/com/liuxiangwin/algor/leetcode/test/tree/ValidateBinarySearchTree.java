@@ -1,4 +1,8 @@
 package com.liuxiangwin.algor.leetcode.test.tree;
+
+import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
+
+
 // Author:   Li Long, 1988lilong@163.com
 // Date:     Apr 17, 2014
 // Source:   http://oj.leetcode.com/problems/validate-binary-search-tree/

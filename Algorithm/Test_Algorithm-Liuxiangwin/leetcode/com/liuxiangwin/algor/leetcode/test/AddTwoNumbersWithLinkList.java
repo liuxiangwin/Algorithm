@@ -1,5 +1,7 @@
 package com.liuxiangwin.algor.leetcode.test;
 
+import com.liuxiangwin.algor.leetcode.uitl.ListNode;
+
 // Analysis: http://blog.csdn.net/lilong_dream/article/details/19544995
 
 // You are given two linked lists representing two non-negative numbers. 

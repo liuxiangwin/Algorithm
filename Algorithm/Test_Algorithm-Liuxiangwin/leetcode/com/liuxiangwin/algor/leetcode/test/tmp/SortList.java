@@ -1,4 +1,9 @@
 package com.liuxiangwin.algor.leetcode.test.tmp;
+
+import com.liuxiangwin.algor.leetcode.test.MergeTwoSortedLists;
+import com.liuxiangwin.algor.leetcode.uitl.ListNode;
+
+
 // Author:   Li Long, 1988lilong@163.com
 // Date:     Apr 17, 2014
 // Source:   http://oj.leetcode.com/problems/sort-list/
@@ -48,6 +53,7 @@ public class SortList {
     // Reuse Merge Two Sorted Lists
     public ListNode merge(ListNode left, ListNode right) {
     	MergeTwoSortedLists helper = new MergeTwoSortedLists();
+    	//return helper.mergeTwoLists(left, right);
     	return helper.mergeTwoLists(left, right);
     }
     
