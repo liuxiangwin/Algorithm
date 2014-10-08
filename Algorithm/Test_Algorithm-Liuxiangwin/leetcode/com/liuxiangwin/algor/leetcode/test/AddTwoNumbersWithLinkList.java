@@ -41,10 +41,10 @@ public class AddTwoNumbersWithLinkList {
 	                sum += node2.val;
 	                node2 = node2.next;
 	            }
-	 
+	            //存当前值的
 	            ressultNode.next = new ListNode(sum%10);
 	            ressultNode = ressultNode.next;
-	            sum /= 10;//如果不到10 sum为加和值，如果为10保留1
+	            sum /= 10;//存进位值的 如果不到10 sum为加和值，如果为10保留1
 	        }
 	 
 	        if(sum==1) 
