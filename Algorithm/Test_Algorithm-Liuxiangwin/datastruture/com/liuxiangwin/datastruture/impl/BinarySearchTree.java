@@ -252,6 +252,11 @@ package com.liuxiangwin.datastruture.impl;
             binarySearchTree.insert(new Integer(14));
             binarySearchTree.insert(new Integer(13));
             
+            binarySearchTree.printTree();
+            System.out.println("----------");
+            binarySearchTree.remove(3);
+            binarySearchTree.printTree();
+            
             System.out.println("The Min element is "+binarySearchTree.findMin());
             
             System.out.println("The Max element is "+binarySearchTree.findMax());
