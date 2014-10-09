@@ -6,6 +6,19 @@ public class StringUtil {
 	private static int[][] c;
 	private static int n;
 	private static char ss[];
+	
+
+	public String isPalindrome(String s, int begin, int end) {
+		while (begin >= 0 && end <= s.length() - 1 
+			&& s.charAt(begin) == s.charAt(end)) {
+			begin--;
+			end++;
+		}
+		return s.substring(begin + 1, end);
+	}
+	
+	
+	
 
 	private static void init() {
 		Scanner sc = new Scanner(System.in);
