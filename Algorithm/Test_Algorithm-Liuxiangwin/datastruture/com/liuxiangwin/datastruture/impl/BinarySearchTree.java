@@ -1,5 +1,8 @@
 package com.liuxiangwin.datastruture.impl;
 
+import com.liuxiangwin.Algorithm.Uitl.test.BTreePrinter;
+
+
 	// BinarySearchTree class
     //
     // CONSTRUCTION: with no initializer
@@ -208,18 +211,22 @@ package com.liuxiangwin.datastruture.impl;
 
         /**
          * Internal method to print a subtree in sorted order.
-         * @param t the node that roots the tree.
+         * @param root the node that roots the tree.
          */
-        private void printTree( BinaryNode t )
+        private void printTree( BinaryNode root )
         {
-            if( t != null )
+            if( root != null )
             {
-                printTree( t.left );
-                System.out.println( t.element );
-                printTree( t.right );
+                printTree( root.left );
+                System.out.println("|-------"+ root.element );
+                System.out.print("|\t");
+                printTree( root.right );
             }
         }
-        
+        private void printTreeWhole()
+        {
+        	BTreePrinter.printNode(rootNode);
+        }
          /**
          * Make the tree logically empty.
          */
@@ -238,7 +245,7 @@ package com.liuxiangwin.datastruture.impl;
         }
                
             // Test program
-        public static void main( String [ ] args )
+        public static void main( String[] args )
         {
             BinarySearchTree binarySearchTree = new BinarySearchTree( );
             
@@ -252,20 +259,26 @@ package com.liuxiangwin.datastruture.impl;
             binarySearchTree.insert(new Integer(14));
             binarySearchTree.insert(new Integer(13));
             
-            binarySearchTree.printTree();
-            System.out.println("----------");
+            //binarySearchTree.printTree();
+            binarySearchTree.printTreeWhole();
+            System.out.println("=========================");
             binarySearchTree.remove(3);
-            binarySearchTree.printTree();
+            //binarySearchTree.printTree();
+            binarySearchTree.printTreeWhole();
             
             System.out.println("The Min element is "+binarySearchTree.findMin());
             
             System.out.println("The Max element is "+binarySearchTree.findMax());
             
             System.out.println("The print tree is " );
-            binarySearchTree.printTree();
+            //binarySearchTree.printTree();
+            binarySearchTree.printTreeWhole();
             
             
             binarySearchTree.remove(new Integer(13));
            
         }
     }
+    
+    
+ 
