@@ -80,9 +80,20 @@ public class BinaryTreePreorderTraversal {
 		TreeNode n2 = new TreeNode(2);
 		TreeNode n3 = new TreeNode(3);
 		root.right = n2;
-		n2.left = n3;
+		//n2.left = n3;
+		root.left = n3;
 		
-		ArrayList<Integer> res = slt.preorderTraversal(root);
+		TreeNode n4 = new TreeNode(6);
+		TreeNode n5 = new TreeNode(9);
+		TreeNode n6 = new TreeNode(5);
+		TreeNode n7 = new TreeNode(6);
+		
+		n3.left= n4;
+		n3.right= n5;
+		
+		n2.right=n6;
+		n6.right=n7;
+		ArrayList<Integer> res = slt.preorderTraversalIter(root);
 		System.out.println(res.toString());
 	}
 }
