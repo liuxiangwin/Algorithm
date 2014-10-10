@@ -19,6 +19,11 @@ public class TestShiftReserveString {
 		String testArray3 = "5709320";
 		rightCharShiftByWhile(testArray3.toCharArray(), 2);
 		System.out.println("rightCharShiftByWhile " + Arrays.toString(testArray2));
+		
+		
+		char[] testArray4 = "abcdef".toCharArray();
+		leftShift(testArray4,2);
+		System.out.println("leftShit " + Arrays.toString(testArray4));
 	}
 	
 	
@@ -31,7 +36,19 @@ public class TestShiftReserveString {
 		reserve(array, rotateNum, array.length - 1);
 		
 	}
-
+     
+	private static void leftShift(char[] array, int rotateNum) {
+		if (rotateNum < 0) {
+			return;
+		}
+		reverseCharByWhile(array, 0, array.length - 1);
+		reverseCharByWhile(array, 0, array.length - rotateNum-1);
+		reverseCharByWhile(array, array.length - rotateNum, array.length - 1);
+		
+	}
+	
+	
+	
 	private static void rightShiftByWhile(int[] array, int rotateNum) {
 
 		if (rotateNum < 0) {
