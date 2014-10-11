@@ -20,7 +20,7 @@ import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
  * }
  */
 
-public class SameTree {
+public class IsSameTree {
 	public boolean isSameTree(TreeNode p, TreeNode q) {
 		if (p == null && q == null) {
 			return true;
@@ -41,7 +41,7 @@ public class SameTree {
 		TreeNode n4 = new TreeNode(1);
 		n3.right = n4;
 
-		SameTree slt = new SameTree();
+		IsSameTree slt = new IsSameTree();
 		System.out.println(slt.isSameTree(n1, n3));
 	}
 }
