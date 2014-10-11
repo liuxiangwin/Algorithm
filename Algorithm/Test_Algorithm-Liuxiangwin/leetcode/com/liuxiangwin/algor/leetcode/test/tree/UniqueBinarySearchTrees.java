@@ -13,6 +13,21 @@ package com.liuxiangwin.algor.leetcode.test.tree;
 //    /     /       \                 \
 //   2     1         2                 3
 
+/**
+ *  1          3     3      2      1
+    \        /      /       / \       \
+     3     2     1       1   3       2
+    /     /        \                      \
+   2    1          2                     3
+本题使用一维线性规划解决。
+如果n等于0时，结果为0；
+如果n等于1时，只有一个节点，结果为1；
+如果n等于2时，根节点有两种选择，结果为2；
+如果n大于3时，根节点有n种选择，确定根节点后分别计算左右子树的可能情况，
+然后相乘就是当前根节点下所有的变形种类，之后在求和即可。算法实现如下：
+ * @author liuxiangwin
+ *
+ */
 public class UniqueBinarySearchTrees {
 	public int numTrees(int n) {
 		int[] num = new int[n + 1];
