@@ -12,7 +12,7 @@ package com.liuxiangwin.algor.leetcode.test;
 // The number of elements initialized 
 //in A and B are m and n respectively.
 
-public class MergeSortedArray {
+public class MergeTwoSortedArray {
 	public void merge(int arrayA[], int arrayAlength, int arrayB[], 
 			int arrayBlength) {
 		int idx = arrayAlength + arrayBlength - 1;
@@ -38,7 +38,7 @@ public class MergeSortedArray {
 	}
 
 	public static void main(String[] args) {
-		MergeSortedArray slt = new MergeSortedArray();
+		MergeTwoSortedArray slt = new MergeTwoSortedArray();
 		int A[] = new int[5];
 		A[0] = 1;
 		A[1] = 3;

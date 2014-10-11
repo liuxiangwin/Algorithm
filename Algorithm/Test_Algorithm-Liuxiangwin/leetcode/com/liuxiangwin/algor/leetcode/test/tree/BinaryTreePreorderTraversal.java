@@ -20,16 +20,10 @@ package com.liuxiangwin.algor.leetcode.test.tree;
 import java.util.ArrayList;
 import java.util.Stack;
 
-// Definition for binary tree
-class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
+import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
+import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
-	TreeNode(int x) {
-		val = x;
-	}
-}
+
 
 public class BinaryTreePreorderTraversal {
 	// Recursive
@@ -93,6 +87,8 @@ public class BinaryTreePreorderTraversal {
 		
 		n2.right=n6;
 		n6.right=n7;
+		
+		BinaryTreePrinter.printNode(root);
 		ArrayList<Integer> res = slt.preorderTraversalIter(root);
 		System.out.println(res.toString());
 	}
