@@ -12,14 +12,14 @@ public class ConvertSortArrayToBuildBinaryTree {
 			node.left = sortedArrayToBST(num, start, mid-1);
 			node.right = sortedArrayToBST(num, mid+1, end);
 			return node;
-		}
+		}		
 	   return null;
 	}
 
 
 	public static void main(String args[]) {
 		int[] number = { 9, 12, 14, 17, 19, 23, 50, 54, 67, 72, 76 };
-		SortListToBuildBinaryTree btFromSortArray = new SortListToBuildBinaryTree();
+		ConvertSortArrayToBuildBinaryTree btFromSortArray = new ConvertSortArrayToBuildBinaryTree();
 		TreeNode root = btFromSortArray.sortedArrayToBST(number,0,number.length-1);
 		BinaryTreePrinter.printNode(root);
 	}

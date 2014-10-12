@@ -22,7 +22,21 @@ import java.util.Stack;
 
 import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
+/**
+ * 
+ *             1               
+		      / \       
+		     /   \      
+		    /     \     
+		   /       \    
+		   3       2       
+		  / \       \   
+		 /   \       \  
+		 6   9       5   
+		              \ 
+		              6 
 
+ */
 
 
 public class BinaryTreePreorderTraversal {
@@ -41,6 +55,7 @@ public class BinaryTreePreorderTraversal {
 		return result;
 	}
 
+	
 	// iterative
 	public ArrayList<Integer> preorderTraversalIter(TreeNode root) {
 		ArrayList<Integer> result = new ArrayList<Integer>();
@@ -68,6 +83,38 @@ public class BinaryTreePreorderTraversal {
 		return result;
 	}
 	
+	
+	
+	public ArrayList<Integer> iorderTraversal(TreeNode root) {
+		ArrayList<Integer> result = new ArrayList<Integer>();
+
+		if (root != null) {
+			result.addAll(iorderTraversal(root.left));
+
+			result.add(root.val);
+			
+			result.addAll(iorderTraversal(root.right));
+		}
+
+		return result;
+	}
+	
+	
+	public ArrayList<Integer> postorderTraversal(TreeNode root) {
+		ArrayList<Integer> result = new ArrayList<Integer>();
+
+		if (root != null) {
+			
+
+			result.addAll(postorderTraversal(root.left));
+
+			result.addAll(postorderTraversal(root.right));
+			
+			result.add(root.val);
+		}
+
+		return result;
+	}
 	public static void main(String[] args) {
 		BinaryTreePreorderTraversal slt = new BinaryTreePreorderTraversal();
 		TreeNode root = new TreeNode(1);
@@ -91,5 +138,11 @@ public class BinaryTreePreorderTraversal {
 		BinaryTreePrinter.printNode(root);
 		ArrayList<Integer> res = slt.preorderTraversalIter(root);
 		System.out.println(res.toString());
+		
+		ArrayList<Integer> res2 = slt.iorderTraversal(root);
+		System.out.println("中序遍历 "+res2.toString());
+		
+		ArrayList<Integer> res3 = slt.postorderTraversal(root);
+		System.out.println("后序遍历 "+res3.toString());
 	}
 }
