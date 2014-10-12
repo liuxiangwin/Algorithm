@@ -3,7 +3,7 @@ package com.liuxiangwin.algor.leetcode.test.tree;
 import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
-public class BuildBinaryTreeFromSortArray {
+public class ConvertSortArrayToBuildBinaryTree {
 
 	public TreeNode buildTree(int[] num, int start, int end) {
 		if (start <= end) {
@@ -24,7 +24,7 @@ public class BuildBinaryTreeFromSortArray {
 
 	public static void main(String args[]) {
 		int[] number = { 9, 12, 14, 17, 19, 23, 50, 54, 67, 72, 76 };
-		BuildBinaryTreeFromSortArray btFromSortArray = new BuildBinaryTreeFromSortArray();
+		ConvertSortArrayToBuildBinaryTree btFromSortArray = new ConvertSortArrayToBuildBinaryTree();
 		TreeNode root = btFromSortArray.sortedArrayToBST(number);
 		BinaryTreePrinter.printNode(root);
 	}
