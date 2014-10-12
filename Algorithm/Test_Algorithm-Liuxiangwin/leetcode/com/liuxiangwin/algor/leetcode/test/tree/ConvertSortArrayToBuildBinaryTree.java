@@ -8,7 +8,9 @@ public class ConvertSortArrayToBuildBinaryTree {
 	public TreeNode sortedArrayToBST(int[] num, int start, int end) {
 		if (start <= end) {
 			int mid = (start + end) / 2;
+			
 			TreeNode node = new TreeNode(num[mid]);
+			
 			node.left = sortedArrayToBST(num, start, mid-1);
 			node.right = sortedArrayToBST(num, mid+1, end);
 			return node;
