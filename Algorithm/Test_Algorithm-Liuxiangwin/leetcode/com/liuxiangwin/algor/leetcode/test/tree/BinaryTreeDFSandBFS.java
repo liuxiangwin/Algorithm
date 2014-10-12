@@ -2,10 +2,12 @@ package com.liuxiangwin.algor.leetcode.test.tree;
 
 import java.util.ArrayList;
 import java.util.Queue;
+import java.util.Stack;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
+
 
 /**
  * 
@@ -46,7 +48,7 @@ E     F
  */
  
 public class BinaryTreeDFSandBFS {
-	
+	//¹ã¶È±éÀú
 	private  ArrayList<Integer> breadtheFrist(TreeNode root) {
 		ArrayList<Integer> result = new ArrayList<Integer>();
 		Queue queue = new ConcurrentLinkedQueue();
@@ -68,7 +70,30 @@ public class BinaryTreeDFSandBFS {
 	}
 	
 	
-	private  ArrayList<Integer> deptheFrist(TreeNode root) {
+/*	private  ArrayList<Integer> deptheFrist(TreeNode root) {
+		
+		// DFS uses Stack data structure
+	    Stack stack = new Stack();
+	    stack.push(this.root);
+	    root.visited=true;
+	    while(!stack.isEmpty()) {
+	    	TreeNode node = (TreeNode)stack.peek();
+	        Node child = getUnvisitedChildNode(n);
+	        if(child != null) {
+	            child.visited = true;
+	            s.push(child);
+	        }
+	        else {
+	            s.pop();
+	        }
+	    }
+	    // Clear visited property of nodes
+	    clearNodes();
+		
+		
+		
+		
+		
 		ArrayList<Integer> result = new ArrayList<Integer>();
 		Queue queue = new ConcurrentLinkedQueue();
 		queue.add(root);
@@ -86,7 +111,7 @@ public class BinaryTreeDFSandBFS {
 
 		}
 		return result;
-	}
+	}*/
 	
 	public static void main(String[] args) {
 		BinaryTreeDFSandBFS dfsAndbfs = new BinaryTreeDFSandBFS();
