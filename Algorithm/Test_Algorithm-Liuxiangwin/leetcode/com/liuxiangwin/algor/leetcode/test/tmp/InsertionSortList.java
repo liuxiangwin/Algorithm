@@ -1,4 +1,6 @@
 package com.liuxiangwin.algor.leetcode.test.tmp;
+
+import com.liuxiangwin.algor.leetcode.uitl.ListNode;
 // Author:   Li Long, 1988lilong@163.com
 // Date:     Apr 17, 2014
 // Source:   http://oj.leetcode.com/problems/insertion-sort-list/
