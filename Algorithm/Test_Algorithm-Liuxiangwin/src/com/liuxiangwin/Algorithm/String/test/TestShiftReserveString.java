@@ -24,6 +24,9 @@ public class TestShiftReserveString {
 		char[] testArray4 = "abcdef".toCharArray();
 		leftShift(testArray4,2);
 		System.out.println("leftShit " + Arrays.toString(testArray4));
+		
+		
+		System.out.println(rotateSentence("I am a student.".toCharArray()));
 	}
 	
 	
@@ -46,6 +49,24 @@ public class TestShiftReserveString {
 		reverseCharByWhile(array, array.length - rotateNum, array.length - 1);
 		
 	}
+	
+	
+	public static char[] rotateSentence(char[] sentence) {
+        int start = 0;
+        int end = 0;
+        int i = 0;
+        while (i < sentence.length) {
+            // 空格是单词的分隔符
+            while (i < sentence.length && sentence[i] != ' ') {
+                i++;
+            }
+            end = i - 1;
+            sentence = rotate(sentence, start, end);        // 旋转一个单词
+            start = (++i);
+        }
+        sentence = rotate(sentence, 0, sentence.length - 1);    // 翻转整个句子
+        return sentence;
+    }
 	
 	
 	
@@ -104,4 +125,15 @@ public class TestShiftReserveString {
 		}
 
 	}
+	
+	 private static char[] rotate(char[] str, int start, int end) {
+	        while (start < end) {
+	            char tmp = str[start];
+	            str[start] = str[end];
+	            str[end] = tmp;
+	            start++;
+	            end--;
+	        }
+	        return str;
+	    }
 }
