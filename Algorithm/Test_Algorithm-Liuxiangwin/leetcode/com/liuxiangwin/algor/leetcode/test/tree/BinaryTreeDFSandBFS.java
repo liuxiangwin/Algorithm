@@ -57,7 +57,7 @@ public class BinaryTreeDFSandBFS {
 		while (!queue.isEmpty()) {
 			TreeNode node = (TreeNode) queue.remove();
 			result.add(node.val);
-			node.visited = true;
+			//node.visited = true;
 			if (node.left != null) {
 				queue.add(node.left);
 			}
