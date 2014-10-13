@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="src2"/>
+	<classpathentry kind="src" path="src3"/>
+	<classpathentry kind="src" path="datastruture"/>
+	<classpathentry kind="src" path="xml"/>
+	<classpathentry kind="src" path="web"/>
+	<classpathentry kind="src" path="source"/>
+	<classpathentry kind="src" path="java-alogrithm"/>
+	<classpathentry kind="src" path="multithreading"/>
+	<classpathentry kind="src" path="leetcode"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="lib/org.apache.servicemix.bundles.jaxp-ri-1.4.2_1.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.11.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
