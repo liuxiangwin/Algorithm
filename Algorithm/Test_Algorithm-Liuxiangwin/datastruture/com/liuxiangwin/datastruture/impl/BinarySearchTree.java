@@ -243,6 +243,46 @@ import com.liuxiangwin.Algorithm.Uitl.test.BTreePrinter;
         {
             return rootNode == null;
         }
+        
+        
+        protected void rotateLeft(BinaryNode  node) {
+            if (node.right == null) {
+                return;
+            }
+            BinaryNode oldRight = node.right;
+            node.right =oldRight.left;
+            if (node.getParent() == null) {
+                root = oldRight;
+            } else if (node.getParent().getLeft() == node) {
+                node.getParent().setLeft(oldRight);
+            } else {
+                node.getParent().setRight(oldRight);
+            }
+            oldRight.setLeft(node);
+        }
+
+        /**
+         * Rotates right around the given node.
+         */
+        protected void rotateRight(BinaryTreeNode<E> n) {
+            if (n.getLeft() == null) {
+                return;
+            }
+            BinaryTreeNode<E> oldLeft = n.getLeft();
+            n.setLeft(oldLeft.getRight());
+            if (n.getParent() == null) {
+                root = oldLeft;
+            } else if (n.getParent().getLeft() == n) {
+                n.getParent().setLeft(oldLeft);
+            } else {
+                n.getParent().setRight(oldLeft);
+            }
+            oldLeft.setRight(n);
+        }
+        
+        
+        
+        
                
             // Test program
         public static void main( String[] args )
