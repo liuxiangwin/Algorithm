@@ -70,48 +70,32 @@ public class BinaryTreeDFSandBFS {
 	}
 	
 	
-/*	private  ArrayList<Integer> deptheFrist(TreeNode root) {
+	private  ArrayList<Integer> deptheFrist(TreeNode root) {
 		
-		// DFS uses Stack data structure
-	    Stack stack = new Stack();
-	    stack.push(this.root);
-	    root.visited=true;
-	    while(!stack.isEmpty()) {
-	    	TreeNode node = (TreeNode)stack.peek();
-	        Node child = getUnvisitedChildNode(n);
-	        if(child != null) {
-	            child.visited = true;
-	            s.push(child);
-	        }
-	        else {
-	            s.pop();
-	        }
-	    }
-	    // Clear visited property of nodes
-	    clearNodes();
-		
-		
-		
-		
-		
-		ArrayList<Integer> result = new ArrayList<Integer>();
-		Queue queue = new ConcurrentLinkedQueue();
-		queue.add(root);
-		
-		while (!queue.isEmpty()) {
-			TreeNode node = (TreeNode) queue.remove();
+		// DFS could 先序或是 中序 或是 后序
+	    ArrayList<Integer> result = new ArrayList<Integer>();
+
+		if (root == null) {
+			return result;
+		}
+
+		Stack<TreeNode> nodeStack = new Stack<TreeNode>();
+		nodeStack.push(root);
+
+		while (!nodeStack.empty()) { 
+			TreeNode node = nodeStack.pop();
 			result.add(node.val);
-			node.visited = true;
-			if (node.left != null) {
-				queue.add(node.left);
-			}
+
 			if (node.right != null) {
-				queue.add(node.right);
+				nodeStack.push(node.right);
 			}
 
-		}
+			if (node.left != null) {
+				nodeStack.push(node.left);
+			}
+		}	
 		return result;
-	}*/
+	}
 	
 	public static void main(String[] args) {
 		BinaryTreeDFSandBFS dfsAndbfs = new BinaryTreeDFSandBFS();
@@ -139,6 +123,11 @@ public class BinaryTreeDFSandBFS {
 		ArrayList<Integer> res= dfsAndbfs.breadtheFrist(root);
 		System.out.println("=====================");
 		System.out.println(res.toString());
+		
+		
+		ArrayList<Integer> res2= dfsAndbfs.deptheFrist(root);
+		System.out.println("=====================");
+		System.out.println(res2.toString());
 		
 	
 	}
