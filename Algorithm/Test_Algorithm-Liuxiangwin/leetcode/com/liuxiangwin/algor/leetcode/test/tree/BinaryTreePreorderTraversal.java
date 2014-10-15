@@ -35,7 +35,12 @@ import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 		 6   9       5   
 		              \ 
 		              6 
-
+	Time Complexity: O(n)
+	
+	Depth First Traversals:
+	(a) Inorder
+	(b) Preorder
+	(c) Postorder
  */
 
 
@@ -138,6 +143,10 @@ public class BinaryTreePreorderTraversal {
 		BinaryTreePrinter.printNode(root);
 		ArrayList<Integer> res = slt.preorderTraversalIter(root);
 		System.out.println(res.toString());
+		
+		
+		ArrayList<Integer> resIter = slt.preorderTraversalIter(root);
+		System.out.println(resIter.toString());
 		
 		ArrayList<Integer> res2 = slt.iorderTraversal(root);
 		System.out.println("ÖÐÐò±éÀú "+res2.toString());
