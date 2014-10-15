@@ -12,6 +12,8 @@ public class BinaryNode
 	public BinaryNode left;         // Left child
 	public BinaryNode right;        // Right child
 	
+	private BinaryNode parent;     //Parent reference
+	
 	
 	// Constructors
 	public BinaryNode(Comparable theElement )
@@ -25,6 +27,38 @@ public class BinaryNode
         this.left     = left;
         this.right    = right;
     }
+
+	public Comparable getElement() {
+		return element;
+	}
+
+	public void setElement(Comparable element) {
+		this.element = element;
+	}
+
+	public BinaryNode getLeft() {
+		return left;
+	}
+
+	public void setLeft(BinaryNode left) {
+		this.left = left;
+	}
+
+	public BinaryNode getRight() {
+		return right;
+	}
+
+	public void setRight(BinaryNode right) {
+		this.right = right;
+	}
+
+	public BinaryNode getParent() {
+		return parent;
+	}
+
+	public void setParent(BinaryNode parent) {
+		this.parent = parent;
+	}
 
 
 }

@@ -16,6 +16,7 @@ import com.liuxiangwin.Algorithm.Uitl.test.BTreePrinter;
     // boolean isEmpty( )     --> Return true if empty; else false
     // void makeEmpty( )      --> Remove all items
     // void printTree( )      --> Print tree in sorted order
+
     // The     	Average	   Worst case
     // Space	O(n)	    O(n)
      //Search	O(log n)	O(n)
@@ -245,12 +246,33 @@ import com.liuxiangwin.Algorithm.Uitl.test.BTreePrinter;
         }
         
         
-        protected void rotateLeft(BinaryNode  node) {
-            if (node.right == null) {
+        /**
+         * Rotates left around the given node.
+         */
+        protected BinaryNode rotateLeft(BinaryNode node)
+        // Rotate leftward --- left node moves down, right node moves up.
+        {  BinaryNode  rt = node.right, q = rt.left;
+
+           rt.left = node;
+           node.right= q;
+           return rt;        // Return the link to the new subtree root
+        }
+ 
+        protected BinaryNode rotateRight(BinaryNode rt)
+        // Rotate rightward --- right node moves down, left node moves up.
+        {  BinaryNode  lt = rt.left, q = lt.right;
+
+           lt.right= rt;
+           rt.left = q;
+           return lt;        // Return the link to the new subtree root
+        }
+        
+      /* protected void rotateLeft(BinaryNode node) {
+            if (node.getRight() == null) {
                 return;
             }
-            BinaryNode oldRight = node.right;
-            node.right =oldRight.left;
+            BinaryNode oldRight = node.getRight();
+            node.setRight(oldRight.getLeft());
             if (node.getParent() == null) {
                 root = oldRight;
             } else if (node.getParent().getLeft() == node) {
@@ -259,26 +281,7 @@ import com.liuxiangwin.Algorithm.Uitl.test.BTreePrinter;
                 node.getParent().setRight(oldRight);
             }
             oldRight.setLeft(node);
-        }
-
-        /**
-         * Rotates right around the given node.
-         */
-        protected void rotateRight(BinaryTreeNode<E> n) {
-            if (n.getLeft() == null) {
-                return;
-            }
-            BinaryTreeNode<E> oldLeft = n.getLeft();
-            n.setLeft(oldLeft.getRight());
-            if (n.getParent() == null) {
-                root = oldLeft;
-            } else if (n.getParent().getLeft() == n) {
-                n.getParent().setLeft(oldLeft);
-            } else {
-                n.getParent().setRight(oldLeft);
-            }
-            oldLeft.setRight(n);
-        }
+        }*/
         
         
         
@@ -314,6 +317,8 @@ import com.liuxiangwin.Algorithm.Uitl.test.BTreePrinter;
             //binarySearchTree.printTree();
             binarySearchTree.printTreeWhole();
             
+            
+            //binarySearchTree.rotateLeft(node)
             
             binarySearchTree.remove(new Integer(13));
            
