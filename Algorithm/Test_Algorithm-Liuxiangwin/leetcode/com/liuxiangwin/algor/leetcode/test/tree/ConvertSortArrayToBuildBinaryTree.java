@@ -3,6 +3,16 @@ package com.liuxiangwin.algor.leetcode.test.tree;
 import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
+/**
+ * 
+ * //Time Complexity: O(n)
+	 *T(n) = 2T(n/2) + C
+	  T(n) -->  Time taken for an array of size n
+	   C   -->  Constant (Finding middle of array and 
+	   linking root to left and right subtrees take constant time) 
+ */
+
+
 public class ConvertSortArrayToBuildBinaryTree {
 
 	public TreeNode sortedArrayToBST(int[] num, int start, int end) {
