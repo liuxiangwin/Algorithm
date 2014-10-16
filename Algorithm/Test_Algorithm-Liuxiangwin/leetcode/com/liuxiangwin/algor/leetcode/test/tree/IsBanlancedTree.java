@@ -6,13 +6,14 @@ import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 public class IsBanlancedTree {
 
 	public int height(TreeNode node) {
-		return node == null ? 0 : 1 + Math.max(height(node.left),
-				height(node.right));
+		//看左子树高还是右子树高，高的那个的高度加一就是整个二叉树的高度了
+		return node == null ? 
+			0 :	1 + Math.max(height(node.left),height(node.right));
 	}
-
+	
+	//它是一 棵空树或它的左右两个子树的高度差的绝对值不超过1	
 	public boolean isHeightBalanced(TreeNode root) {
-		return (root == null)
-				|| (isHeightBalanced(root.left) 
+		return (root == null)|| (isHeightBalanced(root.left) 
 				&& (isHeightBalanced(root.right) 
 				&& Math.abs(height(root.left) - height(root.right)) <= 1));
 	}
@@ -36,6 +37,9 @@ public class IsBanlancedTree {
 		BinaryTreePrinter.printNode(root);
 		
 		System.out.println("is Balanced Tree : "+isBanlancedTree.isHeightBalanced(root));
+		
+		System.out.println(isBanlancedTree.height(root));
+		
 	}
 
 }
