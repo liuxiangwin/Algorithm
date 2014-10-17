@@ -35,7 +35,7 @@ public class IsSymmetricTree {
 			return false;
 
 		return symmetric(left.left, right.right)
-		    && symmetric(right.right, right.right);
+		    && symmetric(left.right, right.left);
 	}
     
 	public static void main(String args[])
