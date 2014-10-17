@@ -41,16 +41,18 @@ public class IsFullorCompleteTree {
 		if (root == null) {
 			return true;
 		}
-		// case 1: Left is full, right is complete, heights same
+		// Case 1: Left is full, right is complete, heights same
 		if (isFull(root.left) 
-			&& isComplete(root.right) 
-			&& (height(root.left) == height(root.right)))
+			&& isComplete(root.right)
+			&& (height(root.left) == height(root.right))) {
 			return true;
-		// case 2: Left is complete, right is full, heights differ
+		}			
+		// Case 2: Left is complete, right is full, heights differ
 		if (isFull(root.right) 
 			&& isComplete(root.left) 
-			&& (height(root.left)== height(root.right) + 1))
+			&& (height(root.left)== height(root.right) + 1)){
 			return true;
+		}			
 		return false;
 	}
 
