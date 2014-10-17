@@ -4,8 +4,11 @@ import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
 public class IsFullorCompleteTree {
-     //除最后一层无任何子节点外，每一层上的所有结点都有两个子结点（最后一层上的无子结点的结点为叶子结点）。
-	//也可以这样理解，除叶子结点外的所有结点均有两个子结点。节点数达到最大值。所有叶子结点必须在同一层上.
+	//Full Tree 
+     //除最后一层无任何子节点外，每一层上的所有结点都有两个子结点\
+	//（最后一层上的无子结点的结点为叶子结点）。
+	//也可以这样理解，除叶子结点外的所有结点均有两个子结点。
+	//节点数达到最大值。所有叶子结点必须在同一层上.
 	
 	public boolean isFull(TreeNode root) {
 		if (root == null) {
