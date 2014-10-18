@@ -9,12 +9,12 @@ public class MaximumAndMinimumDepthOfBinaryTree {
 		if (root == null) {
 			return 0;
 		}
-		int maxDepthLeft = maxiumDepthOfTree(root.left);
+		int maxLeft = maxiumDepthOfTree(root.left);
 
-		int maxDepthRight = maxiumDepthOfTree(root.right);
+		int maxRight = maxiumDepthOfTree(root.right);
 
-		return maxDepthLeft < maxDepthRight ? 
-			maxDepthRight + 1: maxDepthLeft + 1;
+		return maxLeft < maxRight ? 
+			maxRight + 1: maxLeft + 1;
 	}
 
 	public int maxDepth(TreeNode root) {
@@ -45,15 +45,15 @@ public class MaximumAndMinimumDepthOfBinaryTree {
 			return 1;
 		}
 
-		int leftDepth = minimumDepthOfTree(root.left);
-		int rightDepth = minimumDepthOfTree(root.right);
+		int minLeft = minimumDepthOfTree(root.left);
+		int minRight = minimumDepthOfTree(root.right);
 
-		if (leftDepth == 0)
-			return rightDepth + 1;
-		else if (rightDepth == 0)
-			return leftDepth + 1;
+		if (minLeft == 0)
+			return minRight + 1;
+		else if (minRight == 0)
+			return minLeft + 1;
 		else
-			return Math.min(leftDepth + 1, rightDepth + 1);
+			return Math.min(minLeft + 1, minRight + 1);
 	}
 	
 	
