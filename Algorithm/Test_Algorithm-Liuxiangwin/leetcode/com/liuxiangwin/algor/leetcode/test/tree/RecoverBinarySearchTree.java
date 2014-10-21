@@ -18,8 +18,10 @@ public class RecoverBinarySearchTree {
 		if (node.left != null)
 			inorder(node.left);
 		if (prev != null && (prev.val > node.val)) {
+			//prev是需要调整的元素
 			if (mis1 == null)
 				mis1 = prev;
+			//当前节点是需要和pre调整的
 			mis2 = node;
 		}
 		prev = node;
