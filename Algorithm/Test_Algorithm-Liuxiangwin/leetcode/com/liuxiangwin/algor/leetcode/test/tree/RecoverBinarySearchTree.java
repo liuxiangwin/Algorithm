@@ -1,46 +1,78 @@
 package com.liuxiangwin.algor.leetcode.test.tree;
 
+import java.util.ArrayList;
+
 import com.liuxiangwin.algor.leetcode.uitl.*;
 
 public class RecoverBinarySearchTree {
-
-	private TreeNode mistake1, mistake2;;
-	private TreeNode pre;
-
-	public void recursive_traversal(TreeNode root) {
-		if (root == null) {
-			return;
-		}
-		if (root.left != null) {
-			recursive_traversal(root.left);
-		}
-		if (pre != null && root.val < pre.val) {
-			if (mistake1 == null) {
-				mistake1 = pre;
-				mistake2 = root;
-			} else {
-				mistake2 = root;
-			}
-		}
-		pre = root;
-		if (root.right != null) {
-			recursive_traversal(root.right);
-		}
-	}
+	public TreeNode mistake1,mistake2;
+	public TreeNode prev;
 
 	public void recoverTree(TreeNode root) {
-		// pre必须设为null，通过遍历的时候设进去。因为是中序遍历，所以pre应该是深层叶子左子树的父节点。
-		recursive_traversal(root);
-		if (mistake1 != null && mistake2 != null) {
-			int tmp = mistake1.val;
-			mistake1.val = mistake2.val;
-			mistake2.val = tmp;
+		mistake1 = mistake2 = prev = null;
+		inorder(root);
+		swap(mistake1, mistake2);
+	}
+
+	public void inorder(TreeNode node) {
+		if (node.left != null)
+			inorder(node.left);
+		if (prev != null && (prev.val > node.val)) {
+			if (mistake1 == null)
+				mistake1 = prev;
+			mistake2 = node;
 		}
+		prev = node;
+		if (node.right != null)
+			inorder(node.right);
 	}
 	
 	
+	private void swap(TreeNode nodeP,TreeNode nodeQ)
+	{
+		int temp =nodeP.val;
+		nodeP.val = nodeQ.val;
+		nodeQ.val= temp;
+	}	
 
-
+	
+	public static void main(String[] args) {
+		
+		TreeNode root = new TreeNode(10);
+		TreeNode n2 = new TreeNode(8);
+		TreeNode n3 = new TreeNode(12);	
+		
+		
+		TreeNode n4 = new TreeNode(6);
+		TreeNode n5 = new TreeNode(9);
+		TreeNode n6 = new TreeNode(14);
+		root.left = n2;
+		root.right = n6;
+		
+		
+		n2.left=n4;
+		n2.right=n5;
+		
+		n6.right = n3;
+		BinaryTreePrinter.printNode(root);
+		
+		BinaryTreePreorderTraversal slt = new BinaryTreePreorderTraversal();
+		                  
+		ArrayList<Integer> res = slt.preorderTraversalIter(root);
+		System.out.println("前序遍历 "+res.toString());
+		ArrayList<Integer> res2 = slt.iorderTraversal(root);
+		System.out.println("中序遍历 "+res2.toString());
+		
+		ArrayList<Integer> res3 = slt.postorderTraversal(root);
+		System.out.println("后序遍历 "+res3.toString());
+		
+		RecoverBinarySearchTree recoverBinarySearchTree = new RecoverBinarySearchTree();
+		recoverBinarySearchTree.recoverTree(root);
+		
+		BinaryTreePrinter.printNode(root);
+		
+		
+	}
 }
 
 
