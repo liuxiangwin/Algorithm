@@ -142,11 +142,11 @@ public class BinaryTreePreorderTraversal {
 		
 		BinaryTreePrinter.printNode(root);
 		ArrayList<Integer> res = slt.preorderTraversalIter(root);
-		System.out.println(res.toString());
+		System.out.println("前序遍历 "+res.toString());
 		
 		
 		ArrayList<Integer> resIter = slt.preorderTraversalIter(root);
-		System.out.println(resIter.toString());
+		System.out.println("前序遍历 "+resIter.toString());
 		
 		ArrayList<Integer> res2 = slt.iorderTraversal(root);
 		System.out.println("中序遍历 "+res2.toString());
