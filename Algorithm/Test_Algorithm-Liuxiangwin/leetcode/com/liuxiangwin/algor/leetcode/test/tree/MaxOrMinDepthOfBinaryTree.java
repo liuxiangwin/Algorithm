@@ -3,7 +3,7 @@ package com.liuxiangwin.algor.leetcode.test.tree;
 import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
-public class MaximumAndMinimumDepthOfBinaryTree {
+public class MaxOrMinDepthOfBinaryTree {
 
 	public int maxiumDepthOfTree(TreeNode root) {
 		if (root == null) {
@@ -59,7 +59,7 @@ public class MaximumAndMinimumDepthOfBinaryTree {
 	
 	public static void main(String args[])
 	{
-		MaximumAndMinimumDepthOfBinaryTree maxMin = new MaximumAndMinimumDepthOfBinaryTree();
+		MaxOrMinDepthOfBinaryTree maxMin = new MaxOrMinDepthOfBinaryTree();
 		TreeNode root = new TreeNode(1);
 		TreeNode n2 = new TreeNode(2);
 		TreeNode n3 = new TreeNode(3);
