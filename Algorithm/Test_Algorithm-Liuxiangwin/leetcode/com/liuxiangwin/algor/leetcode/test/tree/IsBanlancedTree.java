@@ -13,7 +13,8 @@ public class IsBanlancedTree {
 	
 	//它是一 棵空树或它的左右两个子树的高度差的绝对值不超过1	
 	public boolean isHeightBalanced(TreeNode root) {
-		return (root == null)|| (isHeightBalanced(root.left) 
+		return (root == null)||
+				(isHeightBalanced(root.left) 
 				&& (isHeightBalanced(root.right) 
 				&& Math.abs(height(root.left) - height(root.right)) <= 1));
 	}
