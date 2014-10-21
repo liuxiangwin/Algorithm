@@ -5,22 +5,22 @@ import java.util.ArrayList;
 import com.liuxiangwin.algor.leetcode.uitl.*;
 
 public class RecoverBinarySearchTree {
-	public TreeNode mistake1,mistake2;
+	public TreeNode mis1,mis2;
 	public TreeNode prev;
 
 	public void recoverTree(TreeNode root) {
-		mistake1 = mistake2 = prev = null;
+		mis1 = mis2 = prev = null;
 		inorder(root);
-		swap(mistake1, mistake2);
+		swap(mis1, mis2);
 	}
 
 	public void inorder(TreeNode node) {
 		if (node.left != null)
 			inorder(node.left);
 		if (prev != null && (prev.val > node.val)) {
-			if (mistake1 == null)
-				mistake1 = prev;
-			mistake2 = node;
+			if (mis1 == null)
+				mis1 = prev;
+			mis2 = node;
 		}
 		prev = node;
 		if (node.right != null)
