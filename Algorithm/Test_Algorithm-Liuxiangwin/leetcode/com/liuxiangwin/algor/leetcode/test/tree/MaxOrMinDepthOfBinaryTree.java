@@ -5,26 +5,26 @@ import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
 public class MaxOrMinDepthOfBinaryTree {
 
-	public int maxiumDepthOfTree(TreeNode root) {
+	public int maxDepthOfTree(TreeNode root) {
 		if (root == null) {
 			return 0;
 		}
-		int maxLeft = maxiumDepthOfTree(root.left);
+		int maxLeft = maxDepthOfTree(root.left);
 
-		int maxRight = maxiumDepthOfTree(root.right);
+		int maxRight = maxDepthOfTree(root.right);
 
 		return maxLeft < maxRight ? 
 			maxRight + 1: maxLeft + 1;
 	}
 
-	public int maxDepth(TreeNode root) {
+	public int maxDepth_2_way(TreeNode root) {
 		if (root == null)
 			return 0;
 		int max = 1;
 		return dfs(root, max);
 	}
 
-	int dfs(TreeNode root, int max) {
+	private int dfs(TreeNode root, int max) {
 		if (root.left == null && root.right == null)
 			return max;
 		if (root.left == null && root.right != null)
@@ -35,18 +35,15 @@ public class MaxOrMinDepthOfBinaryTree {
 	}
 	
 	
-	public int minimumDepthOfTree(TreeNode root) {
-		// Start typing your C/C++ solution below
-		// DO NOT write int main() function
+	public int minDepthOfTree(TreeNode root) {
 		if (root == null) {
 			return 0;
 		}
 		if (root.left == null && root.right == null) {
 			return 1;
 		}
-
-		int minLeft = minimumDepthOfTree(root.left);
-		int minRight = minimumDepthOfTree(root.right);
+		int minLeft = minDepthOfTree(root.left);
+		int minRight = minDepthOfTree(root.right);
 
 		if (minLeft == 0)
 			return minRight + 1;
@@ -80,9 +77,9 @@ public class MaxOrMinDepthOfBinaryTree {
 		
 		BinaryTreePrinter.printNode(root);
 		
-		System.out.println("The longest path in tree "+maxMin.maxiumDepthOfTree(root));
+		System.out.println("The longest path in tree "+maxMin.maxDepthOfTree(root));
 		
-		System.out.println("The shortest path in tree "+maxMin.minimumDepthOfTree(root));
+		System.out.println("The shortest path in tree "+maxMin.minDepthOfTree(root));
 		
 	}
 
