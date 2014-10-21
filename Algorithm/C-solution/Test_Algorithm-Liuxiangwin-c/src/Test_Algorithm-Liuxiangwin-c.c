@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+//http://stackoverflow.com/questions/22952651/explain-using-xor-to-find-two-non-duplicate-integers-in-an-array
 /* This finction sets the values of *x and *y to nonr-epeating
  elements in an array arr[] of size n*/
 void get2NonRepeatingNos(int arr[], int n, int *x, int *y) {
