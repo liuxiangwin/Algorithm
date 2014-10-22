@@ -19,7 +19,7 @@ sub-trees in post-order array. Recursively, we can build up the tree.
  * @author liuxiangwin
  *
  */
-public class ConstructTree {
+public class ConstructTreeByXorder {
 	  private static TreeNode root;
 	
 	   public TreeNode buildTreeIoPo(int[] inorder, int[] postorder) {	      
@@ -90,7 +90,7 @@ public class ConstructTree {
 		int[] postoder= {4, 5, 2,  6, 7 ,8 ,3 , 1};
 		
 		
-		ConstructTree constructTree = new ConstructTree();
+		ConstructTreeByXorder constructTree = new ConstructTreeByXorder();
 		TreeNode root = constructTree.buildTreeIoPo(inorder, postoder);
 		
 		BinaryTreePrinter.printNode(root);
