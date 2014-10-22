@@ -5,7 +5,16 @@ import java.math.BigInteger;
 public class TestFibonacci {
 
 	/**
-	 * @param args
+	 * T(n<=1) = O(1)
+
+	  Time Complextiy T(n) = T(n-1) + T(n-2) + O(1)
+	   
+	  Assume T(n-1) = O(2n-1), therefore
+
+	  T(n) = T(n-1) + T(n-2) + O(1) which is equal to
+
+	  T(n) = O(2^(n-1)) + O(2^(n-2)) + O(1) = O(2^n)
+	   	
 	 */
 	public static void main(String[] args) {
 		for (int i = 0; i < 100; i++) {
