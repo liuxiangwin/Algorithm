@@ -7,7 +7,7 @@ public class TestFibonacci {
 	/**
 	 * T(n<=1) = O(1)
 
-	  Time Complextiy T(n) = T(n-1) + T(n-2) + O(1)
+	  Time Complexity T(n) = T(n-1) + T(n-2) + O(1)
 	   
 	  Assume T(n-1) = O(2n-1), therefore
 
