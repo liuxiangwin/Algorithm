@@ -31,6 +31,7 @@ Given the below binary tree,
 			if (value > max) {
 				max = value;
 			}
+			//判断是左节点值大还是右节点值大，大的机上root的value返回栈
 			if (leftValue > rigthValue && leftValue > 0) {
 				return root.val + leftValue;
 			}
