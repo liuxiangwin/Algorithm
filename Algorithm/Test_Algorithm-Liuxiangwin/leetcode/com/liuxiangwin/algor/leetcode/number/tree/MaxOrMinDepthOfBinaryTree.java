@@ -35,15 +35,15 @@ public class MaxOrMinDepthOfBinaryTree {
 	}
 	
 	
-	public int minDepthOfTree(TreeNode root) {
+	public int minimumDepthOfTree(TreeNode root) {
 		if (root == null) {
 			return 0;
 		}
 		if (root.left == null && root.right == null) {
 			return 1;
 		}
-		int minLeft = minDepthOfTree(root.left);
-		int minRight = minDepthOfTree(root.right);
+		int minLeft = minimumDepthOfTree(root.left);
+		int minRight = minimumDepthOfTree(root.right);
 
 		if (minLeft == 0)
 			return minRight + 1;
@@ -79,7 +79,7 @@ public class MaxOrMinDepthOfBinaryTree {
 		
 		System.out.println("The longest path in tree "+maxMin.maxDepthOfTree(root));
 		
-		System.out.println("The shortest path in tree "+maxMin.minDepthOfTree(root));
+		System.out.println("The shortest path in tree "+maxMin.minimumDepthOfTree(root));
 		
 	}
 

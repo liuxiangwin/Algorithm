@@ -17,13 +17,13 @@ Given the below binary tree,
 	
 	private int max;
 
-	public int maxPath(TreeNode node) {
-		if (node == null) {
+	public int maxPath(TreeNode root) {
+		if (root == null) {
 			return 0;
 		} else {
-			int leftValue = maxPath(node.left);
-			int rigthValue = maxPath(node.right);
-			int value = node.val;
+			int leftValue = maxPath(root.left);
+			int rigthValue = maxPath(root.right);
+			int value = root.val;
 
 			value += leftValue > 0 ? leftValue : 0;
 			value += rigthValue > 0 ? rigthValue : 0;
@@ -32,12 +32,12 @@ Given the below binary tree,
 				max = value;
 			}
 			if (leftValue > rigthValue && leftValue > 0) {
-				return node.val + leftValue;
+				return root.val + leftValue;
 			}
 			if (rigthValue > leftValue && rigthValue > 0) {
-				return node.val + rigthValue;
+				return root.val + rigthValue;
 			}
-			return node.val;
+			return root.val;
 		}
 	}
 

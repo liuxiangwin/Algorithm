@@ -1,4 +1,4 @@
-package com.liuxiangwin.algor.leetcode.test.tree;
+package com.liuxiangwin.algor.leetcode.number.tree;
 
 import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;

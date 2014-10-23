@@ -41,7 +41,6 @@ import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 	(a) Inorder
 	(b) Preorder
 	(c) Postorder
-	 前序 中序 后序 遍历 通过递归实现，非递归借助stack实现
  */
 
 
