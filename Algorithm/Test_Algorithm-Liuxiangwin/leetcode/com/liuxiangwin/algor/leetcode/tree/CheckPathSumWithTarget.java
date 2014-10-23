@@ -3,7 +3,7 @@ package com.liuxiangwin.algor.leetcode.tree;
 import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
-public class CheckPathSum {
+public class CheckPathSumWithTarget {
 
 	
 	
@@ -31,7 +31,7 @@ public class CheckPathSum {
 	    }
 	  
 	  public static void main(String[] args) {
-		  CheckPathSum checkPathSum = new CheckPathSum();
+		  CheckPathSumWithTarget checkPathSum = new CheckPathSumWithTarget();
 			TreeNode root = new TreeNode(5);
 			TreeNode n2 = new TreeNode(4);
 			TreeNode n3 = new TreeNode(8);			
