@@ -11,7 +11,8 @@ public class IsBanlancedTree {
 			0 :	1 + Math.max(height(node.left),height(node.right));
 	}
 	
-	//它是一 棵空树或它的左右两个子树的高度差的绝对值不超过1	
+	//它是一 棵空树或足有都是一个平衡树
+	//它的左右两个子树的高度差的绝对值不超过1	
 	public boolean isHeightBalanced(TreeNode root) {
 		return (root == null)|| (isHeightBalanced(root.left) 
 				&& (isHeightBalanced(root.right) 
