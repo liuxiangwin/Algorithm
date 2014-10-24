@@ -8,7 +8,8 @@ package com.liuxiangwin.algor.leetcode.list;
 //If there is no cycle, return null.
 //
 // Follow up:
-// Can you solve it without using extra space?
+////使用快慢指针。若链表存在环，两指针必在环中相遇，此时将慢指针移回头结点，
+//两指针以相同的速度移动，在环开始的节点处再次相遇。（证明略）
 
 public class LinkedListCycleII {
 	public ListNode detectCycle(ListNode head) {
