@@ -12,9 +12,9 @@ public class MaxOrMinDepthOfBinaryTree {
 		int maxLeft = maxDepthOfTree(root.left);
 
 		int maxRight = maxDepthOfTree(root.right);
-
-		return maxLeft < maxRight ? 
-			maxRight + 1: maxLeft + 1;
+		
+		return maxLeft > maxRight ? 
+				 maxLeft + 1:maxRight + 1;
 	}
 
 	public int maxDepth_2_way(TreeNode root) {
