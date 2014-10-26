@@ -17,7 +17,7 @@ public class CheckPathSumWithTarget {
 	 * };
 	 */  
 	  
-	  public boolean hasPathSum2(TreeNode node, int target,int sum) {
+	  public boolean hasPathSum(TreeNode node, int target,int sum) {
 	        // Start typing your C/C++ solution below
 	        // DO NOT write int main() function
 		  if (node == null) {
@@ -26,8 +26,8 @@ public class CheckPathSumWithTarget {
 		  if (node.left == null && node.right == null){
 	            return sum + node.val == target;
 		  }	               
-	      return hasPathSum2(node.left, target, sum + node.val)
-	            || hasPathSum2(node.right, target, sum + node.val);
+	      return hasPathSum(node.left, target, sum + node.val)
+	            || hasPathSum(node.right, target, sum + node.val);
 	    }
 	  
 	  public static void main(String[] args) {
@@ -56,7 +56,7 @@ public class CheckPathSumWithTarget {
 			
 			BinaryTreePrinter.printNode(root);
 			
-			System.out.println(checkPathSum.hasPathSum2(root,22,0));
+			System.out.println(checkPathSum.hasPathSum(root,22,0));
 	  }
 	
 }
