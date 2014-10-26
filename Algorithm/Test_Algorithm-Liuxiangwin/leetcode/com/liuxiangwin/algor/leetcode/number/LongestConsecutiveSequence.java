@@ -1,6 +1,7 @@
 package com.liuxiangwin.algor.leetcode.number;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -27,6 +28,7 @@ import java.util.Set;
  *
  */
 public class LongestConsecutiveSequence {
+
 	public int longestConsecutive(int[] num) {
 		Set<Integer> set = new HashSet<Integer>();
 		int max = 1;
@@ -55,5 +57,16 @@ public class LongestConsecutiveSequence {
 		}
 
 		return max;
+	}
+	
+	public static void main(String args[])
+	{
+		LongestConsecutiveSequence  consecutiveSequence = new LongestConsecutiveSequence();
+		int[] num ={100, 4, 200, 1, 3, 2};
+		int result = consecutiveSequence.longestConsecutive(num);
+		
+		System.out.println(result);
+	
+		
 	}
 }
