@@ -113,19 +113,19 @@ public class BinaryTreePreorderTraversal {
         if(root == null)
             return result; 
  
-        Stack<TreeNode> stack = new Stack<TreeNode>();
+        Stack<TreeNode> nodeStack = new Stack<TreeNode>();
         //define a pointer to track nodes
         TreeNode current = root;
-        while(!stack.empty() || current != null){ 
+        while(!nodeStack.empty() || current != null){ 
             // if it is not null, push to stack //and go down the tree to left
             if(current != null){
-                stack.push(current);
+                nodeStack.push(current);
                 current = current.left;
  
             // if no left child // pop stack, process the node
             // then let p point to the right
             }else{
-                TreeNode t = stack.pop();         
+                TreeNode t = nodeStack.pop();         
                 result.add(t.val);
                 current = t.right;
             }
@@ -153,31 +153,32 @@ public class BinaryTreePreorderTraversal {
 	
 	
 	public ArrayList<Integer> postorderTraversalIter(TreeNode root) {
-		ArrayList<Integer> list = new ArrayList<Integer>();
+		ArrayList<Integer> result = new ArrayList<Integer>();
 		if (root == null)
-			return list;
-		Stack<TreeNode> stack = new Stack<TreeNode>();
-		stack.push(root);// 最后访问
+			return result;
 		
-		while (!stack.isEmpty()) {
-			TreeNode current = stack.peek();
+		Stack<TreeNode> nodeStack = new Stack<TreeNode>();
+		nodeStack.push(root);// 最后访问
+		
+		while (!nodeStack.isEmpty()) {
+			TreeNode current = nodeStack.peek();
 			// 根节点无子节点
 			if (current.left == null && current.right == null) {
-				list.add(current.val);
-				stack.pop();
+				result.add(current.val);
+				nodeStack.pop();
 			}             
 			if (current.left != null) {
-				stack.push(current.left);
+				nodeStack.push(current.left);
 				current.left = null;
 				continue;
 			}
 			if (current.right != null) {
-				stack.push(current.right);
+				nodeStack.push(current.right);
 				current.right = null;
 				continue;
 			}
 		}
-		return list;
+		return result;
 	}
 
 	public static void main(String[] args) {
