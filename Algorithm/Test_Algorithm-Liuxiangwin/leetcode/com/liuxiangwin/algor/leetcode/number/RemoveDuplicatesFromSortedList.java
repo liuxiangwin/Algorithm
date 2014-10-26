@@ -53,19 +53,53 @@ public class RemoveDuplicatesFromSortedList {
 		return head;
 	}
 	
-	public static void main(String[] args) {
-		RemoveDuplicatesFromSortedList slt = new RemoveDuplicatesFromSortedList();
-		ListNode n1 = new ListNode(1);
-		ListNode n2 = new ListNode(2);
-		ListNode n3 = new ListNode(3);
-		n1.next = n2;
-		n2.next = n3;
+	public ListNode deleteDuplicates2(ListNode head) {
+		ListNode index = head;
+		ListNode cur = head.next;
 		
-		ListNode res = slt.deleteDuplicates(n1);
+		while(cur.next!=null){
+			if(index.val!=cur.val){					
+				index= index.next;
+				index= cur;						
+			}
+			cur =cur.next;
+		}
+				
 		
+		return head;
+	}
+	
+	public void printList(ListNode res){
 		while(res != null) {
-			System.out.print(res.val + " ");
+			System.out.print(res.val + " ->");
 			res = res.next;
 		}
+		System.out.println(" ");
+	}
+	
+	public static void main(String[] args) {
+		RemoveDuplicatesFromSortedList slt = new RemoveDuplicatesFromSortedList();
+		// Given 1->1->2->3->3, return 1->2->3. 
+		ListNode n1 = new ListNode(1);
+		ListNode n2 = new ListNode(1);
+		ListNode n3 = new ListNode(2);
+		
+		ListNode n4 = new ListNode(2);
+		ListNode n5 = new ListNode(3);
+		ListNode n6 = new ListNode(3);
+		n1.next = n2;
+		n2.next = n3;
+		n3.next = n4;
+		n4.next = n5;
+		n5.next = n6;
+		n6.next = null;
+		
+		slt.printList(n1);
+		ListNode res = slt.deleteDuplicates(n1);
+		slt.printList(res);
+	   
+		ListNode res2 = slt.deleteDuplicates2(n1);
+		slt.printList(res2);
+		
 	}
 }
