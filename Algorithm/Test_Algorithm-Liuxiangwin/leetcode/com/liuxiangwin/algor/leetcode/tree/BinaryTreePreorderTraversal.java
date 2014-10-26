@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
+import com.liuxiangwin.algor.leetcode.uitl.ListNode;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 /**
  * 
@@ -45,6 +46,8 @@ import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
 
 public class BinaryTreePreorderTraversal {
+	private volatile int i;
+	
 	// Recursive
 	public ArrayList<Integer> preorderTraversal(TreeNode root) {
 		ArrayList<Integer> result = new ArrayList<Integer>();
@@ -62,13 +65,14 @@ public class BinaryTreePreorderTraversal {
 
 	
 	// iterative
+	//1.What is preorder? (parent node is processed before its children)
+    //2.Use Stack from Java Core library
 	public ArrayList<Integer> preorderTraversalIter(TreeNode root) {
 		ArrayList<Integer> result = new ArrayList<Integer>();
 
 		if (root == null) {
 			return result;
 		}
-
 		Stack<TreeNode> nodeStack = new Stack<TreeNode>();
 		nodeStack.push(root);
 
@@ -79,16 +83,12 @@ public class BinaryTreePreorderTraversal {
 			if (node.right != null) {
 				nodeStack.push(node.right);
 			}
-
 			if (node.left != null) {
 				nodeStack.push(node.left);
 			}
 		}
-
 		return result;
 	}
-	
-	
 	
 	public ArrayList<Integer> iorderTraversal(TreeNode root) {
 		ArrayList<Integer> result = new ArrayList<Integer>();
@@ -104,12 +104,41 @@ public class BinaryTreePreorderTraversal {
 		return result;
 	}
 	
+	//Use a stack to track nodes
+	//Understand when to push node into the stack and 
+	//when to pop node out of the stack
+	public ArrayList<Integer> inorderTraversal(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<Integer>(); 
+        
+        if(root == null)
+            return result; 
+ 
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        //define a pointer to track nodes
+        TreeNode current = root;
+        while(!stack.empty() || current != null){ 
+            // if it is not null, push to stack //and go down the tree to left
+            if(current != null){
+                stack.push(current);
+                current = current.left;
+ 
+            // if no left child // pop stack, process the node
+            // then let p point to the right
+            }else{
+                TreeNode t = stack.pop();         
+                result.add(t.val);
+                current = t.right;
+            }
+        }
+ 
+        return result;
+    }
+	
 	
 	public ArrayList<Integer> postorderTraversal(TreeNode root) {
 		ArrayList<Integer> result = new ArrayList<Integer>();
 
 		if (root != null) {
-			
 
 			result.addAll(postorderTraversal(root.left));
 
@@ -120,6 +149,37 @@ public class BinaryTreePreorderTraversal {
 
 		return result;
 	}
+	
+	
+	
+	public ArrayList<Integer> postorderTraversalIter(TreeNode root) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		if (root == null)
+			return list;
+		Stack<TreeNode> stack = new Stack<TreeNode>();
+		stack.push(root);// 最后访问
+		
+		while (!stack.isEmpty()) {
+			TreeNode current = stack.peek();
+			// 根节点无子节点
+			if (current.left == null && current.right == null) {
+				list.add(current.val);
+				stack.pop();
+			}             
+			if (current.left != null) {
+				stack.push(current.left);
+				current.left = null;
+				continue;
+			}
+			if (current.right != null) {
+				stack.push(current.right);
+				current.right = null;
+				continue;
+			}
+		}
+		return list;
+	}
+
 	public static void main(String[] args) {
 		BinaryTreePreorderTraversal slt = new BinaryTreePreorderTraversal();
 		TreeNode root = new TreeNode(1);
@@ -148,10 +208,17 @@ public class BinaryTreePreorderTraversal {
 		ArrayList<Integer> resIter = slt.preorderTraversalIter(root);
 		System.out.println("前序遍历 "+resIter.toString());
 		
+		
 		ArrayList<Integer> res2 = slt.iorderTraversal(root);
 		System.out.println("中序遍历 "+res2.toString());
 		
+		ArrayList<Integer> res2_lter = slt.inorderTraversal(root);
+		System.out.println("中序遍历非递归 "+res2_lter.toString());
+		
 		ArrayList<Integer> res3 = slt.postorderTraversal(root);
 		System.out.println("后序遍历 "+res3.toString());
+		
+		ArrayList<Integer> res3_lter = slt.postorderTraversalIter(root);
+		System.out.println("后序 遍历非递归 "+res3_lter.toString());
 	}
 }
