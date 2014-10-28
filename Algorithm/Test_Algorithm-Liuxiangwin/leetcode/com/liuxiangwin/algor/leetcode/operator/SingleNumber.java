@@ -23,8 +23,8 @@ public class SingleNumber {
     
     public static void main(String[] args) {
 		SingleNumber slt = new SingleNumber();
-		//int[] A = new int[] { 1, 2, 1, 2, 3, 4, 4 };
-		int[] A = new int[] { 1,1, 2, 1, 2, 4, 4,4 };
+		int[] A = new int[] { 1, 2, 1, 2, 3, 4, 4 };
+		//int[] A = new int[] { 1,1, 2, 1, 2, 4, 4,4 };
 		System.out.println(slt.singleNumber(A));
 		
 		System.out.println(getBitByOrder(10, 1));
