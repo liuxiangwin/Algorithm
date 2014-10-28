@@ -1,6 +1,6 @@
 package com.liuxiangwin.algor.leetcode.list;
 
-public class ReverseLinkList {
+public class ReverseSingleLinkList {
      /**
       * 第二种方法就是利用两个指针，分别指向前一个节点和当前节点，
       * 每次做完当前节点和下一个节点的反转后，把两个节点往下移，直到到达最后节点。
@@ -41,7 +41,7 @@ public class ReverseLinkList {
 		n2.next = n3;
 		n3.next = n4;
 		
-		ReverseLinkList reverseLinkList = new ReverseLinkList();
+		ReverseSingleLinkList reverseLinkList = new ReverseSingleLinkList();
 		reverseLinkList.printList(head);
 		ListNode resultNode =reverseLinkList.reverseLinklist(head);
 		reverseLinkList.printList(resultNode);
