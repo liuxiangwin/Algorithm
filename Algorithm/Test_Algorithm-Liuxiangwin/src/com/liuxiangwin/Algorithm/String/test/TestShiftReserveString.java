@@ -5,7 +5,27 @@ import java.util.Arrays;
 public class TestShiftReserveString {
 
 	/**
-	 * @param args
+	 *            -->(a b) (c d e f) 
+	 * leftExpect*
+	 * ------>    (c d e f)(a b)
+	 *         (ba)(fedc)--(cdefab) 
+	 *         
+	 *        
+	 *         reverse(0 rotate-1);
+	 *         reverse(rotate stringLength);
+	 *         reverse(0 stringLength);
+	 *         
+	 *         (a b c d)( e f)-->
+	 * rigthExpect* 
+	 * ------> (e f)(a b c d)
+	 *        
+	 *         (dcba)(fe)--(efabcd)
+	 *         
+	 *         reverse(0 rotate-1);
+	 *         reverse(rotate stringLength);
+	 *         reverse(0 stringLength);
+	 *         
+	 *     TimeComplextiy 时间复杂度为O(n)，Space空间复杂度为O(1)，
 	 */
 	public static void main(String[] args) {
 		int[] testArray1 = { 5, 7, 0, 9, 3, 2, 0 };
