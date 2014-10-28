@@ -7,7 +7,13 @@ import java.util.Hashtable;
 public class TestStringPalindrome {
 
 	/**
-	 * @param args
+	 * 
+	 * 1、判断一条单向链表是不是“回文”
+	 * 
+	 * 2、判断一个栈是不是“回文”
+
+分析：对于栈的话，只需要将字符串全部压入栈，然后依次将各字符出栈，
+这样得到的就是原字符串的逆置串，分别和原字符串各个字符比较，就可以判断了。
 	 */
 	public static void main(String[] args) {
 		String test1 = "cddcbcbeffeghg";
@@ -18,34 +24,42 @@ public class TestStringPalindrome {
 		int count = findSymmetryStr(test1);//
 
 		System.out.println(count);
-		// System.out.println("is a Anagram "+isAnagram("cddcbcbeffeghg"));
-		// System.out.println("symmetry string count is : " + count);
-		// printAllPalindromes("abcddcbaABCDEDCBA");
-		// System.out.println(isCharPalindrome(test1));
+	
 		printAllPalindromes(test1);
-
-		// System.out.println("isCharPalindrome dooernedeevrvn  "+isCharPalindrome(test2));
-
-		// System.out.println("isAnagram dooernedeevrvn  "+isAnagram(test2));
-
 		System.out.println("longestPrefixPalindrome google  "
 				+ longestPrefixPalindrome(googleString));
 
 		System.out.println("longestPrefixPalindrome cddcbcbeffeghg  "
 				+ longestPrefixPalindrome(test1));
 
-		// System.out.println("isCharPalindrome:"+
-		// isCharPalindrome("A man, a plan, a canal, Panama!"));
-		// System.out.println("longestPrefixPal:"+
 		// longestPrefixPalindrome("NILLINOISURB"));
-
+        
+		System.out.println("madam is Palindrome "+IsPalindrome("madam"));
 	}
 
+	public static boolean IsPalindrome(String string)
+	{ 
+		if (string == null || string.length() < 1)
+			return false;
+
+		int front = 0;
+		int back = string.length() - 1;
+		while (front < back) {
+			if (string.charAt(front) != string.charAt(back)) {
+				return false; // 不是回文，立即返回
+			}
+			front++;
+			back--;
+		}
+		return true; // 是回文
+	}
+	
+	
 	public static boolean isCharPalindrome(String test) {
 		String filterString = test.toLowerCase().replaceAll("[^0-9a-zA-Z]", "");
 		for (int i = 0; i < filterString.length() / 2; i++) {
 			if (filterString.charAt(i) != filterString.charAt(filterString
-					.length() - 1 - i)) {
+					.length()- i - 1 )) {
 				return false;
 			}
 		}
@@ -64,23 +78,7 @@ public class TestStringPalindrome {
 		return defaultPrefix;
 	}
 
-	public static boolean anagramtest(String s) {
-		boolean flag = false;
-		char[] c = s.toCharArray();
-		if (s.length() == 2) {
-			if (c[0] == c[1]) {
-				flag = true;
-			}
-		} else if (s.length() > 2) {
-			for (int start = 0, finish = s.length() - 1; start < finish; start++, finish--) {
-				if (c[start] == c[finish]) {
-					flag = true;
-				}
-			}
-		}
-		return flag;
-	}
-
+	
 	public static void printAllPalindromes(String inputText) {
 		if (inputText == null) {
 			System.out.println("Input cannot be null!");
