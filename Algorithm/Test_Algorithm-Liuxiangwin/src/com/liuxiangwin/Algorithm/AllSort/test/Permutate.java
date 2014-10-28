@@ -22,19 +22,7 @@ public class Permutate {
 		
 	}
 
-	public void perm(char[] result, char *str, int size, int resPos)
-	{
-	  if(resPos == size)
-	    printf("%s\n", result);
-	  else
-	    {
-	      for(int i = 0; i < size; ++i)
-	        {
-	          result[resPos] = str[i];
-	          perm(result, str, size, resPos + 1);
-	        }
-	    }
-	}
+
 
 	public static void CalcAllPermutation(String[] string, int from, int length) {
 		if (from == length - 1) {
