@@ -8,19 +8,27 @@ public class DeleteRandomNode {
 	 * 我们不删B，直接利用B删掉C就行了，方法简单，时间O(1)。
 	 * @param cur
 	 */
-	private void deleteRandomNode(ListNode cur)
+	private void deleteRandomNode(ListNode head,ListNode cur)
 	{
-	    //assert(cur != NULL);
-	    if(cur.next != null); {
+	    if(cur.next != null){
 	    	//不能是尾节点
-		    ListNode pNext = cur.next;
-		    cur.val = pNext.val;
-		    cur.next = pNext.next;
-		    pNext=null;
+		    ListNode next = cur.next;
+		    cur.val = next.val;
+		    cur.next = next.next;
+		    next=null;
+	    }
+	    else {	// 如果p是末尾结点, 则找到p的前一个结点然后正常删除
+            while(head.next != cur)
+            {
+            	head = head.next;            
+            }	 
+            // deleted pToBeDeleted
+            head.next = null;
+            cur=null;
+	          
 	    }
 	}
-	
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
