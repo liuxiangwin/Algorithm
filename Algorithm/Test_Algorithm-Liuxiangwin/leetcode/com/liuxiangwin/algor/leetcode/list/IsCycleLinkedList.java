@@ -30,8 +30,7 @@ public class IsCycleLinkedList {
 		ListNode fast,slow; 
 		fast = slow = head;
         //只要有环就会在里面循环
-		while (fast!=null && fast.next != null) {
-			
+		while (fast!=null && fast.next != null) {			
 			fast = fast.next.next;
 			slow = slow.next;
 			
@@ -55,7 +54,5 @@ public class IsCycleLinkedList {
 		n5.next = n3;
 
 		IsCycleLinkedList slt = new IsCycleLinkedList();
-		boolean result = slt.hasCycle(n1);
-		System.out.println(result);
 	}
 }
