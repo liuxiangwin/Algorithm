@@ -11,7 +11,7 @@ package com.liuxiangwin.algor.leetcode.list;
 ////使用快慢指针。若链表存在环，两指针必在环中相遇，此时将慢指针移回头结点，
 //两指针以相同的速度移动，在环开始的节点处再次相遇。（证明略）
 
-public class LinkedListCycleII {
+public class LinkedListCyclePortValue {
 	public ListNode detectCycle(ListNode head) {
 		if (head == null) {
 			return null;
@@ -55,7 +55,7 @@ public class LinkedListCycleII {
 		n4.next = n5;
 		n5.next = n2;
 
-		LinkedListCycleII slt = new LinkedListCycleII();
+		LinkedListCyclePortValue slt = new LinkedListCyclePortValue();
 		ListNode result = slt.detectCycle(n1);
 		System.out.println(result.val);
 	}
