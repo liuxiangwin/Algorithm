@@ -38,7 +38,7 @@ void get2NonRepeatingNos(int arr[], int n, int *x, int *y) {
 }
 
 /* Driver program to test above function */
-int main() {
+int main1() {
 	int arr[] = { 2, 3, 7, 9, 11, 2, 3, 11 };
 	int *x = (int *) malloc(sizeof(int));
 	int *y = (int *) malloc(sizeof(int));
