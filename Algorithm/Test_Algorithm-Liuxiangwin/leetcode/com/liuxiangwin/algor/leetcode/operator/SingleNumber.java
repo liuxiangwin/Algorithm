@@ -21,15 +21,88 @@ public class SingleNumber {
         return result;
     }
     
+    
+    private void single_three_num(int [] s)  
+    {  
+        int hash[]=new int[10];  
+        for (int i=0;i<s.length;i++) //M为数组的长度  
+        {  
+            int index=s[i]-0;//只考虑9以内的数字，所以，减去了0  
+            hash[index]++;  
+        }  
+        for (int j=0;j<10;j++)  
+        {  
+            if (1==hash[j])  
+            {  
+            	System.out.println("the 3 number once is "+j);  
+            }  
+        }  
+    }
+    
+    
+    private void Single_Num1(int []s,int size)
+    {
+    	//int sum=-1;
+    	for (int i=0;i<size;i++)
+    	{
+    		for (int j=0;j<size;j++)
+    		{
+
+    			if (i!=j)   //排除自身异或
+    			{
+    				if ((s[i]^s[j])==0)
+    				{
+    					//printf("%d ",s[i]);	
+    					s[i]=0;//将它们变成一个数组中不存在的数，在这里我把他们设置为0
+    					s[j]=0;
+    				}
+    			}
+
+    		}
+    	}
+    	for (int j=0;j<size;j++)
+    	{
+    		if (s[j]!=0)
+    		{
+    			//printf("%d ",s[i]);
+    			System.out.println("the 3 number once is "+j);  
+    		}
+    	}
+    }
+    
+    
+   。
+    
+    //1-1000放在含有1001个元素的数组中，只有唯一的一个元素值重复，其它均只出现一次．
+        //每个数组元素只能访问一次，设计一个算法，将它找出来；不用辅助存储空间，
+      //能否设计一个算法实现？
+    void FindRepeat(int array[], int length)
+    {
+      int result = 0;
+           for(int i=1;i<=1000;i++)
+                  result ^=  i;
+           for(int i=0;i<=1000;i++)
+                  result ^=  array[i];
+    }
+    
+    
+    //找出数组中唯一出现一次的两个数字  要求时间复杂度是O(n)，空间复杂度是O(1)。
+    //首先 回忆 异或操作，任意数字与自身相异或，结果都为0.
+    // 还有一个重要的性质，即任何元素与0相异或，结果都为元素自身
+   //http://blog.csdn.net/wangwh485/article/details/6715357
     public static void main(String[] args) {
 		SingleNumber slt = new SingleNumber();
 		int[] A = new int[] { 1, 2, 1, 2, 3, 4, 4 };
 		//int[] A = new int[] { 1,1, 2, 1, 2, 4, 4,4 };
 		System.out.println(slt.singleNumber(A));
 		
-		System.out.println(getBitByOrder(10, 1));
-		System.out.println(getBitByOrder(10, 2));
-		System.out.println(getBitByOrder(10, 3));
+		//System.out.println(getBitByOrder(10, 1));
+		//System.out.println(getBitByOrder(10, 2));
+		//System.out.println(getBitByOrder(10, 3));
+		
+		int[] B = new int[] { 2,1,2,5,3,3,6,7,6};
+		slt.single_three_num(B);
+		
 		
     }
 
