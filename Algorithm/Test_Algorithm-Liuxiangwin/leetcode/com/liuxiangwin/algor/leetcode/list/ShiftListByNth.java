@@ -21,7 +21,7 @@ package com.liuxiangwin.algor.leetcode.list;
  * }
  */
 
-public class RotateList {
+public class ShiftListByNth {
 	public ListNode rotateRight(ListNode head, int kth) {
 		if (head == null || kth == 0) {
 			return head;
@@ -87,7 +87,7 @@ public class RotateList {
 		n3.next = n4;
 		n4.next = n5;
 
-		RotateList slt = new RotateList();
+		ShiftListByNth slt = new ShiftListByNth();
 		slt.printList(head);
 		ListNode res = slt.rotateRight(head, 1);
 		slt.printList(res);
