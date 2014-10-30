@@ -1,6 +1,6 @@
 package com.liuxiangwin.algor.leetcode.list;
 
-public class LinkListIsIntersectAndValue {
+public class IsIntersectAndValue {
 	/**
 	 * 
 	 * 进一步考虑“如果两个没有环的链表相交于某一节点，

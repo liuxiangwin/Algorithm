@@ -23,7 +23,6 @@ package com.liuxiangwin.algor.leetcode.list;
 
 public class LinkedListIsCycle {
 	
-	private static int cycleBeign=0;
 	public boolean hasCycle(ListNode head) {
 		if (head == null) {
 			return false;
@@ -31,12 +30,9 @@ public class LinkedListIsCycle {
 		ListNode fast,slow; 
 		fast = slow = head;
         //只要有环就会在里面循环
-		while (fast.next != null) {
+		while (fast!=null && fast.next != null) {
+			
 			fast = fast.next.next;
-
-			if (fast == null) {
-				return false;
-			}
 			slow = slow.next;
 			
 			if (fast == slow) {
