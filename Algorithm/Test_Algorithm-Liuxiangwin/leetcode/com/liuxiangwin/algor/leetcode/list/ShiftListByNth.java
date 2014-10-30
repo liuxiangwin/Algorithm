@@ -49,24 +49,24 @@ public class ShiftListByNth {
 		return head;
 	}
 	
-	
-	/*public ListNode rotateRight2(ListNode head, int kth) {
-		if (head == null || kth == 0) {
-			return head;
-		}
-		ListNode fast = head;
-		ListNode slow = head;
-		while (fast.next != null) {
-			fast = fast.next.next;
-		}
-		head = fast;
+	private ListNode rotateRight2(ListNode head, int kth) {
+	   ListNode fast,slow, tmp;
+	   fast = slow =tmp = head;
+	   
+	   while(tmp.next!=null)
+	   {
+		   tmp =tmp.next; 
+	   }
+	   for(int i=0;i< kth;i++) {
+		   fast = fast.next;		   
+	   }
+	   head = fast.next;
+	   fast.next=null;
+	   tmp.next=slow;
 		
-		int m = kth % length;
-		for (int i = 0; i < length - m; ++i) {
-			fast = fast.next;
-		}
-		return head;
-	}*/
+	   return head;
+	}
+
 
 	public void printList(ListNode node) {
 		while (node != null) {
@@ -89,7 +89,7 @@ public class ShiftListByNth {
 
 		ShiftListByNth slt = new ShiftListByNth();
 		slt.printList(head);
-		ListNode res = slt.rotateRight(head, 1);
+		ListNode res = slt.rotateRight2(head, 2);
 		slt.printList(res);
 	}
 }
