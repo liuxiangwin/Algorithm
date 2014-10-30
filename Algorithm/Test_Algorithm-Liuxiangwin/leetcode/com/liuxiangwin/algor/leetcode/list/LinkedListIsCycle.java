@@ -21,7 +21,7 @@ package com.liuxiangwin.algor.leetcode.list;
  * }
  */
 
-public class LinkedListCycle {
+public class LinkedListIsCycle {
 	
 	private static int cycleBeign=0;
 	public boolean hasCycle(ListNode head) {
@@ -58,7 +58,7 @@ public class LinkedListCycle {
 		n4.next = n5;
 		n5.next = n3;
 
-		LinkedListCycle slt = new LinkedListCycle();
+		LinkedListIsCycle slt = new LinkedListIsCycle();
 		boolean result = slt.hasCycle(n1);
 		System.out.println(result);
 	}

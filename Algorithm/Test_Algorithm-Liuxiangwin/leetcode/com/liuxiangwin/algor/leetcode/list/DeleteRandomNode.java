@@ -8,6 +8,7 @@ public class DeleteRandomNode {
 	 * 我们不删B，直接利用B删掉C就行了，方法简单，时间O(1)。
 	 * @param cur
 	 */
+	//在O(1)时间删除链表节点
 	private void deleteRandomNode(ListNode head,ListNode cur)
 	{
 	    if(cur.next != null){

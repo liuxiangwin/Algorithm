@@ -33,13 +33,12 @@ public class LinkedListCycleII {
 				break;
 			}
 		}
-		if(fast!=slow)
-		return null;		
-		fast = head;
-		while (fast != slow) {//快指针从头开始走，步长变为1
+		if (fast != slow)	return null;
+			fast = head;
+		while (fast != slow) {// 快指针从头开始走，步长变为1
 			fast = fast.next; // //两者相遇即为入口点
 			slow = slow.next;
-		}		
+		}
 		return fast;
 		
 	}
