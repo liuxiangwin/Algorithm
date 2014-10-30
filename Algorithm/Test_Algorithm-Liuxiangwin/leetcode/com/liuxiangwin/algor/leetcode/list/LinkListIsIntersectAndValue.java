@@ -1,6 +1,6 @@
 package com.liuxiangwin.algor.leetcode.list;
 
-public class LinkListIsIntersect {
+public class LinkListIsIntersectAndValue {
 	/**
 	 * 
 	 * 进一步考虑“如果两个没有环的链表相交于某一节点，
@@ -36,5 +36,45 @@ public class LinkListIsIntersect {
 		else
 			return false;
 	}
-
+	
+	
+	//分析：采用对齐的思想。计算两个链表的长度 L1 , L2
+	//分别用两个指针 p1 , p2 指向两个链表的头，
+	//然后将较长链表的 p1（假设为 p1）向后移动L2 - L1个节点，
+	//然后再同时向后移动p1 , p2，直到 p1 = p2。相遇的点就是相交的第一个节点。
+	
+	private ListNode findIntersectNode(ListNode h1,ListNode h2)
+	{
+	    int len1 = getListNodeLength(h1);          //求链表长度
+	    int len2 = getListNodeLength(h2);
+	    //对齐两个链表
+	    if(len1 > len2)
+	    {
+	        for(int i=0;i<len1-len2;i++)
+	            h1=h1.next;
+	    }
+	    else 
+	    {
+	        for(int i=0;i<len2-len1;i++)
+	            h2=h2.next;
+	    }
+	    while(h1!= null)
+	    {
+	        if(h1 == h2)
+	           return h1;
+	        h1 = h1.next;
+	        h2 = h2.next;    
+	    }
+	    return null;
+	}
+	
+	private int getListNodeLength(ListNode node)
+	{
+	    int length =1;
+		while(node.next!=null)
+		{
+			length++;
+		}
+	   return length;
+	}
 }
