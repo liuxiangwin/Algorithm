@@ -28,8 +28,8 @@ public class LinkedListCycle {
 		if (head == null) {
 			return false;
 		}
-		ListNode fast = head;
-		ListNode slow = head;
+		ListNode fast,slow; 
+		fast = slow = head;
         //只要有环就会在里面循环
 		while (fast.next != null) {
 			fast = fast.next.next;
@@ -40,7 +40,6 @@ public class LinkedListCycle {
 			slow = slow.next;
 			
 			if (fast == slow) {
-				cycleBeign =fast.val;
 				return true;
 			}
 		}

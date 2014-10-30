@@ -23,14 +23,14 @@ class ListNode {
 }
 
 public class RemoveNthNodeFromEnd {
-	public ListNode removeNthFromEnd(ListNode head, int kth) {
+	public ListNode removeNthFromEnd(ListNode head, int Kth) {
 		// Note: The Solution object is 
 		//instantiated only once and is reused by
 		// each test case.
 		ListNode fast = head;
 		ListNode slow = head;
 
-		for (int i = 0; i < kth; ++i) {
+		for (int i = 0; i < Kth; ++i) {
 			fast = fast.next;
 		}
 

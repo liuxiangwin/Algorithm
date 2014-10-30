@@ -24,6 +24,17 @@ public class ReverseSingleLinkList {
     	return previous;
 	}
 	
+	private ListNode reverseByRecursion(ListNode head)
+	{
+	    //第一个条件是判断异常，第二个条件是结束判断
+	    if(head == null || head.next == null) 
+	        return head;
+	    ListNode newHead = reverseByRecursion(head.next);
+	    head.next.next = head;
+	    head.next = null;
+	    return newHead;    //返回新链表的头指针
+	}
+	
 	public void printList(ListNode node) {
 		while (node != null) {
 			System.out.print(node.val + "->");

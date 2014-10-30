@@ -17,8 +17,9 @@ public class LinkedListCycleII {
 			return null;
 		}
 
-		ListNode fast = head;
-		ListNode slow = head;
+		
+		ListNode fast,slow; 
+		fast = slow = head;
 
 		while (fast.next != null) {
 			fast = fast.next.next;
@@ -26,22 +27,21 @@ public class LinkedListCycleII {
 			if (fast == null) {
 				return null;
 			}
-
 			slow = slow.next;
 
 			if (fast == slow) {
-				slow = head;
-
-				while (fast != slow) {
-					fast = fast.next;
-					slow = slow.next;
-				}
-				
-				return fast;
+				break;
 			}
 		}
-
-		return null;
+		if(fast!=slow)
+		return null;		
+		fast = head;
+		while (fast != slow) {//快指针从头开始走，步长变为1
+			fast = fast.next; // //两者相遇即为入口点
+			slow = slow.next;
+		}		
+		return fast;
+		
 	}
 
 	public static void main(String[] args) {
