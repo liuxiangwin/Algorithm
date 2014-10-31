@@ -40,6 +40,10 @@ string reverse(string str)
 	}
 	return ret;
 }
+
+
+
+http://www.2cto.com/kf/201309/245623.html
 int main(void)
 {
 	string s = "abc def   ghi";
