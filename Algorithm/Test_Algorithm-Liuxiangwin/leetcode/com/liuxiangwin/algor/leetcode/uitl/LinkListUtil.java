@@ -39,7 +39,7 @@ public class LinkListUtil {
 			
 			if (fast == slow) {
 				loopOverlapNode = fast;
-				return fast;
+				return loopOverlapNode;
 			}
 		}
 		return null;
