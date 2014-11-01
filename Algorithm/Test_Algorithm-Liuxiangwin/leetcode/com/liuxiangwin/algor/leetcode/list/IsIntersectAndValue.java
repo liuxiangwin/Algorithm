@@ -40,22 +40,22 @@ public class IsIntersectAndValue {
 	 */
 
 	// 两链表相交的第一个公共节点
-	private ListNode findIntersectNode(ListNode h1, ListNode h2) {
-		int len1 = getListNodeLength(h1); // 求链表长度
-		int len2 = getListNodeLength(h2);
+	private ListNode findIntersectNode(ListNode head1, ListNode head2) {
+		int len1 = getListNodeLength(head1); // 求链表长度
+		int len2 = getListNodeLength(head2);
 		// 对齐两个链表
 		if (len1 > len2) {
 			for (int i = 0; i < len1 - len2; i++)
-				h1 = h1.next;
+				head1 = head1.next;
 		} else {
 			for (int i = 0; i < len2 - len1; i++)
-				h2 = h2.next;
+				head2 = head2.next;
 		}
-		while (h1 != null) {
-			if (h1 == h2)
-				return h1;
-			h1 = h1.next;
-			h2 = h2.next;
+		while (head1 != null) {
+			if (head1 == head2)
+				return head1;
+			head1 = head1.next;
+			head2 = head2.next;
 		}
 		return null;
 	}
