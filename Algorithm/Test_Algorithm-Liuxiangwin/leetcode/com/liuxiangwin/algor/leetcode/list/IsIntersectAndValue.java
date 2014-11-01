@@ -14,20 +14,20 @@ public class IsIntersectAndValue {
 	 * 这样我们就得到了一个时间复杂度，它为O((Length(h1) + Length(h2))， 而且只用了一个额外的指针来存储最后一个节点。
 	 * 这个方法时间复杂度为线性O(N)，空间复杂度为O(1)， 显然比解法三更胜一筹。@param h1
 	 * 
-	 * @param h2
+	 * @param head2
 	 * @return
 	 */
 	// 判断两个链表是否相交
-	private boolean isIntersect(ListNode h1, ListNode h2) {
-		if (h1 == null || h2 == null)
+	private boolean isIntersect(ListNode head1, ListNode head2) {
+		if (head1 == null || head2 == null)
 			return false;
-		while (h1.next != null) {
-			h1 = h1.next;
+		while (head1.next != null) {
+			head1 = head1.next;
 		}
-		while (h2.next != null) {
-			h2 = h2.next;
+		while (head2.next != null) {
+			head2 = head2.next;
 		}
-		if (h1 == h2)
+		if (head1 == head2)
 			return true; // 尾节点是否相同
 		else
 			return false;
