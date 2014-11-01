@@ -55,7 +55,7 @@ public class ShiftListByNth {
 	   
 	   while(tmp.next!=null)
 	   {
-		   tmp =tmp.next; 
+		   tmp =tmp.next; //find the last pointer
 	   }
 	   for(int i=0;i< kth;i++) {
 		   fast = fast.next;		   
