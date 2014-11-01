@@ -2,30 +2,26 @@ package com.liuxiangwin.algor.leetcode.list;
 
 public class MergeTwoLinkedLists {
 
-	public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+	public ListNode mergeTwoLists(ListNode head1, ListNode head2) {
 
 		ListNode fakeHead = new ListNode(0);
-		
-		
-		ListNode current =fakeHead;
-        
+		ListNode current =fakeHead;        
 
-		while (list1 != null && list2 != null) {
-			if (list1.val <= list2.val) {
-				current.next = list1;
-				list1 = list1.next;
+		while (head1 != null && head2 != null) {
+			if (head1.val <= head2.val) {
+				current.next = head1;
+				head1 = head1.next;
 			} else {
-				current.next = list2;
-				list2 = list2.next;
+				current.next = head2;
+				head2 = head2.next;
 			}
-
 			current = current.next;
 		}
-
-		if (list1 != null)
-			current.next = list1;
-		if (list2 != null)
-			current.next = list2;
+		
+		if (head1 != null)
+			current.next = head1;
+		if (head2 != null)
+			current.next = head2;
 
 		return fakeHead.next;
 	}
