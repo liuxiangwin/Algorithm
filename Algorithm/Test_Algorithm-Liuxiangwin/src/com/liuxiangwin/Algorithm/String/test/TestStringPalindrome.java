@@ -67,10 +67,10 @@ public class TestStringPalindrome {
 	}
 
 	// If is the palindrome then return the string
-	public static String longestPrefixPalindrome(String test) {
-		String defaultPrefix = test.substring(0, 1);
-		for (int i = test.length() - 1; i >= 0; i--) {
-			String maxPrefix = test.substring(0, i);
+	public static String longestPrefixPalindrome(String string) {
+		String defaultPrefix = string.substring(0, 1);
+		for (int i = string.length() - 1; i >= 0; i--) {
+			String maxPrefix = string.substring(0, i);
 			if (isCharPalindrome(maxPrefix)) {
 				return maxPrefix;
 			}
