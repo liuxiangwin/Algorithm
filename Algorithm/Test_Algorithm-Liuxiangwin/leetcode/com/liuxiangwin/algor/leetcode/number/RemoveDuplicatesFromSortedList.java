@@ -29,43 +29,41 @@ public class RemoveDuplicatesFromSortedList {
 			return head;
 		}
 
-		ListNode pre = head;
-		ListNode cur = head.next;
+		ListNode slow = head;
+		ListNode fast = head.next;
 
-		while (cur != null) {
+		while (fast != null) {
 			//没有重复元素
-			if (cur.val != pre.val) {
-				pre = cur;
-				cur = cur.next;
+			if (fast.val != slow.val) {
+				slow = fast;
+				fast = fast.next;
 				continue;
 			}
            //出现重复元素,only move the current pointer
-			while (cur.next != null && cur.next.val == pre.val) {
-				cur = cur.next;
+			while (fast.next != null && fast.next.val == slow.val) {
+				fast = fast.next;
 			}
             //1----->1------>2
 			//   P.next
 			// Current.next
-			pre.next = cur.next;
-			cur = pre.next;
+			slow.next = fast.next;
+			fast = slow.next;
 		}
 
 		return head;
 	}
 	
 	public ListNode deleteDuplicates2(ListNode head) {
-		ListNode index = head;
-		ListNode cur = head.next;
+		ListNode slow = head;
+		ListNode fast = head.next;
 		
-		while(cur.next!=null){
-			if(index.val!=cur.val){					
-				index= index.next;
-				index= cur;						
+		while(fast.next!=null){
+			if(slow.val!=fast.val){					
+				slow= slow.next;
+				slow.val= fast.val;						
 			}
-			cur =cur.next;
+			fast =fast.next;
 		}
-				
-		
 		return head;
 	}
 	
@@ -80,6 +78,20 @@ public class RemoveDuplicatesFromSortedList {
 	public static void main(String[] args) {
 		RemoveDuplicatesFromSortedList slt = new RemoveDuplicatesFromSortedList();
 		// Given 1->1->2->3->3, return 1->2->3. 
+		ListNode n1 = buildList();
+		
+		slt.printList(n1);
+		ListNode res = slt.deleteDuplicates(n1);
+		slt.printList(res);
+	    System.out.println("---------------");
+	    n1 = buildList();
+		slt.printList(n1);
+		ListNode res2 = slt.deleteDuplicates2(n1);
+		slt.printList(res2);
+		
+	}
+
+	private static ListNode buildList() {
 		ListNode n1 = new ListNode(1);
 		ListNode n2 = new ListNode(1);
 		ListNode n3 = new ListNode(2);
@@ -93,13 +105,6 @@ public class RemoveDuplicatesFromSortedList {
 		n4.next = n5;
 		n5.next = n6;
 		n6.next = null;
-		
-		slt.printList(n1);
-		ListNode res = slt.deleteDuplicates(n1);
-		slt.printList(res);
-	   
-		ListNode res2 = slt.deleteDuplicates2(n1);
-		slt.printList(res2);
-		
+		return n1;
 	}
 }
