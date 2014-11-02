@@ -60,14 +60,14 @@ public class TMHashMap {
 	 * map previously contained a mapping for the key, the old value is
 	 * replaced.
 	 */
-	public void put(String k, String v) {
-		int hash = k.hashCode() % SIZE;
+	public void put(String key, String v) {
+		int hash = key.hashCode() % SIZE;
 		Entry e = table[hash];
 		if (e != null) {
 			// it means we are trying to insert duplicate
 			// key-value pair, hence overwrite the current
 			// pair with the old pair
-			if (e.key.equals(k)) {
+			if (e.key.equals(key)) {
 				e.value = v;
 			} else {
 				// traverse to the end of the list and insert new element
@@ -75,12 +75,12 @@ public class TMHashMap {
 				while (e.next != null) {
 					e = e.next;
 				}
-				Entry entryInOldBucket = new Entry(k, v);
+				Entry entryInOldBucket = new Entry(key, v);
 				e.next = entryInOldBucket;
 			}
 		} else {
 			// new element in the map, hence creating new bucket
-			Entry entryInNewBucket = new Entry(k, v);
+			Entry entryInNewBucket = new Entry(key, v);
 			table[hash] = entryInNewBucket;
 		}
 	}
