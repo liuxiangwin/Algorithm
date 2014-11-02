@@ -1,6 +1,6 @@
 package com.liuxiangwin.algor.leetcode.list;
 
-public class MergeTwoLinkedLists {
+public class MergeTwoSortedLinkedLists {
 
 	public ListNode mergeTwoLists(ListNode head1, ListNode head2) {
 
@@ -49,7 +49,7 @@ public class MergeTwoLinkedLists {
 		head2.next = n4;
 		n4.next = n5;
 		
-		MergeTwoLinkedLists mergeTwo = new MergeTwoLinkedLists();
+		MergeTwoSortedLinkedLists mergeTwo = new MergeTwoSortedLinkedLists();
 		mergeTwo.printList(head1);
 		mergeTwo.printList(head2);
 		
