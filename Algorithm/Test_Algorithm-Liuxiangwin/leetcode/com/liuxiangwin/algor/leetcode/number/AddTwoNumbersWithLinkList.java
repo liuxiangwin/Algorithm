@@ -24,24 +24,23 @@ import com.liuxiangwin.algor.leetcode.uitl.ListNode;
 
 public class AddTwoNumbersWithLinkList {
 
-	public ListNode addTwoNumbers(ListNode listNode1, ListNode listNode2) {
+	public ListNode addTwoNumbers(ListNode head1, ListNode head2) {
 	       int sum =0;
 	 
 	        ListNode newHead = new ListNode(0);
-	        ListNode node1 = listNode1, 
-	        node2 = listNode2, 
-	        ressultNode = newHead;
+	    
+	        ListNode ressultNode = newHead;
 	 
-	        while(node1 != null || node2 != null){
+	        while(head1 != null || head2 != null){
 	        	//Move to next node in list team one
-	            if(node1 != null){
-	                sum += node1.val;
-	                node1 = node1.next;
+	            if(head1 != null){
+	                sum += head1.val;
+	                head1 = head1.next;
 	            }
 	            //Move to next node in list team two
-	            if(node2 != null){
-	                sum += node2.val;
-	                node2 = node2.next;
+	            if(head2 != null){
+	                sum += head2.val;
+	                head2 = head2.next;
 	            }
 	            //存当前值的
 	            ressultNode.next = new ListNode(sum%10);
