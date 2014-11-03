@@ -32,7 +32,7 @@ public class SingleNumber {
         }  
         for (int j=0;j<10;j++)  
         {  
-            if (1==hash[j])  
+            if (hash[j] ==1)  //表示出现一次
             {  
             	System.out.println("the 3 number once is "+j);  
             }  
