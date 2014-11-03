@@ -39,38 +39,6 @@ public class SingleNumber {
         }  
     }
     
-    
-    private void Single_Num1(int []s,int size)
-    {
-    	//int sum=-1;
-    	for (int i=0;i<size;i++)
-    	{
-    		for (int j=0;j<size;j++)
-    		{
-
-    			if (i!=j)   //排除自身异或
-    			{
-    				if ((s[i]^s[j])==0)
-    				{
-    					//printf("%d ",s[i]);	
-    					s[i]=0;//将它们变成一个数组中不存在的数，在这里我把他们设置为0
-    					s[j]=0;
-    				}
-    			}
-
-    		}
-    	}
-    	for (int j=0;j<size;j++)
-    	{
-    		if (s[j]!=0)
-    		{
-    			//printf("%d ",s[i]);
-    			System.out.println("the 3 number once is "+j);  
-    		}
-    	}
-    }
-
-    
     //1-1000放在含有1001个元素的数组中，只有唯一的一个元素值重复，其它均只出现一次．
         //每个数组元素只能访问一次，设计一个算法，将它找出来；不用辅助存储空间，
       //能否设计一个算法实现？
