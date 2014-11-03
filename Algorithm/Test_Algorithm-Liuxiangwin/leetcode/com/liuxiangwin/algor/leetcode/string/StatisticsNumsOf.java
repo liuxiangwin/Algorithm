@@ -15,7 +15,7 @@ public class StatisticsNumsOf {
 	    {
 	        if(a[j] > 0)
 	        {
-	            System.out.println("the string "+Character.toString((char) j)+ " occuence is "+a[j]);
+	            System.out.println("the string "+Character.toString((char)j)+ " occuence is "+a[j]);
 	        }
 	    }
 
