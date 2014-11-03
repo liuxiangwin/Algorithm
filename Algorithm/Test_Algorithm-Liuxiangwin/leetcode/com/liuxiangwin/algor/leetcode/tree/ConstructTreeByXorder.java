@@ -45,7 +45,7 @@ public class ConstructTreeByXorder {
 	        }
 	 
 	        root.left = buildTree(inorder, in_s, k-1,
-	        		postorder, p_s, p_s + k- (in_s+1));
+	        		postorder, p_s, (p_s + k- in_s-1));
 	        // Becuase k is not the length, it it need to -(inStart+1) 
 	        //to get the length
 	        root.right = buildTree(inorder, k+1,in_end, 
