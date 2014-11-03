@@ -7,17 +7,15 @@ public class StatisticsNumsOf {
 	    int i,j,len = str.length;
 	    int a[] = new int[256];
 
-	    for (i = 0;i < len;i++)
-	    {
-	        
-	    	a[str[i]]++;
-	    	//a[*(str+i)] ++;
+	    for (i = 0;i < str.length;i++)
+	    {        
+	    	a[str[i]]+=1;
 	    }
 	    for (j = 0;j < 256;j++)
 	    {
 	        if(a[j] > 0)
 	        {
-	            System.out.println(a[j]);
+	            System.out.println("the string "+Character.toString((char) j)+ " occuence is "+a[j]);
 	        }
 	    }
 
