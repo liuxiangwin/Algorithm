@@ -49,14 +49,16 @@ public class SingleNumber {
      //首先 回忆 异或操作，任意数字与自身相异或，结果都为0.
      // 还有一个重要的性质，即任何元素与0相异或，结果都为元素自身
      //能否设计一个算法实现？
-   private  void FindRepeat(int array[], int length)
-    {
-      int result = 0;
-           for(int i=1;i<=1000;i++)
-                  result ^=  i;
-           for(int i=0;i<=1000;i++)
-                  result ^=  array[i];
-    }
+	private int FindRepeat(int array[], int length) {
+		int result = 0;
+		for (int i = 0; i <= length-1; i++) {
+			result ^= i;
+		}
+		for (int i = 0; i <= length-1; i++) {
+			result ^= array[i];
+		}
+		return result;
+	}
     
     
     //找出数组中唯一出现一次的两个数字  要求时间复杂度是O(n)，空间复杂度是O(1)。
@@ -76,7 +78,9 @@ public class SingleNumber {
 		int[] B = new int[] { 2,1,2,5,3,3,6,7,6};
 		slt.single_three_num(B);
 		
-		
+		int[] C = new int[] { 6,7,5,3,3,10,11};
+		int result = slt.FindRepeat(C,C.length);
+		System.out.println("The twice number is "+result);
     }
 
 	private static void xorOperation() {
