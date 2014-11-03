@@ -4,7 +4,7 @@ import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
 public class MaxOrMinDepthOfBinaryTree {
-
+    private static int max_distance=0;
 	public int maxDepthOfTree(TreeNode root) {
 		if (root == null) {
 			return 0;
@@ -16,7 +16,23 @@ public class MaxOrMinDepthOfBinaryTree {
 		return maxLeft > maxRight ? 
 				 maxLeft + 1:maxRight + 1;
 	}
-
+   
+	
+	private int maxNodeDistance(TreeNode root, int max_distance) {
+		if (root == null) {
+			return -1;
+		}
+		int left_height = maxNodeDistance(root.left, max_distance) + 1;
+		int right_height = maxNodeDistance(root.right, max_distance) + 1;
+		int distance = left_height + right_height;
+		if (distance > max_distance)
+		{
+			max_distance = distance;
+		}			
+		return left_height > right_height ? left_height : right_height;
+	}
+	
+	
 	public int maxDepth_2_way(TreeNode root) {
 		if (root == null)
 			return 0;
@@ -80,6 +96,9 @@ public class MaxOrMinDepthOfBinaryTree {
 		System.out.println("The longest path in tree "+maxMin.maxDepthOfTree(root));
 		
 		System.out.println("The shortest path in tree "+maxMin.minimumDepthOfTree(root));
+		
+		
+		System.out.println("The longest distance in tree "+maxMin.maxNodeDistance(root,0));
 		
 	}
 
