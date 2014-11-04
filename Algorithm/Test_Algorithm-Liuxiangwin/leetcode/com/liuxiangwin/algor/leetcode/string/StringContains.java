@@ -35,12 +35,37 @@ public class StringContains {
        return true;
     }
     
+   /* public static boolean hashWordCheck(String[]sArray, char[] s2) {
+        for (int i=0; i<sArray.length;i++)
+        {
+        	sArray[i]
+        }
+    	
+    	
+    	int mask = 0;
+        for (char c: s1) {
+            mask = mask | (1 << (c - 'A'));
+        }
+        for (char c: s2) {
+            if ((mask & (1 << (c - 'A'))) == 0) {
+                return false;
+            }
+        }
+       return true;
+    }*/
+    
 	public static void main(String[] args) {
 		StringContains  stringContains = new StringContains();
 		char[] longString = "Alan is dilegent guy".toCharArray();
 		char[] shortString = "dile".toCharArray();
 		System.out.println(stringContains.hashCheck(longString, shortString));
 	     
+		
+		
+		String[] sString= {"hello","july"};
+
+		char[] lString="hellomehellojuly".toCharArray();
+		
 		
 		System.out.println(1&1);
 	
