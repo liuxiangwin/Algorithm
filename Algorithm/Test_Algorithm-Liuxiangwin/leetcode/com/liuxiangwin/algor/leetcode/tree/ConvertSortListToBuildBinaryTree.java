@@ -1,5 +1,6 @@
 package com.liuxiangwin.algor.leetcode.tree;
 
+import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
 import com.liuxiangwin.algor.leetcode.uitl.ListNode;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
@@ -10,18 +11,26 @@ import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
  * and right subtrees take constant time)
  */
 
+
+
+
+
 public class ConvertSortListToBuildBinaryTree {
 
 	public TreeNode sortedListToBST(ListNode head) {
 		ListNode mid = getMiddle(head);
-		ListNode last = getLast(head);
+		if(mid!=null){
+			ListNode next = mid.next;
+			mid.next =null;
+			//ListNode last = getLast(head);
 
-		TreeNode node = new TreeNode(mid.val);
+			TreeNode node = new TreeNode(mid.val);
 
-		node.left = sortedListToBST(head);
-		node.right = sortedListToBST(mid.next);
-		return node;
-
+			node.left = sortedListToBST(head);
+			node.right = sortedListToBST(next);
+			return node;
+		}
+		return null;
 	}
 
 	public ListNode getLast(ListNode head) {
@@ -65,5 +74,10 @@ public class ConvertSortListToBuildBinaryTree {
 		n2.next = n3;
 		n3.next = n4;
 		n4.next = n5;
+		
+		ConvertSortListToBuildBinaryTree binaryTree = new ConvertSortListToBuildBinaryTree();
+		binaryTree.printList(head);
+		TreeNode treeNode = binaryTree.sortedListToBST(head);
+		BinaryTreePrinter.printNode(treeNode);
 	}
 }
