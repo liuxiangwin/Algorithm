@@ -3,7 +3,7 @@ package com.liuxiangwin.datastruture.impl;
 public class TMHashMap {
 	// for simplicity size is taken as 2^4
 	private static final int SIZE = 16;
-	private Entry table[] = new Entry[SIZE];
+	private Entry entryTable[] = new Entry[SIZE];
 
 	/**
 	 * User defined simple Map data structure with key and value. This is also
@@ -40,17 +40,17 @@ public class TMHashMap {
 	 * Returns the entry associated with the specified key in the HashMap.
 	 * Returns null if the HashMap contains no mapping for the key.
 	 */
-	public Entry get(String k) {
-		int hash = k.hashCode() % SIZE;
-		Entry e = table[hash];
+	public Entry get(String key) {
+		int hash = key.hashCode() % SIZE;
+		Entry element = entryTable[hash];
 
 		// if bucket is found then traverse through the linked list and
 		// see if element is present
-		while (e != null) {
-			if (e.key.equals(k)) {
-				return e;
+		while (element != null) {
+			if (element.key.equals(key)) {
+				return element;
 			}
-			e = e.next;
+			element = element.next;
 		}
 		return null;
 	}
@@ -62,7 +62,7 @@ public class TMHashMap {
 	 */
 	public void put(String key, String v) {
 		int hash = key.hashCode() % SIZE;
-		Entry e = table[hash];
+		Entry e = entryTable[hash];
 		if (e != null) {
 			// it means we are trying to insert duplicate
 			// key-value pair, hence overwrite the current
@@ -81,7 +81,7 @@ public class TMHashMap {
 		} else {
 			// new element in the map, hence creating new bucket
 			Entry entryInNewBucket = new Entry(key, v);
-			table[hash] = entryInNewBucket;
+			entryTable[hash] = entryInNewBucket;
 		}
 	}
 
