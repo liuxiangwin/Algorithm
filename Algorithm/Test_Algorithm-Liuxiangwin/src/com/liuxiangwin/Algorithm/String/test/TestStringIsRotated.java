@@ -15,7 +15,7 @@ public class TestStringIsRotated {
 		System.out.println("hello shift to  elloh ::" + checkRotateNumber("hello","elloh"));
 
 	}
-
+    //前提是只能使用一次substring
 	private static boolean isRotation(String s1, String s2) {
 		/**
 		 * indexOf(String str)
