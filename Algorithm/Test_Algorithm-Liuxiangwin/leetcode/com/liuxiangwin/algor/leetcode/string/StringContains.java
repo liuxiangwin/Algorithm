@@ -38,7 +38,7 @@ public class StringContains {
 	public static boolean hashUniqueChar(char[] s1) {
 		int mask = 0;
 		for (char c : s1) {
-			if ((mask & (1 << (c - 'A'))) > 0) {
+			if ((mask & (1 << (c - 'A'))) > 0) {//只有在同一个位置出现才会&大于0
 				return false;
 			}
 			mask = mask | (1 << (c - 'A'));
@@ -77,6 +77,12 @@ public class StringContains {
 		char[] lString="hellomehellojuly".toCharArray();
 		
 		System.out.println(stringContains.hashUniqueChar(lString));
+		
+		char[] lString2="helo".toCharArray();
+		
+		System.out.println(stringContains.hashUniqueChar(lString2));
+		
+		
 		
 		System.out.println(1&1);
 	
