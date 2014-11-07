@@ -38,7 +38,8 @@ public class StringContains {
 	public static boolean hashUniqueChar(char[] s1) {
 		int mask = 0;
 		for (char c : s1) {
-			if ((mask & (1 << (c - 'A'))) > 0) {//只有在同一个位置出现才会&大于0
+			if ((mask & (1 << (c - 'A'))) > 0) {
+				//只有在同一个位置出现才会&大于0 //否则每次以后都会重新置成0				
 				return false;
 			}
 			mask = mask | (1 << (c - 'A'));
