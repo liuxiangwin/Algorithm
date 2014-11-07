@@ -35,6 +35,16 @@ public class StringContains {
        return true;
     }
     
+	public static boolean hashUniqueChar(char[] s1) {
+		int mask = 0;
+		for (char c : s1) {
+			if ((mask & (1 << (c - 'A'))) > 0) {
+				return false;
+			}
+			mask = mask | (1 << (c - 'A'));
+		}
+		return true;
+	}
    /* public static boolean hashWordCheck(String[]sArray, char[] s2) {
         for (int i=0; i<sArray.length;i++)
         {
@@ -66,6 +76,7 @@ public class StringContains {
 
 		char[] lString="hellomehellojuly".toCharArray();
 		
+		System.out.println(stringContains.hashUniqueChar(lString));
 		
 		System.out.println(1&1);
 	

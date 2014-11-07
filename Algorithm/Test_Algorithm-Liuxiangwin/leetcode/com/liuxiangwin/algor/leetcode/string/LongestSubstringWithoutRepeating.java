@@ -1,6 +1,7 @@
 package com.liuxiangwin.algor.leetcode.string;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 // Analysis: http://blog.csdn.net/lilong_dream/article/details/19431417
 
@@ -9,6 +10,7 @@ import java.util.HashMap;
 // For "bbbbb" the longest substring is "b", with the length of 1.
 
 public class LongestSubstringWithoutRepeating {
+	private LongestSubstringWithoutRepeating(){}
 
 	public static int lengthOfLongestSubstring2(String s) {
 
@@ -29,6 +31,33 @@ public class LongestSubstringWithoutRepeating {
 
 		return Math.max(pre, map.size());
 	}
+	
+/*	private static String LongestSubstring(string word)
+    {
+		HashSet set = new HashSet<char>();
+        string longestOverAll = "";
+        string longestTillNow = "";
+
+        foreach (char c in word)
+        {
+            if (!set.Contains(c))
+            {
+                longestTillNow += c;
+                set.Add(c);
+            }
+            else
+            {
+                longestTillNow = string.Empty;
+            }
+
+            if (longestTillNow.Length > longestOverAll.Length)
+            {
+                longestOverAll = longestTillNow;
+            }
+        }
+
+        return longestOverAll;
+    }*/
 
 	private int getLongestConsecutiveSubString(String str, 
 			int currentPos,	int count, int maxLength) {
