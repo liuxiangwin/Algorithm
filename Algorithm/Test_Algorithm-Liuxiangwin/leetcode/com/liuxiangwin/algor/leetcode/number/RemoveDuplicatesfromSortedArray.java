@@ -39,7 +39,11 @@ public class RemoveDuplicatesfromSortedArray {
     	RemoveDuplicatesfromSortedArray slt = new RemoveDuplicatesfromSortedArray();
     	//int[] array = {1, 1, 2, 3, 4, 4, 5};
     	
-    	int[] array = {2, 3,1,1, 5, 4, 4};
+        //int[] array = {2, 3,1,1, 5, 4, 4};
+    	
+        
+        int[] array = {1,1,2,3, 4, 4,5};
+    	//int[] array = {3,1,2, 2, 3};//this not work unsorted
     	//int[] array = {1, 1, 2};    	
     	
     	int len = slt.removeDuplicates(array);
@@ -47,6 +51,7 @@ public class RemoveDuplicatesfromSortedArray {
     	for(int i = 0; i < len; i++) {
     		System.out.print(array[i] + " ");
     	}
+    	System.out.println();
     	System.out.println(Arrays.toString(array));
     }
 }
