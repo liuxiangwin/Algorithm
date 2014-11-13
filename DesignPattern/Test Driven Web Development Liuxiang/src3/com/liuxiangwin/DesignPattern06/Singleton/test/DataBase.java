@@ -1,9 +1,9 @@
 package com.liuxiangwin.DesignPattern06.Singleton.test;
 
-public class DataBase {
-	private String _dataBaseName;
+public class DataBase {	
 	private static DataBase _instance;
 	
+	private String _dataBaseName;
 	//private static DataBase _instance = new DataBase();
 
 	private DataBase(String name) {
