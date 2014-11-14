@@ -37,11 +37,41 @@ void get2NonRepeatingNos(int arr[], int n, int *x, int *y) {
 	}
 }
 
+
+
+
+	int singleNumber(int A[], int n) {
+        int bitnum[32]={0};
+        int res=0;
+        int i;
+        int j;
+        for(i=0; i<32; i++){
+
+            for(j=0; j<n; j++){
+                bitnum[i]+=(A[j]>>i)&1;
+            }
+
+
+            res|=(bitnum[i]%3)<<i;
+        }
+        return res;
+    }
+
+
+
+
 /* Driver program to test above function */
 int main1() {
 	int arr[] = { 2, 3, 7, 9, 11, 2, 3, 11 };
 	int *x = (int *) malloc(sizeof(int));
 	int *y = (int *) malloc(sizeof(int));
 	get2NonRepeatingNos(arr, 8, x, y);
+
+	int arr2[] = { 2, 2, 2, 3, 4, 4, 4};
+	singleNumber(arr2,7);
 	printf("The non-repeating elements are %d and %d", *x, *y);
+
+
+
+
 }
