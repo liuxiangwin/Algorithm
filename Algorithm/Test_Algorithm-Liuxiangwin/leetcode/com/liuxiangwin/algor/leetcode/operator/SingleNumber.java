@@ -42,6 +42,54 @@ public class SingleNumber {
         }  
     }
     
+    //http://www.2cto.com/kf/201401/275860.html
+    //Given an array of integers, 
+    //every element appears three times except for one. Find that single one.
+    
+    public int singleNumberBitMap(int A[], int n) {
+            int[] bitnum=new int[32];
+            int res=0;
+            for(int i=0; i<32; i++){
+                for(int j=0; j<n; j++){
+                    bitnum[i]+=(A[j]>>i)&1;
+                }
+                res|=(bitnum[i]%3)<<i;
+            }
+            return res;
+        }
+
+    
+    
+    private int singleNumber(int A[], int n) {
+        int ones = 0, twos = 0, threes = 0;
+        for(int i = 0; i < n; i++)
+        {
+            threes = twos & A[i]; //已经出现两次并且再次出现
+            twos = twos | ones & A[i]; //曾经出现两次的或者曾经出现一次但是再次出现的
+            ones = ones | A[i]; //出现一次的
+            
+            twos = twos & ~threes; //当某一位出现三次后，我们就从出现两次中消除该位
+            ones = ones & ~threes; //当某一位出现三次后，我们就从出现一次中消除该位
+        }
+        //每次循环先计算 twos，即出现两次的 1 的分布，然后计算出现一次的 1 的分布，接着 二者进行与操作得到出现三次的 1 的分布情况，
+        //然后对 threes 取反，再与 ones、twos进行与操作，这样的目的是将出现了三次的位置清零。
+      /*  for(int i=0; i<n; i++){
+            two |= one&A[i];
+            one^=A[i];
+            //cout<<one<<endl;
+            three=one&two;
+            one&= ~three;
+            two&= ~three;
+        }*/
+        
+        
+        return ones; //twos, threes最终都为0.ones是只出现一次的数
+    }
+    
+    
+    
+    
+    
     //1-1000放在含有1001个元素的数组中，只有唯一的一个元素值重复，
      //其它均只出现一次．
      //每个数组元素只能访问一次，设计一个算法，将它找出来；
