@@ -7,6 +7,9 @@ package com.liuxiangwin.algor.leetcode.tmp;
 // Given an integer, convert it to a roman numeral.
 // Input is guaranteed to be within the range from 1 to 3999.
 
+
+//http://blog.csdn.net/jellyyin/article/details/13165731
+
 public class IntegerToRoman {
 	public String intToRoman(int num) {
 		int[] base = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
