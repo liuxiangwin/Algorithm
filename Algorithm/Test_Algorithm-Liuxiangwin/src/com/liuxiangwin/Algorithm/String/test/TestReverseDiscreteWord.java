@@ -29,8 +29,10 @@ public class TestReverseDiscreteWord {
         System.out.println(Arrays.toString(newTest));
         
         lengthOfLongestSubstring();
-
-
+        
+        //return "blue is sky the".
+        String reveseEachWord = reveseEachWord("the sky is blue");
+        System.out.println("reveseEachWord "+ reveseEachWord);
 	}
 
 	private static void reverse(char[] src, int start, int end) {
@@ -60,22 +62,6 @@ public class TestReverseDiscreteWord {
 
 	}
 	
-	private static void reverseWordByWord(char[] string) {
-        int i =0;
-        int j= string.length-1;
-		while (i < j) {
-			if(string[i]==' '&& string[j]==' ')
-			{
-				char temp = string[i];
-				string[i] = string[j];
-				string[j] = temp;			
-				i++;
-				j--;
-			}
-		}
-
-	}
-	
 	public static void lengthOfLongestSubstring() {
 		  String str = "abcbcbd";
 		  String sb = "";
@@ -89,5 +75,37 @@ public class TestReverseDiscreteWord {
 		}
 		System.out.println("Substring: "+sb+" Length: " + sb.length());
 		}
-
+ 
+	
+	//1.先对每个单词进行逆转，最后再对整个字符串逆转
+   public static String reveseEachWord(String string)
+   {   int i=0; int j= 0;
+       char[] cArray =string.toCharArray();
+       while(j<string.length())
+       {
+    	   if(cArray[j]==' '){
+    		   reverse(cArray,i,j-1);
+    		   i=j+1;
+    	   }
+    	   if(j==string.length()-1)
+    	   {
+    		   reverse(cArray,i,j);
+    	   }
+    	   j++;
+       }
+      int start=0;int end= string.length()-1;
+       while (start < end) {
+			char temp = cArray[start];
+			cArray[start] = cArray[end];
+			cArray[end] = temp;			
+			start++;
+			end--;
+		}   
+       
+       return String.valueOf(cArray);	   
+   }
+   //2.根据空格切分字符串，将切分得到的单词存到vector中，
+    //然后将vector中的单词从末尾开始输出即可。
+   //由于栈具有“先进后出”的性质
+   
 }
