@@ -14,7 +14,6 @@ public class TestStringCompress {
 		System.out.println(compressString(LongString));
 		
 		String duplicateString = "eeeeeaaff";
-		System.out.println(xorString(duplicateString));
 	}
 
 	// "eeeeeaaaff" 压缩为 "e5a3f2"，请编程实现。
@@ -41,16 +40,6 @@ public class TestStringCompress {
 		return stringBuild.toString();
 
 	}
-	
-	private static char xorString(String string) {
-		char[] array = string.toCharArray();
-		char result = 0;
-		for(char element: array)
-		{
-			result ^= element;	
-		}
-		
-		return result;
-	}
+
 
 }
