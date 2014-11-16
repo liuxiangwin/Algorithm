@@ -36,15 +36,15 @@ package com.liuxiangwin.algor.leetcode.tmp;
  */
 public class IntegerVsRoman {
 	public String intToRoman(int num) {
-		int[] base = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+		int[] dic = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
 		String[] roman = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X",
 				"IX", "V", "IV", "I" };
 
 		String result = "";
 
-		for (int i = 0; num > 0; ++i) {
-			int count = num / base[i];
-			num %= base[i];
+		for (int i = 0; num > 0; i++) {
+			int count = num / dic[i];
+			num %= dic[i];
 
 			while (count > 0) {
 				result += roman[i];
@@ -55,43 +55,40 @@ public class IntegerVsRoman {
 		return result;
 	}
 	
-	
-	
-	public static int romanToInt(String s) {
-        int i, total, pre, cur;
-
-        total = charToInt(s.charAt(0));
-
-        for (i = 1; i < s.length(); i++) {
-            pre = charToInt(s.charAt(i - 1));
-            cur = charToInt(s.charAt(i));
-
-            if (cur <= pre) {
-                total += cur;
-            } else {
-                total = total - pre * 2 + cur;
-            }
-        }
-        return total;
-    }
-	
+	        //基本字符	I	V	X	L	C	D	M
+      //对应阿拉伯数字	1	5	10	50	100	500	1000
 	public int romanToInt2(String s) {
 		if (s.length() == 0)
 			return 0;
 
 		int length = s.length();
-		int result = s.charAt(length-1);
+		int result = charToInt(s.charAt(length-1));
 		for (int i = length - 2; i >= 0; i--) {
 			if (charToInt(s.charAt(i + 1)) <= charToInt(s.charAt(i)))
 				result += charToInt(s.charAt(i));
-			else
+			else{
 				result -= charToInt(s.charAt(i));
+			}				
 		}
 		return result;
 	}
 
 	
-	
+	private int romanToInt(String s) {
+		int sum = 0;int j;
+		for (int i = 0; i < s.length(); i++) {	
+			j = i + 1;
+			// j是后面一位的位置
+			if (j < s.length()
+					&& charToInt(s.charAt(j)) > charToInt(s.charAt(i))) {
+				sum += charToInt(s.charAt(j)) - charToInt(s.charAt(i));
+				i = j;
+			} else {
+				sum += charToInt(s.charAt(i));
+			}
+		}
+		return sum;
+	}
 	public static int charToInt(char c) {
         switch(c) {
             case 'I': return 1; 
@@ -108,5 +105,11 @@ public class IntegerVsRoman {
 	public static void main(String[] args) {
 		IntegerVsRoman slt = new IntegerVsRoman();
 		System.out.println(slt.intToRoman(321));
+		
+		//System.out.println(slt.romanToInt("MCMXC"));
+		System.out.println(slt.romanToInt2("MCMXC"));
+		System.out.println(slt.romanToInt("MCMXC"));
+		
+		
 	}
 }
