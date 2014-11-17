@@ -46,12 +46,12 @@ public class SingleNumber {
     //Given an array of integers, 
     //every element appears three times except for one. Find that single one.
     
-    public int singleNumberBitMap(int A[], int n) {
-            int[] bitnum=new int[32];
+    public int singleNumberBitMap(int A[]) {
+            int[] bitnum= new int[32];
             int res=0;
-            for(int i=0; i<32; i++){
-                for(int j=0; j<n; j++){
-                    bitnum[i]+=(A[j]>>i)&1;
+            for(int i=0; i< 32; i++){
+                for(int j=0; j< A.length; j++){
+                    bitnum[i]+= (A[j]>>i)&1;
                 }
                 res|=(bitnum[i]%3)<<i;
             }
