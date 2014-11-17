@@ -62,21 +62,21 @@ public class TMHashMap {
 	 */
 	public void put(String key, String v) {
 		int hash = key.hashCode() % SIZE;
-		Entry e = entryTable[hash];
-		if (e != null) {
+		Entry element = entryTable[hash];
+		if (element != null) {
 			// it means we are trying to insert duplicate
 			// key-value pair, hence overwrite the current
 			// pair with the old pair
-			if (e.key.equals(key)) {
-				e.value = v;
+			if (element.key.equals(key)) {
+				element.value = v;
 			} else {
 				// traverse to the end of the list and insert new element
 				// in the same bucket
-				while (e.next != null) {
-					e = e.next;
+				while (element.next != null) {
+					element = element.next;
 				}
 				Entry entryInOldBucket = new Entry(key, v);
-				e.next = entryInOldBucket;
+				element.next = entryInOldBucket;
 			}
 		} else {
 			// new element in the map, hence creating new bucket
