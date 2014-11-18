@@ -94,7 +94,9 @@ public class TestFindTwoNumberEqualsGivenSum {
 
 	}
 	
-	
+	//http://tech-wonderland.net/blog/summary-of-ksum-problems.html
+	//http://www.2cto.com/kf/201310/248433.html
+	//http://blog.csdn.net/nanjunxiao/article/details/12524405
 	private  ArrayList<int[]> KSum(int[] num, int K, int target, int start) {
 		
 		        //List< > vecResults;
