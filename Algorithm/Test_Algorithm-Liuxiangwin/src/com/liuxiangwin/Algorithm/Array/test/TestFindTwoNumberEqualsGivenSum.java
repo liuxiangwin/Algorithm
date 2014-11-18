@@ -1,5 +1,6 @@
 package com.liuxiangwin.Algorithm.Array.test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,13 +11,12 @@ public class TestFindTwoNumberEqualsGivenSum {
 	 * Find the two number equals the given sum in the array
 	 * with help of supplementary  array
 	 */
-	
+	//K sum problem
 	private static HashMap<Integer, Integer> resultMap  = new HashMap<Integer, Integer>();
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] sortedArray =   { 1,  2,  4,  7, 11, 15 };
-
+		int[] sortedArray =   { 1,  2,  4,  7, 11, 15 };		
 		int[] compare = { 14, 13, 11, 8, 4, 0 };
 		int number = 15;
 		// System.out.println(Arrays.toString(findArray(array,number)));
@@ -35,8 +35,6 @@ public class TestFindTwoNumberEqualsGivenSum {
 
 		for (int k = 0; k < array.length; k++) {
 			compareArray[k] = number - array[k];
-			//result.put(k,array[k]);
-
 		}		
 		int i = 0;
 		int j = array.length - 1;
@@ -56,9 +54,7 @@ public class TestFindTwoNumberEqualsGivenSum {
 
 			}
 		}
-
 		return null;
-
 	}
 	
 	
@@ -97,6 +93,62 @@ public class TestFindTwoNumberEqualsGivenSum {
 		return false;
 
 	}
+	
+	
+	private  ArrayList<int[]> KSum(int[] num, int K, int target, int start) {
+		
+		        //List< > vecResults;
+		        //ArrayList<int[]> vecResults;
+		        ArrayList<ArrayList<Integer>> vecResults = new ArrayList<ArrayList<Integer>>();
+		        if (K == 2) { // base case
+		            int[] res = new int[2]; 
+		            int i = start;////Õ∑÷∏’Î
+		            int j = num.length - 1;	//Œ≤÷∏’Î
+		            while (i < j) {	
+		                if (i > start && num[i] == num[i - 1]) {	
+		                    ++i;		
+		                    continue;
+		                }	
+		                int sum = num[i] + num[j];
+		                if (sum == target) {	
+		                	res[0] = num[i++];	
+		                	res[1] = num[j--];	
+		                	vecResults.add(res);	
+		                }	
+		                else if (sum > target) {		
+		                    --j;	
+		                }	
+		                else {	
+		                    ++i;		
+		                }	
+		            }	
+		            return vecResults;	
+		        }		
+		        // K > 2		
+		        for (int i = start; i < num.length(); i++) {
+		        	
+		            if (i > start && num[i] == num[i - 1]) continue;
+		
+		            ArrayList<int[]> K1Sum = KSum(num, K - 1, target - num[i], i + 1);
+	
+		            for (auto it = K1Sum.begin(); it != K1Sum.end(); ++it) {
+		            	for () {	
+		
+		                vector<int> tuple;
+	
+		                tuple.push_back(num[i]);
+	
+		                tuple.insert(tuple.end(), it->begin(), it->end());
+	
+		                vecResults.push_back(tuple);
+		                vecResults
+		            }
+	
+		        }
+		        return vecResults;
+		
+		    }
+
 	
 	
 	
