@@ -8,18 +8,18 @@ package com.liuxiangwin.algor.leetcode.string;
 // You are responsible to gather all the input requirements up front.
 
 public class StringToInteger_atoi {
+	private int INT_MAX = Integer.MAX_VALUE;
+	private int INT_MIN = Integer.MIN_VALUE;
+	
 	public int atoi(String str) {
 		String s = str.trim();
 
 		if (s.length() == 0) {
 			return 0;
-		}
-
-		int INT_MAX = Integer.MAX_VALUE;
-		int INT_MIN = Integer.MIN_VALUE;
+		}		
 		
 		int sign = 1;
-		int res = 0;
+		int result = 0;
 		
 		int i = 0;
 		if (s.charAt(0) == '-') {
@@ -32,17 +32,17 @@ public class StringToInteger_atoi {
 		for (; i < s.length(); ++i) {
 			char digit = s.charAt(i);
 			if (digit >= '0' && digit <= '9') {
-				if (res > INT_MAX / 10 || digit - '0' > INT_MAX - res * 10) {
+				if (result > INT_MAX / 10 || digit - '0' > INT_MAX - result * 10) {
 					return sign == -1 ? INT_MIN : INT_MAX;
 				}
 
-				res = res * 10 + (digit - '0');
+				result = result * 10 + (digit - '0');
 			} else {
-				break;
+				break;//每一个字符不是在0到就之间的就break
 			}
 		}
 
-		return sign * res;
+		return sign * result;
 	}
 
 	public static void main(String[] args) {
