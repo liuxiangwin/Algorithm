@@ -10,57 +10,25 @@ import java.util.HashSet;
 // For "bbbbb" the longest substring is "b", with the length of 1.
 
 public class LongestSubstringWithoutRepeating {
-	private LongestSubstringWithoutRepeating(){}
 
-	public static int lengthOfLongestSubstring2(String s) {
-
-		char[] arr = s.toCharArray();
-		int pre = 0;
-
-		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
-
-		for (int i = 0; i < arr.length; i++) {
-			if (!map.containsKey(arr[i])) {
-				map.put(arr[i], i);
-			} else {
-				pre = pre > map.size() ? pre : map.size();
-				i = map.get(arr[i]);
-				map.clear();
+	//ababcc
+	public int lengthOfLongestSubstring(String s) {
+		int start, i, maxx = 0;
+		boolean sign[] = new boolean[256];
+		for (start = 0, i = 0; i < s.length(); i++) {
+			while (sign[s.charAt(i)]) {
+				sign[s.charAt(i)] = false;
+				++start;
 			}
+			sign[s.charAt(i)] = true;
+			
+			maxx = Math.max(maxx, i - start + 1);
 		}
-
-		return Math.max(pre, map.size());
+		return maxx;
 	}
-	
-/*	private static String LongestSubstring(string word)
-    {
-		HashSet set = new HashSet<char>();
-        string longestOverAll = "";
-        string longestTillNow = "";
 
-        foreach (char c in word)
-        {
-            if (!set.Contains(c))
-            {
-                longestTillNow += c;
-                set.Add(c);
-            }
-            else
-            {
-                longestTillNow = string.Empty;
-            }
-
-            if (longestTillNow.Length > longestOverAll.Length)
-            {
-                longestOverAll = longestTillNow;
-            }
-        }
-
-        return longestOverAll;
-    }*/
-
-	private int getLongestConsecutiveSubString(String str, 
-			int currentPos,	int count, int maxLength) {
+	private int getLongestConsecutiveSubString(String str, int currentPos,
+			int count, int maxLength) {
 		if (currentPos == str.length()) {
 			return maxLength;
 		}
@@ -86,8 +54,12 @@ public class LongestSubstringWithoutRepeating {
 	public static void main(String[] args) {
 		LongestSubstringWithoutRepeating slt = new LongestSubstringWithoutRepeating();
 		int len2 = slt.lengthOfLongestSubstring2("ababcc");
+		
+		int len3 = slt.lengthOfLongestSubstring2("bbbbb");
 
 		System.out.println(len2);
+		
+		System.out.println(len3);
 
 	}
 }
