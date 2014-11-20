@@ -53,9 +53,11 @@ public class LongestSubstringWithoutRepeating {
 
 	public static void main(String[] args) {
 		LongestSubstringWithoutRepeating slt = new LongestSubstringWithoutRepeating();
-		int len2 = slt.lengthOfLongestSubstring2("ababcc");
 		
-		int len3 = slt.lengthOfLongestSubstring2("bbbbb");
+		
+ 		int len2 = slt.lengthOfLongestSubstring("abcabd");
+
+		int len3 = slt.lengthOfLongestSubstring("bbbbb");
 
 		System.out.println(len2);
 		
