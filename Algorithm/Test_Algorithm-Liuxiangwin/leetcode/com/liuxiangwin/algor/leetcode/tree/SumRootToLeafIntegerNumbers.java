@@ -2,7 +2,7 @@ package com.liuxiangwin.algor.leetcode.tree;
 
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
-public class SumRootToLeafNumbers {
+public class SumRootToLeafIntegerNumbers {
 
 	private int ans;
 
