@@ -62,6 +62,10 @@ public class LongestSubstringWithoutRepeating {
 		System.out.println(len2);
 		
 		System.out.println(len3);
+		
+		
+		System.out.println(slt.GetResult("abcabd"));
+		System.out.println(slt.GetResult("bbbbb"));
 
 	}
 }
