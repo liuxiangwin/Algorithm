@@ -159,4 +159,8 @@ public class SingleNumber {
         return result;
     	
     }
+    
+    //to to
+    //http://blog.csdn.net/qdlovecsj/article/details/10183363
+    //http://www.zhihu.com/question/19659409
 }
