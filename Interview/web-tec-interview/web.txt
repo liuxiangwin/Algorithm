@@ -30,3 +30,6 @@ Javascript extends
 http://www.cnblogs.com/liyatang/archive/2011/05/30/2062611.html
 
 ==============================================================
+
+Alogthrim Jump Game
+http://www.tuicool.com/articles/eIZR3i
