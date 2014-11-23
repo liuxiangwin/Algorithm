@@ -103,16 +103,7 @@ public class SingleNumber {
         }
         //每次循环先计算 twos，即出现两次的 1 的分布，然后计算出现一次的 1 的分布，接着 二者进行与操作得到出现三次的 1 的分布情况，
         //然后对 threes 取反，再与 ones、twos进行与操作，这样的目的是将出现了三次的位置清零。
-      /*  for(int i=0; i<n; i++){
-            two |= one&A[i];
-            one^=A[i];
-            //cout<<one<<endl;
-            three=one&two;
-            one&= ~three;
-            two&= ~three;
-        }*/
-        
-        
+   
         return ones; //twos, threes最终都为0.ones是只出现一次的数
     }
     
