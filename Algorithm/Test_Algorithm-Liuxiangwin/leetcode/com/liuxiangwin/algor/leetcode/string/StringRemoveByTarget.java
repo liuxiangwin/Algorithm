@@ -25,7 +25,7 @@ public class StringRemoveByTarget {
 	public static void main(String[] args) {
 		StringRemoveByTarget testStringRemove = new StringRemoveByTarget();
 				char src[] = "They are students".toCharArray();
-		char del_chs[] = "aeiou".toCharArray();		
+		char del_chs[] = "haeiou".toCharArray();		
 				
 	char[] charDeleted = testStringRemove.delete_ch(src, del_chs);
 	System.out.println(String.valueOf(charDeleted));

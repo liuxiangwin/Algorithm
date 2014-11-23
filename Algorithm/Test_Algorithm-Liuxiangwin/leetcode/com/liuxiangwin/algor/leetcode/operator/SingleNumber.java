@@ -1,5 +1,7 @@
 package com.liuxiangwin.algor.leetcode.operator;
-// Author:   Li Long, 1988lilong@163.com
+
+import java.util.Arrays;
+
 // Date:     Apr 17, 2014
 // Source:   http://oj.leetcode.com/problems/single-number/
 // Analysis: http://blog.csdn.net/lilong_dream/article/details/19556493
@@ -14,7 +16,6 @@ package com.liuxiangwin.algor.leetcode.operator;
  
 public class SingleNumber {
     public int singleNumber_once_other_twice(int[] A) {
-        // Note: The Solution object is instantiated only once and is reused by each test case.
         int result = 0;
         
         for(int num : A) {
@@ -23,6 +24,35 @@ public class SingleNumber {
         
         return result;
     }
+    
+    
+	public int[] twoNumber_once_other_twice(int[] A) {
+		// Note: The Solution object is instantiated only once and is reused by
+		int result = 0;
+
+		for (int num : A) {
+			result ^= num;
+		}
+		int bitNum = 0;
+		while ((result & 1) != 1)// 寻找第一个异或后为1的位置
+		{
+			result >>= 1;
+			++bitNum;
+		}
+
+		int flag = (1 << bitNum);
+		int res1 = 0;
+		int res2 = 0;
+		for (int num : A) {
+			if ((num & flag) == 1) {//证明不同两个数中有一位相同那个
+				res1 ^= num;
+			} else {
+				res2 ^= num;
+			}
+		}
+
+		return new int[] { res1, res2 };
+	}
     
     
     private void single_three_num(int [] s)  
@@ -37,7 +67,7 @@ public class SingleNumber {
         {  
             if (hash[j] ==1)  //表示出现一次
             {  
-            	System.out.println("the 3 number once is "+j);  
+            	System.out.println("the total 3 number once is "+j);  
             }  
         }  
     }
@@ -60,7 +90,7 @@ public class SingleNumber {
 
     
     
-    private int singleNumber(int A[], int n) {
+    private int singleNumber_other_three(int A[], int n) {
         int ones = 0, twos = 0, threes = 0;
         for(int i = 0; i < n; i++)
         {
@@ -116,49 +146,21 @@ public class SingleNumber {
     public static void main(String[] args) {
 		SingleNumber slt = new SingleNumber();
 		int[] A = new int[] { 1, 2, 1, 2, 3, 4, 4 };
-		//int[] A = new int[] { 1,1, 2, 1, 2, 4, 4,4 };
-		System.out.println(slt.singleNumber_once_other_twice(A));
+		System.out.println(slt.singleNumber_once_other_twice(A));	
 		
-		//System.out.println(getBitByOrder(10, 1));
-		//System.out.println(getBitByOrder(10, 2));
-		//System.out.println(getBitByOrder(10, 3));
-		
+		//int[] B = new int[] { 2,1,2,5,33,33,16,7,16};//will out of bound
 		int[] B = new int[] { 2,1,2,5,3,3,6,7,6};
 		slt.single_three_num(B);
+		
+		
+		int arr[] = { 1, 3, 2, 9, 11, 1, 3, 11 };
+		System.out.println("the two once number "+Arrays.toString(slt.twoNumber_once_other_twice(arr)));
 		
 		int[] C = new int[] { 6,7,5,3,3,10,11};
 		int result = slt.FindRepeat(C,C.length);
 		System.out.println("The twice number is "+result);
     }
 
-	private static void xorOperation() {
-		//XOr operation
-		System.out.println(1^0^1);
-		System.out.println(0^1);
-		System.out.println(1^1);
-	}
-
-	private static void orOperation() {
-		//Or operation 有1就是1
-		System.out.println(1|0);
-		System.out.println(0|1);
-		System.out.println(1|1);
-		System.out.println();
-	}
-
-	private static void andOperation() {
-		//And operation 只有1 才是1
-		System.out.println(1&1);
-		System.out.println(0&1);
-		System.out.println(0&0);
-		System.out.println();
-	}
-    
-    public static int getBitByOrder(int num, int i){
-    	int result = num & (1<<i);
-        return result;
-    	
-    }
     
     //to to
     //http://blog.csdn.net/qdlovecsj/article/details/10183363
