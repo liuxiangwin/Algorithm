@@ -1,4 +1,8 @@
-﻿Web tech
+﻿
+http://www.20thingsilearned.com/zh-CN/
+
+http://goo.gl/se6JNX
+Web tech
 Http keep live :
 http://ihacklog.com/post/http-persistent-connection.html
 
