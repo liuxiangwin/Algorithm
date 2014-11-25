@@ -79,17 +79,17 @@ public class TestReverseDiscreteWord {
 	
 	//1.先对每个单词进行逆转，最后再对整个字符串逆转
    public static String reveseEachWord(String string)
-   {   int i=0; int j= 0;
+   {   int star = 0; int j = 0;
        char[] cArray =string.toCharArray();
        while(j<string.length())
        {
     	   if(cArray[j]==' '){
-    		   reverse(cArray,i,j-1);
-    		   i=j+1;
+    		   reverse(cArray,star,j-1);
+    		   star=j+1;
     	   }
     	   if(j==string.length()-1)
     	   {
-    		   reverse(cArray,i,j);
+    		   reverse(cArray,star,j);
     	   }
     	   j++;
        }
