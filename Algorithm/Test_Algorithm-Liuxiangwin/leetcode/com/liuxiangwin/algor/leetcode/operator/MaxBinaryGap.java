@@ -35,6 +35,6 @@ public class MaxBinaryGap {
  
 	public static void main(String[] args) {
 		//10 binary number 1001
-		System.out.println(solution(10));
+		System.out.println(solution(9));
 	}
 }
