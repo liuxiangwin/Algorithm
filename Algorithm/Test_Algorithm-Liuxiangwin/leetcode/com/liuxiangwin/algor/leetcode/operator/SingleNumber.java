@@ -28,15 +28,15 @@ public class SingleNumber {
     
 	public int[] twoNumber_once_other_twice(int[] A) {
 		// Note: The Solution object is instantiated only once and is reused by
-		int result = 0;
+		int xorResult = 0;
 
 		for (int num : A) {
-			result ^= num;
+			xorResult ^= num;
 		}
 		int bitNum = 0;
-		while ((result & 1) != 1)// 寻找第一个异或后为1的位置
+		while ((xorResult & 1) != 1)// 寻找第一个异或后为1的位置
 		{
-			result >>= 1;
+			xorResult >>= 1;
 			++bitNum;
 		}
 
@@ -55,7 +55,7 @@ public class SingleNumber {
 	}
     
     
-    private void single_three_num(int [] s)  
+    private void single_three_num(int [] s) //只能求解10以内的数字 
     {  
         int hash[]=new int[10];  
         for (int i=0;i<s.length;i++) //M为数组的长度  
@@ -79,9 +79,9 @@ public class SingleNumber {
     public int singleNumberBitMap(int A[]) {
             int[] bitnum= new int[32];
             int res=0;
-            for(int i=0; i< 32; i++){
+            for(int i=0; i< 32; i++){//i代表32位上的每一位
                 for(int j=0; j< A.length; j++){
-                    bitnum[i]+= (A[j]>>i)&1;
+                    bitnum[i]+= (A[j]>>i)&1;//数组中每个数在32位上的加和
                 }
                 res|=(bitnum[i]%3)<<i;
             }
