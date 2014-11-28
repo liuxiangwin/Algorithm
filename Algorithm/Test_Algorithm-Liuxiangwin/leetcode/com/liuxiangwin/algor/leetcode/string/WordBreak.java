@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class WorkBreak {
+public class WordBreak {
 	/**
 	 * s = "leetcode", dict = ["leet", "code"].
 	 * 
@@ -72,7 +72,7 @@ public class WorkBreak {
 		Set<String> dict = new HashSet<String>();   
 		dict.add("leet");
 		dict.add("code");
-		WorkBreak workBreak = new WorkBreak();
+		WordBreak workBreak = new WordBreak();
 		workBreak.wordBreak(string, dict);
 		
 		
