@@ -16,30 +16,7 @@ public class WorkBreak {
 	 * @param string
 	 * @return
 	 */
-	public boolean wordBreaks(String string, Set<String> dict) {
-		List<Integer> list = new ArrayList<Integer>();
-		for (int i = string.length() - 1; i >= 0; i--) {
-			String sub = string.substring(i);
-			if (dict.contains(sub)) {
-				list.add(i);
-			} else {
-				for (Integer index : list) {
-					sub = string.substring(i, index);
-					if (dict.contains(sub)) {
-						list.add(i);
-						break;
-					}
-				}
-			}
-		}
-		if (list.isEmpty()) {
-			return false;
-		} else {
-			Integer index = list.get(list.size() - 1);
-			return index == 0;
-		}
 
-	}
 	//Time: O(string length * dict size)
     //One tricky part of this solution is the case:
 	   public boolean wordBreak2(String string, Set<String> dict) {
@@ -68,7 +45,9 @@ public class WorkBreak {
 	 
 	        return t[string.length()];
 	    }
-	
+	   
+	   //Time: O(string length * dict size)
+	    //One tricky part of this solution is the case:
 		public boolean wordBreak(String s, Set<String> dict) {
 			Map<String, Boolean> wordMap = new HashMap<String, Boolean>();
 			for (String w : dict) {
@@ -77,10 +56,11 @@ public class WorkBreak {
 			int len = s.length();
 			boolean[] strMap = new boolean[len + 1];
 			strMap[0] = true;
+			 // f(n) = f(0,i) + f(i,j) + f(j,n)  
 			for (int i = 1; i <= len; i++) {
 				for (int j = 0; j < i; j++) {
 					if (strMap[j] && wordMap.containsKey(s.substring(j, i))) {
-						strMap[i] = true;
+						strMap[i] = true;//leetcode subString(1,4)leet ËùÒÔstrMAP[4]=true
 					}
 				}
 			}
@@ -93,10 +73,13 @@ public class WorkBreak {
 		dict.add("leet");
 		dict.add("code");
 		WorkBreak workBreak = new WorkBreak();
-		workBreak.wordBreaks(string, dict);
+		workBreak.wordBreak(string, dict);
 		
 		
 		workBreak.wordBreak(string, dict);
+		
+		
+		workBreak.wordBreak2(string, dict);
 	}
 
 }
