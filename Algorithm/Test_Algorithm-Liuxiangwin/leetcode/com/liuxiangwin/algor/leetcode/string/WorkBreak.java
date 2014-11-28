@@ -1,8 +1,10 @@
 package com.liuxiangwin.algor.leetcode.string;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class WorkBreak {
@@ -67,35 +69,23 @@ public class WorkBreak {
 	        return t[string.length()];
 	    }
 	
-	
-/*	public boolean wordBreak(String string, Set<String> dict) {
-        //int nsize=s.size();
-        //int i=0,j=0;
-        //bool *dp = new bool[nsize];
-        //memset(dp,false,sizeof(dp));
-        
-        boolean[] dp = new boolean[string.length()+1];
-        
-        for(int i=0;i<string.length();++i)
-        {
-            dp[i] = ((dict.contains(string.substring(0,i+1))!=dict.end())?true:false);
-            if(dp[i])
-                continue;
-            else
-            {
-                for(j=0;j<i;++j)
-                {
-                    if(dp[j])
-                    {
-                        dp[i] = ((dict.find(s.substr(j+1,i-j))!=dict.end())?true:false) | dp[i];
-                    }
-                }
-            }
-        }
-        return dp[nsize-1];
-        //delete []dp;
-    }*/
-	
+		public boolean wordBreak(String s, Set<String> dict) {
+			Map<String, Boolean> wordMap = new HashMap<String, Boolean>();
+			for (String w : dict) {
+				wordMap.put(w, true);
+			}
+			int len = s.length();
+			boolean[] strMap = new boolean[len + 1];
+			strMap[0] = true;
+			for (int i = 1; i <= len; i++) {
+				for (int j = 0; j < i; j++) {
+					if (strMap[j] && wordMap.containsKey(s.substring(j, i))) {
+						strMap[i] = true;
+					}
+				}
+			}
+			return strMap[len];
+		}
 
 	public static void main(String[] args) {
 		String string = "leetcode";
@@ -103,7 +93,10 @@ public class WorkBreak {
 		dict.add("leet");
 		dict.add("code");
 		WorkBreak workBreak = new WorkBreak();
-		workBreak.wordBreak2(string, dict);
+		workBreak.wordBreaks(string, dict);
+		
+		
+		workBreak.wordBreak(string, dict);
 	}
 
 }

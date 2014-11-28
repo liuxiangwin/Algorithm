@@ -14,15 +14,6 @@ import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 // The right subtree of a node contains only nodes with keys greater than the node's key.
 // Both the left and right subtrees must also be binary search trees.
 
-/**
- * Definition for binary tree
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
 
 public class ValidateBinarySearchTree {
 	public boolean isValidBST(TreeNode root) {

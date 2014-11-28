@@ -11,49 +11,31 @@ import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
  * and right subtrees take constant time)
  */
 
-
-
-
-
 public class ConvertSortListToBuildBinaryTree {
 
 	public TreeNode sortedListToBST(ListNode head) {
-		ListNode mid = getMiddle(head);
-		if(mid!=null){
-			ListNode next = mid.next;
-			mid.next =null;
-			//ListNode last = getLast(head);
-
-			TreeNode node = new TreeNode(mid.val);
-
-			node.left = sortedListToBST(head);
-			node.right = sortedListToBST(next);
-			return node;
+		int len = 0;
+		ListNode dummy = head;
+		while (dummy != null) {
+			len++;
+			dummy = dummy.next;
 		}
-		return null;
+		ListNode[] curr = new ListNode[1];
+		curr[0] = head;
+		return convert(curr, 0, len - 1);
 	}
 
-	public ListNode getLast(ListNode head) {
-		if (head == null) {
-			return head;
-		}
-		while (head.next != null) {
-			head = head.next;
-		}
-		return head;
-	}
-
-	public ListNode getMiddle(ListNode head) {
-		if (head == null) {
-			return head;
-		}
-		ListNode slow, fast;
-		slow = fast = head;
-		while (fast.next != null && fast.next.next != null) {
-			fast = fast.next.next;
-			slow = slow.next;
-		}
-		return slow;
+	private TreeNode convert(ListNode[] curr, int start, int end) {
+		if (start > end)
+			return null;
+		int mid = (start + end) / 2;
+		TreeNode left = convert(curr, start, mid - 1);
+		TreeNode root = new TreeNode(curr[0].val);
+		curr[0] = curr[0].next;
+		TreeNode right = convert(curr, mid + 1, end);
+		root.left = left;
+		root.right = right;
+		return root;
 	}
 
 	public void printList(ListNode node) {
@@ -74,7 +56,7 @@ public class ConvertSortListToBuildBinaryTree {
 		n2.next = n3;
 		n3.next = n4;
 		n4.next = n5;
-		
+
 		ConvertSortListToBuildBinaryTree binaryTree = new ConvertSortListToBuildBinaryTree();
 		binaryTree.printList(head);
 		TreeNode treeNode = binaryTree.sortedListToBST(head);
