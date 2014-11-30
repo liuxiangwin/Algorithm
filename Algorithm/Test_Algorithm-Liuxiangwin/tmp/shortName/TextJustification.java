@@ -1,3 +1,4 @@
+package shortName;
 import java.util.ArrayList;
 
 public class TextJustification {

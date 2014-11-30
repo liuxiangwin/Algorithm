@@ -1,3 +1,4 @@
+package shortName;
 /**
  * The set [1,2,3,бн,n] contains a total of n! unique permutations.
  * 

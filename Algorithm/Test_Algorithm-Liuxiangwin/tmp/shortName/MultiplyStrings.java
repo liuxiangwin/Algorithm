@@ -1,3 +1,4 @@
+package shortName;
 public class MultiplyStrings {
 	public String multiply(String num1, String num2) {
 		int length1 = num1.length();

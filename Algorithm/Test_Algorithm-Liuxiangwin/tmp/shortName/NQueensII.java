@@ -1,3 +1,4 @@
+package shortName;
 /**
  * Follow up for N-Queens problem.
  * 

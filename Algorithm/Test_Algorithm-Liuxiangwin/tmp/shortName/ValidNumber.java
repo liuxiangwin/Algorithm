@@ -1,3 +1,4 @@
+package shortName;
 /**
  * Validate if a given string is numeric.
  * 

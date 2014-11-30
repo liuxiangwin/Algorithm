@@ -1,3 +1,4 @@
+package shortName;
 
 
 public class Point {

@@ -1,3 +1,4 @@
+package shortName;
 /**
  * Given a collection of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
  * 
@@ -7,7 +8,7 @@
  * 
  * All numbers (including target) will be positive integers.
  * 
- * Elements in a combination (a1, a2, â€¦ , ak) must be in non-descending order. (ie, a1 â‰¤ a2 â‰¤ â€¦ â‰¤ ak).
+ * Elements in a combination (a1, a2, â€?, ak) must be in non-descending order. (ie, a1 â‰?a2 â‰?â€?â‰?ak).
  * The solution set must not contain duplicate combinations.
  * For example, given candidate set 10,1,2,7,6,1,5 and target 8, A solution set is: 
  * [1, 7] 

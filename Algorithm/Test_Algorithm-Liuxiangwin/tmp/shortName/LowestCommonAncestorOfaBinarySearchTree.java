@@ -1,3 +1,4 @@
+package shortName;
 /**
  * Lowest Common Ancestor of a Binary Search Tree (BST)
  *

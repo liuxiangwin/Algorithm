@@ -1,8 +1,9 @@
-
+package shortName;
 
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Set;
 
 /**
  * Given two words (start and end), and a dictionary, find the length of
@@ -23,57 +24,69 @@ import java.util.Queue;
  */
 
 public class WordLadder {
-	public int ladderLength(String start, String end, HashSet<String> dict) {
-		if (dict.size() == 0)
-			return 0;
-		int currentLevel = 1;
-		int nextLevel = 0;
-		int step = 1;
-		boolean found = false;
-		Queue<String> st = new LinkedList<String>();
-		HashSet<String> visited = new HashSet<String>();
-		st.add(start);
-		while (!st.isEmpty()) {
-			String s = st.remove();
-			currentLevel--;
-			if (stringDiff(s, end) == 1) {
-				found = true;
-				step++;
-				break;
-			} else {
-				int length = s.length();
-				StringBuffer sb = new StringBuffer(s);
-				for (int i = 0; i < length; i++) {
-					for (int j = 0; j < 26; j++) {
-						char c = sb.charAt(i);
-						sb.setCharAt(i, (char) ('a' + j));
-						if (dict.contains(sb.toString())
-								&& !visited.contains(sb.toString())) {
-							nextLevel++;
-							st.add(sb.toString());
-							visited.add(sb.toString());
+	public static int ladderLength_BFS(String start, String end,
+            HashSet<String> dict) {
+        int result = 0;
+        if (dict.size() == 0) {
+            return result;
+        }
+
+        dict.add(start);
+        dict.add(end);
+
+        result = BFS(start, end, dict);
+
+        return result;
+    }
+
+
+	private static int BFS(String start, String end, HashSet<String> dict) {
+		
+		Queue<String> queue = new LinkedList<String>();
+		Queue<Integer> length = new LinkedList<Integer>();
+		queue.add(start);
+		length.add(1);
+
+		while (!queue.isEmpty()) {
+			String currWord = queue.poll();
+			int len = length.poll();
+
+			if (currWord.equals(end)) {// 表示到头了
+					return len;
+				}
+				for (int i = 0; i < currWord.length(); i++) {
+					char[] arr = currWord.toCharArray();
+					for (char c = 'a'; c <= 'z'; c++) {
+						if (c == arr[i])
+							continue;
+
+						arr[i] = c;
+						String str = String.valueOf(arr);
+						if (dict.contains(str)) {
+							queue.add(str);
+							length.add(len + 1);
+							dict.remove(str);
 						}
-						sb.setCharAt(i, c);
 					}
 				}
-			}
-			if (currentLevel == 0) {
-				currentLevel = nextLevel;
-				nextLevel = 0;
-				step++;
-			}
-		}
-		return found ? step : 0;
+			}		
+		return 0;
 	}
 
-	private int stringDiff(String s1, String s2) {
-		int diff = 0;
-		int length = s1.length();
-		for (int i = 0; i < length; i++) {
-			if (s1.charAt(i) != s2.charAt(i)) {
-				diff++;
-			}
+	public static void main(String arg[]) {
+		String start = "hit";
+		String end = "cog";
+		String[] dicts = { "hot", "dot", "dog", "lot", "log" };
+		HashSet<String> dic = new HashSet<String>();
+		
+		for (String element : dicts) {
+			dic.add(element);
 		}
-		return diff;
+
+		WordLadder wordLadder = new WordLadder();	
+		
+		System.out.println(wordLadder.ladderLength_BFS(start, end, dic));
+
 	}
+
 }
