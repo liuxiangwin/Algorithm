@@ -18,7 +18,7 @@ public class CopyOfBitMap {
     }
  
     private boolean get(int pos) {
-        return (bits[pos/8] & (byte) ((bits[pos /8] & (byte) (1 << (pos % 8))))) == 0?false :true;
+        return ((byte) ((bits[pos /8] & (byte) (1 << (pos % 8))))) == 0?false :true;
     	
     }
 	
