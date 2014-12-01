@@ -20,7 +20,7 @@ import java.util.Map;
  * All words have the same length. All words contain only lowercase alphabetic
  * characters.
  */
-
+//http://rangerway.com/way/leetcode-word-ladder-ii/
 public class WordLadderII {
 	private void GeneratePath(Map<String, ArrayList<String>> prevMap,
 			ArrayList<String> path, String word,
