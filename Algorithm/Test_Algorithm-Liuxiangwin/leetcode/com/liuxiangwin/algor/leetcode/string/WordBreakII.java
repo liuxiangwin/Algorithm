@@ -7,6 +7,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+//  s = "catsanddog",
+//  dict = ["cat", "cats", "and", "sand", "dog"].
+
+//  A solution is ["cats and dog", "cat sand dog"].
+
 public class WordBreakII {
 	
     public List<String> wordBreak2(String string, Set<String> dict) {

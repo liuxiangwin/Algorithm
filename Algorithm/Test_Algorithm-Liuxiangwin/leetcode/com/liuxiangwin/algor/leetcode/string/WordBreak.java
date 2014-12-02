@@ -1,9 +1,7 @@
 package com.liuxiangwin.algor.leetcode.string;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -16,7 +14,30 @@ public class WordBreak {
 	 * @param string
 	 * @return
 	 */
-
+	
+	 //Time: O(string length * dict size)
+    //One tricky part of this solution is the case:
+	public boolean wordBreak(String s, Set<String> dict) {
+		Map<String, Boolean> wordMap = new HashMap<String, Boolean>();
+		for (String word : dict) {
+			wordMap.put(word, true);
+		}
+		int len = s.length();
+		boolean[] strMap = new boolean[len + 1];
+		strMap[0] = true;
+		 // f(n) = f(0,i) + f(i,j) + f(j,n)  
+		for (int i = 1; i <= len; i++) {
+			for (int j = 0; j < i; j++) {
+				if (strMap[j] && wordMap.containsKey(s.substring(j, i))) {
+					strMap[i] = true;//leetcode subString(1,4)leet 所以strMAP[4]=true
+				}
+			}
+		}
+		return strMap[len];
+	}
+	
+	
+	
 	//Time: O(string length * dict size)
     //One tricky part of this solution is the case:
 	   public boolean wordBreak2(String string, Set<String> dict) {
@@ -46,26 +67,7 @@ public class WordBreak {
 	        return t[string.length()];
 	    }
 	   
-	   //Time: O(string length * dict size)
-	    //One tricky part of this solution is the case:
-		public boolean wordBreak(String s, Set<String> dict) {
-			Map<String, Boolean> wordMap = new HashMap<String, Boolean>();
-			for (String w : dict) {
-				wordMap.put(w, true);
-			}
-			int len = s.length();
-			boolean[] strMap = new boolean[len + 1];
-			strMap[0] = true;
-			 // f(n) = f(0,i) + f(i,j) + f(j,n)  
-			for (int i = 1; i <= len; i++) {
-				for (int j = 0; j < i; j++) {
-					if (strMap[j] && wordMap.containsKey(s.substring(j, i))) {
-						strMap[i] = true;//leetcode subString(1,4)leet 所以strMAP[4]=true
-					}
-				}
-			}
-			return strMap[len];
-		}
+	  
 
 	public static void main(String[] args) {
 		String string = "leetcode";
