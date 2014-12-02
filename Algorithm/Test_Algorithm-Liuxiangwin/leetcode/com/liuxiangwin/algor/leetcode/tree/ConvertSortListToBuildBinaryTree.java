@@ -14,28 +14,27 @@ import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 public class ConvertSortListToBuildBinaryTree {
 
 	public TreeNode sortedListToBST(ListNode head) {
-		int len = 0;
-		ListNode dummy = head;
-		while (dummy != null) {
-			len++;
-			dummy = dummy.next;
-		}
-		ListNode[] curr = new ListNode[1];
-		curr[0] = head;
-		return convert(curr, 0, len - 1);
+		return sortedListToBST(head, null);
 	}
 
-	private TreeNode convert(ListNode[] curr, int start, int end) {
-		if (start > end)
+	private TreeNode sortedListToBST(ListNode head, ListNode end) {
+		if (head == end) {
 			return null;
-		int mid = (start + end) / 2;
-		TreeNode left = convert(curr, start, mid - 1);
-		TreeNode root = new TreeNode(curr[0].val);
-		curr[0] = curr[0].next;
-		TreeNode right = convert(curr, mid + 1, end);
-		root.left = left;
-		root.right = right;
-		return root;
+		} else if (head.next == end) {
+			return new TreeNode(head.val);
+		} else {
+			ListNode fast = head, slow = head;
+			while (fast.next != end && fast.next.next != end) {
+				fast = fast.next.next;
+				slow = slow.next;
+			}
+			TreeNode left = sortedListToBST(head, slow);
+			TreeNode right = sortedListToBST(slow.next, end);
+			TreeNode root = new TreeNode(slow.val);
+			root.left = left;
+			root.right = right;
+			return root;
+		}
 	}
 
 	public void printList(ListNode node) {
