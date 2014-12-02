@@ -22,7 +22,7 @@ public class Anagrams {
             //sort it can easy to check they are anagrams or not
             Arrays.sort(word);
             if (!m.containsKey(String.valueOf(word))){
-                m.put(String.valueOf(word), i);
+                m.put(String.valueOf(word), i);//放入map中是在string的下标
             }else{
                 if (m.get(String.valueOf(word))>=0){//只有第一次重复能进来，后面进不来
                 	//m.get(String.valueOf(word)取得是第一次sting在数组中的坐标
