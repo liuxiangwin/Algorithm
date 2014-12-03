@@ -11,7 +11,7 @@ import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
  * and right subtrees take constant time)
  */
 
-public class ConvertSortListToBuildBinaryTree {
+public class ConvertSortListToBinaryTree {
 
 	public TreeNode sortedListToBST(ListNode head) {
 		return sortedListToBST(head, null);
@@ -56,7 +56,7 @@ public class ConvertSortListToBuildBinaryTree {
 		n3.next = n4;
 		n4.next = n5;
 
-		ConvertSortListToBuildBinaryTree binaryTree = new ConvertSortListToBuildBinaryTree();
+		ConvertSortListToBinaryTree binaryTree = new ConvertSortListToBinaryTree();
 		binaryTree.printList(head);
 		TreeNode treeNode = binaryTree.sortedListToBST(head);
 		BinaryTreePrinter.printNode(treeNode);

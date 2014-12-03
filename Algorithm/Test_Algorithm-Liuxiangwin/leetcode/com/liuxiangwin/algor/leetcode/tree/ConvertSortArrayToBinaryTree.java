@@ -13,7 +13,7 @@ import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
  */
 
 
-public class ConvertSortArrayToBuildBinaryTree {
+public class ConvertSortArrayToBinaryTree {
 
 	public TreeNode sortedArrayToBST(int[] num, int start, int end) {
 		if (start <= end) {
@@ -31,7 +31,7 @@ public class ConvertSortArrayToBuildBinaryTree {
 
 	public static void main(String args[]) {
 		int[] number = { 9, 12, 14, 17, 19, 23, 50, 54, 67, 72, 76 };
-		ConvertSortArrayToBuildBinaryTree btFromSortArray = new ConvertSortArrayToBuildBinaryTree();
+		ConvertSortArrayToBinaryTree btFromSortArray = new ConvertSortArrayToBinaryTree();
 		TreeNode root = btFromSortArray.sortedArrayToBST(number,0,number.length-1);
 		BinaryTreePrinter.printNode(root);
 	}
