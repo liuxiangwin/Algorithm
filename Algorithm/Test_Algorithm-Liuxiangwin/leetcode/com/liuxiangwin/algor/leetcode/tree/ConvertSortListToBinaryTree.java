@@ -25,7 +25,7 @@ public class ConvertSortListToBinaryTree {
 		} else {
 			ListNode fast = head, slow = head;
 			while (fast.next != end && fast.next.next != end) {
-				fast = fast.next.next;
+				fast = fast.next.next;//找到链表中间节点
 				slow = slow.next;
 			}
 			TreeNode left = sortedListToBST(head, slow);
