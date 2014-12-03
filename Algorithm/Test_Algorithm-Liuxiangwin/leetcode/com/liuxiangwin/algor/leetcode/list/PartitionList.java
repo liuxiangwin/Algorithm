@@ -14,6 +14,15 @@ package com.liuxiangwin.algor.leetcode.list;
  * 题意：这道题目就是在不改变链表原来顺序的情况下，将大于x的节点移到后面，小于x的节点移到前面
  * 解法：我们可以构建两个链表，一个链表存放所有小于x的节点，另一个链表存放所有大于x的节点，然后连接两个链表即可
  * 
+ * 
+ * 这道题就是说给定一个x的值，小于x都放在大于等于x的前面，
+ * 并且不改变链表之间node原始的相对位置。每次看这道题我老是绕晕，
+ * 纠结为什么4在3的前面。。其实还是得理解题意，4->3->5都是大于等3的数，
+ * 而且这保持了他们原来的相对位置 。
+
+     所以，这道题是不需要任何排序操作的，题解方法很巧妙。
+ * 
+ * 
  * @author liuxiangwin
  * //For example,
 //Given 1->4->3->2->5->2 and x = 3,
@@ -21,6 +30,7 @@ package com.liuxiangwin.algor.leetcode.list;
  *
  */
 public class PartitionList {
+
 	public ListNode partition(ListNode head, int x) {
 		ListNode smaller, bigger, tmps, tmpb;
 
@@ -33,15 +43,17 @@ public class PartitionList {
 		while (head != null) {
 			if (head.val < x) {
 				tmps.next = head;
-				tmps = head;
+				tmps = tmps.next;
 			} else {
 				tmpb.next = head;
-				tmpb = head;
+				tmpb = tmpb.next;
 			}
-
 			head = head.next;
 		}
+		
+		System.out.println("Smaller ");
 		print(tmps);
+		System.out.println("Bigger ");
 		print(tmpb);
 		
 		tmpb.next = null;
