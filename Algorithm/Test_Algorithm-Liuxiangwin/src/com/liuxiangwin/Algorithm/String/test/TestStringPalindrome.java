@@ -57,15 +57,18 @@ public class TestStringPalindrome {
 	
 	public static boolean isCharPalindrome(String test) {
 		String filterString = test.toLowerCase().replaceAll("[^0-9a-zA-Z]", "");
-		for (int i = 0; i < filterString.length() / 2; i++) {
-			if (filterString.charAt(i) != filterString.charAt(filterString
-					.length()- i - 1 )) {
+		for(int i = 0; i < filterString.length() ; i++){
+			if(filterString.charAt(i) != filterString.charAt(filterString.length() - 1 - i)){
 				return false;
 			}
 		}
 		return true;
 	}
-
+	//如果不适用string toLowerCase replaceAll 就必须使用这个函数
+	private boolean isAlphabet(char c) {
+		return (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9');
+	}
+	
 	// If is the palindrome then return the string
 	public static String longestPrefixPalindrome(String string) {
 		String defaultPrefix = string.substring(0, 1);
