@@ -29,10 +29,11 @@ public class WordBreakII {
         	return map.get(string);*/
         
         ArrayList<String> answerList = new ArrayList<String>();
-        int length = string.length();
-        if(length <= 0)
-            return answerList;
         
+        int length = string.length();
+        if(length <= 0){
+            return answerList;
+        }
         for(int i = 1;i <= length;i++){
             String prefix = string.substring(0,i);
             if(dict.contains(prefix)){
@@ -40,7 +41,7 @@ public class WordBreakII {
                     answerList.add(prefix);
                 else{                    
                     //List<String> temp = findList(string.substring(i), dict, map);
-                	List<String> temp = findList(string.substring(i), dict);
+                	List<String> temp = findList(string.substring(i), dict);//截取后面的字符串
                     for(String tmp:temp){
                         tmp = prefix + " " + tmp;
                         answerList.add(tmp);

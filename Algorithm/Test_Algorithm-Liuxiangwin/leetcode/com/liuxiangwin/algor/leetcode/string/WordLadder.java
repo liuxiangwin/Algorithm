@@ -43,33 +43,34 @@ public class WordLadder {
 	private static int BFS(String start, String end, HashSet<String> dict) {
 		
 		Queue<String> queue = new LinkedList<String>();
-		Queue<Integer> length = new LinkedList<Integer>();
+		Queue<Integer> pathLength = new LinkedList<Integer>();
 		queue.add(start);
-		length.add(1);
+		pathLength.add(1);
 
 		while (!queue.isEmpty()) {
 			String currWord = queue.poll();
-			int len = length.poll();
+			int pathLeng = pathLength.poll();
 
 			if (currWord.equals(end)) {// 表示到头了
-					return len;
-				}
-				for (int i = 0; i < currWord.length(); i++) {
-					char[] arr = currWord.toCharArray();
-					for (char c = 'a'; c <= 'z'; c++) {
-						if (c == arr[i])
-							continue;
-
-						arr[i] = c;
-						String str = String.valueOf(arr);
-						if (dict.contains(str)) {
-							queue.add(str);
-							length.add(len + 1);
-							dict.remove(str);
-						}
+				return pathLeng;
+			}
+			for (int i = 0; i < currWord.length(); i++) {
+				char[] arr = currWord.toCharArray();
+				for (char c = 'a'; c <= 'z'; c++) {
+					
+					if (c == arr[i])
+						continue;
+					arr[i] = c;
+					String str = String.valueOf(arr);
+					
+					if (dict.contains(str)) {
+						queue.add(str);
+						pathLength.add(pathLeng + 1);
+						dict.remove(str);
 					}
 				}
-			}		
+			}
+		}	
 		return 0;
 	}
 
