@@ -13,33 +13,32 @@ package com.liuxiangwin.algor.leetcode.string;
 import java.util.Stack;
 
 public class ValidParentheses {
-	public boolean isValid(String s) {
-		if (s.length() == 0) {
+	public boolean isValid(String string) {
+		if (string.length() == 0) {
 			return true;
 		}
 
-		Stack<Character> st = new Stack<Character>();
-		st.push(s.charAt(0));
+		Stack<Character> stack = new Stack<Character>();
+		stack.push(string.charAt(0));
 
-		for (int i = 1; i < s.length(); ++i) {
-			if (!st.empty() && isMatch(st.peek(), s.charAt(i))) {
-				st.pop();
+		for (int i = 1; i < string.length(); ++i) {
+			if (!stack.empty() && 
+				isMatch(stack.peek(), string.charAt(i))) {
+				stack.pop();
 			}
 			else {
-				st.push(s.charAt(i));
+				stack.push(string.charAt(i));
 			}
-		}
-		
-		if(st.empty()) {
+		}		
+		if(stack.empty()) {
 			return true;
 		}
-
 		return false;
 	}
 
-	public boolean isMatch(char s, char p) {
-		if ((s == '(' && p == ')') || (s == '{' && p == '}')
-				|| (s == '[' && p == ']')) {
+	public boolean isMatch(char cur, char pre) {
+		if ((cur == '(' && pre == ')') || (cur == '{' && pre == '}')
+				|| (cur == '[' && pre == ']')) {
 			return true;
 		}
 
