@@ -10,6 +10,9 @@ package com.liuxiangwin.algor.leetcode.stackuse;
 // The brackets must close in the correct order, 
 // "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
 
+
+//LeetCode Ö®¶ÑÕ» stack
+//http://blog.csdn.net/sbitswc/article/details/20685253
 import java.util.Stack;
 
 public class ValidParentheses {
