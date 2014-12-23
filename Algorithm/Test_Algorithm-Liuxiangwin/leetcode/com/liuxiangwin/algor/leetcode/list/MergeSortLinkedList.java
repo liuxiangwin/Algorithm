@@ -15,7 +15,12 @@ public class MergeSortLinkedList {
 		ListNode middle = getMiddle(head); // get the middle of the list
 		ListNode sHalf = middle.next;
 		middle.next = null; // split the list into two halfs ¶Ï¿ªÁ´±í
-
+		
+		//Another way to implement
+		//head = merge_sort(head);
+		//sHalf = merge_sort(sHalf);
+		//return merge(head, sHalf);
+		
 		return merge(merge_sort(head), merge_sort(sHalf)); // recurse on that
 	}
 
