@@ -37,7 +37,7 @@ public class SingleNumber {
 		while ((xorResult & 1) != 1)// 寻找第一个异或后为1的位置
 		{
 			xorResult >>= 1;
-			++bitNum;
+			++bitNum;//bitNum记录的是需要右移多少位出现1
 		}
 
 		int flag = (1 << bitNum);
