@@ -118,6 +118,8 @@ public class SingleNumber {
      //首先 回忆 异或操作，任意数字与自身相异或，结果都为0.
      // 还有一个重要的性质，即任何元素与0相异或，结果都为元素自身
      //能否设计一个算法实现？
+    //Insert the numbers into a balanced binary search tree, 
+    //when the duplicate comes up it will find that the value already exists in the tree, and it can then return. O ( n * log n ). 
 	private int FindRepeat(int array[], int length) {
 		int result = 0;
 		for (int i = 0; i <= length-1; i++) {
