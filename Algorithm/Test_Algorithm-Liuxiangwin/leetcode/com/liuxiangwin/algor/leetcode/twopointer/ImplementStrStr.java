@@ -1,4 +1,4 @@
-package com.liuxiangwin.algor.leetcode.tmp;
+package com.liuxiangwin.algor.leetcode.twopointer;
 // Author:   Li Long, 1988lilong@163.com
 // Date:     Apr 18, 2014
 // Source:   http://oj.leetcode.com/problems/implement-strstr/
@@ -9,27 +9,27 @@ package com.liuxiangwin.algor.leetcode.tmp;
 // or null if needle is not part of haystack.
 
 public class ImplementStrStr {
-	public String strStr(String haystack, String needle) {
-		if (needle != null && needle.isEmpty()) {
-			return haystack;
+	public String strStr(String source, String target) {
+		if (target != null && target.isEmpty()) {
+			return source;
 		}
 
-		int len1 = haystack.length();
-		int len2 = needle.length();
-		if (len1 < len2) {
+		int sourceLeng = source.length();
+		int targetLeng = target.length();
+		if (sourceLeng < targetLeng) {
 			return null;
 		}
 
-		for (int i = 0; i <= len1 - len2; ++i) {
+		for (int i = 0; i <= sourceLeng - targetLeng; ++i) {
 			int j = 0;
 			int k = i;
-			while (j < len2 && needle.charAt(j) == haystack.charAt(k)) {
+			while (j < targetLeng && target.charAt(j) == source.charAt(k)) {
 				j++;
 				k++;
 			}
 
-			if (j == len2) {
-				return haystack.substring(i);
+			if (j == targetLeng) {
+				return source.substring(i);
 			}
 		}
 
