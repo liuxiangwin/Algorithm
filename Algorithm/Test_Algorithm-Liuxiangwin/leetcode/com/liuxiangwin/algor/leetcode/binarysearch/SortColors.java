@@ -23,6 +23,25 @@ public class SortColors {
 			A[i] = res[i];
 		}
 	}
+	
+	
+	public void sortColors2(int[] A) {
+		if (A == null || A.length == 0)
+			return;
+		int idx0 = 0;
+		int idx1 = 0;
+		
+		for (int i = 0; i < A.length; i++) {
+			if (A[i] == 0) {
+				A[i] = 2;
+				A[idx1++] = 1;
+				A[idx0++] = 0;
+			} else if (A[i] == 1) {
+				A[i] = 2;
+				A[idx1++] = 1;
+			}
+		}
+	}
 /**
  * oogle
 https://1024.bz/
@@ -48,6 +67,12 @@ http://heai.info/2014-11/markdown-leetcode-find-minimum-in-rotated-sorted-array-
 		int a[] ={1,1,1,2,2,0,1,1};
 	    sortColors.sortColors(a);
 	    System.out.println(Arrays.toString(a));
+	    System.out.println("------------------------");
+	    
+	    int b[] ={1,1,1,2,2,0,1,1};
+	    System.out.println(Arrays.toString(b));	    
+	    sortColors.sortColors2(b);
+	    System.out.println(Arrays.toString(b));
 	}
 
 }

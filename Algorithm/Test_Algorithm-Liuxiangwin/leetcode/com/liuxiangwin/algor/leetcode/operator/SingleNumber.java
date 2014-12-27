@@ -91,23 +91,82 @@ public class SingleNumber {
     
     
     private int singleNumber_other_three(int A[], int n) {
-        int ones = 0, twos = 0, threes = 0;
+        int ones = 0, twos = 0, xthrees = 0;
         for(int i = 0; i < n; i++)
-        {
-            threes = twos & A[i]; //已经出现两次并且再次出现
-            twos = twos | ones & A[i]; //曾经出现两次的或者曾经出现一次但是再次出现的
-            ones = ones | A[i]; //出现一次的
-            
-            twos = twos & ~threes; //当某一位出现三次后，我们就从出现两次中消除该位
-            ones = ones & ~threes; //当某一位出现三次后，我们就从出现一次中消除该位
-        }
-        //每次循环先计算 twos，即出现两次的 1 的分布，然后计算出现一次的 1 的分布，接着 二者进行与操作得到出现三次的 1 的分布情况，
-        //然后对 threes 取反，再与 ones、twos进行与操作，这样的目的是将出现了三次的位置清零。
-   
+        {     
+            twos = twos | (ones & A[i]); //用twos记录到当前为止，二进制 "1" 出现3k+2次的位数；            
+            ones = ones ^ A[i]; //用ones记录到当前为止，二进制 "1" 出现3k+1次的位数;            
+            //当ones和twos的某一位同时为”1“时，即该位出现二进制"1" 3k+3次（也就是3k次），清零该位。
+            xthrees = ~(ones & twos); // xthrees 是二进制 "1" 没有出现3k次的位数            
+            ones = ones & xthrees;
+            twos = twos & xthrees;         
+        }       
         return ones; //twos, threes最终都为0.ones是只出现一次的数
     }
     
     
+    private int singleNumber_two_otherthree(int A[], int n) {
+        int ones = 0, twos = 0, xthrees = 0;
+        for(int i = 0; i < n; i++)
+        {     
+            twos = twos | (ones & A[i]); 
+            ones = ones ^ A[i];               
+            xthrees = ~(ones & twos);             
+            ones = ones & xthrees;
+            twos = twos & xthrees;         
+        }       
+        return twos; 
+    }
+    private int[] twoNumber_otherthree(int A[], int n) {
+        int ones = 0, twos = 0, xthrees = 0;
+        int xones =0, xtwos =0;
+        for(int i = 0; i < n; i++)
+        {     
+            twos = twos | (ones & A[i]); 
+            ones = ones ^ A[i];               
+            xthrees = ~(ones & twos); 
+            
+            
+            ones = ones & xthrees;
+            twos = twos & xthrees;         
+        }
+        
+        //ones = ~ twos;
+        //twos = twos &(~ones);
+        return new int[]{ones,twos}; 
+    }
+    
+    //这是一道很有趣的位运算题。百思不得其解，最后看了[1]介绍的思路。
+    //http://ladder.azurewebsites.net/forum.php?mod=viewthread&tid=1731
+    //如果用二进制来表达数组中每一个数字的话，如果我们遍历一遍数组中的所有的数，
+    //即将数组中所有数的二进制表达的每位上的“1”都数一遍，那么除了需要找的那个只出现一次的整数外，
+      //其他所有的数字二进制表示中每一位“1”都出现了3k次（k为非负整数）。
+    //如果能有办法将所有的二进制表达中这些3k个“1”清零，那么剩下的二进制表达就表示了需要找到的数。
+ 
+    //（0）初始设定ones=0; twos=0;
+
+         //（1）用twos记录到当前为止，二进制 "1" 出现3k+2次的位数；
+    //twos = twos | (ones & A);
+
+    //（2）用ones记录到当前为止，二进制 "1" 出现3k+1次的位数；
+    //ones = ones ^ A;
+
+    //（3）当ones和twos的某一位同时为”1“时，即该位出现二进制”1“ 3k+3次（也就是3k次），清零该位。
+    //xthrees = ~(ones & twos); // xthrees 是二进制 "1" 没有出现3k次的位数
+    
+    //ones = ones & xthrees;
+    //twos = twos & xthrees;
+
+    //（4）遍历完数组中所有的数之后，ones记录的就是最终结果。
+
+    //扩展：
+    //同样的道理，可以解决{给定一个包含n个整数的数组，
+    //除了一个数出现两次外所有的整数均出现三次，找出这个只出现两次的整数。}，return twos就行了。
+
+    //更强的扩展: 
+    //{给定一个包含n个整数的数组，有一个整数x出现b次，
+     //一个整数y出现c次，其他所有的数均出现a次，其中b和c均不是a的倍数，找出x和y。}可以参见[1]，思路是一样的。
+
     
     
     
@@ -152,6 +211,24 @@ public class SingleNumber {
 		int[] C = new int[] { 6,7,5,3,3,10,11};
 		int result = slt.FindRepeat(C,C.length);
 		System.out.println("The twice number is "+result);
+		
+		
+		int[] D = new int[] { 6,6,6,3,10,10,10};
+		int result2 = slt.singleNumber_other_three(D,D.length);
+		System.out.println("The single number of three is "+result2);
+		
+		int[] E = new int[] { 6,6,6,5,5,10,10,10};
+		int result3 = slt.singleNumber_two_otherthree(E,E.length);
+		System.out.println("The single twice number of three is "+result3);
+		
+		
+		int[] F = new int[] { 6,6,6,1,5,5,10,10,10};
+		int[] result4 = slt.twoNumber_otherthree(F,F.length);
+		
+		int result5 = slt.singleNumber_other_three(F,F.length);
+		
+		System.out.println("The single twice number of three is "+Arrays.toString(result4));
+		System.out.println("The single twice number of three is "+ result5);
     }
 
     
