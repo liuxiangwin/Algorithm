@@ -16,6 +16,24 @@ public class MaxOrMinDepthOfBinaryTree {
 		return maxLeft > maxRight ? 
 				 maxLeft + 1:maxRight + 1;
 	}
+	
+	public int minimumDepthOfTree(TreeNode root) {
+		if (root == null) {
+			return 0;
+		}
+		if (root.left == null && root.right == null) {
+			return 1;
+		}
+		int minLeft = minimumDepthOfTree(root.left);
+		int minRight = minimumDepthOfTree(root.right);
+
+		if (minLeft == 0)
+			return minRight + 1;
+		else if (minRight == 0)
+			return minLeft + 1;
+		else
+			return Math.min(minLeft + 1, minRight + 1);
+	}
    
 	
 	private int maxNodeDistance(TreeNode root, int max_distance) {
@@ -51,23 +69,7 @@ public class MaxOrMinDepthOfBinaryTree {
 	}
 	
 	
-	public int minimumDepthOfTree(TreeNode root) {
-		if (root == null) {
-			return 0;
-		}
-		if (root.left == null && root.right == null) {
-			return 1;
-		}
-		int minLeft = minimumDepthOfTree(root.left);
-		int minRight = minimumDepthOfTree(root.right);
-
-		if (minLeft == 0)
-			return minRight + 1;
-		else if (minRight == 0)
-			return minLeft + 1;
-		else
-			return Math.min(minLeft + 1, minRight + 1);
-	}
+	
 	
 	
 	public static void main(String args[])
