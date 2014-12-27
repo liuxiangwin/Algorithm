@@ -1,4 +1,4 @@
-package shortName;
+package shortName.dp.algor;
 
 
 import java.util.ArrayList;

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class PascalTriangle {
 	public ArrayList<ArrayList<Integer>> pascalTriangle(int numRows) {
-		ArrayList<ArrayList<Integer>> pt = new ArrayList<ArrayList<Integer>>();
+		ArrayList<ArrayList<Integer>> arrayList = new ArrayList<ArrayList<Integer>>();
 		int k = 1;
 		for (int i = 0; i < numRows; i++) {
 			ArrayList<Integer> r = new ArrayList<Integer>();
@@ -27,15 +27,15 @@ public class PascalTriangle {
 				r.add(1);
 			}
 			k++;
-			pt.add(r);
+			arrayList.add(r);
 		}
-		for (int f = 2; f < pt.size(); f++) {
-			ArrayList<Integer> prev = pt.get(f - 1);
-			ArrayList<Integer> current = pt.get(f);
+		for (int f = 2; f < arrayList.size(); f++) {
+			ArrayList<Integer> prev = arrayList.get(f - 1);
+			ArrayList<Integer> current = arrayList.get(f);
 			for (int g = 1; g < current.size() - 1; g++) {
 				current.set(g, prev.get(g - 1) + prev.get(g));
 			}
 		}
-		return pt;
+		return arrayList;
 	}
 }
