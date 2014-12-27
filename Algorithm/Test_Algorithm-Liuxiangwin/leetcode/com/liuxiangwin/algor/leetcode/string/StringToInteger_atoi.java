@@ -19,18 +19,18 @@ public class StringToInteger_atoi {
 		}		
 		
 		int sign = 1;
-		int result = 0;
+		int result = 0;	
+		int index = 0;
 		
-		int i = 0;
 		if (s.charAt(0) == '-') {
 			sign = -1;
-			++i;
+			++index;
 		} else if (s.charAt(0) == '+') {
-			++i;
+			++index;
 		}
 
-		for (; i < s.length(); ++i) {
-			char digit = s.charAt(i);
+		for (; index < s.length(); ++index) {
+			char digit = s.charAt(index);
 			if (digit >= '0' && digit <= '9') {
 				if (result > INT_MAX / 10 || digit - '0' > INT_MAX - result * 10) {
 					return sign == -1 ? INT_MIN : INT_MAX;
