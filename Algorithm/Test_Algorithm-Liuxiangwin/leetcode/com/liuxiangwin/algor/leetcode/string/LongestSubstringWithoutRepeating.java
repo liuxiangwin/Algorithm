@@ -9,8 +9,9 @@ import java.util.HashSet;
 // For example, the longest substring without repeating letters for "abcabcbb" is "abc", which the length is 3. 
 // For "bbbbb" the longest substring is "b", with the length of 1.
 
+//Two Pointers
 public class LongestSubstringWithoutRepeating {
-
+    private static String result ="";
 	//ababcc
 	public int lengthOfLongestSubstring(String s) {
 		int start, i, maxx = 0;
@@ -23,6 +24,7 @@ public class LongestSubstringWithoutRepeating {
 			sign[s.charAt(i)] = true;
 			
 			maxx = Math.max(maxx, i - start + 1);
+			result =  s.substring(start);
 		}
 		return maxx;
 	}
@@ -56,10 +58,12 @@ public class LongestSubstringWithoutRepeating {
 		
 		
  		int len2 = slt.lengthOfLongestSubstring("abcabd");
-
+ 		
+ 		System.out.println(len2 +" "+ LongestSubstringWithoutRepeating.result);
+ 		
 		int len3 = slt.lengthOfLongestSubstring("bbbbb");
 
-		System.out.println(len2);
+		
 		
 		System.out.println(len3);
 		

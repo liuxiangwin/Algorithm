@@ -12,10 +12,11 @@ public class LongestCommonPrefix {
 		if (strs.length == 0)
 			return "";
 		int index = 0;
-		while (index < strs[0].length()) {
-			char c = strs[0].charAt(index);
+		while (index < strs[0].length()) {//取第一个字符串作为基准
+			char c = strs[0].charAt(index);//index 用来索引第一个字符
 			for (int i = 1; i < strs.length; ++i) {
-				if (index >= strs[i].length() || strs[i].charAt(index) != c) {
+				if (index >= strs[i].length() 
+				|| strs[i].charAt(index) != c) {
 					return strs[0].substring(0, index);
 				}
 			}
