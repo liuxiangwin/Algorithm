@@ -23,7 +23,8 @@ public class ImplementStrStr {
 		for (int i = 0; i <= sourceLeng - targetLeng; ++i) {
 			int j = 0;
 			int k = i;
-			while (j < targetLeng && target.charAt(j) == source.charAt(k)) {
+			while (j < targetLeng && 
+			    source.charAt(k)== target.charAt(j)) {
 				j++;
 				k++;
 			}
