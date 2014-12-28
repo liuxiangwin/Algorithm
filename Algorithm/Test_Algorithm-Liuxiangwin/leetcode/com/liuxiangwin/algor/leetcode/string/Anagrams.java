@@ -26,10 +26,11 @@ public class Anagrams {
             }else{
                 if (m.get(String.valueOf(word))>=0){//只有第一次重复能进来，后面进不来
                 	//m.get(String.valueOf(word)取得是第一次sting在数组中的坐标
-                	result.add(strs[m.get(String.valueOf(word))]);
+                	Integer firtIndex = m.get(String.valueOf(word));
+                	result.add(strs[firtIndex]);//把第一个放进来
                 	m.put(String.valueOf(word), -1);
                 }
-                result.add(strs[i]);
+                result.add(strs[i]);//以后每次出现放当前值
             }
         }
         return result;
