@@ -66,12 +66,12 @@ public class StackWithMinMax extends Stack<Integer> {
 }
 
 
-class CircularArrayStack  {
+class MinCircularArrayStack  {
 	private final int DEFAULT_CAPACITY = 2;
 	private int front, rear, count, minIndex;
 	private Integer[] stack;
 	
-	public CircularArrayStack() {
+	public MinCircularArrayStack() {
 		front = rear = count = minIndex= 0;
 		stack = new Integer[DEFAULT_CAPACITY];		
 		stack[minIndex]= Integer.MAX_VALUE;
