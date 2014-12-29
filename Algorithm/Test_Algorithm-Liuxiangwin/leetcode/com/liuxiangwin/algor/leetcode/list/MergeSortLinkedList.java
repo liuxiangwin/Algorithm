@@ -16,7 +16,7 @@ public class MergeSortLinkedList {
 		ListNode sHalf = middle.next;
 		middle.next = null; // split the list into two halfs 断开链表
 		
-		//Another way to implement
+		//Another way to implement 这个实现更直观一点
 		//head = merge_sort(head);
 		//sHalf = merge_sort(sHalf);
 		//return merge(head, sHalf);
