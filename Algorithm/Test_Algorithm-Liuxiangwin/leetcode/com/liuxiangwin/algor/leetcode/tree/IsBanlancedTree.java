@@ -18,6 +18,19 @@ public class IsBanlancedTree {
 				&& (isHeightBalanced(root.right) 
 				&& Math.abs(height(root.left) - height(root.right)) <= 1));
 	}
+	
+	public int maxDistanceOfTree(TreeNode root) {
+		int leftHeight, rightHeight;
+		leftHeight = rightHeight = 0;
+		if (root.left != null) {
+			leftHeight = height(root.left);
+		}
+
+		if (root.right != null) {
+			rightHeight = height(root.right);
+		}
+		return leftHeight + rightHeight;
+	}
 
 	public static void main(String args[]) {
 		IsBanlancedTree isBanlancedTree = new IsBanlancedTree();
@@ -40,6 +53,9 @@ public class IsBanlancedTree {
 		System.out.println("is Balanced Tree : "+isBanlancedTree.isHeightBalanced(root));
 		
 		System.out.println(isBanlancedTree.height(root));
+		
+		
+		System.out.println("Max distance in tree "+isBanlancedTree.maxDistanceOfTree(root));
 		
 	}
 
