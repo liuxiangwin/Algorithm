@@ -45,7 +45,7 @@ public class SingleNumber {
 		int res2 = 0;
 		for (int num : A) {
 			if ((num & flag) == 1) {//证明不同两个数中有一位相同那个
-				res1 ^= num;
+				res1 ^= num;// 如果4是有1那一位，就相当于不异或它了
 			} else {
 				res2 ^= num;
 			}
@@ -71,6 +71,30 @@ public class SingleNumber {
             }  
         }  
     }
+    private int single_three_num_not_in10(int [] s) //只能求解10以内的数字 
+    {  
+        int result =0;;  
+        int xorResult = 0;
+
+		for (int num : s) {
+			xorResult ^= num;
+		}
+		int flips =0;
+		for (int num : s) {
+			flips ^= lowbit(num ^ xorResult);//三个数两两的异或后 lowbit有两个相同，一个不同，可以分为两组
+			//// 表示的是：flips=lowbit(a^b)^lowbit(a^c)^lowbit(b^c) 
+		}
+		
+		for (int num : s) {
+			if(lowbit(xorResult ^ num) == flips)
+			{
+				result ^= num;
+			}
+				
+		}
+		return result;
+    }
+    
     
     //http://www.2cto.com/kf/201401/275860.html
     //Given an array of integers, 
@@ -191,6 +215,11 @@ public class SingleNumber {
 	}
     
     
+	// lowbit表示的是某个数从右往左扫描第一次出现1的位置
+	private int lowbit(int x)
+	{
+	   return x&~(x-1);
+	}
     //找出数组中唯一出现一次的两个数字  要求时间复杂度是O(n)，空间复杂度是O(1)。
     //首先 回忆 异或操作，任意数字与自身相异或，结果都为0.
     // 还有一个重要的性质，即任何元素与0相异或，结果都为元素自身
@@ -229,6 +258,11 @@ public class SingleNumber {
 		
 		System.out.println("The single twice number of three is "+Arrays.toString(result4));
 		System.out.println("The single twice number of three is "+ result5);
+
+		int[] G = new int[] { 6,6,1,3,5,10,10,12,12};
+		int result6 = slt.single_three_num_not_in10(G);
+		System.out.println("The 3 number once of two "+ result6);
+		
     }
 
     
