@@ -137,7 +137,7 @@ class MinCircularArrayStack  {
 	
 	public static void main(String args[]) throws Exception
 	{
-		CircularArrayStack stack = new CircularArrayStack();
+		MinCircularArrayStack stack = new MinCircularArrayStack();
 		
 		stack.pushstack(5);
 		stack.pushstack(7);
