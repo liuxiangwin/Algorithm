@@ -2,7 +2,7 @@ package com.liuxiangwin.algor.leetcode.tree;
 
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
-public class BinaryTreeMaximumPathSum {
+public class BinaryTreeMaxPathSum {
 /**
  * For example:
 Given the below binary tree,
