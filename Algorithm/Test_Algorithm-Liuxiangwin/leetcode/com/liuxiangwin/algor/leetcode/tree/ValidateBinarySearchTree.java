@@ -30,6 +30,38 @@ public class ValidateBinarySearchTree {
 				&& isValidBST(root.right, root.val, max);
 	}
 	
+	
+	public static boolean verifyOfBST(int data[], int begin, int end) { 
+		  if (data == null || begin > end) 
+		   return false; 
+		  if (begin == end) { 
+		   return true; 
+		  } 
+		  int root = data[end]; 
+		  int i = begin;
+		  for (; i < end; ++i) {//寻找i,保证左边都小于a[n] 
+		   if (data[i] > root) 
+		    break; 
+		  } 
+		  // the nodes in the right sub-tree are greater than the root 
+		  for (int j = i; j < end; ++j) { //验证右边都大于a[n] 
+		   if (data[j] < root) 
+		    return false; 
+		  } 
+		  // verify whether the left sub-tree is a BST 
+		  boolean left = true; 
+		  if (i > 0) 
+		     left = verifyOfBST(data, begin, i - 1); 
+
+		  // verify whether the right sub-tree is a BST 
+		  boolean right = true; 
+		  if (i < end) 
+		   right = verifyOfBST(data, i, end - 1); 
+
+		  return (left && right); 
+
+		} 
+
 	public static void main(String[] args) {
 		TreeNode n1 = new TreeNode(2);
 		TreeNode n2 = new TreeNode(1);

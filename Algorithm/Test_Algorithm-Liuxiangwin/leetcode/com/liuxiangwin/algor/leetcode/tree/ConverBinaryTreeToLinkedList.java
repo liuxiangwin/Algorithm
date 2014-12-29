@@ -5,34 +5,71 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 
+import java.util.Stack;
+
 import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
+import com.liuxiangwin.algor.leetcode.uitl.ListNode;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
 public class ConverBinaryTreeToLinkedList {
 
-	public static void createLevelLinkedList(TreeNode root, ArrayList<LinkedList<TreeNode>> lists, int level) {
-		if (root == null) return;
-		LinkedList<TreeNode> list = null;
-		if (lists.size() == level) { // Level not contained in list
-			list = new LinkedList<TreeNode>();
-			/* Levels are always traversed in order. So, if this is the first time we've visited level i,
-			 * we must have seen levels 0 through i - 1. We can therefore safely add the level at the end. */
-			lists.add(list);  
-		} else {
-			list = lists.get(level);
-		}
-		list.add(root);
-		createLevelLinkedList(root.left, lists, level + 1);
-		createLevelLinkedList(root.right, lists, level + 1);
-	}
+	public ListNode inorderTraversal(TreeNode root) {       
+
+        ListNode head = new ListNode(0);    
+        ListNode curr = head;
+      
+        if(root == null)
+            return head.next; 
+        Stack<TreeNode> nodeStack = new Stack<TreeNode>();
+        TreeNode current = root;
+        while(!nodeStack.empty() || current != null){ 
+            if(current != null){
+                nodeStack.push(current);
+                current = current.left;
+ 
+            // if no left child // pop stack, process the node
+            // then let p point to the right
+            }else{
+                TreeNode t = nodeStack.pop();         
+                //result.add(t.val);
+                curr.next = new ListNode(0);
+                curr.next.val = t.val;                
+                curr = curr.next;
+                current = t.right;
+            }
+        }
+ 
+        return head.next;
+    }
 	
-	public static ArrayList<LinkedList<TreeNode>> createLevelLinkedList(TreeNode root) {
-		ArrayList<LinkedList<TreeNode>> lists = new ArrayList<LinkedList<TreeNode>>();
-		createLevelLinkedList(root, lists, 0);
-		return lists;
-	}
+	public ArrayList<Integer> inorderTraversal2(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<Integer>(); 
+        
+        if(root == null)
+            return result; 
+ 
+        Stack<TreeNode> nodeStack = new Stack<TreeNode>();
+        //define a pointer to track nodes
+        TreeNode current = root;
+        while(!nodeStack.empty() || current != null){ 
+            // if it is not null, push to stack //and go down the tree to left
+            if(current != null){
+                nodeStack.push(current);
+                current = current.left;
+ 
+            // if no left child // pop stack, process the node
+            // then let p point to the right
+            }else{
+                TreeNode t = nodeStack.pop();         
+                result.add(t.val);
+                current = t.right;
+            }
+        }
+ 
+        return result;
+    }
 	
-	public static void printResult(ArrayList<LinkedList<TreeNode>> result){
+	public static void printTree(ArrayList<LinkedList<TreeNode>> result){
 		int depth = 0;
 		for(LinkedList<TreeNode> entry : result) {
 			Iterator<TreeNode> i = entry.listIterator();
@@ -44,33 +81,42 @@ public class ConverBinaryTreeToLinkedList {
 			depth++;
 		}
 	}
+
+	public static void printLinkNode(ListNode node) {
+		while (node != null) {
+			System.out.print(node.val + "->");
+			node = node.next;
+		}
+	}
 	
 	public static void main(String[] args) {
-		TreeNode root = new TreeNode(1);
-		TreeNode n2 = new TreeNode(2);
-		TreeNode n3 = new TreeNode(3);
-		root.right = n2;
-		//n2.left = n3;
-		root.left = n3;
+		TreeNode root = new TreeNode(10);
+		TreeNode n2 = new TreeNode(6);
+		TreeNode n3 = new TreeNode(14);
+		root.right = n3;
+		root.left = n2;
 		
-		TreeNode n4 = new TreeNode(6);
-		TreeNode n5 = new TreeNode(9);
-		TreeNode n6 = new TreeNode(5);
-		TreeNode n7 = new TreeNode(6);
+		TreeNode n4 = new TreeNode(4);
+		TreeNode n5 = new TreeNode(8);
+		TreeNode n6 = new TreeNode(12);
+		TreeNode n7 = new TreeNode(16);
 		
-		n3.left= n4;
-		n3.right= n5;
+		n3.left= n6;
+		n3.right= n7;
 		
-		n2.right=n6;
-		n6.right=n7;
+		n2.left=n4;
+		n2.right=n5;
 		
 		BinaryTreePrinter.printNode(root);
 		
 		ConverBinaryTreeToLinkedList toLinkedList = new ConverBinaryTreeToLinkedList();
 		
-		ArrayList<LinkedList<TreeNode>> result= toLinkedList.createLevelLinkedList(root);
+		ListNode result= toLinkedList.inorderTraversal(root);
+		printLinkNode(result);
 		
-		printResult(result);
+		ArrayList<Integer> result2 = toLinkedList.inorderTraversal2(root);
+		System.out.println("ÖÐÐò±éÀú·ÇµÝ¹é "+result2.toString());
+		
 	}
 
 }
