@@ -2,7 +2,7 @@ package com.liuxiangwin.algor.leetcode.stackuse;
 
 import java.util.Stack;
 
-public class EvalRPN {
+public class EvaluateReversePolishNotation {
 
     public int evalRPN(String[] tokens) {
 		String operators = "+-*/";
@@ -38,7 +38,7 @@ public class EvalRPN {
     
     public static void main(String args[])
     {
-    	EvalRPN  evalRPN = new EvalRPN();
+    	EvaluateReversePolishNotation  evalRPN = new EvaluateReversePolishNotation();
     	//((2 + 1) * 3) -> 9
     	String[] tokens = {"2", "1", "+", "3", "*"};
     	System.out.println(evalRPN.evalRPN(tokens));
