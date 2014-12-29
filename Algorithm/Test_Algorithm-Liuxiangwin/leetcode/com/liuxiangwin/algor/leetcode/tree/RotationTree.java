@@ -33,7 +33,8 @@ public class RotationTree {
 		return rightSonNode;
 	}
 
-	
+	//https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/03.01.md
+	//http://blog.csdn.net/v_july_v/article/details/6105630
 	public static void main(String args[])
 	{
 
