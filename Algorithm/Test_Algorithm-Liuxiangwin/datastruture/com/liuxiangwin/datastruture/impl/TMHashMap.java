@@ -41,8 +41,8 @@ public class TMHashMap {
 	 * Returns null if the HashMap contains no mapping for the key.
 	 */
 	public Entry get(String key) {
-		int hash = key.hashCode() % SIZE;
-		Entry element = entryTable[hash];
+		int hashcode = key.hashCode() % SIZE;
+		Entry element = entryTable[hashcode];
 
 		// if bucket is found then traverse through the linked list and
 		// see if element is present
@@ -61,8 +61,8 @@ public class TMHashMap {
 	 * replaced.
 	 */
 	public void put(String key, String value) {
-		int hash = key.hashCode() % SIZE;
-		Entry element = entryTable[hash];
+		int hashcode = key.hashCode() % SIZE;
+		Entry element = entryTable[hashcode];
 		if (element != null) {
 			// it means we are trying to insert duplicate
 			// key-value pair, hence overwrite the current
@@ -81,7 +81,7 @@ public class TMHashMap {
 		} else {
 			// new element in the map, hence creating new bucket
 			Entry entryInNewBucket = new Entry(key, value);
-			entryTable[hash] = entryInNewBucket;
+			entryTable[hashcode] = entryInNewBucket;
 		}
 	}
 
