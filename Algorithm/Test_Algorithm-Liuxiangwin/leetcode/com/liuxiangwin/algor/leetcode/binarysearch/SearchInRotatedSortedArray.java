@@ -40,7 +40,9 @@ public class SearchInRotatedSortedArray {
 			} else {
 				return search(array, left, mid - 1, target);
 			}				
-		} else if (array[left] == array[mid]) { // Left is either all repeats OR loops around (with the right half being all dups)
+		} //Left is either all repeats OR loops around 
+		  //(with the right half being all dups)
+		  else if (array[left] == array[mid]) { // 
 			if (array[mid] != array[right]) { // If right half is different, search there
 				return search(array, mid + 1, right, target);
 			} else { // Else, we have to search both halves
@@ -74,7 +76,7 @@ public class SearchInRotatedSortedArray {
 	}
 	
 	
-	public static int findMin(int[] array) {
+	public static int findMin2(int[] array) {
 		
 	}(self, num):
 	        mid, l, h = 0, 0, len(num) - 1
