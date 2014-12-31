@@ -57,44 +57,123 @@ public class SearchInRotatedSortedArray {
 		return -1;
 	}
 	
-	public static int findMin(int[] array) {
+	
+	public static int searchWithTarget(int array[], int left, int right, int target) {
+		int mid = (left + right) / 2;
+		if (target == array[mid]) { // Found element
+			return mid;
+		}
+		//       { 10, 15, 20, 0, 5}
+		//       { 50, 5, 20, 30, 40}
+		//        {2,  2, 2,  4, 2}
+		//int[] test = { 4, 5, 6, 7, 0, 1, 2};
+		while (left <=right) {
+			if (array[mid] < array[right]){//right is order
+				if (array[mid]<= target && target <= array[right]) {
+					return searchWithTarget(array, mid + 1, right, target);
+				} else {
+					return searchWithTarget(array, left, mid - 1, target);
+				}
+			}
+			else if (array[mid]> array[right]){//left is order
+				if ( array[left]<= target && target <= array[mid]) { 
+					return search(array, left, mid - 1, target);
+				} else {
+					return search(array, mid + 1, right, target);
+				}
+			}
+			else if(array[mid]== array[right])
+			{
+				if (array[mid] != array[left]) { // If right half is different, search there
+					return searchWithTarget(array, left, mid-1, target);
+				}else{
+					int result = searchWithTarget(array, left, mid - 1, target);
+					if (result == -1) {
+						return searchWithTarget(array, mid + 1, right, target); 
+					} else {
+						return result;
+					}
+				}
+			}
+		}
+		return -1;
+	}
+	
+	public static int searchMinUnSorted(int[] array) {
 		int ans = array[0];
-		int low = 0;
-		int high = array.length - 1;
+		int low = 0; int high = array.length - 1;
 
 		while (low <= high) {
 			int mid = (low + high) / 2;
 			if (array[mid] <= array[high]) // #min位于上升沿左侧
 				high = mid - 1;
-			else { // min位于左侧上升沿与右侧上升沿之间
+			else { // min位于左侧上升沿与右侧上升沿之间//{ 10, 15, 20, 0, 5};
 				low = mid + 1;	
 			}
 			ans = Math.min(ans, array[mid]);
 		}
 		return ans;
-
 	}
 	
 	
-	public static int findMin2(int[] array) {
+	public static int searchMinDuplicate(int[] array, int low, int high){
+		int ans = array[0];		
 		
-	}(self, num):
-	        mid, l, h = 0, 0, len(num) - 1
-	        while num[l] >= num[h]:
-	            if h - l <= 1:
-	                return num[h]
-	            mid = (l+h) >> 1
-	            if num[mid] == num[l]:
-	                l += 1
-	            elif num[mid] > num[l]:
-	                l = mid
-	            elif num[mid] == num[h]:
-	                h -= 1
-	            else:
-	                h = mid
-	        return num[l]
+		while (low <=high) {
+			int mid = (low + high) / 2;
+			if (array[mid] < array[high]){ // min位于上升沿左侧				
+				ans = Math.min(ans, array[mid]);//{ 50, 5, 20, 30, 40};
+				high = mid - 1;
+				
+			}
+			else if(array[mid] >array[high]){ // min位于左侧上升沿与右侧上升沿之间
+				ans = Math.min(ans, array[low]);//{ 10, 15, 20, 0, 5};
+				low = mid + 1;
+				 
+			}
+			else{ //array[mid] = array[high]
+				low++;
+				/*if(array[mid]!= array[low])
+				{
+				     return Math.min(ans, searchMinDuplicate(array,low ,mid-1));
+				}				
+				else{//find both side
+					low++;
+					
+				}*/
+			}			
+		}
+		//ans = Math.min(array[low], ans);
+		//ans = Math.min(array[high], ans);
+		return ans;
 	
+	}
 	
+	public int findMin(int[] array) {
+        
+        int low = 0;    int right = array.length - 1;
+        
+        int min = array[0];
+        
+        while ( low<right ) {
+            int mid = (low+right)/2;
+            if ( mid==low || mid==right ) 
+            	break;
+            else if ( array[low]<array[mid] ) {
+                min = Math.min(array[low], min);
+                low = mid + 1;
+            }else if ( array[mid]<array[right] ) {
+                min = Math.min(array[mid], min);
+                right = mid - 1;
+            }else {
+                ++low;
+            }
+        }
+ 
+        min = Math.min(array[low], min);
+        min = Math.min(array[right], min);
+        return min;
+    }
 	
 	public static void main(String[] args) {
 		int[] a = { 2, 3, 2, 2, 2, 2, 2, 2 , 2 , 2 };
@@ -106,11 +185,31 @@ public class SearchInRotatedSortedArray {
 		System.out.println(search(a, 0, a.length - 1, 8));
 		
 		System.out.println("--------------------");
+		int[] test = { 4, 5, 6, 7, 0, 1, 2};
+		
+		System.out.println(search(test, 0, test.length - 1, 2));
+		System.out.println(searchWithTarget(test, 0, test.length - 1, 2));
+		
+		System.out.println("--------------------");
+		int[] test2 = { 10, 15, 20, 0, 5};
+		int[] test3 = { 50, 5, 20, 30, 40};
+		int[] test4 = {2,  3, 2,  4, 2};
+		System.out.println(searchWithTarget(test2, 0, test2.length - 1, 5));
+		System.out.println(searchWithTarget(test3, 0, test3.length - 1, 5));
+		System.out.println(searchWithTarget(test4, 0, test4.length - 1, 3));
+		
+		System.out.println("--------------------");
 		int[] b = { 10, 15, 20, 0, 5};
-		System.out.println(findMin(b));
+		System.out.println(searchMinUnSorted(b));
 		
 		int[] c = { 50, 5, 20, 30, 40};
-		System.out.println(findMin(c));
+		System.out.println(searchMinUnSorted(c));
+		
+		System.out.println("--------------------");
+		System.out.println("------search  min with duplicate--------------");
+		
+		int[] test5 = { 3, 5, 6, 3, 0, 1, 3};
+		System.out.println("the min array in array "+searchMinDuplicate(test5,0,test5.length-1));
 		
 	}
 }

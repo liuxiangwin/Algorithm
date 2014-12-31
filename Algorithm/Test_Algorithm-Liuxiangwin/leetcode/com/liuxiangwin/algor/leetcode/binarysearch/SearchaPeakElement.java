@@ -24,22 +24,23 @@ public class SearchaPeakElement {
 	 * @return
 	 */
 	//The time complexity of the following program is O (log n).
-	public static void peak(int[] arr)
-    {
-        peak(arr, 0, arr.length - 1);
-    }    
-    public static void peak (int arr[], int low, int high)
-    {
-        if (low >= high-1)	
-            return;
-        int mid = (low + high) / 2;
-        if (arr[mid] > arr[mid - 1] && arr[mid] > arr[mid + 1]){
-        	System.out.print(arr[mid] +" ");
-        }            
-        /* Recursively find other peak elements */        
-        peak (arr, low, mid);
-        peak (arr, mid, high);    
-    }     
+	public static void peak(int[] arr) 
+	{
+		peak(arr, 0, arr.length - 1);
+	}
+   
+	public static void peak(int arr[], int low, int high) 
+	{
+		if (low >= high - 1)
+			return;
+		int mid = (low + high) / 2;
+		if (arr[mid] > arr[mid - 1] && arr[mid] > arr[mid + 1]) {
+			System.out.print(arr[mid] + " ");
+		}
+		/* Recursively find other peak elements */
+		peak(arr, low, mid);
+		peak(arr, mid, high);
+	}    
 	
 
 	public static void main(String args[])
