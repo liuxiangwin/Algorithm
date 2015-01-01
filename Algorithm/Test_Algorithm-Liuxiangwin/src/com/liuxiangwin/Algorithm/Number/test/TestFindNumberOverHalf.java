@@ -41,8 +41,22 @@ public class TestFindNumberOverHalf {
 	 public static void main(String args[])
 	 {
 		 TestFindNumberOverHalf teHalf = new TestFindNumberOverHalf();
-		 int[] numbers ={0, 1, 2,1};
+		 int[] numbers ={0, 1, 2,1,1};
 		 int result = teHalf.FindOneNumber(numbers, numbers.length);
 		 System.out.println(result);
+		 
+		 int[] numbers2 ={5, 1, 2, 5, 2, 5, 5};
+		 int result2 = teHalf.FindOneNumber(numbers2, numbers2.length);
+		 System.out.println(result2);
+		  
 	 }
+	 
+	 //×Ö·û´®Æ¥ÅäµÄBoyer-MooreËã·¨
+	 //http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html
+		 
+	//×Ö·û´®Æ¥ÅäµÄKMPËã·¨
+	//http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html
+
+	 
+
 }
