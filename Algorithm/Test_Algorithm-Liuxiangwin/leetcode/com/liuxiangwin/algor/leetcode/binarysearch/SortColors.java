@@ -23,47 +23,27 @@ public class SortColors {
 			A[i] = res[i];
 		}
 	}
-	
-	
-	public void sortColors2(int[] arr) {
-		if (arr == null || arr.length == 0)
-			return;
-		int idx0 = 0;
-		int idx1 = 0;
-		
-		for (int i = 0; i < arr.length; i++) {
-			if (arr[i] == 0) {
-				arr[i] = 2;
-				arr[idx1++] = 1;
-				arr[idx0++] = 0;
-			} else if (arr[i] == 1) {
-				arr[i] = 2;
-				arr[idx1++] = 1;
-			}
-		}
-	}
-	
-	
-	public void sortColors3(int[] arr) {
-		int length = arr.length;
-		int left = -1;
-		int high = length;
-		int low = 0;
-		while (low < high) {
-			if (arr[low] == 0) {
-				swap(arr, ++left, low++);
-			} else if (arr[low] == 2) {
-				swap(arr, low, --high);
-			} else {
-				low++;
-			}
-		}
-	}
-
-	private void swap(int[] a, int i, int j) {
-		int tmp = a[i];
-		a[i] = a[j];
-		a[j] = tmp;
+	//http://blog.csdn.net/shiquxinkong/article/details/18627339
+   public void sortColors2(int arr[]) {
+	       int low = 0;
+	       int index = 0;
+	       int high = arr.length - 1;
+	       for(; index <= high;){
+	           if(arr[index] == 0){//red
+	             swap(arr,low++, index++);
+	             }
+	           else if(arr[index] == 2){//blue
+	             swap(arr,index, high--);
+	             }
+	           else{ 
+	        	   ++index;//write
+	           }
+	       }
+	    }
+	private void swap(int[] arr,int i, int j) {
+		int tmp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = tmp;
 	}
 	
 	
@@ -103,7 +83,7 @@ http://heai.info/2014-11/markdown-leetcode-find-minimum-in-rotated-sorted-array-
 	    System.out.println("------------------------");
 	    int c[] ={0,1,2,2,0,1};
 	    System.out.println(Arrays.toString(c));	    
-	    sortColors.sortColors3(c);
+	    sortColors.sortColors2(c);
 	    System.out.println(Arrays.toString(c));
 	}
 
