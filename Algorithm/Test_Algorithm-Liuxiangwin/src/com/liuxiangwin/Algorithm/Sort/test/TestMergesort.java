@@ -9,77 +9,71 @@ import java.util.Random;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TesMergesort {
+public class TestMergesort {
 	//http://www.geeksforgeeks.org/forums/topic/google-interview-question-for-software-engineerdeveloper-fresher-about-strings/
 	//http://www.geeksforgeeks.org/forums/forum/algorithms/
 	
   //why is quick sort is better than Merge sort in practice
 	//http://stackoverflow.com/questions/70402/why-is-quicksort-better-than-mergesort
 	//http://stackoverflow.com/questions/680541/quick-sort-vs-merge-sort
-	private int[] numbers;
-	private int[] helper;
-	private int length;
 
-	// 归并排序 N
-	public static void main(String[] args) {
-
+	//数组需要O(n)的额外空间，链表需要O(log(n))的额外空间，时间复杂度为O(nlog(n))，
+	public void sort(int[] values) {		
+		mergesort(values,0, values.length - 1);
 	}
 
-	public void mergeSort(int[] values) {
-		numbers = values;
-		length = values.length;
-		helper = new int[length];
-		mergesort(0, length - 1);
-	}
-
-	private void mergesort(int low, int high) {
+	private void mergesort(int[] data,int low, int high) {
 		// Check if low is smaller then high, if not then the array is sorted
 		if (low < high) {
 			// Get the index of the element which is in the middle
 			int middle = (low + high) / 2;
 			// Sort the left side of the array
-			mergesort(low, middle);
+			mergesort(data,low, middle);
 			// Sort the right side of the array
-			mergesort(middle + 1, high);
+			mergesort(data,middle + 1, high);
 			// Combine them both
-			merge(low, middle, high);
+			merge(data,low, middle, high);
 		}
 	}
 
-	private void merge(int low, int middle, int high) {
-
-		// Copy both parts into the helper array
-		for (int i = low; i <= high; i++) {
-			helper[i] = numbers[i];
-		}
-
-		int i = low;
-		int j = middle + 1;
-		int k = low;
-		// Copy the smallest values from either the left or the right side back
-		// to the original array
-		while (i <= middle && j <= high) {
-			if (helper[i] <= helper[j]) {
-				numbers[k] = helper[i];
-				i++;
+	private void merge(int[] data, int low, int middle, int high) {			
+		int[] helper = new int[data.length];		
+		int third = low; // third 记录临时数组的索引  
+		int center = middle + 1;		
+		int tmp = low; // 缓存左数组第一个元素的索引  
+		
+		while (low <= middle && center <= high) {
+			if (data[third] <= data[center]) {
+				helper[third++] = data[low++];
 			} else {
-				numbers[k] = helper[j];
-				j++;
-			}
-			k++;
+				helper[third++] = data[center++];
+			}			
 		}
-		// Copy the rest of the left side of 
-		//the array into the target array
-		while (i <= middle) {
-			numbers[k] = helper[i];
-			k++;
-			i++;
+		//// 剩余部分依次放入临时数组
+		//（实际上两个while只会执行其中一个）  
+		while (center <= high) {
+			helper[third++] = data[center++];
 		}
-
+		
+		while (low <= middle) {
+			helper[third++] = data[low++];
+		}
+		// 将临时数组中的内容拷贝回原数组中  
+        // （原left-right范围的内容被复制回原数组）  
+        while (tmp <= high) {  
+            data[tmp] = helper[tmp++];  
+        }  
 	}
-
+	public static void main(String args[])
+	{
+		int[] data ={14 ,12, 15, 13, 11, 16};
+		System.out.println(Arrays.toString(data));
+		new TestMergesort().sort(data);
+		System.out.println(Arrays.toString(data));
+	}
 }
 //http://www.cnblogs.com/shudonghe/p/3302888.html
+//http://blog.csdn.net/apei830/article/details/6591632
 /* 
  * 复杂度分析： 
  * 由于采用了递归，设解决长度为n的数组需要的时间为T(n)，则分解成两个长度为n/2的子 
@@ -115,8 +109,8 @@ class MergesortTest {
 	public void testMergeSort() {
 		long startTime = System.currentTimeMillis();
 
-		TesMergesort sorter = new TesMergesort();
-		sorter.mergeSort(numbers);
+		TestMergesort sorter = new TestMergesort();
+		sorter.sort(numbers);
 
 		long stopTime = System.currentTimeMillis();
 		long elapsedTime = stopTime - startTime;
@@ -139,8 +133,8 @@ class MergesortTest {
 			for (int a = 0; a < numbers.length; a++) {
 				numbers[a] = generator.nextInt(MAX);
 			}
-			TesMergesort sorter = new TesMergesort();
-			sorter.mergeSort(numbers);
+			TestMergesort sorter = new TestMergesort();
+			sorter.sort(numbers);
 			for (int j = 0; j < numbers.length - 1; j++) {
 				if (numbers[j] > numbers[j + 1]) {
 					fail("Should not happen");
