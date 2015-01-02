@@ -112,6 +112,10 @@ http://heai.info/2014-11/markdown-leetcode-find-minimum-in-rotated-sorted-array-
 	    System.out.println(Arrays.toString(c));
 	    
 	    SortComparison.sortComparsion();
+	    
+	    System.out.println(1/2);
+	    System.out.println(2/1);
+	    System.out.println(2/3);
 	}
 
 }
