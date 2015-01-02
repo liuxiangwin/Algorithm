@@ -10,7 +10,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TesMergesort {
-
+	//http://www.geeksforgeeks.org/forums/topic/google-interview-question-for-software-engineerdeveloper-fresher-about-strings/
+	//http://www.geeksforgeeks.org/forums/forum/algorithms/
+	
+  //why is quick sort is better than Merge sort in practice
+	//http://stackoverflow.com/questions/70402/why-is-quicksort-better-than-mergesort
+	//http://stackoverflow.com/questions/680541/quick-sort-vs-merge-sort
 	private int[] numbers;
 	private int[] helper;
 	private int length;
@@ -74,6 +79,18 @@ public class TesMergesort {
 	}
 
 }
+//http://www.cnblogs.com/shudonghe/p/3302888.html
+/* 
+ * 复杂度分析： 
+ * 由于采用了递归，设解决长度为n的数组需要的时间为T(n)，则分解成两个长度为n/2的子 
+ * 数组后，需要的时间为T(n/2)，合并需要时间Θ(n)。所以有当n>1时，T(n)=2T(n/2)+Θ(n), 
+ * 当n=1时，T(1)=Θ(1) 
+ * 解这个递归式，设Θ(1)=c,(c为常量)，则Θ(n)=cn。 
+ * 有上式可得T(n/2)=2T(n/4)+Θ(n/2),T(n/4)=2T(n/8)+Θ(n/4)....依次带入可得 
+ * 所以可以有T(n)=nT(1)+Θ(n)+2Θ(n/2)+4Θ(n/4)...+(2^lgn)Θ(n/(2^lgn)),其中共有lgn个Θ(n)相加。 
+ * 即T(n)=cn+cnlgn 
+ * 所以，时间复杂度为：Θ(nlgn) 
+ */ 
 
 class MergesortTest {
 
