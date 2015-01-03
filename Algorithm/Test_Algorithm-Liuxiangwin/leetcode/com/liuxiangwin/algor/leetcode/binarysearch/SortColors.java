@@ -1,8 +1,6 @@
 package com.liuxiangwin.algor.leetcode.binarysearch;
 
-import java.io.Console;
 import java.util.Arrays;
-import java.util.Random;
 
 import com.liuxiangwin.Algorithm.Sort.test.TestQucikSort;
 
