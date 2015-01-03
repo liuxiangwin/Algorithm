@@ -27,8 +27,6 @@ public class ConverBinaryTreeToLinkedList {
                 nodeStack.push(current);
                 current = current.left;
  
-            // if no left child // pop stack, process the node
-            // then let p point to the right
             }else{
                 TreeNode t = nodeStack.pop();         
                 //result.add(t.val);
