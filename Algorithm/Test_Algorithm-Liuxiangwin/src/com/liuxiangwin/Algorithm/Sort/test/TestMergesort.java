@@ -17,7 +17,13 @@ public class TestMergesort {
 	//http://stackoverflow.com/questions/70402/why-is-quicksort-better-than-mergesort
 	//http://stackoverflow.com/questions/680541/quick-sort-vs-merge-sort
 
-	//数组需要O(n)的额外空间，链表需要O(log(n))的额外空间，时间复杂度为O(nlog(n))，
+	//MergeSort 数组需要O(n)的额外空间，
+	//空间代价为O(n) ，链表需要O(log(n))的额外空间，(先分后合并)
+	//时间复杂度为O(nlog(n))，稳定排序
+	
+	//QuickSort 程序所需的空间即为堆栈深度 所以空间代价为O(log(n))
+	//时间复杂度为O(nlog(n))，不稳定排序
+	
 	public void sort(int[] values) {		
 		mergesort(values,0, values.length - 1);
 	}
