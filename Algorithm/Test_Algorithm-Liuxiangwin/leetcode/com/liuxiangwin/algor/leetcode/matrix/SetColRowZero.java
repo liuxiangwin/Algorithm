@@ -1,4 +1,4 @@
-package com.liuxiangwin.algor.leetcode.graphic;
+package com.liuxiangwin.algor.leetcode.matrix;
 
 import com.liuxiangwin.algor.leetcode.uitl.ArrayUtil;
 
