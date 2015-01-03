@@ -22,7 +22,7 @@ public class ImplementStrStr {
 
 		for (int i = 0; i <= sourceLeng - targetLeng; ++i) {
 			int j = 0;
-			int k = i;
+			int k = i;//k每次都和 i一样，加一//j每次，只有匹配才进来
 			while (j < targetLeng && 
 			    source.charAt(k)== target.charAt(j)) {
 				j++;
@@ -39,7 +39,7 @@ public class ImplementStrStr {
 
 	public static void main(String[] args) {
 		ImplementStrStr slt = new ImplementStrStr();
-		System.out.println(slt.strStr("abcdabc", "d"));
+		System.out.println(slt.strStr("abcdabc", "da"));
 		System.out.println("abcdabc".substring("abcdabc".indexOf("d")));
 	}
 }
