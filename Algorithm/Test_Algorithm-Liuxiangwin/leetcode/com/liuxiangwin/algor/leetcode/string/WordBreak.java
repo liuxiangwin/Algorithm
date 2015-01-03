@@ -14,6 +14,46 @@ public class WordBreak {
 	 * @param string
 	 * @return
 	 */
+	//http://www.danielbit.com/blog/puzzle/leetcode/leetcode-word-break
+	public boolean wordBreak_navie(String s, Set<String> dict) {
+		return wordBreakHelper(s, dict, 0);
+	}
+
+	public boolean wordBreakHelper(String s, Set<String> dict, int start) {
+		if (start == s.length())
+			return true;
+
+		for (String a : dict) {
+			int len = a.length();
+			int end = start + len;
+
+			// end index should be <= string length
+			if (end > s.length())
+				continue;
+
+			if (s.substring(start, start + len).equals(a))
+				if (wordBreakHelper(s, dict, start + len))
+					return true;
+		}
+
+		return false;
+	}
+	
+	
+	  public boolean wordBreak_dp(String s, Set<String> dict) {
+	        boolean[] table = new boolean[s.length()+1];
+	 
+	        table[0] = true;
+	        for (int i=1; i<s.length()+1; ++i)
+	            for (int k=0; k<i; k++) {
+	                table[i] = table[k] && dict.contains(s.substring(k,i));
+	                if (table[i])
+	                    break;
+	            }
+	 
+	        return table[s.length()];
+	    }
+	
 	
 	 //Time: O(string length * dict size)
     //One tricky part of this solution is the case:
@@ -22,6 +62,7 @@ public class WordBreak {
 		for (String word : dict) {
 			wordMap.put(word, true);
 		}
+		
 		int len = s.length();
 		boolean[] strMap = new boolean[len + 1];
 		strMap[0] = true;
@@ -75,13 +116,11 @@ public class WordBreak {
 		dict.add("leet");
 		dict.add("code");
 		WordBreak workBreak = new WordBreak();
-		workBreak.wordBreak(string, dict);
-		
-		
-		workBreak.wordBreak(string, dict);
-		
-		
+		workBreak.wordBreak(string, dict);	
+		workBreak.wordBreak(string, dict);		
 		workBreak.wordBreak2(string, dict);
+		
+		System.out.println("navie approach "+workBreak.wordBreak_navie(string,dict));
 	}
 
 }

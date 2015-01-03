@@ -14,13 +14,13 @@ public class LongestCommonPrefix {
 		int index = 0;
 		while (index < strs[0].length()) {//取第一个字符串作为基准
 			char c = strs[0].charAt(index);//index 用来索引第一个字符
-			for (int i = 1; i < strs.length; ++i) {
+			for (int i = 1; i < strs.length; ++i) {//遍历的string数组
 				if (index >= strs[i].length() 
 				|| strs[i].charAt(index) != c) {
 					return strs[0].substring(0, index);
 				}
 			}
-			index++;
+			index++;//只有遍历每次string数组完了才会index++ 第一个字符的每个字符
 		}
 		return strs[0];
 	}
