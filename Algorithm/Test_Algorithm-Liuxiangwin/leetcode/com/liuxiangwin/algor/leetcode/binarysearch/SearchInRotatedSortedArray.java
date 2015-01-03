@@ -105,12 +105,15 @@ public class SearchInRotatedSortedArray {
 
 		while (low <= high) {
 			int mid = (low + high) / 2;
-			if (array[mid] <= array[high]) // #min位于上升沿左侧
+			if (array[mid] <= array[high]){ // #min位于上升沿左侧
+				ans = Math.min(ans, array[mid]);
 				high = mid - 1;
+			}	
 			else { // min位于左侧上升沿与右侧上升沿之间//{ 10, 15, 20, 0, 5};
+				ans = Math.min(ans, array[low]);
 				low = mid + 1;	
 			}
-			ans = Math.min(ans, array[mid]);
+			//ans = Math.min(ans, array[mid]);
 		}
 		return ans;
 	}
@@ -132,15 +135,7 @@ public class SearchInRotatedSortedArray {
 				 
 			}
 			else{ //array[mid] = array[high]
-				low++;
-				/*if(array[mid]!= array[low])
-				{
-				     return Math.min(ans, searchMinDuplicate(array,low ,mid-1));
-				}				
-				else{//find both side
-					low++;
-					
-				}*/
+				low++;			
 			}			
 		}
 		//ans = Math.min(array[low], ans);
@@ -200,10 +195,10 @@ public class SearchInRotatedSortedArray {
 		
 		System.out.println("--------------------");
 		int[] b = { 10, 15, 20, 0, 5};
-		System.out.println(searchMinUnSorted(b));
+		System.out.println("searchMinUnSorted noduplicate "+searchMinUnSorted(b));
 		
 		int[] c = { 50, 5, 20, 30, 40};
-		System.out.println(searchMinUnSorted(c));
+		System.out.println("searchMinUnSorted noduplicate "+searchMinUnSorted(c));
 		
 		System.out.println("--------------------");
 		System.out.println("------search  min with duplicate--------------");
