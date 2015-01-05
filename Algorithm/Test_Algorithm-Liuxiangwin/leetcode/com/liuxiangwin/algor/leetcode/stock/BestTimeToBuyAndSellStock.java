@@ -78,7 +78,7 @@ public class BestTimeToBuyAndSellStock {
 		if (prices.length == 0)
 			return 0;
 		int ans = 0;
-		//int n = prices.length;
+		
 
 		// 正向遍历，opt[i]表示 prices[0...i]内做一次交易的最大收益.
 		int opt[] = new int[prices.length];
@@ -115,18 +115,90 @@ public class BestTimeToBuyAndSellStock {
 		return ans;
 	}
 	
+	
+	
+	public int maxProfit_question4(int[] prices) {
+		if (prices.length == 0)
+			return 0;
+		int ans = 0;
+		
+
+		// 正向遍历，opt[i]表示 prices[0...i]内做一次交易的最大收益.
+		int opt[] = new int[prices.length];
+		opt[0] = 0;
+		int low = prices[0];
+		int curAns = 0;
+		for (int i = 1; i < (prices.length/2)-1; i++) {
+			if (prices[i] < low)
+				low = prices[i];
+			else if (curAns < prices[i] - low)
+				curAns = prices[i] - low;
+			opt[i] = curAns;
+		}
+
+		// 逆向遍历, opt[i]表示 prices[i...n-1]内做一次交易的最大收益.
+		int optReverse[] = new int[prices.length];
+		optReverse[prices.length - 1] = 0;
+		curAns = 0;
+		int high = prices[prices.length - 1];
+		for (int i = prices.length - 2; i >= (prices.length/2)+1; i--) {
+			if (prices[i] > high)
+				high = prices[i];
+			else if (curAns < high - prices[i])
+				curAns = high - prices[i];
+			optReverse[i] = curAns;
+		}
+		
+		
+		int mid[] = new int[prices.length];
+		mid[0] = 0;
+		int lowMid = prices[(prices.length/2)-1];
+		int curAnsMid = 0;
+		for (int i = (prices.length/2); i <=(prices.length/2)+1; i++) {
+			if (prices[i] < lowMid)
+				lowMid = prices[i];
+			else if (curAnsMid < prices[i] - lowMid)
+				curAnsMid = prices[i] - lowMid;
+			mid[i] = curAnsMid;
+		}
+
+		//分别计算三段的最大值
+		int optMax,midMax,revMax;
+		optMax =midMax= revMax =0;
+		for (int i = 0; i < prices.length-1; i++) {
+			optMax = Math.max(optMax,Math.max(opt[i],opt[i+1])) ;
+			midMax =  Math.max(midMax,Math.max(mid[i],mid[i+1]));
+				
+			revMax = Math.max(revMax,Math.max(optReverse[i],optReverse[i+1]));
+		
+		}
+
+		ans = optMax+ midMax +revMax;
+	
+		return ans;
+	}
+	
+	
+	
+	
 	public static void main(String[] args) {
 	
 		BestTimeToBuyAndSellStock bsStock = new BestTimeToBuyAndSellStock();
 		
-		int[] stockPrice= { 9, 2, 6, 7, 8};
+		//int[] stockPrice= { 9, 2, 6, 7, 8};
+		
+		int[] stockPrice = {1,1,2,1,4,1,5,1,2};
 		System.out.println(bsStock.maxProfit_quesiton1(stockPrice));
 		
 		System.out.println(bsStock.maxProfit_question2(stockPrice));
 		
 		System.out.println(bsStock.maxProfit_question3(stockPrice));
 		
+		System.out.println(bsStock.maxProfit_question4(stockPrice));
 		
+		int[] stockPrice2 = {1,3,2,6,2,7,5,1,2};
+		
+		System.out.println(bsStock.maxProfit_question4(stockPrice2));
 		
 	}
 }
