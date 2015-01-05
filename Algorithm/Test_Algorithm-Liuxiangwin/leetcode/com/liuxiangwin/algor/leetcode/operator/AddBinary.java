@@ -20,12 +20,12 @@ public class AddBinary {
 			// so we need to minus the decimal value of '0'
 			int p = 0, q = 0;
 			p = i < a.length() ? a.charAt(a.length() - 1 - i) - '0' : '0';
-
+            //两个数对其从低位相加，为2相进位一次，如果这位上没有就是0
 			q = i < b.length() ? b.charAt(b.length() - 1 - i) - '0' : '0';
 
 			int tmp = p + q + carry;
-			carry = tmp / 2;
-			res += tmp % 2;
+			carry = tmp / 2; //进位
+			res += tmp % 2;  //当前位 和之前当前位相加
 		}
 
 		return (carry == 0) ? res : "1" + res;
