@@ -26,10 +26,19 @@ public class TestFindGreatestSumInArray {
 		
 		int array5[] = {-2,1,-3,4,-1,2,1,-5,4};
 		
-		findMaxSubArray(array5);
+		//findMaxSubArray(array5);
 		
 		
 		
+		int array6[] = {2,3,-8,-1,2,4,-2,3};
+		
+		findMaxSubArray(array6);
+		
+		
+		int A[] = {2,3,-8,-1,2,4,-2,3};
+		MaximumSubarray slt = new MaximumSubarray();
+		int result = slt.maxSubArray(A);
+		System.out.println(result);
 
 	}
 
@@ -111,7 +120,9 @@ public class TestFindGreatestSumInArray {
 	}
 
 	public static void main(String[] args) {
-		int[] A = new int[] { -2, 1 }; 
+		//int[] A = new int[] { -2, 1 }; 
+		
+		int A[] = {2,3,-8,-1,2,4,-2,3};
 		MaximumSubarray slt = new MaximumSubarray();
 		int result = slt.maxSubArray(A);
 		System.out.println(result);
