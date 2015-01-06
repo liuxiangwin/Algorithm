@@ -14,6 +14,9 @@ public class TestStringCompress {
 		System.out.println(compressString(LongString));
 		
 		String duplicateString = "eeeeeaaff";
+		
+		System.out.println(compressBad(LongString));
+		
 	}
 
 	// "eeeeeaaaff" 压缩为 "e5a3f2"，请编程实现。
@@ -21,13 +24,12 @@ public class TestStringCompress {
 		LinkedHashMap<String, Integer> map = new LinkedHashMap<String, Integer>();
 		StringBuilder stringBuild = new StringBuilder();
 		for (int i = 0; i < string.length(); i++) {
-			String stringCurrent = String.valueOf(string.charAt(i));
-			if (map.containsKey(stringCurrent)) {
-				map.put(stringCurrent, map.get(stringCurrent) + 1);
+			String curr = String.valueOf(string.charAt(i));
+			if (map.containsKey(curr)) {
+				map.put(curr, map.get(curr) + 1);
 			} else {
-				map.put(stringCurrent, 1);
+				map.put(curr, 1);
 			}
-
 		}
 
 		for (Map.Entry<String, Integer> entry : map.entrySet()) {
@@ -36,9 +38,23 @@ public class TestStringCompress {
 			stringBuild.append(key);
 			stringBuild.append(value);
 		}
-
 		return stringBuild.toString();
-
+	}
+	//O(stingLength+)
+	public static String compressBad(String str) {		
+		String mystr = "";
+		char last = str.charAt(0);
+		int count = 1;
+		for (int i = 1; i < str.length(); i++) {
+			if (str.charAt(i) == last) {
+				count++;
+			} else {
+				mystr += last + "" + count;
+				last = str.charAt(i);
+				count = 1;
+			}
+		}
+		return mystr + last + count;
 	}
 
 
