@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class GrayCode {
 	//For example, given n = 2, return [0,1,3,2]. 
 	//Its gray code sequence is:
-	
+	//All the binary code in 2 bit
 	//00 - 0
 	//01 - 1
 	//11 - 3
