@@ -35,8 +35,9 @@ public class TreeContainSubTree {
 		if (r1 == null || r2 == null)
 			return false; // big tree empty & subtree still not found
 		if (r1.val != r2.val)
-			return false; // data doesn’t match
-		return (matchTree(r1.left, r2.left) && matchTree(r1.right, r2.right));
+			return false; // data doesn'tmatch
+		return (matchTree(r1.left, r2.left) 
+				&& matchTree(r1.right, r2.right));
 	}
 
 	public static void main(String[] args) {

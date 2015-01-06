@@ -53,7 +53,7 @@ public class CheckPathSumWithTarget {
 		//这里remove掉最后的元素是由于运行到这里说明没有匹配成功，则应去除最后的节点
 		respath.remove(respath.size()-1);
 	}
-	  
+	
 	  public static void main(String[] args) {
 		  CheckPathSumWithTarget checkPathSum = new CheckPathSumWithTarget();
 			TreeNode root = new TreeNode(5);
@@ -84,6 +84,54 @@ public class CheckPathSumWithTarget {
 			
 			ArrayList<Integer> respath = new ArrayList<Integer>(); 
 			checkPathSum.findRoute(root, 22, respath);
+			
+			new findAllSum().findSum(root, 22);
 	  }
 	
+}
+class findAllSum{
+	public static void findSum(TreeNode node, int sum) {
+		int depth = depth(node);
+		int[] path = new int[depth];
+		findSum(node, sum, path, 0);
+	}
+	
+	public static void findSum(TreeNode node, int sum, int[] path, int level) {
+		if (node == null) {
+			return;
+		}		
+		path[level] = node.val;
+		
+		int t = 0;
+		for (int i = level; i >= 0; i--){
+			t += path[i];
+			if (t == sum) {
+				print(path, i, level);
+			}
+		}
+		
+		findSum(node.left, sum, path, level + 1);
+		findSum(node.right, sum, path, level + 1);
+		
+		/* Remove current node from path.
+		 *  Not strictly necessary, since we would
+		 * ignore this value, but it's good practice.
+		 */
+		path[level] = Integer.MIN_VALUE; 
+	}
+	
+	public static int depth(TreeNode node) {
+		if (node == null) {
+			return 0;
+		} else {
+			return 1 + Math.max(depth(node.left), depth(node.right));
+		}
+	}
+	private static void print(int[] path, int start, int end) {
+		for (int i = start; i <= end; i++) {
+			System.out.print(path[i] + " ");
+		}
+		System.out.println();
+	}
+
 }
