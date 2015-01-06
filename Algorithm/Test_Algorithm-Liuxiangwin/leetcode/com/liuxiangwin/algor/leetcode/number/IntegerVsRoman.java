@@ -36,22 +36,25 @@ package com.liuxiangwin.algor.leetcode.number;
  */
 public class IntegerVsRoman {
 	public String intToRoman(int num) {
-		int[] dic = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
-		String[] roman = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X",
+		int[] dic = { 1000, 900, 500, 400, 
+				        100, 90, 50, 
+				        40, 10, 9, 5, 4, 1 };
+		String[] roman = { 
+				"M", "CM", "D", "CD", 
+				"C", "XC", "L", "XL", "X",
 				"IX", "V", "IV", "I" };
 
 		String result = "";
 
 		for (int i = 0; num > 0; i++) {
-			int count = num / dic[i];
-			num %= dic[i];
+			int count = num / dic[i];//遍历数组中看那个能进位数，或者说数大于这个数
+			num %= dic[i];  //余下的数字继续循环
 
-			while (count > 0) {
+			while (count > 0) {//根据进位数来叠加
 				result += roman[i];
 				--count;
 			}
 		}
-
 		return result;
 	}
 	
@@ -65,9 +68,11 @@ public class IntegerVsRoman {
 		int result = charToInt(s.charAt(length-1));
 		for (int i = length - 2; i >= 0; i--) {
 			if (charToInt(s.charAt(i + 1)) <= charToInt(s.charAt(i)))
+				//前面比后面大，加上现在的值				
 				result += charToInt(s.charAt(i));
 			else{
-				result -= charToInt(s.charAt(i));
+				result -= charToInt(s.charAt(i));//前面比后面（最后一位）
+				//大,所以结果减去现在的值
 			}				
 		}
 		return result;
