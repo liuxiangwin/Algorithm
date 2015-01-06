@@ -3,7 +3,7 @@ package com.liuxiangwin.algor.leetcode.tree;
 import java.util.Stack;
 
 
-import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
+import com.liuxiangwin.algor.leetcode.uitl.BinaryTreeUtil;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 /**
  *       1
@@ -49,12 +49,12 @@ public class FlattenBinaryTreeToLinkedList {
 		n2.right = n5;
 		n3.right = n6;
 		
-		BinaryTreePrinter.printNode(root);
+		BinaryTreeUtil.printNode(root);
 		
 		FlattenBinaryTreeToLinkedList flList = new FlattenBinaryTreeToLinkedList();
 		flList.flatten(root);
 		
-		BinaryTreePrinter.printNode(root);
+		BinaryTreeUtil.printNode(root);
 		
     }
 }

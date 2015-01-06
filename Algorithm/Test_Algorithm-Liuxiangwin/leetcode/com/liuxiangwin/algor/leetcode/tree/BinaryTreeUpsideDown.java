@@ -1,6 +1,6 @@
 package com.liuxiangwin.algor.leetcode.tree;
 
-import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
+import com.liuxiangwin.algor.leetcode.uitl.BinaryTreeUtil;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
 public class BinaryTreeUpsideDown {
@@ -44,11 +44,11 @@ public class BinaryTreeUpsideDown {
 		n4.right = n7;
 		
 		
-		BinaryTreePrinter.printNode(root);
+		BinaryTreeUtil.printNode(root);
 		
 		BinaryTreeUpsideDown solution = new BinaryTreeUpsideDown();
 		TreeNode newRoot = solution.UpsideDownBinaryTree(root);
 		
-		BinaryTreePrinter.printNode(newRoot);
+		BinaryTreeUtil.printNode(newRoot);
 	}
 }

@@ -1,6 +1,6 @@
 package com.liuxiangwin.algor.leetcode.tree;
 
-import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
+import com.liuxiangwin.algor.leetcode.uitl.BinaryTreeUtil;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
 
@@ -58,7 +58,7 @@ public class IsSymmetricTree {
 		
 		n3.left= n6;
 		n3.right= n7;
-		BinaryTreePrinter.printNode(root);
+		BinaryTreeUtil.printNode(root);
 		
 		System.out.println("isSymmetricTree :"+isSymmetricTree.isSymmetric(root));
 	}

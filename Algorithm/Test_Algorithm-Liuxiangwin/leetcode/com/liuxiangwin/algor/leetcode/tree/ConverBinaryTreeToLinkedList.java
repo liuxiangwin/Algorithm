@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 import java.util.Stack;
 
-import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
+import com.liuxiangwin.algor.leetcode.uitl.BinaryTreeUtil;
 import com.liuxiangwin.algor.leetcode.uitl.ListNode;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
@@ -105,7 +105,7 @@ public class ConverBinaryTreeToLinkedList {
 		n2.left=n4;
 		n2.right=n5;
 		
-		BinaryTreePrinter.printNode(root);
+		BinaryTreeUtil.printNode(root);
 		
 		ConverBinaryTreeToLinkedList toLinkedList = new ConverBinaryTreeToLinkedList();
 		

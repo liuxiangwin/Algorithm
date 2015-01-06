@@ -1,6 +1,6 @@
 package com.liuxiangwin.algor.leetcode.tree;
 
-import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
+import com.liuxiangwin.algor.leetcode.uitl.BinaryTreeUtil;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
 /**
@@ -33,7 +33,7 @@ public class ConvertSortArrayToBinaryTree {
 		int[] number = { 9, 12, 14, 17, 19, 23, 50, 54, 67, 72, 76 };
 		ConvertSortArrayToBinaryTree btFromSortArray = new ConvertSortArrayToBinaryTree();
 		TreeNode root = btFromSortArray.sortedArrayToBST(number,0,number.length-1);
-		BinaryTreePrinter.printNode(root);
+		BinaryTreeUtil.printNode(root);
 	}
 }
 

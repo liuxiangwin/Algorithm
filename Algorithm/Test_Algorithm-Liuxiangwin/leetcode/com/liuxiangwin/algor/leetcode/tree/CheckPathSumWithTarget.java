@@ -2,7 +2,7 @@ package com.liuxiangwin.algor.leetcode.tree;
 
 import java.util.ArrayList;
 
-import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
+import com.liuxiangwin.algor.leetcode.uitl.BinaryTreeUtil;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
 public class CheckPathSumWithTarget {
@@ -78,7 +78,7 @@ public class CheckPathSumWithTarget {
 			
 			n6.right=n9;
 			
-			BinaryTreePrinter.printNode(root);
+			BinaryTreeUtil.printNode(root);
 			
 			System.out.println(checkPathSum.hasPathSum(root,22,0));
 			

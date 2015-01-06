@@ -1,6 +1,6 @@
 package com.liuxiangwin.algor.leetcode.tree;
 
-import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
+import com.liuxiangwin.algor.leetcode.uitl.BinaryTreeUtil;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
 /**
@@ -105,7 +105,7 @@ public class ConstructTreeByXorder {
 		TreeNode root = constructTree.buildTree_Postorder_Inorder(inorder,
 				postoder);
 
-		BinaryTreePrinter.printNode(root);
+		BinaryTreeUtil.printNode(root);
 		
 		// pre-order:
 		int[] preorder2 ={6, 5 ,4 ,8 ,7 ,9};
@@ -115,7 +115,7 @@ public class ConstructTreeByXorder {
 		TreeNode root2 = constructTree.buildTree_Preorder_Inorder
 				(preorder2, inorder2);
 			
-		BinaryTreePrinter.printNode(root2);
+		BinaryTreeUtil.printNode(root2);
 		
 		
 		

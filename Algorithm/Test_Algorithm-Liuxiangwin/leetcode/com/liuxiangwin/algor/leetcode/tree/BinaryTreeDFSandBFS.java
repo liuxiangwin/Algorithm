@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.Stack;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
+import com.liuxiangwin.algor.leetcode.uitl.BinaryTreeUtil;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
 
@@ -118,7 +118,7 @@ public class BinaryTreeDFSandBFS {
 		n6.right=n7;
 		
 		
-		BinaryTreePrinter.printNode(root);
+		BinaryTreeUtil.printNode(root);
 		
 		ArrayList<Integer> res= dfsAndbfs.breadtheFrist(root);
 		System.out.println("=====================");

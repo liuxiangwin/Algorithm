@@ -1,5 +1,5 @@
 package com.liuxiangwin.algor.leetcode.tree;
-import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
+import com.liuxiangwin.algor.leetcode.uitl.BinaryTreeUtil;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 /**
  * 
@@ -53,12 +53,12 @@ public class RotationTree {
 		n2.right=n5;
 		
 		n4.left = n6;
-		BinaryTreePrinter.printNode(root);
+		BinaryTreeUtil.printNode(root);
 		
 		RotationTree rotationTree = new RotationTree();
 		TreeNode  rightTop =rotationTree.rightRotaion(root);
 		System.out.println("----------------------------");		
-		BinaryTreePrinter.printNode(rightTop);
+		BinaryTreeUtil.printNode(rightTop);
 		
 	}
 	

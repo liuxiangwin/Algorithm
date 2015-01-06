@@ -55,7 +55,7 @@ public class RecoverBinarySearchTree {
 		n2.right=n5;
 		
 		n6.right = n3;
-		BinaryTreePrinter.printNode(root);
+		BinaryTreeUtil.printNode(root);
 		
 		BinaryTreePreorderTraversal slt = new BinaryTreePreorderTraversal();
 		                  
@@ -70,7 +70,7 @@ public class RecoverBinarySearchTree {
 		RecoverBinarySearchTree recoverBinarySearchTree = new RecoverBinarySearchTree();
 		recoverBinarySearchTree.recoverTree(root);
 		
-		BinaryTreePrinter.printNode(root);
+		BinaryTreeUtil.printNode(root);
 		
 		
 	}

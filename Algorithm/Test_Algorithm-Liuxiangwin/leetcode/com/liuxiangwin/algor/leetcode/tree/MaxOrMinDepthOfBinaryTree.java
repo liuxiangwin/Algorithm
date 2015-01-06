@@ -1,6 +1,6 @@
 package com.liuxiangwin.algor.leetcode.tree;
 
-import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
+import com.liuxiangwin.algor.leetcode.uitl.BinaryTreeUtil;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
 public class MaxOrMinDepthOfBinaryTree {
@@ -93,7 +93,7 @@ public class MaxOrMinDepthOfBinaryTree {
 		n2.right=n6;
 		n6.right=n7;
 		
-		BinaryTreePrinter.printNode(root);
+		BinaryTreeUtil.printNode(root);
 		
 		System.out.println("The longest path in tree "+maxMin.maxDepthOfTree(root));
 		

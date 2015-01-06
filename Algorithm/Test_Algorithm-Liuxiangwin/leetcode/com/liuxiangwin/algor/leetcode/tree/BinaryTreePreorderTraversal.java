@@ -20,7 +20,7 @@ package com.liuxiangwin.algor.leetcode.tree;
 import java.util.ArrayList;
 import java.util.Stack;
 
-import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
+import com.liuxiangwin.algor.leetcode.uitl.BinaryTreeUtil;
 import com.liuxiangwin.algor.leetcode.uitl.ListNode;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 /**
@@ -201,7 +201,7 @@ public class BinaryTreePreorderTraversal {
 		n2.right=n6;
 		n6.right=n7;
 		
-		BinaryTreePrinter.printNode(root);
+		BinaryTreeUtil.printNode(root);
 		ArrayList<Integer> res = slt.preorderTraversalIter(root);
 		System.out.println("Ç°Ðò±éÀú "+res.toString());
 		

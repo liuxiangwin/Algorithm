@@ -1,6 +1,6 @@
 package com.liuxiangwin.algor.leetcode.tree;
 
-import com.liuxiangwin.algor.leetcode.uitl.BinaryTreePrinter;
+import com.liuxiangwin.algor.leetcode.uitl.BinaryTreeUtil;
 import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 
 public class IsFullorCompleteTree {
@@ -72,7 +72,7 @@ public class IsFullorCompleteTree {
 		n2.left = n4;
 		n2.right = n5;
 		n3.left = n6;
-		BinaryTreePrinter.printNode(root);
+		BinaryTreeUtil.printNode(root);
 
 		System.out.println("is Full Tree : "+ isFullorCompleteTree.isFull(root));
 		System.out.println("is Complete Tree : "+ isFullorCompleteTree.isComplete(root));
@@ -93,7 +93,7 @@ public class IsFullorCompleteTree {
 		
 		n3Ns.left =  n7Ns;
 		n3Ns.right = n6Ns;
-		BinaryTreePrinter.printNode(rootNs);
+		BinaryTreeUtil.printNode(rootNs);
 
 		System.out.println("is Full Tree : "+ isFullorCompleteTree.isFull(rootNs));
 		
