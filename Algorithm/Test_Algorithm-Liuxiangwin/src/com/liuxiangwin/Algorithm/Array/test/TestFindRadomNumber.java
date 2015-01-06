@@ -12,18 +12,18 @@ public class TestFindRadomNumber {
 	 *  4.n加入，取n=n-1,m=m-n,递归。 
 	 *  5.结束。 
 	 * @param sum 
-	 * @param n 
+	 * @param range 
 	 */  
-	    public static void findSum(int sum, int n)  
+	    public static void findSum(int sum, int range)  
 	    {  
-	        if ( n < 1 || sum < 1)  
+	        if ( range < 1 || sum < 1)  
 	            return;  
-	        if (sum > n)  
+	        if (sum > range)  
 	        {  
-	            list.add(n);  
-	            findSum(sum - n, n - 1);// n加入，取n=n-1,m=m-n   
+	            list.add(range);  
+	            findSum(sum - range, range - 1);// n加入，取n=n-1,m=m-n   
 	            list.pop();  
-	            findSum(sum, n - 1);    // n没有加入，取n=n-1,m=m   
+	            findSum(sum, range - 1);    // n没有加入，取n=n-1,m=m   
 	        }  
 	        else  
 	        {  
@@ -38,11 +38,11 @@ public class TestFindRadomNumber {
 	     */  
 	    public static void main(String[] args) {  
 	        // TODO Auto-generated method stub   
-	        int expectSum = 10; 
+	        int sum = 10; 
 	        
 	        //int sum = 4;  
-	        int expectRange = 9;  
-	        findSum(expectSum,expectRange);  
+	        int range = 9;  
+	        findSum(sum,range);  
 	    }  
 
 

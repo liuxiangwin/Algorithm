@@ -94,6 +94,29 @@ public class TestFindTwoNumberEqualsGivenSum {
 
 	}
 	
+	
+	//Two Sum II - Input array is sorted 
+	//http://www.cnblogs.com/higerzhang/p/4189418.html
+	vector<int> twoSum(vector<int> &numbers, int target){
+        vector<int> ans;
+        int left = 1, right = numbers.size();
+
+        while(left < right){
+            if (numbers[left-1] + numbers[right-1] == target){
+                ans.push_back(left);
+                ans.push_back(right);
+                return ans;
+            }else if (numbers[left-1] + numbers[right-1] > target){
+                right--;
+            }else{
+                left++;
+            }
+        }
+        return ans;
+    }
+	//Two Sum III - Data structure design 
+	//http://www.cnblogs.com/x1957/p/4186171.html
+	
 	//http://tech-wonderland.net/blog/summary-of-ksum-problems.html
 	//http://www.2cto.com/kf/201310/248433.html
 	//http://blog.csdn.net/nanjunxiao/article/details/12524405
