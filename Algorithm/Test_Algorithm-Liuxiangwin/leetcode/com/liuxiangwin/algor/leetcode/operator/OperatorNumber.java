@@ -3,6 +3,8 @@ package com.liuxiangwin.algor.leetcode.operator;
 public class OperatorNumber {
 	
 	public static int swapOddEvenBits(int x) { 
+		//0xaaaaaaaa也就是10101010....）取出偶数位,相当于奇数位清零了
+		//用0x55555555（也就是01010101...）取出奇数位，相当于偶数位清零了
 		return ( ((x & 0xaaaaaaaa) >> 1) | ((x & 0x55555555) << 1) ); 
 	} 
 	
