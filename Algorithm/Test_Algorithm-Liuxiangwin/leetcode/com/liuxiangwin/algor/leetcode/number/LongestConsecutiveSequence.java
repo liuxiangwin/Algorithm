@@ -40,13 +40,14 @@ public class LongestConsecutiveSequence {
 			int left = e - 1;
 			int right = e + 1;
 			int count = 1;
-
+            
+			//O(1)的查找和去重复杂度
 			while (set.contains(left)) {
 				count++;
 				set.remove(left);
 				left--;
 			}
-
+			//O(1)的查找和去重复杂度
 			while (set.contains(right)) {
 				count++;
 				set.remove(right);
