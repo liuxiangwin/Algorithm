@@ -52,10 +52,54 @@ public class IsBanlancedTree {
 		
 		System.out.println("is Balanced Tree : "+isBanlancedTree.isHeightBalanced(root));
 		
-		System.out.println(isBanlancedTree.height(root));
-		
+		System.out.println(isBanlancedTree.height(root));		
 		
 		System.out.println("Max distance in tree "+isBanlancedTree.maxDistanceOfTree(root));
+		
+		
+		
+		
+		TreeNode root3 = new TreeNode(1);
+		TreeNode n23 = new TreeNode(2);
+		TreeNode n33 = new TreeNode(5);
+		root3.left = n23;
+		root3.right = n33;
+
+		TreeNode n43 = new TreeNode(3);
+		TreeNode n63 = new TreeNode(6);
+		n23.left = n43;
+		n33.right = n63;
+	
+		BinaryTreeUtil.printNode(root3);		
+		
+		System.out.println("is Balanced Tree : "+isBanlancedTree.isHeightBalanced(root3));
+		
+		
+		
+		
+		
+		TreeNode root2 = new TreeNode(1);
+		TreeNode n22 = new TreeNode(2);
+		TreeNode n32 = new TreeNode(5);
+		root2.left = n22;
+		root2.right = n32;
+
+		TreeNode n42 = new TreeNode(3);
+		TreeNode n62 = new TreeNode(6);
+		
+		TreeNode n72 = new TreeNode(7);
+		TreeNode n82 = new TreeNode(8);
+
+		n22.left = n42;
+		n32.right = n62;
+		n42.left = n72;
+		n62.right = n82;
+		BinaryTreeUtil.printNode(root2);
+		
+		
+		System.out.println("is Balanced Tree : "+isBanlancedTree.isHeightBalanced(root2));
+		System.out.println("Height of tree "+isBanlancedTree.height(root2));
+		System.out.println("Max distance in tree "+isBanlancedTree.maxDistanceOfTree(root2));
 		
 	}
 
