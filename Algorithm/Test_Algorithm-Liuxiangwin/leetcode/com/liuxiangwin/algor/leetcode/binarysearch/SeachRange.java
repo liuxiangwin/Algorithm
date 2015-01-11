@@ -43,7 +43,7 @@ public class SeachRange {
 		
 		while (start < end) {
 			int mid = (start + end) / 2;
-			if (A[mid] < target + 1)
+			if (A[mid] < target + 1)//坐标移到下一位，比mid下一个，找第二个数
 				start = mid + 1;
 			else
 				end = mid;
