@@ -4,17 +4,6 @@ package com.liuxiangwin.multithreading.lock;
 public class TestDeadLock extends Thread{
 	private String s1;
 	private String s2;
-	
-	public static void main(String[] args) throws Exception {
-		
-		//WeakReference<TestDeadLock> weakWidget = new WeakReference<TestDeadLock>(weakWidget);
-
-		String s1 = "dead";
-		String s2 = "lock";
-		TestDeadLock t = new TestDeadLock(s1, s2);
-		new Thread(t).start();
-		t.printTwo();
-	}
 
 	public TestDeadLock(String s1, String s2) {
 		this.s1 = s1;
@@ -29,7 +18,6 @@ public class TestDeadLock extends Thread{
 			}
 		}
 	}
-
 	public void printTwo() throws Exception {
 		synchronized (s2) {
 			Thread.sleep(10000);
@@ -45,7 +33,17 @@ public class TestDeadLock extends Thread{
 		} catch (Exception e) {
 		}
 	}
-
+	
+	public static void main(String[] args) throws Exception {
+		String s1 = "dead";
+		String s2 = "lock";
+		TestDeadLock t = new TestDeadLock(s1, s2);		
+		new Thread(t).start();
+		
+		TestDeadLock t2 = new TestDeadLock(s1, s2);	
+		new Thread(t2).start();http://v.qq.com/
+		t2.printTwo();
+	}
 	
 
 }

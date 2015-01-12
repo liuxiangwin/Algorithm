@@ -16,8 +16,7 @@ public class TestWorker implements Runnable {
 				+ "the id is: " + Thread.currentThread().getId());
 		TestWorker testwoker = new TestWorker();
 		
-		for (int i=0; i< 100; i++)
-		{
+		for (int i=0; i< 100; i++){
 			Thread thread = new Thread(testwoker);
 			thread.start();	
 			

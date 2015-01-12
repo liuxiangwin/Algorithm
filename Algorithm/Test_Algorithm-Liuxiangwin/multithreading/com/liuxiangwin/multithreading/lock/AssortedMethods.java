@@ -36,7 +36,7 @@ public class AssortedMethods {
 			array[j] = randomIntInRange(min, max);
 		}
 		return array;
-	}
+	} 
 
 
 	public static String arrayToString(int[] array) {
