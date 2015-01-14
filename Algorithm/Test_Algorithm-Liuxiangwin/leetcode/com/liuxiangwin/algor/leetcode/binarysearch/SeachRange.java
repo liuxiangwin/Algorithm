@@ -37,8 +37,8 @@ public class SeachRange {
 		}// 没有找到数字}
 		else {
 			low = start;
-			start = 0;
-			end = A.length - 1;
+			start = 0;   // 然计数坐标清零
+			end = A.length - 1; //// 然计数坐标清零
 		}
 		
 		while (start < end) {
