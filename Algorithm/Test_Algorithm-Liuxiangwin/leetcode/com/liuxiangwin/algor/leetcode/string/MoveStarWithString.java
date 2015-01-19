@@ -14,7 +14,7 @@ public class MoveStarWithString {
 			}
 		}
 		for (int i = 0; i < starCount; ++i) {
-			s[i] = '*';
+			s[i] = '*';//重新把*从第一个位置赋值一遍
 		}
 		return s;
 	}
