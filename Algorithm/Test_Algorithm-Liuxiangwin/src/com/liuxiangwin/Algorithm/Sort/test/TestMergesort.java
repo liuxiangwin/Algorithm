@@ -44,7 +44,7 @@ public class TestMergesort {
 
 	private void merge(int[] data, int low, int middle, int high) {			
 		int[] helper = new int[data.length];		
-		int third = low; // third 记录临时数组的索引  
+		int third = low; // third 记录临时数组的索引  放入help数组中
 		int center = middle + 1;		
 		int tmp = low; // 缓存左数组第一个元素的索引  
 		
