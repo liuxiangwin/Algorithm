@@ -8,21 +8,21 @@ package com.liuxiangwin.algor.leetcode.string;
  */
 
 public class LongestCommonPrefix {
-	public String longestCommonPrefix(String[] strs) {
-		if (strs.length == 0)
+	public String longestCommonPrefix(String[] strArray) {
+		if (strArray.length == 0)
 			return "";
 		int index = 0;
-		while (index < strs[0].length()) {//取第一个字符串作为基准
-			char c = strs[0].charAt(index);//index 用来索引第一个字符
-			for (int i = 1; i < strs.length; ++i) {//遍历的string数组
-				if (index >= strs[i].length() 
-				|| strs[i].charAt(index) != c) {
-					return strs[0].substring(0, index);
+		while (index < strArray[0].length()) {//取第一个字符串作为基准
+			char c = strArray[0].charAt(index);//index 用来索引第一个字符
+			for (int i = 1; i < strArray.length; ++i) {//遍历的string数组
+				if (index >= strArray[i].length() 
+				|| strArray[i].charAt(index) != c) {
+					return strArray[0].substring(0, index);
 				}
 			}
 			index++;//只有遍历每次string数组完了才会index++ 第一个字符的每个字符
 		}
-		return strs[0];
+		return strArray[0];
 	}
 	
 	public static void main(String[] args) {
