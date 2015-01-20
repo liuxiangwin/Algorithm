@@ -5,6 +5,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+
 public class BufferQueue {
 
 	// 缓存区容量
@@ -14,7 +15,15 @@ public class BufferQueue {
 	private LinkedList<String> queue = new LinkedList<String>();
 
 	// 定义互斥锁
-	private static Lock lock = new ReentrantLock();
+	private static Lock lock;
+
+	public BufferQueue() {
+		lock = new ReentrantLock();
+	}
+
+	public BufferQueue(boolean fair) {
+		lock =  new ReentrantLock(fair);		
+	}
 
 	// 条件：缓存区非空
 	private static Condition empty = lock.newCondition();
