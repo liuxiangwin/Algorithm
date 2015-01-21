@@ -32,9 +32,9 @@ public class SeachRange {
 				end = mid;
 		}
 		int low;
-		if (A[start] != target) {
+		if (A[start] != target) {// 没有找到数字}
 			return result;
-		}// 没有找到数字}
+		}
 		else {
 			low = start;
 			start = 0;   // 然计数坐标清零
