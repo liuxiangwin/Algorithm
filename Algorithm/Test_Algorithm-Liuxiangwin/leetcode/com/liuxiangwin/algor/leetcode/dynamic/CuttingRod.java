@@ -50,7 +50,9 @@ public class CuttingRod {
 	   }
 	   return max_val;
 	}
+	//http://www.geeksforgeeks.org/dynamic-programming-set-13-cutting-a-rod/
 	
+	//http://blog.csdn.net/ditian1027/article/details/25193841
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
