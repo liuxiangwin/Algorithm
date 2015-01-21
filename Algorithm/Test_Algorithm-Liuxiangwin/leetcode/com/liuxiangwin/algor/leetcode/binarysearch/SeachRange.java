@@ -21,7 +21,7 @@ public class SeachRange {
 	 */
 	
 	public int[] searchRange(int[] A, int target) {
-		int[] ret = { -1, -1 };
+		int[] result = { -1, -1 };
 		int start = 0;
 		int end = A.length - 1;
 		while (start < end) {
@@ -33,7 +33,7 @@ public class SeachRange {
 		}
 		int low;
 		if (A[start] != target) {
-			return ret;
+			return result;
 		}// 没有找到数字}
 		else {
 			low = start;
@@ -49,9 +49,9 @@ public class SeachRange {
 				end = mid;
 		}
 		int high = A[start] == target ? start : start - 1;
-		ret[0] = low;
-		ret[1] = high;
-		return ret;
+		result[0] = low;
+		result[1] = high;
+		return result;
 	}
 
 }
