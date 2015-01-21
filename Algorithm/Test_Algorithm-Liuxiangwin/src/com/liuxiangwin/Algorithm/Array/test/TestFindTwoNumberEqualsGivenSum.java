@@ -123,6 +123,182 @@ public class TestFindTwoNumberEqualsGivenSum {
 		return false;
 
 	}
+}
+	
+	/**
+	 * Given an array S of n integers, are there elements a, b, c in S such that a +
+	 * b + c = 0? Find all unique triplets in the array which gives the sum of zero.
+	 * 
+	 * Note:
+	 * 
+	 * Elements in a triplet (a,b,c) must be in non-descending order. (ie, a ? b ?
+	 * c) The solution set must not contain duplicate triplets.
+	 * 
+	 * For example, given array S = {-1 0 1 2 -1 -4},
+	 * 
+	 * A solution set is: (-1, 0, 1) (-1, -1, 2)
+	 */
+class ThreeSum {
+	public ArrayList<ArrayList<Integer>> threeSum(int[] num) {
+		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+
+		if (num.length < 3)
+			return result;
+		// sort array
+		Arrays.sort(num);
+		for (int i = 0; i < num.length - 2; i++) {
+			// //avoid duplicate solutions
+			if (i == 0 || num[i] > num[i - 1]) {
+
+				int negate = -num[i];
+
+				int start = i + 1;
+				int end = num.length - 1;
+
+				while (start < end) {
+					// case 1
+					if (num[start] + num[end] == negate) {
+						ArrayList<Integer> temp = new ArrayList<Integer>();
+						temp.add(num[i]);
+						temp.add(num[start]);
+						temp.add(num[end]);
+
+						result.add(temp);
+						start++;
+						end--;
+						// avoid duplicate solutions
+						while (start < end && num[end] == num[end + 1])
+							end--;
+
+						while (start < end && num[start] == num[start - 1])
+							start++;
+						// case 2
+					} else if (num[start] + num[end] < negate) {
+						start++;
+						// case 3
+					} else {
+						end--;
+					}
+				}
+
+			}
+		}
+
+		return result;
+	}
+
+	public List<List<Integer>> threeSum_2(int[] num) {
+		Arrays.sort(num);
+		LinkedList<List<Integer>> result = new LinkedList<List<Integer>>();
+		HashSet<List<Integer>> set = new HashSet<List<Integer>>();
+		for (int i = 0; i < num.length - 2; i++) {
+			int start = i + 1;
+			int end = num.length - 1;
+			while (start < end) {
+				if (num[i] + num[start] + num[end] == 0) {
+					LinkedList<Integer> oneResult = new LinkedList<Integer>();
+					oneResult.add(num[i]);
+					oneResult.add(num[start]);
+					oneResult.add(num[end]);
+					set.add(oneResult);
+					start++;
+					end--;
+				} else {
+					if (num[i] + num[start] + num[end] < 0)
+						start++;
+					else
+						end--;
+				}
+			}
+		}
+		result.addAll(set);
+		return result;
+	}
+	/**
+	 *  For example, given array S = {-1 2 1 -4}, and target = 1.
+
+       The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
+	
+	 */
+	public int threeSumClosest(int[] num, int target) {
+		int closest = num[0] + num[1] + num[2];
+		int diff = Math.abs(closest - target);
+		Arrays.sort(num);
+		for (int i = 0; i < num.length - 2; i++) {
+			int start = i + 1;
+			int end = num.length - 1;
+			while (start < end) {
+				int sum = num[i] + num[start] + num[end];
+				int newDiff = Math.abs(sum - target);
+				if (newDiff < diff) {
+					diff = newDiff;
+					closest = sum;
+				}
+				if (sum < target)
+					start++;
+				else
+					end--;
+			}
+		}
+		return closest;
+	}
+}
+
+/**
+ * Given an array S of n integers, are there elements a, b, c, and d in S such
+ * that a + b + c + d = target? 
+ * 
+ * Find all unique quadruplets in the array which gives the sum of target.
+ * 
+ * Note:
+ * 
+ * Elements in a quadruplet (a,b,c,d) must be in non-descending order. (ie, a <= b <= c <= d) The solution set must not contain duplicate quadruplets.
+ * 
+ * For example, given array S = {1 0 -1 0 -2 2}, and target = 0.
+ * 
+ * A solution set is: (-1, 0, 0, 1) (-2, -1, 1, 2) (-2, 0, 0, 2)
+ */
+	class FourSum {		
+	public ArrayList<ArrayList<Integer>> fourSum(int[] num, int target) {
+		Arrays.sort(num);
+		int i = 0;
+		int z = 1;
+		int j;	int k;
+		Set set = new HashSet();
+		ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
+		
+		if (num.length < 4)
+			return res;
+
+		for (i = 0; i < num.length - 3; i++) {
+			for (z = i + 1; z < num.length - 2; z++) {
+				int left = target - (num[i] + num[z]);
+				j = z + 1;
+				k = num.length - 1;
+				while (j < k) {
+					if (num[j] + num[k] == left) {
+						ArrayList<Integer> result = new ArrayList<Integer>();
+						result.add(num[i]);
+						result.add(num[z]);
+						result.add(num[j]);
+						result.add(num[k]);
+						if (set.add(result))
+							res.add(result);
+						j++;
+						k--;
+					} else if (num[j] + num[k] < left) {
+						j++;
+
+					} else
+						k--;
+				}
+			}
+		}
+		return res;
+	}
+	}
+	
+	
 	
 	
 	//Two Sum II - Input array is sorted 
@@ -206,209 +382,4 @@ public class TestFindTwoNumberEqualsGivenSum {
 		    }
 */
 	
-	
-	
-
-	/**
-	 * The Complex is N*N
-	 * 
-	 * @param array
-	 * @param check
-	 * @return
-	 */
-	private static int[] findArray(int[] array, int check) {
-		int[] tep = null;
-		for (int i = 0; i < array.length; i++) {
-			for (int j = 0; j < array.length - i - 1; j++) {
-				int temp = array[i] + array[i + 1 + j];
-				if (temp == check) {
-					System.out.println("find " + array[i] + " "
-							+ array[i + 1 + j]);
-					int[] result = { array[i], array[i + 1 + j] };
-					tep = result;
-
-				}
-			}
-		}
-		return tep;
-	}
-
-}
-	
-	/**
-	 * Given an array S of n integers, are there elements a, b, c in S such that a +
-	 * b + c = 0? Find all unique triplets in the array which gives the sum of zero.
-	 * 
-	 * Note:
-	 * 
-	 * Elements in a triplet (a,b,c) must be in non-descending order. (ie, a ? b ?
-	 * c) The solution set must not contain duplicate triplets.
-	 * 
-	 * For example, given array S = {-1 0 1 2 -1 -4},
-	 * 
-	 * A solution set is: (-1, 0, 1) (-1, -1, 2)
-	 */
-class ThreeSum {
-	public ArrayList<ArrayList<Integer>> threeSum(int[] num) {
-		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-
-		if (num.length < 3)
-			return result;
-		// sort array
-		Arrays.sort(num);
-		for (int i = 0; i < num.length - 2; i++) {
-			// //avoid duplicate solutions
-			if (i == 0 || num[i] > num[i - 1]) {
-
-				int negate = -num[i];
-
-				int start = i + 1;
-				int end = num.length - 1;
-
-				while (start < end) {
-					// case 1
-					if (num[start] + num[end] == negate) {
-						ArrayList<Integer> temp = new ArrayList<Integer>();
-						temp.add(num[i]);
-						temp.add(num[start]);
-						temp.add(num[end]);
-
-						result.add(temp);
-						start++;
-						end--;
-						// avoid duplicate solutions
-						while (start < end && num[end] == num[end + 1])
-							end--;
-
-						while (start < end && num[start] == num[start - 1])
-							start++;
-						// case 2
-					} else if (num[start] + num[end] < negate) {
-						start++;
-						// case 3
-					} else {
-						end--;
-					}
-				}
-
-			}
-		}
-
-		return result;
-	}
-
-	public List<List<Integer>> threeSum_2(int[] num) {
-		Arrays.sort(num);
-		LinkedList<List<Integer>> ret = new LinkedList<List<Integer>>();
-		HashSet<List<Integer>> set = new HashSet<List<Integer>>();
-		for (int i = 0; i < num.length - 2; i++) {
-			int start = i + 1;
-			int end = num.length - 1;
-			while (start < end) {
-				if (num[i] + num[start] + num[end] == 0) {
-					LinkedList<Integer> oneResult = new LinkedList<Integer>();
-					oneResult.add(num[i]);
-					oneResult.add(num[start]);
-					oneResult.add(num[end]);
-					set.add(oneResult);
-					start++;
-					end--;
-				} else {
-					if (num[i] + num[start] + num[end] < 0)
-						start++;
-					else
-						end--;
-				}
-			}
-		}
-		ret.addAll(set);
-		return ret;
-	}
-	/**
-	 *  For example, given array S = {-1 2 1 -4}, and target = 1.
-
-       The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
-	
-	 */
-	public int threeSumClosest(int[] num, int target) {
-		int closest = num[0] + num[1] + num[2];
-		int diff = Math.abs(closest - target);
-		Arrays.sort(num);
-		for (int i = 0; i < num.length - 2; i++) {
-			int start = i + 1;
-			int end = num.length - 1;
-			while (start < end) {
-				int sum = num[i] + num[start] + num[end];
-				int newDiff = Math.abs(sum - target);
-				if (newDiff < diff) {
-					diff = newDiff;
-					closest = sum;
-				}
-				if (sum < target)
-					start++;
-				else
-					end--;
-			}
-		}
-		return closest;
-	}
-}
-
-/**
- * Given an array S of n integers, are there elements a, b, c, and d in S such
- * that a + b + c + d = target? 
- * 
- * Find all unique quadruplets in the array which gives the sum of target.
- * 
- * Note:
- * 
- * Elements in a quadruplet (a,b,c,d) must be in non-descending order. (ie, a <= b <= c <= d) The solution set must not contain duplicate quadruplets.
- * 
- * For example, given array S = {1 0 -1 0 -2 2}, and target = 0.
- * 
- * A solution set is: (-1, 0, 0, 1) (-2, -1, 1, 2) (-2, 0, 0, 2)
- */
-	class FourSum {		
-		 public ArrayList<ArrayList<Integer>> fourSum(int[] num, int target) {
-		        // Start typing your Java solution below
-		        // DO NOT write main() function
-		        Arrays.sort(num);
-
-		        int i = 0;
-		        int z = 1;
-		        int j ;
-		        int k ;
-		        Set set = new HashSet();
-		        //= num.length;
-		        ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
-		        if (num.length < 4)
-		            return res;
-
-		        for (i=0; i < num.length - 3; i++) {
-		            for (z=i+1; z < num.length - 2; z++) {
-		                int left = target -(num[i] + num[z]);
-		                j = z+1;
-		                k = num.length - 1;
-		                while (j<k) {
-		                    if (num[j] + num[k] == left) {
-		                        ArrayList<Integer> result = new ArrayList<Integer>();                    
-		                        result.add(num[i]);
-		                        result.add(num[z]);
-		                        result.add(num[j]);
-		                        result.add(num[k]);
-		                        if (set.add(result))
-		                            res.add(result);
-		                        j++;
-		                        k--;
-		                    } else if (num[j] + num[k] < left) {
-		                        j++;
-
-		                    } else
-		                        k--;
-		                }
-		            }
-		        }
-		        return res;
-		    }
-	}
 		
