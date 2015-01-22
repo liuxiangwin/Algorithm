@@ -1,4 +1,7 @@
 package shortName;
+
+import java.util.Arrays;
+
 /** 
  * Given a number represented as an array of digits, plus one to the number. 
  */
@@ -20,5 +23,10 @@ public class PlusOne {
 			ret[i + 1] = digits[i];
 		}
 		return ret;
+	}
+	public static void main(String args[])
+	{
+		int[] digits ={9,9,9};
+		System.out.println(Arrays.toString(new PlusOne().plusOne(digits)));
 	}
 }
