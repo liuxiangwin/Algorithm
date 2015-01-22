@@ -116,7 +116,10 @@ http://heai.info/2014-11/markdown-leetcode-find-minimum-in-rotated-sorted-array-
 	    System.out.println(2/3);
 	    
 	    int[] missPos = {3,4,-1,1} ;
-	    new FirstMissingPositive().firstMissingPositive(missPos);
+	    System.out.println("First missing positive "+new FirstMissingPositive().firstMissingPositive(missPos));
+	    
+	    int[] missPos2 = {3,4,-1,1} ;
+	    System.out.println("First missing positive "+new FirstMissingPositive().firstMissingPositive(missPos2));
 	}
 
 }
@@ -168,7 +171,7 @@ class SortComparison
  */
 }
 class FirstMissingPositive {
-	/*
+	/* Given [1,2,0] return 3, and [3,4,-1,1] return 2
 	 * 这道题要求用线性时间和常量空间，思想借鉴到了Counting sort中的方法，
 	 * 不了解的朋友可以参见 既然不能用额外空间，那就只有利用数组本身，
 	 * 跟Counting sort一样，利用数组的index来作为数字本身的索引，
@@ -198,6 +201,31 @@ class FirstMissingPositive {
 	            return i+1;
 	    }
 	    return A.length+1;
+	}
+	
+	public static int firstMissingPositive2(int A[]) {
+		if (A == null || A.length == 0) {
+			return 1;
+		}
+		int i = 0;
+		while (i < A.length) {
+			while (i < A.length && A[i] != i + 1) {
+				if (A[i] <= 0 || A[i] > A.length || A[i] == A[A[i] - 1])
+					i++;
+				else {
+					int temp = A[A[i] - 1];
+					A[A[i] - 1] = A[i];
+					A[i] = temp;
+
+				}
+
+			}
+			i++;
+		}
+		for (int j = 0; i < A.length; i++)
+			if (A[i] != (i + 1))
+				return i + 1;
+		return A.length + 1;
 	}
 	
 }
