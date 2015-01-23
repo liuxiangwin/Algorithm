@@ -23,6 +23,9 @@ package com.liuxiangwin.algor.leetcode.binarysearch;
  */
 
 //The complexity of this algorithm is O(n).
+//设置两个指针left和right，初始化left=0，right=num.size()-1.
+//计算left和right的最大面积max。比max更大的面积只可能是具有更高的隔板，
+//所以left和right中更小的那个隔板向内侧移动。
 public class ContainerWithMostWater {
 	public int maxArea(int[] height) {
 		int len = height.length, low = 0, high = len - 1;
