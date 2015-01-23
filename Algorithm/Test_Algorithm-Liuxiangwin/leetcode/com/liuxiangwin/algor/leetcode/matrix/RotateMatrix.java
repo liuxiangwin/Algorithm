@@ -28,6 +28,25 @@ public class RotateMatrix {
 		}
 	}
 	
+	//[discurs]
+	//(1) write your matrix on a paper.
+	//(2) flip (not rotate) the paper upside down. (reverse)
+	//(3) flip again, but this time bottom edge to the right. (swap)
+	//123     789    741
+	//456  ¡ª> 456 ¡ª> 852 ¡ª>OK
+	//789     123    963
+	
+	private void rotate(int[][] matrix) 
+    {
+        int m = matrix.length; 
+        if(m == 0) 
+        	return;
+        int n = matrix[0].length;
+        //std::reverse(matrix.begin(), matrix.end());
+        for(int i = 0; i < m; i++)
+            for(int j = 0; j < i; j++){}
+                //std::swap(matrix[i][j], matrix[j][i]);
+    }
 	
 	public static void main(String[] args) {
 		int[][] matrix = AssortedMethods.randomMatrix(4, 4, 0, 9);
