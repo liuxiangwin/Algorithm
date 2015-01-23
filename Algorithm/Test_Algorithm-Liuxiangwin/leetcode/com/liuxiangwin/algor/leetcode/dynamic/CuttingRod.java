@@ -18,8 +18,7 @@ public class CuttingRod {
 		// and return the last entry
 		// from the table
 		for (int j = 1; j <= n; j++) {
-			int max_val = Integer.MIN_VALUE;
-			;
+			int max_val = Integer.MIN_VALUE;		
 			for (int i = 0; i < j; i++) {
 				max_val = Math.max(max_val, price[i] + val[j - i - 1]);
 			}
