@@ -38,10 +38,10 @@ public class TestFindRadomNumber {
 	     */  
 	    public static void main(String[] args) {  
 	        // TODO Auto-generated method stub   
-	        int sum = 10; 
+	        int sum = 20; 
 	        
 	        //int sum = 4;  
-	        int range = 9;  
+	        int range = 19;  
 	        findSum(sum,range);  
 	    }  
 
