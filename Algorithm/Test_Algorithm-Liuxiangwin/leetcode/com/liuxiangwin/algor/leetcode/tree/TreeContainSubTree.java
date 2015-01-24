@@ -4,6 +4,7 @@ import com.liuxiangwin.algor.leetcode.uitl.TreeNode;
 import com.liuxiangwin.multithreading.lock.AssortedMethods;
 
 public class TreeContainSubTree {
+	//O(logm+longn)
 	public static boolean containsTree(TreeNode t1, TreeNode t2) {
 		if (t2 == null)
 			return true; // The empty tree is a subtree of every tree.
