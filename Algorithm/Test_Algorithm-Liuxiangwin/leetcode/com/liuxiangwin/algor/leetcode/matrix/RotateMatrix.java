@@ -27,6 +27,29 @@ public class RotateMatrix {
 			}
 		}
 	}
+	public static void rotate2(int[][] matrix) {
+        int n = matrix.length;
+        for (int i = 0; i < n / 2; i++) {
+    		for (int j = 0; j < Math.ceil(((double) n) / 2); j++) {
+    			int temp = matrix[i][j];
+    			matrix[i][j] = matrix[n-1-j][i];
+    			matrix[n-1-j][i] = matrix[n-1-i][n-1-j];
+    			matrix[n-1-i][n-1-j] = matrix[j][n-1-i];
+    			matrix[j][n-1-i] = temp;
+    		}
+    	}
+        
+        
+        for(int layer = 0; layer < n/2; layer++){
+            for(int i = layer; i < n-1-layer; i++){//避免重复处理n-1-layer
+                int leftTop = matrix[layer][i];//注意二维矩阵的(i,j)index与数学坐标(x,y)中是相反的
+                matrix[layer][i] = matrix[n-1-i][layer]; //先在纸上想清楚赋值的先后循序
+                matrix[n-1-i][layer] = matrix[n-1-layer][n-1-i];
+                matrix[n-1-layer][n-1-i] = matrix[i][n-1-layer];
+                matrix[i][n-1-layer] = leftTop;
+            }
+        }
+    }
 	
 	//[discurs]
 	//(1) write your matrix on a paper.
@@ -54,6 +77,16 @@ public class RotateMatrix {
 		rotate(matrix, 4);
 		System.out.println();
 		ArrayUtil.printMatrix(matrix);
+		
+		
+		System.out.println("-----------------------------------");
+		int[][] matrix2 = AssortedMethods.randomMatrix(4, 4, 0, 9);
+		ArrayUtil.printMatrix(matrix2);
+		rotate2(matrix2);
+		System.out.println();
+		ArrayUtil.printMatrix(matrix2);
+		
+		
 	}
 
 }
