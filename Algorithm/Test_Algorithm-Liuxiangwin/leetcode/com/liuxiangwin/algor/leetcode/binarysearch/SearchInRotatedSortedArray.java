@@ -138,8 +138,8 @@ public class SearchInRotatedSortedArray {
 				low++;			
 			}			
 		}
-		//ans = Math.min(array[low], ans);
-		//ans = Math.min(array[high], ans);
+		ans = Math.min(array[low], ans);
+		ans = Math.min(array[high], ans);
 		return ans;
 	
 	}
