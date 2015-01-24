@@ -67,20 +67,20 @@ public class SpiralMatrix {
 				break;
 			}
 
-			for (int row = beginY; row <= endY; row++) {
-				result.add(matrix[row][endX]);
+			for (int i = beginY; i <= endY; i++) {
+				result.add(matrix[i][endX]);
 			}
 			if (--endX < beginX) {
 				break;
 			}
-			for (int col = endX; col >= beginX; col--) {
-				result.add(matrix[endY][col]);
+			for (int i = endX; i >= beginX; i--) {
+				result.add(matrix[endY][i]);
 			}
 			if (--endY < beginY) {
 				break;
 			}
-			for (int row = endY; row >= beginY; row--) {
-				result.add(matrix[row][beginX]);
+			for (int i = endY; i >= beginY; i--) {
+				result.add(matrix[i][beginX]);
 			}
 			if (++beginX > endX) {
 				break;
@@ -111,9 +111,9 @@ public class SpiralMatrix {
 	}
 
 	public static void main(String args[]) {
-		int[][] array = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, };
+		int[][] array = { { 1, 2, 3 ,4}, {  5, 6,7,8 }, { 9,10, 11,12 }, { 13,14, 15,16 }};
 		SpiralMatrix spriMatrix = new SpiralMatrix();
-		ArrayList<Integer> result = spriMatrix.spiralOrder(array);
+		ArrayList<Integer> result = spriMatrix.spiralOrder2(array);
 		System.out.println(result.toString());
 	}
 }
