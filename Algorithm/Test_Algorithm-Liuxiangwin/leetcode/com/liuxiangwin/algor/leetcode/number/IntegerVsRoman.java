@@ -128,7 +128,7 @@ public class IntegerVsRoman {
 	
 	public static void main(String[] args) {
 		IntegerVsRoman slt = new IntegerVsRoman();
-		System.out.println(slt.intToRoman(321));
+		System.out.println(slt.intToRoman(921));
 		
 		//System.out.println(slt.romanToInt("MCMXC"));
 		System.out.println(slt.romanToInt2("MCMXC"));
