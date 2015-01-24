@@ -7,24 +7,48 @@ public class CuttingRod {
 	   price    | 1   5   8   9  10  17  17  20
 	   
 	   
-	 * @param args
+	    i       | Ri          opt solution  
+	--------------------------------------------
+	    1       | 1           no cuts
+	--------------------------------------------
+	    2       | 5           no cuts
+	--------------------------------------------
+	    3       | 8           no cuts(可以是2+1=3 也就是1+5=6但不是最大的
+	--------------------------------------------
+	    4       | 10          2 ,2
+	--------------------------------------------
+	    5       | 13          2, 3
+	--------------------------------------------
+	    6       | 17          no cuts
+	--------------------------------------------
+	    7       | 18          1, 6    
+	--------------------------------------------
+	    8       | 22          2, 6    
+	 * 
+	 * 
+	 * Optimal substructure
+	 *       
+	 *         S    
+	----------------------------
+	 * r= max(pn,r1+r(n-1)+...)
+	 * 
 	 */
 	
-	private int cutRod_bottomUp(int price[], int n) {
-		int val[] = new int[n + 1];
+	private int cutRod_bottomUp(int price[], int length) {
+		int val[] = new int[length + 1];
 		val[0] = 0;
 
 		// Build the table val[] in bottom up manner
 		// and return the last entry
 		// from the table
-		for (int j = 1; j <= n; j++) {
+		for (int j = 1; j <= length; j++) {
 			int max_val = Integer.MIN_VALUE;		
 			for (int i = 0; i < j; i++) {
 				max_val = Math.max(max_val, price[i] + val[j - i - 1]);
 			}
 			val[j] = max_val;// record the value
 		}
-		return val[n];
+		return val[length];
 	}
 	
 	
