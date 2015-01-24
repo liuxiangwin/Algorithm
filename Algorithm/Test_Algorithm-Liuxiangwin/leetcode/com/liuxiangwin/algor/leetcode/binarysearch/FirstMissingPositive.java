@@ -1,5 +1,7 @@
 package com.liuxiangwin.algor.leetcode.binarysearch;
 
+import java.util.Arrays;
+
 public class FirstMissingPositive {
 
 	/* Given [1,2,0] return 3, and [3,4,-1,1] return 2
@@ -34,5 +36,14 @@ public class FirstMissingPositive {
 	            return i+1;
 	    }
 	    return A.length+1;
+	}
+	
+	public static void main(String[] args) {		
+	    
+	    int[] missPos = {3,4,-1,1} ;
+	    System.out.println("First missing positive "+ FirstMissingPositive.firstMissingPositive(missPos));
+	    
+	    int[] missPos2 = {3,4,-1,1} ;
+	    System.out.println("First missing positive "+ FirstMissingPositive.firstMissingPositive(missPos2));
 	}
 }

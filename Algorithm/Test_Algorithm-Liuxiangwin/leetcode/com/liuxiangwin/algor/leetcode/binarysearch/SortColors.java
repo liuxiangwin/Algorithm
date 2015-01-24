@@ -113,13 +113,8 @@ http://heai.info/2014-11/markdown-leetcode-find-minimum-in-rotated-sorted-array-
 	    
 	    System.out.println(1/2);
 	    System.out.println(2/1);
-	    System.out.println(2/3);
-	    
-	    int[] missPos = {3,4,-1,1} ;
-	    System.out.println("First missing positive "+new FirstMissingPositive().firstMissingPositive(missPos));
-	    
-	    int[] missPos2 = {3,4,-1,1} ;
-	    System.out.println("First missing positive "+new FirstMissingPositive().firstMissingPositive(missPos2));
+	    System.out.println(2/3);	    
+	   
 	}
 
 }
