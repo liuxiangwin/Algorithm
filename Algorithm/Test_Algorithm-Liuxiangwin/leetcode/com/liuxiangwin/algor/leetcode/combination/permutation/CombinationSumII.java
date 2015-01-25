@@ -51,4 +51,12 @@ public class CombinationSumII {
 			list.remove(list.size() - 1);
 		}
 	}
+	
+	public static void main(String args[])
+	{
+		int[] nums ={10,1,2,7,6,1,5 };
+		int target = 8;
+		System.out.println(new CombinationSumII().combinationSum2(nums, target));
+		
+	}
 }

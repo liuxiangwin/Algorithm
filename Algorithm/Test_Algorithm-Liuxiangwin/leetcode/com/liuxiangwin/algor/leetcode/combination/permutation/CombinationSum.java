@@ -42,8 +42,17 @@ public class CombinationSum {
 			return;
 		for (int i = start; i < nums.length; i++) {
 			list.add(nums[i]);
-			combinationSum(nums, start, sum + nums[i], target, ret, list);
+			combinationSum(nums, i, sum + nums[i], target, ret, list);
 			list.remove(list.size() - 1);
 		}
+	}
+	
+	
+	public static void main(String args[])
+	{
+		int[] nums ={10,1,2,7,6,1,5 };
+		int target = 8;
+		System.out.println(new CombinationSum().combinationSum(nums, target));
+		
 	}
 }
