@@ -2,7 +2,7 @@ package com.liuxiangwin.algor.leetcode.combination.permutation;
 
 import java.util.LinkedList;
 
-public class TestFindRadomNumber {
+public class FindRadomNumber {
 	private static LinkedList<Integer> list = new LinkedList<Integer>();  
 	/** 
 	 *  求解思路： 
