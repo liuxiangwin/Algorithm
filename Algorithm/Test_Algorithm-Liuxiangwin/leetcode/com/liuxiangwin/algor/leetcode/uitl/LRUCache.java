@@ -3,7 +3,8 @@ package com.liuxiangwin.algor.leetcode.uitl;
 import java.util.HashMap;
 
 public class LRUCache {
-	private HashMap<Integer, DoubleLinkedListNode> map = new HashMap<Integer, DoubleLinkedListNode>();
+	private HashMap<Integer, DoubleLinkedListNode> map = 
+			new HashMap<Integer, DoubleLinkedListNode>();
 	private DoubleLinkedListNode head;
 	private DoubleLinkedListNode end;
 	private int capacity;
@@ -25,7 +26,7 @@ public class LRUCache {
 		}
 	}
 
-	public void removeNode(DoubleLinkedListNode node) {
+	private void removeNode(DoubleLinkedListNode node) {
 		DoubleLinkedListNode cur = node;
 		DoubleLinkedListNode pre = cur.pre;
 		DoubleLinkedListNode post = cur.next;
@@ -43,14 +44,14 @@ public class LRUCache {
 		}
 	}
 
-	public void setHead(DoubleLinkedListNode node) {
+	private void setHead(DoubleLinkedListNode node) {
 		node.next = head;
 		node.pre = null;
 		if (head != null) {
 			head.pre = node;
-		}
-
+		}// 让当前节点和head连接起来，然后head节点就是当前节点
 		head = node;
+		
 		if (end == null) {
 			end = node;
 		}
@@ -68,13 +69,12 @@ public class LRUCache {
 				setHead(newNode);
 				map.put(key, newNode);
 				len++;
-			} else {
+			} else {//超过cache的长度了 remove最后的元素
 				map.remove(end.key);
 				end = end.pre;
 				if (end != null) {
 					end.next = null;
 				}
-
 				setHead(newNode);
 				map.put(key, newNode);
 			}
