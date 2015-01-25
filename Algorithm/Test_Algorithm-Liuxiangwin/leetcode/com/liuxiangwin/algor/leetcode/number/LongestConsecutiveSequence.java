@@ -29,16 +29,16 @@ import java.util.Set;
  */
 public class LongestConsecutiveSequence {
 
-	public int longestConsecutive(int[] num) {
+	public int longestConsecutive(int[] nums) {
 		Set<Integer> set = new HashSet<Integer>();
 		int max = 1;
 
-		for (int e : num)
-			set.add(e);
+		for (int num : nums)
+			set.add(num);
 
-		for (int e : num) {
-			int left = e - 1;
-			int right = e + 1;
+		for (int num : nums) {
+			int left = num - 1;
+			int right = num + 1;
 			int count = 1;
             
 			//O(1)的查找和去重复杂度
@@ -54,7 +54,7 @@ public class LongestConsecutiveSequence {
 				right++;
 			}
 
-			max = Math.max(count, max);
+			max = Math.max(count, max);//计算最长连续长度
 		}
 
 		return max;
