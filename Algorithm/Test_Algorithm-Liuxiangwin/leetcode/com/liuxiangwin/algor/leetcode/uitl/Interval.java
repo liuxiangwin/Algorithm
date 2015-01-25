@@ -2,8 +2,8 @@ package com.liuxiangwin.algor.leetcode.uitl;
 
 public class Interval {
 	
-	int start;
-	int end;
+	public int start;
+	public int end;
 
 	public Interval() {
 		start = 0;
