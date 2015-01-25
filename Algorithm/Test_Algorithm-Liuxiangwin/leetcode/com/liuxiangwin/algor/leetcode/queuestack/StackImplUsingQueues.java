@@ -40,13 +40,13 @@ public class StackImplUsingQueues {
 		s1.push(1);
 		s1.push(2);
 		s1.push(3);
-		s1.push(4);
+	/*	s1.push(4);
 		s1.push(5);
 		s1.push(6);
 		s1.push(7);
 		s1.push(8);
 		s1.push(9);
-		s1.push(10);
+		s1.push(10);*/
 		// s1.push(6);
 		System.out.println("1st = " + s1.pop());
 		System.out.println("2nd = " + s1.pop());
