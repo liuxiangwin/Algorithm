@@ -18,8 +18,8 @@ public class MaxBinaryGap {
         
 		while (number > 0) {
 			// 通过右移操作来&每个bit位
-			result = number & 1;
-			number = number >> 1; 
+			result = number & 1;  //(这个操作做的是计算那位的是1还是0) 
+			number = number >> 1; //(这个操作做的是每次右移一位)
 			//如果是0
 			if (result ==0 && count >= 0) {
 				count++;
