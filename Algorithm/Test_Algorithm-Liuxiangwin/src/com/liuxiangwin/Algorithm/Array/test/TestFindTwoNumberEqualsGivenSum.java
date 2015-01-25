@@ -261,36 +261,35 @@ class ThreeSum {
 	class FourSum {		
 	public ArrayList<ArrayList<Integer>> fourSum(int[] num, int target) {
 		Arrays.sort(num);
-		int i = 0;
-		int z = 1;
-		int j;	int k;
+		//int i = 0;
+		int j = 1;		
 		Set set = new HashSet();
 		ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
 		
 		if (num.length < 4)
 			return res;
 
-		for (i = 0; i < num.length - 3; i++) {
-			for (z = i + 1; z < num.length - 2; z++) {
-				int left = target - (num[i] + num[z]);
-				j = z + 1;
-				k = num.length - 1;
-				while (j < k) {
-					if (num[j] + num[k] == left) {
+		for (int i = 0; i < num.length - 3; i++) {
+			for (j = i + 1; j < num.length - 2; j++) {
+				int left = target - (num[i] + num[j]);
+				int start = j + 1;
+				int end = num.length - 1;
+				while (start < end) {
+					if (num[start] + num[end] == left) {
 						ArrayList<Integer> result = new ArrayList<Integer>();
 						result.add(num[i]);
-						result.add(num[z]);
 						result.add(num[j]);
-						result.add(num[k]);
+						result.add(num[start]);
+						result.add(num[end]);
 						if (set.add(result))
 							res.add(result);
-						j++;
-						k--;
-					} else if (num[j] + num[k] < left) {
-						j++;
+						start++;
+						end--;
+					} else if (num[start] + num[end] < left) {
+						start++;
 
 					} else
-						k--;
+						end--;
 				}
 			}
 		}
