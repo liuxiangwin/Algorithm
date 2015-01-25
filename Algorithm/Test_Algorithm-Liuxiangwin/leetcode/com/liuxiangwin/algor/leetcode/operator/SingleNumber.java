@@ -104,8 +104,8 @@ public class SingleNumber {
             int[] bitnum= new int[32];
             int res=0;
             for(int i=0; i< 32; i++){//i代表32位上的每一位
-                for(int j=0; j< A.length; j++){
-                    bitnum[i]+= (A[j]>>i)&1;//数组中每个数在32位上的加和
+                for(int index = 0; index < A.length; index ++){
+                    bitnum[i]+= (A[index ]>>i)&1;//数组中每个数在32位上的加和
                 }
                 res|=(bitnum[i]%3)<<i;
             }
