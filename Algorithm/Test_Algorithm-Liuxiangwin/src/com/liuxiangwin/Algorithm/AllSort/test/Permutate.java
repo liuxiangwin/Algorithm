@@ -34,6 +34,10 @@ public class Permutate {
 		CalcAllPermutation(str, 0, str.length);
 		System.out.println(total);
 		
+		System.out.println("------------------------");
+		String str2[] = { "1", "2", "3" };
+		CalcAllPermutation(str2, 0, str2.length);
+		
 	}
 
 
