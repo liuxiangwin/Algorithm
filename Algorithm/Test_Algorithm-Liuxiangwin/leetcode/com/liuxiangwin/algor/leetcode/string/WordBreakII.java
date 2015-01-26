@@ -14,13 +14,13 @@ import java.util.Set;
 
 public class WordBreakII {
 	
-    public List<String> wordBreak2(String string, Set<String> dict) {
+    public List<String> wordBreak2(String string, Set<String> dictSet) {
         Map<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
         
         //return findList(string, dict, map);
-        return findList(string, dict);
+        return findList(string, dictSet);
     }
-    private List<String> findList(String string,Set<String> dict){
+    private List<String> findList(String string,Set<String> dictSet){
     
     	
      //private List<String> findList(String string,Set<String> dict,Map<String, ArrayList<String>> map){ 	
@@ -36,12 +36,12 @@ public class WordBreakII {
         }
         for(int i = 1;i <= length;i++){
             String prefix = string.substring(0,i);
-            if(dict.contains(prefix)){
+            if(dictSet.contains(prefix)){
                 if(i == length)
                     answerList.add(prefix);
                 else{                    
                     //List<String> temp = findList(string.substring(i), dict, map);
-                	List<String> temp = findList(string.substring(i), dict);//截取后面的字符串
+                	List<String> temp = findList(string.substring(i), dictSet);//截取后面的字符串
                     for(String tmp:temp){
                         tmp = prefix + " " + tmp;
                         answerList.add(tmp);
