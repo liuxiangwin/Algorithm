@@ -26,23 +26,25 @@ public class CombinationSum {
 		ArrayList<ArrayList<Integer>> ret = new ArrayList<ArrayList<Integer>>();
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		Arrays.sort(candidates);
+		
 		int start =0; int sum =0;
-		combinationSum(candidates, start, sum, target, ret, list);
+		combinationSum(candidates, start, sum, target, list,ret);
 		return ret;
 	}
 
 	private void combinationSum(int[] nums, int start, int sum,//sum ³õÊ¼ÊÇ0
-			int target, ArrayList<ArrayList<Integer>> ret,
-			ArrayList<Integer> list) {
+			int target,	ArrayList<Integer> list, 
+			ArrayList<ArrayList<Integer>> ret) {
 		if (sum == target) {
 			ret.add(new ArrayList<Integer>(list));
 			return;
 		}
-		if (sum > target)
+		if (sum > target){
 			return;
+		}
 		for (int i = start; i < nums.length; i++) {
 			list.add(nums[i]);
-			combinationSum(nums, i, sum + nums[i], target, ret, list);
+			combinationSum(nums, i, sum + nums[i], target,list,ret);
 			list.remove(list.size() - 1);
 		}
 	}

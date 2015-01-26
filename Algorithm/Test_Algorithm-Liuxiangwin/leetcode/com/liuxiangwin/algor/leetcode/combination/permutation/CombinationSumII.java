@@ -27,12 +27,12 @@ public class CombinationSumII {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		Arrays.sort(nums);
 		int start = 0;
-		dfs(res, start, nums, list, target);
+		combinationSumII(nums,start, target,list,res);
 		return res;
 	}
 
-	private void dfs(ArrayList<ArrayList<Integer>> res, int start,
-			int[] nums, ArrayList<Integer> list, int target) {
+	private void combinationSumII(int[] nums,int start,int target,	
+			ArrayList<Integer> list, ArrayList<ArrayList<Integer>> res) {
 		if (target == 0) {
 			res.add(new ArrayList<Integer>(list));
 			return;
@@ -46,8 +46,8 @@ public class CombinationSumII {
 				return;
 			}				
 			pre = nums[i];
-			list.add(nums[i]);
-			dfs(res, i + 1, nums, list, target - nums[i]);
+			list.add(nums[i]);			
+			combinationSumII(nums, i+1, target - nums[i],list ,res);
 			list.remove(list.size() - 1);
 		}
 	}

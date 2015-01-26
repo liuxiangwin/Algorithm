@@ -12,26 +12,27 @@ import java.util.ArrayList;
  */
 
 public class Combinations {
-	public ArrayList<ArrayList<Integer>> combine(int range, int k) {
+	public ArrayList<ArrayList<Integer>> combine(int range, int digitNums) {
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-		ArrayList<Integer> subset = new ArrayList<Integer>();
-		int[] num = new int[range];
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		int[] nums = new int[range];
 		for (int j = 0; j < range; j++) {
-			num[j] = j + 1;//根据范围构造数组
+			nums[j] = j + 1;//根据范围构造数组
 		}
-		subsets(range, k, num, 0, subset, result);
+		subsets(digitNums, nums, 0, list, result);
 		return result;
 	}
 
-	private void subsets(int rang, int k, int[] num, int begin,
-			ArrayList<Integer> list, ArrayList<ArrayList<Integer>> result) {
-		if (list.size() >= k) {
-			ArrayList<Integer> c = new ArrayList<Integer>(list);
-			result.add(c);
+	private void subsets(int digitNums, int[] nums, 
+			int begin,ArrayList<Integer> list, 
+			ArrayList<ArrayList<Integer>> result) {
+		if (list.size() == digitNums) {
+			ArrayList<Integer> rec = new ArrayList<Integer>(list);
+			result.add(rec);
 		} else {
-			for (int i = begin; i < num.length; i++) {
-				list.add(num[i]);
-				subsets(rang, k, num, i + 1, list, result);
+			for (int i = begin; i < nums.length; i++) {
+				list.add(nums[i]);
+				subsets(digitNums, nums, i + 1, list, result);
 				list.remove(list.size() - 1);
 			}
 		}
