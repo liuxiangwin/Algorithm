@@ -3,7 +3,8 @@ package com.liuxiangwin.algor.leetcode.combination.permutation;
 import java.util.ArrayList;
 
 public class Permutations {
-
+    //T(n) = n*T(n-1) + O(n)
+	//Theta(n * n!)
 	public ArrayList<ArrayList<Integer>> permute(int[] num) {
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 		permute(num, 0, result);

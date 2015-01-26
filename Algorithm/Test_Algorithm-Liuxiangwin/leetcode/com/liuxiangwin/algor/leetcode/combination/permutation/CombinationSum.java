@@ -19,7 +19,9 @@ import java.util.Arrays;
  * The solution set must not contain duplicate combinations. For example, given
  * candidate set 2,3,6,7 and target 7, A solution set is: [7] [2, 2, 3]
  */
-
+//This algorithm has time complexity O((n+k)!)
+//where n is the size of candidates, 
+//and k is the max repeated times for each candidates
 public class CombinationSum {
 	public ArrayList<ArrayList<Integer>> combinationSum(int[] candidates,
 			int target) {
