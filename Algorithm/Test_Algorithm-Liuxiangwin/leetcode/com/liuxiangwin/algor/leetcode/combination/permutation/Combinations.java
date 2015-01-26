@@ -23,16 +23,16 @@ public class Combinations {
 		return result;
 	}
 
-	private void subsets(int n, int k, int[] num, int begin,
-			ArrayList<Integer> subset, ArrayList<ArrayList<Integer>> result) {
-		if (subset.size() >= k) {
-			ArrayList<Integer> c = new ArrayList<Integer>(subset);
+	private void subsets(int rang, int k, int[] num, int begin,
+			ArrayList<Integer> list, ArrayList<ArrayList<Integer>> result) {
+		if (list.size() >= k) {
+			ArrayList<Integer> c = new ArrayList<Integer>(list);
 			result.add(c);
 		} else {
 			for (int i = begin; i < num.length; i++) {
-				subset.add(num[i]);
-				subsets(n, k, num, i + 1, subset, result);
-				subset.remove(subset.size() - 1);
+				list.add(num[i]);
+				subsets(rang, k, num, i + 1, list, result);
+				list.remove(list.size() - 1);
 			}
 		}
 	}
