@@ -23,20 +23,20 @@ import java.util.Arrays;
 public class CombinationSum {
 	public ArrayList<ArrayList<Integer>> combinationSum(int[] candidates,
 			int target) {
-		ArrayList<ArrayList<Integer>> ret = new ArrayList<ArrayList<Integer>>();
+		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		Arrays.sort(candidates);
 		
 		int start =0; int sum =0;
-		combinationSum(candidates, start, sum, target, list,ret);
-		return ret;
+		combinationSum(candidates, start, sum, target, list,result);
+		return result;
 	}
 
 	private void combinationSum(int[] nums, int start, int sum,//sum ³õÊ¼ÊÇ0
 			int target,	ArrayList<Integer> list, 
-			ArrayList<ArrayList<Integer>> ret) {
+			ArrayList<ArrayList<Integer>> result) {
 		if (sum == target) {
-			ret.add(new ArrayList<Integer>(list));
+			result.add(new ArrayList<Integer>(list));
 			return;
 		}
 		if (sum > target){
@@ -44,7 +44,7 @@ public class CombinationSum {
 		}
 		for (int i = start; i < nums.length; i++) {
 			list.add(nums[i]);
-			combinationSum(nums, i, sum + nums[i], target,list,ret);
+			combinationSum(nums, i, sum + nums[i], target,list,result);
 			list.remove(list.size() - 1);
 		}
 	}

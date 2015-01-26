@@ -23,18 +23,18 @@ import java.util.Arrays;
 public class CombinationSumII {
 	public ArrayList<ArrayList<Integer>> combinationSum2(int[] nums,
 			int target) {
-		ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
+		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		Arrays.sort(nums);
 		int start = 0;
-		combinationSumII(nums,start, target,list,res);
-		return res;
+		combinationSumII(nums,start, target,list,result);
+		return result;
 	}
 
 	private void combinationSumII(int[] nums,int start,int target,	
-			ArrayList<Integer> list, ArrayList<ArrayList<Integer>> res) {
+			ArrayList<Integer> list, ArrayList<ArrayList<Integer>> result) {
 		if (target == 0) {
-			res.add(new ArrayList<Integer>(list));
+			result.add(new ArrayList<Integer>(list));
 			return;
 		}
 		int pre = -1;
@@ -47,7 +47,7 @@ public class CombinationSumII {
 			}				
 			pre = nums[i];
 			list.add(nums[i]);			
-			combinationSumII(nums, i+1, target - nums[i],list ,res);
+			combinationSumII(nums, i+1, target - nums[i],list ,result);
 			list.remove(list.size() - 1);
 		}
 	}
