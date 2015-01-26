@@ -21,11 +21,12 @@ public class ZigzagString {
 			String []res = new String[nRows];
 	        for(int i = 0;i<s.length();)
 	        {
-	            for(int j = 0;j<nRows && i < s.length(); i++,j++)
+	            //res[0]=0, res[1]=1,res[2]=2,
+	        	for(int j = 0;j<nRows && i < s.length(); i++,j++)
 	            {
 	            	res[j]+= s.charAt(i);
 	            }
-	            
+	            //res[nRows-2]= res[3-2] = res[1] =3;
 	            for(int j = nRows-2;j>0&&i<s.length();i++,j--)
 	            {
 	            	res[j]+= s.charAt(i);

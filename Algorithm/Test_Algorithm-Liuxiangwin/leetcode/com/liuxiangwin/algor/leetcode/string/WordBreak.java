@@ -7,6 +7,10 @@ import java.util.Set;
 
 public class WordBreak {
 	/**
+	 *   
+		Given a string s and a dictionary of words dict, 
+		determine if s can be segmented into a space-separated
+		 sequence of one or more dictionary words.
 	 * s = "leetcode", dict = ["leet", "code"].
 	 * 
 	 * Return true because "leetcode" can be segmented as "leet code"
@@ -15,24 +19,24 @@ public class WordBreak {
 	 * @return
 	 */
 	//http://www.danielbit.com/blog/puzzle/leetcode/leetcode-word-break
-	public boolean wordBreak_navie(String s, Set<String> dict) {
-		return wordBreakHelper(s, dict, 0);
+	public boolean wordBreak_navie(String string, Set<String> dict) {
+		return wordBreakHelper(string, dict, 0);
 	}
 
-	public boolean wordBreakHelper(String s, Set<String> dict, int start) {
-		if (start == s.length())
+	public boolean wordBreakHelper(String string, Set<String> dict, int start) {
+		if (start == string.length())
 			return true;
 
-		for (String a : dict) {
-			int len = a.length();
-			int end = start + len;
+		for (String dicword : dict) {
+			int dicwordLeng = dicword.length();
+			int end = start + dicwordLeng;
 
 			// end index should be <= string length
-			if (end > s.length())
+			if (end > string.length())
 				continue;
 
-			if (s.substring(start, start + len).equals(a))
-				if (wordBreakHelper(s, dict, start + len))
+			if (string.substring(start, start + dicwordLeng).equals(dicword))
+				if (wordBreakHelper(string, dict, start + dicwordLeng))
 					return true;
 		}
 
@@ -40,20 +44,35 @@ public class WordBreak {
 	}
 	
 	
-	  public boolean wordBreak_dp(String s, Set<String> dict) {
-	        boolean[] table = new boolean[s.length()+1];
+	//Time: O(string length * dict size)
+    //One tricky part of this solution is the case:
+	   public boolean wordBreak2(String string, Set<String> dict) {
+	        boolean[] t = new boolean[string.length()+1];
+	        t[0] = true; //set first to be true, why?
+	        //Because we need initial state
 	 
-	        table[0] = true;
-	        for (int i=1; i<s.length()+1; ++i)
-	            for (int k=0; k<i; k++) {
-	                table[i] = table[k] && dict.contains(s.substring(k,i));
-	                if (table[i])
-	                    break;
+	        for(int start=0; start<string.length(); start++){
+	            //should continue from match position
+	            if(!t[start]) 
+	                continue;
+	 
+	            for(String dicword: dict){
+	                int dicwordLeng = dicword.length();
+	                int end = start + dicwordLeng;
+	                if(end > string.length())
+	                    continue;
+	 
+	                if(t[end]) continue;
+	 
+	                if(string.substring(start, end).equals(dicword)){
+	                    t[end] = true;
+	                }
 	            }
+	        }
 	 
-	        return table[s.length()];
+	        return t[string.length()];
 	    }
-	
+
 	
 	 //Time: O(string length * dict size)
     //One tricky part of this solution is the case:
@@ -79,34 +98,7 @@ public class WordBreak {
 	
 	
 	
-	//Time: O(string length * dict size)
-    //One tricky part of this solution is the case:
-	   public boolean wordBreak2(String string, Set<String> dict) {
-	        boolean[] t = new boolean[string.length()+1];
-	        t[0] = true; //set first to be true, why?
-	        //Because we need initial state
-	 
-	        for(int i=0; i<string.length(); i++){
-	            //should continue from match position
-	            if(!t[i]) 
-	                continue;
-	 
-	            for(String element: dict){
-	                int len = element.length();
-	                int end = i + len;
-	                if(end > string.length())
-	                    continue;
-	 
-	                if(t[end]) continue;
-	 
-	                if(string.substring(i, end).equals(element)){
-	                    t[end] = true;
-	                }
-	            }
-	        }
-	 
-	        return t[string.length()];
-	    }
+
 	   
 	  
 
