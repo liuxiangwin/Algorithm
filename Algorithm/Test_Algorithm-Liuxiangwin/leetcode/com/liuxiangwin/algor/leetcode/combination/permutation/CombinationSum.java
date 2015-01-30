@@ -29,24 +29,24 @@ public class CombinationSum {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		Arrays.sort(candidates);
 		
-		int start =0; int sum =0;
-		combinationSum(candidates, start, sum, target, list,result);
+		int start =0; int tmpsum =0;
+		combinationSum(candidates, start, tmpsum, target, list,result);
 		return result;
 	}
 
-	private void combinationSum(int[] nums, int start, int sum,//sum 初始是0
+	private void combinationSum(int[] nums, int start, int tmpsum,//sum 初始是0
 			int target,	ArrayList<Integer> list, 
 			ArrayList<ArrayList<Integer>> result) {
-		if (sum == target) {
+		if (tmpsum == target) {
 			result.add(new ArrayList<Integer>(list));
 			return;
 		}
-		if (sum > target){
+		if (tmpsum > target){
 			return;
 		}
 		for (int i = start; i < nums.length; i++) {
 			list.add(nums[i]);
-			combinationSum(nums, i, sum + nums[i], target,list,result);
+			combinationSum(nums, i, tmpsum + nums[i], target,list,result);
 			list.remove(list.size() - 1);
 		}
 	}
