@@ -24,7 +24,7 @@ public class MaxBinaryGap {
 			if (result ==0 && count >= 0) {
 				count++;
 			} 
-			//表示到头了
+			//表示到头了 //第一次1会进来，max 和count都置为0
 			if (result == 1) {
 				max = count > max ? count : max;
 				count = 0;
@@ -32,9 +32,42 @@ public class MaxBinaryGap {
 		} 
 		return max;
 	}
- 
+	//cacaluatet the 1 in the binary number
+    private static int countBinaryOne(int number){
+		int count = 0;
+		int tmpres = 0;
+		while (number > 0) {
+			tmpres = number & 1;
+			if (tmpres == 1) {
+				count++;
+			}
+			number = number >> 1;
+
+		}
+		return count;
+	}
+    //   110101 1000  [base2]          593 100 [base10]
+    // -           1  [base2]        -       1 [base10]     
+    //-------------------------------------------------
+    //   110101 0111                   593 099    
+    //  当一个数减去1的时候，等同于最低有效位的1变成0， 其他0变成1
+    private static int countBinaryOne2(int number) {
+    	int count;
+		for (count = 0; number > 0; count++) {
+			number &= number - 1;
+		}
+		return count;
+    }
 	public static void main(String[] args) {
 		//10 binary number 1001
 		System.out.println(solution(9));
+		
+		int number = 10;
+		System.out.println(number+" binary: "+Integer.toBinaryString(number)+
+				" has '1' numbers is "+countBinaryOne(number));
+		
+		
+		System.out.println(number+" binary: "+Integer.toBinaryString(number)+
+				" has '1' numbers is "+countBinaryOne2(number));
 	}
 }
