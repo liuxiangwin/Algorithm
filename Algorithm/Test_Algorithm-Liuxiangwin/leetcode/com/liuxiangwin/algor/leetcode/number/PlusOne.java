@@ -18,6 +18,7 @@ public class PlusOne {
 				return digits;
 			}				
 		}
+		//下面这段代码的执行，只会是add不为0没有返回，所以需要更大的数组
 		int[] ret = new int[length + 1];
 		ret[0] = add;
 		for (int i = 0; i < length; i++) {
