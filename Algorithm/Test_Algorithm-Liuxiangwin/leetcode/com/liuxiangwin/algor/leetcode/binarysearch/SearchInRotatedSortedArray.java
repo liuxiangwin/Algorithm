@@ -86,7 +86,7 @@ public class SearchInRotatedSortedArray {
 			{
 				if (array[mid] != array[left]) { // If right half is different, search there
 					return searchWithTarget(array, left, mid-1, target);
-				}else{
+				}else{//need search left and righ both
 					int result = searchWithTarget(array, left, mid - 1, target);
 					if (result == -1) {
 						return searchWithTarget(array, mid + 1, right, target); 
