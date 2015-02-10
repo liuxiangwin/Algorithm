@@ -60,6 +60,27 @@ public class IntegerVsRoman {
 	
 	        //基本字符	I	V	X	L	C	D	M
       //对应阿拉伯数字	1	5	10	50	100	500	1000
+	
+	public int romanToInt_hm(String s)  {
+		/*
+		 * unordered_map<char, int> kv ({ {'I', 1}, {'V',5}, {'X',10}, {'L',50},
+		 * {'C',100}, {'D',500}, {'M',1000}, {'0', 0} });
+		 */
+		int result = 0;
+		s += "0";
+		for (int i = 0; i < s.length() - 1; i++) {
+			// I比V对应的数值小，结果就是result + （-I)
+			// 用大数字减去小数字
+			if (charToInt(s.charAt(i)) < charToInt(s.charAt(i + 1))) {
+				result -= charToInt(s.charAt(i));
+			} else {
+				result += charToInt(s.charAt(i));
+			}
+		}	
+		return result;
+	}
+	
+	
 	public int romanToInt(String s) {
 		if (s.length() == 0)
 			return 0;
@@ -79,23 +100,7 @@ public class IntegerVsRoman {
 	}
 	
 	
-	public int romanToInt_hm(String s)  {
-		/*
-		 * unordered_map<char, int> kv ({ {'I', 1}, {'V',5}, {'X',10}, {'L',50},
-		 * {'C',100}, {'D',500}, {'M',1000}, {'0', 0} });
-		 */
-		int result = 0;
-		s += "0";
-		for (int i = 0; i < s.length() - 1; i++) {
-			// I比V对应的数值小，结果就是result + （-I)
-			if (charToInt(s.charAt(i)) < charToInt(s.charAt(i + 1))) {
-				result -= charToInt(s.charAt(i));
-			} else {
-				result += charToInt(s.charAt(i));
-			}
-		}	
-		return result;
-	}
+
 	
 	private int romanToInt2(String s) {
 		int sum = 0;int j;
@@ -128,7 +133,7 @@ public class IntegerVsRoman {
 	
 	public static void main(String[] args) {
 		IntegerVsRoman slt = new IntegerVsRoman();
-		System.out.println(slt.intToRoman(921));
+		System.out.println(slt.intToRoman(2921));
 		
 		//System.out.println(slt.romanToInt("MCMXC"));
 		System.out.println(slt.romanToInt2("MCMXC"));
