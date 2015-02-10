@@ -11,6 +11,7 @@ public class ArrayImpThreeStack {
 
 	public static void push(int stackNum, int value) throws Exception {
 		/* Check that we have space for the next element */
+		// It represent the current block is full
 		if (stackPointer[stackNum] + 1 >= stackSize) {
 			throw new Exception();
 		}
