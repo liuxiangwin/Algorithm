@@ -72,7 +72,9 @@ public class TestMergesort {
 	}
 	public static void main(String args[])
 	{
-		int[] data ={14 ,12, 15, 13, 11, 16};
+		//int[] data ={14 ,12, 15, 13, 11, 16};
+		
+		int[] data ={5 ,3, 2};
 		System.out.println(Arrays.toString(data));
 		new TestMergesort().sort(data);
 		System.out.println(Arrays.toString(data));
