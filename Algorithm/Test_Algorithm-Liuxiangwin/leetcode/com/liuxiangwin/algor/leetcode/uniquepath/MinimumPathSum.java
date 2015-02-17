@@ -6,6 +6,10 @@ package com.liuxiangwin.algor.leetcode.uniquepath;
  * left to bottom right which minimizes the sum of all numbers along its path.
  * 
  * Note: You can only move either down or right at any point in time.
+ * 
+ * 我们使用dp[i][j]表明从(0, 0)到(i, j)最小的路径和，那么dp方程为:
+
+  dp[i][j] = min(dp[i][j-1], dp[i - 1][j]) + grid[i][j]
  */
 
 public class MinimumPathSum {
