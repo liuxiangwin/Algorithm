@@ -12,6 +12,13 @@ import java.util.ArrayList;
  */
 
 public class Combinations {
+	/**
+	 * Range is the number from 0 to range array
+	 * DigitNums is the digit numbers
+	 * @param range
+	 * @param digitNums
+	 * @return
+	 */
 	public ArrayList<ArrayList<Integer>> combine(int range, int digitNums) {
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 		ArrayList<Integer> list = new ArrayList<Integer>();
