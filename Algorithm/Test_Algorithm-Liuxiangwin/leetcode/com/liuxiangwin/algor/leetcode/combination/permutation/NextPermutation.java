@@ -24,7 +24,11 @@ public class NextPermutation {
 	// 其小于后面的数字5，然后找到第一个数字4，'
 	// 其大于3，交换3和4，得到1 4 5 3 2，
 	// 然后逆转原来3后面的数字，即5 3 2，得到1 4 2 3 5，即为下一个排列。
-
+	//   1  3   5   4  2
+	//---1  3.  5   4  2 --->
+	//   1  3   5   4. 2
+    //   1  4   5.  3  2
+	//-- 1  4   2   3  5 (finaly)
 	public static void nextPermutation2(int[] num) {
 		if (num.length == 1)
 			return;
