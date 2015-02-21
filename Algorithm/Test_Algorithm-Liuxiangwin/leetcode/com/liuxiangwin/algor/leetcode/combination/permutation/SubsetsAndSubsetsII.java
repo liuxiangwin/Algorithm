@@ -25,18 +25,18 @@ public class SubsetsAndSubsetsII {
 		}
 		Arrays.sort(nums);
 
-		dfs(nums, 0, list, result);
+		subsets_dfs(nums, 0, list, result);
 		// res.add(new ArrayList<Integer>());
 
 		return result;
 	}
 
-	public static void dfs(int[] nums, int begin, ArrayList<Integer> list,
+	public static void subsets_dfs(int[] nums, int begin, ArrayList<Integer> list,
 			ArrayList<ArrayList<Integer>> result) {
 		for (int i = begin; i < nums.length; i++) {
 			list.add(nums[i]);
 			result.add(new ArrayList<Integer>(list));
-			dfs(nums, i + 1, list, result);
+			subsets_dfs(nums, i + 1, list, result);
 			list.remove(list.size() - 1);
 		}
 
@@ -48,17 +48,17 @@ public class SubsetsAndSubsetsII {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		Arrays.sort(nums);
 		result.add(list);
-		dfs_dup(nums,0,result,list);
+		subsetsWithDup_dfs(nums,0,result,list);
 		return result;
 	}
 
-	public static void dfs_dup(int[] nums, int begin,
+	public static void subsetsWithDup_dfs(int[] nums, int begin,
 			ArrayList<ArrayList<Integer>> result, ArrayList<Integer> list) {
 		
 		for (int i = begin; i <= nums.length - 1; i++) {
 			list.add(nums[i]);
 			result.add(new ArrayList<Integer>(list));
-			dfs_dup(nums, i + 1, result, list);
+			subsetsWithDup_dfs(nums, i + 1, result, list);
 			list.remove(list.size() - 1);
 			while (i < nums.length - 1 && nums[i] == nums[i + 1])
 				i++; // 唯一的区别就在这一行
