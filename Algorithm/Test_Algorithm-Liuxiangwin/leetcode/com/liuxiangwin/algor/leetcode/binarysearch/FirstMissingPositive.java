@@ -22,7 +22,8 @@ public class FirstMissingPositive {
 	    }
 	    for(int i=0;i<A.length;i++)
 	    {
-	        if(A[i]<=A.length && A[i]>0 && A[A[i]-1]!=A[i])
+	        if(A[i]<=A.length && A[i]>0 && A[A[i]-1]!=A[i]
+	        		&& A[i] - 1 != i)
 	        {
 	            int temp = A[A[i]-1];
 	            A[A[i]-1] = A[i];
