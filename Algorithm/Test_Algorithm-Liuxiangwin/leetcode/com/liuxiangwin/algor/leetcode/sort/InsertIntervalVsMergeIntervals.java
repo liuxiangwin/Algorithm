@@ -96,7 +96,7 @@ public class InsertIntervalVsMergeIntervals {
 		intervals.add(new Interval(2, 3));
 		intervals.add(new Interval(3, 4));
 		intervals.add(new Interval(6, 7));
-		intervals.add(new Interval(1, 10));
+		//intervals.add(new Interval(1, 10));
 
 		System.out
 				.println(new InsertIntervalVsMergeIntervals().new MergeIntervals()
@@ -106,11 +106,32 @@ public class InsertIntervalVsMergeIntervals {
 		intervals2.add(new Interval(1, 3));
 		intervals2.add(new Interval(6, 9));
 		// intervals.add(new Interval(1,10));
-
+		
+        //Example 1:
+		//Given intervals [1,3],[6,9], 
+		//insert and merge [2,5] 
+		//Expect as [1,5],[6,9].     
 		System.out
 				.println(new InsertIntervalVsMergeIntervals().new InsertInterval()
 						.insert(intervals2, new Interval(2, 5)));
+		
 
+		//Example 2:
+	    //Given [1,2],[3,5],[6,7],[8,10],[12,16], 
+		//insert and merge [4,9] 
+		//Expect as [1,2],[3,10],[12,16].
+		//---------------------------------------------------------//
+		ArrayList<Interval> intervals3 = new ArrayList<Interval>();
+		intervals3.add(new Interval(1, 2));
+		intervals3.add(new Interval(3, 5));
+		intervals3.add(new Interval(6, 7));
+		intervals3.add(new Interval(8, 10));
+		intervals3.add(new Interval(12,16));
+		
+		System.out
+		.println(new InsertIntervalVsMergeIntervals().new InsertInterval()
+				.insert(intervals3, new Interval(4, 9)));
+        
 	}
 
 }
