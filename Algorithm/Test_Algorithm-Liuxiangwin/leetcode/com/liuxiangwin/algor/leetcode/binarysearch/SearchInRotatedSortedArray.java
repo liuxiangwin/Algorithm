@@ -69,7 +69,7 @@ public class SearchInRotatedSortedArray {
 						high = mid - 1;
 					}
 				}
-			} else {
+			} else {//The only difference is here search whole 
 				for (int k = low; k < high; k++) {
 					if (A[k] == target)
 						return true;
