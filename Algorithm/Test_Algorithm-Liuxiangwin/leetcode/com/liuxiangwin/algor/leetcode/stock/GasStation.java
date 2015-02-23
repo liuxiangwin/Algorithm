@@ -34,8 +34,8 @@ package com.liuxiangwin.algor.leetcode.stock;
  */
 public class GasStation {
 	public int canCompleteCircuit(int[] gas, int[] cost) {
-		int sum = 0, total = 0, len = gas.length, index = -1;
-		for (int i = 0; i < len; i++) {
+		int sum = 0, total = 0, gas_size = gas.length, index = -1;
+		for (int i = 0; i < gas_size; i++) {
 			sum += gas[i] - cost[i];
 			total += gas[i] - cost[i];
 			if (sum < 0) {
