@@ -29,17 +29,17 @@ public class SortColors {
 	public static void countSort(int[] arr, int k)
     {
 
-        int[] C = new int[k + 1];
+        int[] Dic = new int[k + 1];
 
         for (int j = 0; j < arr.length; j++)
         {
-            C[arr[j]]++;//出现次数 key为元素本身
+            Dic[arr[j]]++;//出现次数 key为元素本身
         }
 
         int z = 0;
         for (int i = 0; i <= k; i++)//遍历辅助数组 
         {
-            while (C[i]-- > 0)
+            while (Dic[i]-- > 0)
             {
                 arr[z++] = i;//辅助数组的下标就是元素
             }
