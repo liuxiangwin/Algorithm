@@ -27,16 +27,16 @@ public class LetterCombinationsofaPhoneNumber {
 		return ret;
 	}
 
-	private void letterCombinations(String string, int i, StringBuilder sb,
-			ArrayList<String> result) {
-		if (i >= string.length()) {
+	private void letterCombinations(String string, int begin, 
+			StringBuilder sb, ArrayList<String> result) {
+		if (begin >= string.length()) {
 			result.add(sb.toString());
 		} else {
-			int index = string.charAt(i) - '1' - 1;
-			int size = map[index].length;
-			for (int j = 0; j < size; j++) {
+			int index = string.charAt(begin) - '1' - 1;
+			int mapElementSize = map[index].length;
+			for (int j = 0; j < mapElementSize; j++) {
 				sb.append(map[index][j]);
-				letterCombinations(string, i + 1, sb, result);
+				letterCombinations(string, begin + 1, sb, result);
 				sb.deleteCharAt(sb.length() - 1);
 			}
 		}
