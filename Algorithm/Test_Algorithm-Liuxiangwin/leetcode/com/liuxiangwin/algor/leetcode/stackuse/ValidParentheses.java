@@ -28,7 +28,7 @@ public class ValidParentheses {
 			if (!stack.empty() && 
 				isMatch(stack.peek(), string.charAt(i))) {
 				stack.pop();
-			}
+			}			
 			else {
 				stack.push(string.charAt(i));
 			}
@@ -39,15 +39,14 @@ public class ValidParentheses {
 		return false;
 	}
 
-	public boolean isMatch(char cur, char pre) {
-		if ((cur == '(' && pre == ')') || (cur == '{' && pre == '}')
-				|| (cur == '[' && pre == ']')) {
+	public boolean isMatch(char prev, char cur) {
+		if ((prev == '(' && cur == ')') || (prev == '{' && cur == '}')
+				|| (prev == '[' && cur == ']')) {
 			return true;
 		}
-
 		return false;
-	}
-
+	}	
+	
 	public static void main(String[] args) {
 		ValidParentheses slt = new ValidParentheses();
 		//String s = "(]";
