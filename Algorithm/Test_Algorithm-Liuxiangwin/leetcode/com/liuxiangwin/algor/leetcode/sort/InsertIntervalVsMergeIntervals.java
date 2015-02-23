@@ -77,7 +77,8 @@ public class InsertIntervalVsMergeIntervals {
 			for (Interval current : interList) {
 				if (current.end < ref.start) {
 					result.add(current);
-				} else if (current.start > ref.end) {
+				} else if (ref.end < current.start)
+				{
 					result.add(ref);// ref是小的元素 然后直接把ref加进去 然后ref变为current
 					ref = current;
 				} else {
