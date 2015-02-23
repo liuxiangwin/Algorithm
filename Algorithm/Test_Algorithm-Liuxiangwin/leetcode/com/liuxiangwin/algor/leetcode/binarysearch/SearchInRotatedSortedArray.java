@@ -165,7 +165,7 @@ public class SearchInRotatedSortedArray {
 		}
 		return -1;
 	}
-
+    //Search Min in the unsorted array with duplicate and no duplicate
 	public static int searchMinUnSorted(int[] array) {
 		int ans = array[0];
 		int low = 0;
