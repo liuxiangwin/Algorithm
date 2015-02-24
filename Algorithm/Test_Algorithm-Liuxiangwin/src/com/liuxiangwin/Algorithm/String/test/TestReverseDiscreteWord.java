@@ -8,31 +8,37 @@ public class TestReverseDiscreteWord {
 	 * Attention this case the String array is a char array
 	 */
 	public static void main(String[] args) {
-		char[] sentense = {'i',' ','l','o','v','e',' ','y','o','u'};
+		char[] sentense = { 'i', ' ', 'l', 'o', 'v', 'e', ' ', 'y', 'o', 'u' };
+
+		System.out.println("Before reverse" + Arrays.toString(sentense));
+
+		reverse(sentense, 0, sentense.length - 1);
+
+		System.out.println("After reverse" + Arrays.toString(sentense));
+
+		char[] testSentense2 = { 'i', ' ', 'l', 'o', 'v', 'e', ' ', 'y', 'o',
+				'u' };
+
+		reverseWordByBlank(testSentense2);
+
+		System.out.print("After reverse Word by blank "
+				+ Arrays.toString(testSentense2));
+
+		char[] newTest = "the sky is blue".toCharArray();
+
+		reverseWordByBlank(newTest);
+		System.out.println(Arrays.toString(newTest));
+
+		lengthOfLongestSubstring();
+
+		// return "blue is sky the".
+		String reveseEachWord =  new TestReverseDiscreteWord.ReverseWordI().reveseEachWord("the sky is blue");
+		System.out.println("reveseEachWord -- " + reveseEachWord);
 		
-		System.out.println("Before reverse"+Arrays.toString(sentense));
-        
-		reverse(sentense,0,sentense.length-1);
-        
-        System.out.println("After reverse"+Arrays.toString(sentense));
-        
-        
-        char[] testSentense2 = {'i',' ','l','o','v','e',' ','y','o','u'};
-
-        reverseWordByBlank(testSentense2);        
-
-        System.out.print("After reverse Word by blank "+Arrays.toString(testSentense2));
-        
-        char [] newTest = "the sky is blue".toCharArray();
-        		
-        reverseWordByBlank(newTest);
-        System.out.println(Arrays.toString(newTest));
-        
-        lengthOfLongestSubstring();
-        
-        //return "blue is sky the".
-        String reveseEachWord = reveseEachWord("the sky is blue");
-        System.out.println("reveseEachWord "+ reveseEachWord);
+		// return "Immutable is String".
+		reveseEachWord = new TestReverseDiscreteWord.ReverseWordII().reverseWords("String is Immutable");
+		System.out.println("reveseEachWord -- " + reveseEachWord);
+		
 	}
 
 	private static void reverse(char[] src, int start, int end) {
@@ -40,13 +46,14 @@ public class TestReverseDiscreteWord {
 		while (start < end) {
 			char temp = src[start];
 			src[start] = src[end];
-			src[end] = temp;			
+			src[end] = temp;
 			start++;
 			end--;
 		}
 
 	}
-    //reverse the each word before the blank
+
+	// reverse the each word before the blank
 	private static void reverseWordByBlank(char[] string) {
 		int i = 0;
 		int start = 0;
@@ -61,10 +68,82 @@ public class TestReverseDiscreteWord {
 		}
 
 	}
-	
+    /**
+     * Given an input string, reverse the string word by word.
+		For example,
+		Given s = "the sky is blue",return "blue is sky the".
+		è¿™é‡Œé‡‡ç”¨å°†æ¯ä¸ªé‡åˆ°å•è¯ç¿»è½¬è¿‡æ¥
+		 ç„¶åŽå°†æ•´ä¸ªå­—ç¬¦ä¸²ç¿»è½¬ã€‚æ³¨æ„ç¿»è½¬æ—¶å€™ä½¿ç”¨æ–¹æ³•çš„åæ ‡ä¸è¦è¶Šç•Œ
+     * @author liuxiangwin     *
+     */
+	public static class ReverseWordI {
+		public static String reveseEachWord(String string) {
+			int star = 0;		
+			char[] cArray = string.toCharArray();
+			/*int j = 0;
+			 * while (j < string.length()) {
+				if (cArray[j] == ' ') {
+					reverse(cArray, star, j - 1);
+					star = j + 1;
+				}
+				if (j == string.length() - 1) {
+					reverse(cArray, star, j);
+				}
+				j++;
+			}*/
+			
+			for (int i = 0, j = 0; j <= cArray.length; j++) {
+				if (j == cArray.length || cArray[j] == ' ') {
+					reverse(cArray, i, j-1);
+					i = j + 1;
+				}
+			}
+			
+			int start = 0;
+			int end = cArray.length-1;
+			while (start < end) {
+				char temp = cArray[start];
+				cArray[start] = cArray[end];
+				cArray[end] = temp;
+				start++;
+				end--;
+			}
+			return String.valueOf(cArray);
+		}
+	}
+
+	/**
+	 * Reverse Words in a Stringå¾ˆç±»ä¼¼ï¼Œä½†æ˜¯è¿™é‡Œè¦æ±‚in-placeï¼Œ 
+	 * ä¹Ÿå°±æ˜¯è¯´ä¸éœ€è¦å¼€è¾Ÿé¢å¤–ç©ºé—´ã€‚
+	 * ç¬¬ä¸€æ­¥å°±æ˜¯å°†æ•´ä¸ªå­—ç¬¦ä¸²ç¿»è½¬ã€‚ç„¶åŽä»Žå¤´é€æ­¥æ‰«æï¼Œå°†æ¯ä¸ªé‡åˆ°å•è¯å†ç¿»è½¬è¿‡æ¥ã€‚
+	 * 
+	 * @author liuxiangwin *
+	 */
+	public static class ReverseWordII {
+		public String reverseWords(String string) {
+			char[] s = string.toCharArray();
+			reverse(s, 0, s.length);
+			for (int i = 0, j = 0; j <= s.length; j++) {
+				if (j == s.length || s[j] == ' ') {
+					reverse(s, i, j);
+					i = j + 1;
+				}
+			}
+			return String.valueOf(s);
+		}
+
+		private void reverse(char[] s, int begin, int end) {
+			for (int i = 0; i < (end - begin) / 2; i++) {
+				char temp = s[begin + i];
+				s[begin + i] = s[end - i - 1];
+				s[end - i - 1] = temp;
+			}
+		}
+	}
+
 	public static void lengthOfLongestSubstring() {
-		  String str = "abcbcbd";
-		  String sb = "";
+		String str = "abcbcbd";
+		String sb = "";
 
 		for (int i = 0; i < str.length(); i++) {
 
@@ -73,39 +152,7 @@ public class TestReverseDiscreteWord {
 			} else
 				break;
 		}
-		System.out.println("Substring: "+sb+" Length: " + sb.length());
-		}
- 
-	
-	//1.ÏÈ¶ÔÃ¿¸öµ¥´Ê½øÐÐÄæ×ª£¬×îºóÔÙ¶ÔÕû¸ö×Ö·û´®Äæ×ª
-   public static String reveseEachWord(String string)
-   {   int star = 0; int j = 0;
-       char[] cArray =string.toCharArray();
-       while(j<string.length())
-       {
-    	   if(cArray[j]==' '){
-    		   reverse(cArray,star,j-1);
-    		   star=j+1;
-    	   }
-    	   if(j==string.length()-1)
-    	   {
-    		   reverse(cArray,star,j);
-    	   }
-    	   j++;
-       }
-      int start=0;int end= string.length()-1;
-       while (start < end) {
-			char temp = cArray[start];
-			cArray[start] = cArray[end];
-			cArray[end] = temp;			
-			start++;
-			end--;
-		}   
-       
-       return String.valueOf(cArray);	   
-   }
-   //2.¸ù¾Ý¿Õ¸ñÇÐ·Ö×Ö·û´®£¬½«ÇÐ·ÖµÃµ½µÄµ¥´Ê´æµ½vectorÖÐ£¬
-    //È»ºó½«vectorÖÐµÄµ¥´Ê´ÓÄ©Î²¿ªÊ¼Êä³ö¼´¿É¡£
-   //ÓÉÓÚÕ»¾ßÓÐ¡°ÏÈ½øºó³ö¡±µÄÐÔÖÊ
-   
+		System.out.println("Substring: " + sb + " Length: " + sb.length());
+	}
+
 }
