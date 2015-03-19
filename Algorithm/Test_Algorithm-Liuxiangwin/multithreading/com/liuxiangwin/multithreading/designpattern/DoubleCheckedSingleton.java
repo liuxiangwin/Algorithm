@@ -19,7 +19,7 @@ public class DoubleCheckedSingleton {
      */
 	private static DoubleCheckedSingleton instance = null;
 
-	public DoubleCheckedSingleton getInstance() {
+	public static DoubleCheckedSingleton getInstance() {
 		if (instance == null) {
 			synchronized (DoubleCheckedSingleton.class) {
 				if (instance == null) {
@@ -38,14 +38,6 @@ public class DoubleCheckedSingleton {
     private static ThreadSafeSingleton instance;
      
     private ThreadSafeSingleton(){}
-     
-    public static synchronized ThreadSafeSingleton getInstance(){
-        if(instance == null){
-            instance = new ThreadSafeSingleton();
-        }
-        return instance;
-    }
-     
     
     public static ThreadSafeSingleton getInstanceUsingDoubleLocking(){
         if(instance == null){
