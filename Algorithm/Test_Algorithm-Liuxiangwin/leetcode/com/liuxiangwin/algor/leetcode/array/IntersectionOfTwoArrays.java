@@ -7,9 +7,11 @@ import java.util.Set;
 
 public class IntersectionOfTwoArrays {
    
+	//For a HashSet, complexity is O(1) for all three.
+	
 	/**
     * Example:
-	Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
+	  Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
     * @param nums1
     * @param nums2
     * @return
