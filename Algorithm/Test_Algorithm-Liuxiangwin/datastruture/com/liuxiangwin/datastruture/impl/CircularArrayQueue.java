@@ -35,13 +35,14 @@ public class CircularArrayQueue<T>  {
 	// the capacity of the queue array if necessary.
 	// -----------------------------------------------------------------
 	public void enqueue(T element) {
-		if (size() == queue.length)
+		if (this.count == queue.length)
 		{
 			expandCapacity();
 		}		
 
 		queue[rear] = element;
-
+		
+		//Only when the rear is length return 0
 		rear = (rear + 1) % queue.length;
 
 		count++;
@@ -53,7 +54,7 @@ public class CircularArrayQueue<T>  {
 	// queue is empty.
 	// -----------------------------------------------------------------
 	public T dequeue() throws Exception {
-		if (isEmpty())
+		if (count == 0)
 			throw new Exception("queue");
 
 		T result = queue[front];
@@ -72,7 +73,7 @@ public class CircularArrayQueue<T>  {
 	// EmptyCollectionException if the queue is empty.
 	// -----------------------------------------------------------------
 	public T first() throws Exception {
-		if (isEmpty())
+		if (count == 0)
 			throw new Exception("queue");
 
 		return queue[front];
