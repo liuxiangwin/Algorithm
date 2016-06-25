@@ -96,5 +96,6 @@ public class TMHashMap {
 
 		Entry e = tmhm.get("Niranjan");
 		System.out.println("" + e.getValue());
+		
 	}
 }
