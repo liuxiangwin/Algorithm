@@ -37,7 +37,7 @@ public class CircularArrayStack<T>  {
 	// the capacity of the queue array if necessary.
 	// -----------------------------------------------------------------
 	public void pushstack(T element) {
-		if (size() == stack.length)
+		if (count == stack.length)
 		{
 			expandCapacity();
 		}		
@@ -55,7 +55,7 @@ public class CircularArrayStack<T>  {
 	// queue is empty.
 	// -----------------------------------------------------------------
 	public T popstack() throws Exception {
-		if (isEmpty())
+		if (count == 0)
 			throw new Exception("queue");
 		
 		rear=  rear == 0?stack.length-1:rear - 1;
@@ -74,7 +74,7 @@ public class CircularArrayStack<T>  {
 	// EmptyCollectionException if the queue is empty.
 	// -----------------------------------------------------------------
 	public T first() throws Exception {
-		if (isEmpty())
+		if (count == 0)
 			throw new Exception("queue");
 
 		return stack[front];
