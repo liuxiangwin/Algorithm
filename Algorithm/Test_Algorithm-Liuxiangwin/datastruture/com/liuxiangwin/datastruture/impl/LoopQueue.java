@@ -59,11 +59,10 @@ public class LoopQueue<T>
 		return index > front ? index - front 
 			: capacity - (front - index);
 	}
-	//插入队列
+	//插入队列,add element only addto the last tail of array
 	public void add(T element)
 	{
-		if (index == front 
-			&& elementData[front] != null)
+		if (index == front && elementData[front] != null)
 		{
 			throw new IndexOutOfBoundsException("队列已满的异常");
 		}
@@ -75,7 +74,7 @@ public class LoopQueue<T>
 		//elementData[index] = element;
 		//index  = (index + 1) % capacity;
 	}
-	//移除队列
+	//Remove the element from queue,the to Remove elemnt is frist elemt
 	public T remove()
 	{
 		if (empty())
