@@ -10,6 +10,8 @@ import java.util.concurrent.ArrayBlockingQueue;
  * implementation
  * <br/>Date:
  */
+//Take refer the CircularArrayQueue implementation
+@Deprecated
 public class LoopQueue<T>
 {
 	//private int DEFAULT_SIZE = 10;
