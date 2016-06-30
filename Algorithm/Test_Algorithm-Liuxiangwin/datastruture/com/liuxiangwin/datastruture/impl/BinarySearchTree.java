@@ -148,6 +148,7 @@ import com.liuxiangwin.Algorithm.Uitl.test.BTreePrinter;
 			node.element = findMin(node.right).element;
 			node.right = remove(node.element, node.right);
 		} else
+			//Break condition remove the find node
 			node = (node.left != null) ? node.left : node.right;
 		return node;
 	}
