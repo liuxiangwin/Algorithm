@@ -8,7 +8,7 @@ public class TestQucikSort {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void maliin(String[] args) {
 		// TODO Auto-generated method stub
 		int[] array = { 99, 88, 77, 66, 33, 45, 12, 100, 67 };
 		System.out.println("Before Quick Sort" + Arrays.toString(array));
