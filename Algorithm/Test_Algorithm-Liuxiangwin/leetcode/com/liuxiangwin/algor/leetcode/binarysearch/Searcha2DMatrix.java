@@ -19,22 +19,22 @@ public class Searcha2DMatrix {
 	//----
 	//6  8      11      15
 	private int[] index= new int[2];
-	private boolean YoungMatrix(int [][] array, int searchKey){	   
+	private boolean YoungMatrix(int [][] array, int searchValue){	   
 	   int ROW = array.length;
 	   int COL = array[0].length;
 	   
 	   int i = 0, j = COL -1;
 	    int var = array[i][j];
 	    while (true){
-	        if (var == searchKey)
+	        if (var == searchValue)
 	        {
 	            index[0]=i; 
 	            index[1]=j;
 	        	return true;
 	        }            
-	        else if (searchKey > var && i < ROW - 1)
+	        else if (searchValue > var && i < ROW - 1)
 	            var = array[++i][j];
-	        else if (searchKey < var && j > 0)
+	        else if (searchValue < var && j > 0)
 	            var = array[i][--j];
 	        else
 	            return false;
