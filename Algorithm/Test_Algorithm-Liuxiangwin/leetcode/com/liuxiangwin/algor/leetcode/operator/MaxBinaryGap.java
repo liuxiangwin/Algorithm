@@ -57,7 +57,7 @@ public class MaxBinaryGap {
     // & 110101 0111  [base2]      ^(001010 1000) [base2]    & 001010 1000  [base2]
     //-----------------------------------------------------------------------------
     //   110101 0000                                           000000 1000(取的最低位的1)
-    
+    //  所以    n & (n-1)=0 一定是类似 n=00001000 所以是2的pow
     private static int countBinaryOne2(int number) {
     	int count;
 		for (count = 0; number > 0; count++) {
