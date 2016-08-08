@@ -34,6 +34,7 @@ public class BitMap {
 	public void set1(int pos) {
 		array[pos >> 5] = array[pos >> 5] | (1 << (pos % 32)); // 给相应位置1
 		//等同于 array[pos/32]= array[pos/32] | (1 << (31 - pos % 32));
+		//                     槽位号                         |  当前数字按32分，看在那个位置有
 	}
 
 	public boolean get(int pos) {
@@ -51,9 +52,9 @@ public class BitMap {
 
 	// Index 4
 	// B[0] |0|1|1|1|0|1|0|0|
-	// & |1|1|1|0|1|1|1|1| 这个是1左移4位取反
+	// &    |1|1|1|0|1|1|1|1| 这个是1左移4位取反
 	// ——————————————————————————————————————————
-	// |0|1|1|0|0|1|0|0| //4需要的这个bit位上置为0了
+	//      |0|1|1|0|0|1|0|0| //4需要的这个bit位上置为0了
 
 	public static Byte Clear(int idex) {
 		// 相当于 i%8 的功能
@@ -72,6 +73,7 @@ public class BitMap {
 	}
 	
 	public static void main(String[] args) {
+		System.out.println(1/32);
 		System.out.println(1%32);
 		// 也可以使用bitset
 		BitMap bitMap = new BitMap(1024);
